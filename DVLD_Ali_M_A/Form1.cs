@@ -9,7 +9,7 @@ namespace DVLD_Ali_M_A
 
         private void kryptonPanel2_Paint(object sender, PaintEventArgs e)
         {
-
+            //
         }
 
         private void kryptonTextBox2_TextChanged(object sender, EventArgs e)
