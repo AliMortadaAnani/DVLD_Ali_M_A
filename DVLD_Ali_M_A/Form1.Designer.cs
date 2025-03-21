@@ -32,6 +32,7 @@
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
+            kryptonTextBox2 = new Krypton.Toolkit.KryptonTextBox();
             kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
             kryptonButton2 = new Krypton.Toolkit.KryptonButton();
             kryptonButton1 = new Krypton.Toolkit.KryptonButton();
@@ -61,7 +62,6 @@
             // 
             // kryptonPanel1
             // 
-            kryptonPanel1.Controls.Add(kryptonTextBox1);
             kryptonPanel1.Controls.Add(kryptonPanel2);
             kryptonPanel1.Controls.Add(kryptonLabel1);
             kryptonPanel1.Dock = DockStyle.Fill;
@@ -75,6 +75,8 @@
             // 
             // kryptonPanel2
             // 
+            kryptonPanel2.Controls.Add(kryptonTextBox2);
+            kryptonPanel2.Controls.Add(kryptonTextBox1);
             kryptonPanel2.Controls.Add(kryptonButton2);
             kryptonPanel2.Controls.Add(kryptonButton1);
             kryptonPanel2.Controls.Add(kryptonPictureBox2);
@@ -89,15 +91,49 @@
             kryptonPanel2.TabIndex = 3;
             kryptonPanel2.Paint += kryptonPanel2_Paint;
             // 
+            // kryptonTextBox2
+            // 
+            kryptonTextBox2.AlwaysActive = false;
+            kryptonTextBox2.CueHint.Color1 = Color.LightGray;
+            kryptonTextBox2.CueHint.CueHintText = "Password";
+            kryptonTextBox2.CueHint.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonTextBox2.Location = new Point(145, 330);
+            kryptonTextBox2.Name = "kryptonTextBox2";
+            kryptonTextBox2.Size = new Size(380, 66);
+            kryptonTextBox2.StateActive.Back.Color1 = Color.FromArgb(64, 0, 0);
+            kryptonTextBox2.StateActive.Border.Rounding = 50F;
+            kryptonTextBox2.StateActive.Content.Color1 = Color.LightGray;
+            kryptonTextBox2.StateActive.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonTextBox2.StateDisabled.Back.Color1 = Color.FromArgb(64, 0, 0);
+            kryptonTextBox2.StateDisabled.Border.Rounding = 50F;
+            kryptonTextBox2.StateDisabled.Content.Color1 = Color.LightGray;
+            kryptonTextBox2.StateDisabled.Content.Font = new Font("Tahoma", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonTextBox2.StateNormal.Back.Color1 = Color.FromArgb(64, 0, 0);
+            kryptonTextBox2.StateNormal.Border.Rounding = 50F;
+            kryptonTextBox2.StateNormal.Content.Color1 = Color.LightGray;
+            kryptonTextBox2.StateNormal.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonTextBox2.TabIndex = 5;
+            kryptonTextBox2.Text = "Password";
+            kryptonTextBox2.TextChanged += kryptonTextBox2_TextChanged;
+            // 
             // kryptonTextBox1
             // 
             kryptonTextBox1.AlwaysActive = false;
-            kryptonTextBox1.Location = new Point(196, 450);
+            kryptonTextBox1.Location = new Point(145, 181);
             kryptonTextBox1.Name = "kryptonTextBox1";
-            kryptonTextBox1.Size = new Size(242, 32);
-            kryptonTextBox1.StateActive.Border.Color1 = Color.Transparent;
-            kryptonTextBox1.StateDisabled.Content.Color1 = Color.Transparent;
-            kryptonTextBox1.StateNormal.Back.Color1 = Color.Transparent;
+            kryptonTextBox1.Size = new Size(380, 66);
+            kryptonTextBox1.StateActive.Back.Color1 = Color.FromArgb(64, 0, 0);
+            kryptonTextBox1.StateActive.Border.Rounding = 50F;
+            kryptonTextBox1.StateActive.Content.Color1 = Color.LightGray;
+            kryptonTextBox1.StateActive.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonTextBox1.StateDisabled.Back.Color1 = Color.FromArgb(64, 0, 0);
+            kryptonTextBox1.StateDisabled.Border.Rounding = 50F;
+            kryptonTextBox1.StateDisabled.Content.Color1 = Color.LightGray;
+            kryptonTextBox1.StateDisabled.Content.Font = new Font("Tahoma", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonTextBox1.StateNormal.Back.Color1 = Color.FromArgb(64, 0, 0);
+            kryptonTextBox1.StateNormal.Border.Rounding = 50F;
+            kryptonTextBox1.StateNormal.Content.Color1 = Color.LightGray;
+            kryptonTextBox1.StateNormal.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             kryptonTextBox1.TabIndex = 4;
             kryptonTextBox1.Text = "Username";
             // 
@@ -168,7 +204,6 @@
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
             kryptonPanel1.ResumeLayout(false);
-            kryptonPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             kryptonPanel2.ResumeLayout(false);
             kryptonPanel2.PerformLayout();
@@ -188,5 +223,6 @@
         private Krypton.Toolkit.KryptonButton kryptonButton1;
         private Krypton.Toolkit.KryptonButton kryptonButton2;
         private Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+        private Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
     }
 }

@@ -11,5 +11,10 @@ namespace DVLD_Ali_M_A
         {
 
         }
+
+        private void kryptonTextBox2_TextChanged(object sender, EventArgs e)
+        {
+            kryptonTextBox2.UseSystemPasswordChar = true;   
+        }
     }
 }
