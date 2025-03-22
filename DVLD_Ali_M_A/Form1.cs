@@ -14,7 +14,28 @@ namespace DVLD_Ali_M_A
 
         private void kryptonTextBox2_TextChanged(object sender, EventArgs e)
         {
-            kryptonTextBox2.UseSystemPasswordChar = true;   
+            kryptonTextBox2.UseSystemPasswordChar = true;
+        }
+
+        private void kryptonPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.ActiveControl = kryptonPanel2;
+        }
+
+        private void kryptonButton3_Click(object sender, EventArgs e)
+        {
+            frmPeople frm = new frmPeople();
+            frm.ShowDialog();
+        }
+       
+        private void kryptonButton4_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

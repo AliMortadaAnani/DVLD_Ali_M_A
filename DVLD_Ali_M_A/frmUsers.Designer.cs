@@ -1,14 +1,14 @@
 ﻿namespace DVLD_Ali_M_A
 {
-    partial class Form1
+    partial class frmUsers
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,15 +23,12 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
-            kryptonPanel1 = new Krypton.Toolkit.KryptonPanel();
-            kryptonButton4 = new Krypton.Toolkit.KryptonButton();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsers));
             kryptonPanel2 = new Krypton.Toolkit.KryptonPanel();
             kryptonButton3 = new Krypton.Toolkit.KryptonButton();
             kryptonCheckBox1 = new Krypton.Toolkit.KryptonCheckBox();
@@ -42,75 +39,12 @@
             kryptonPictureBox2 = new Krypton.Toolkit.KryptonPictureBox();
             kryptonPictureBox1 = new Krypton.Toolkit.KryptonPictureBox();
             kryptonLabel2 = new Krypton.Toolkit.KryptonLabel();
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).BeginInit();
-            kryptonPanel1.SuspendLayout();
+            kryptonButton4 = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).BeginInit();
             kryptonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)kryptonPictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // kryptonLabel1
-            // 
-            kryptonLabel1.AutoSize = false;
-            kryptonLabel1.LabelStyle = Krypton.Toolkit.LabelStyle.TitlePanel;
-            kryptonLabel1.Location = new Point(67, 55);
-            kryptonLabel1.Name = "kryptonLabel1";
-            kryptonLabel1.PaletteMode = Krypton.Toolkit.PaletteMode.VisualStudio2010Render365;
-            kryptonLabel1.Size = new Size(550, 205);
-            kryptonLabel1.StateNormal.ShortText.Color1 = Color.LightGray;
-            kryptonLabel1.StateNormal.ShortText.Font = new Font("Segoe UI Black", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            kryptonLabel1.TabIndex = 0;
-            kryptonLabel1.Values.Text = "Drivers && Vehicules\r\nLicenses Department\r\nSystem\r\n";
-            // 
-            // kryptonPanel1
-            // 
-            kryptonPanel1.Controls.Add(kryptonButton4);
-            kryptonPanel1.Controls.Add(kryptonPanel2);
-            kryptonPanel1.Controls.Add(kryptonLabel1);
-            kryptonPanel1.Dock = DockStyle.Fill;
-            kryptonPanel1.Location = new Point(0, 0);
-            kryptonPanel1.Name = "kryptonPanel1";
-            kryptonPanel1.Size = new Size(1924, 1084);
-            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(64, 0, 0);
-            kryptonPanel1.StateNormal.Color2 = Color.Black;
-            kryptonPanel1.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Rounded;
-            kryptonPanel1.TabIndex = 1;
-            kryptonPanel1.Paint += kryptonPanel1_Paint;
-            // 
-            // kryptonButton4
-            // 
-            kryptonButton4.Location = new Point(1570, 32);
-            kryptonButton4.Name = "kryptonButton4";
-            kryptonButton4.OverrideDefault.Back.Color1 = Color.LightGray;
-            kryptonButton4.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            kryptonButton4.OverrideFocus.Back.Color1 = Color.LightGray;
-            kryptonButton4.OverrideFocus.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            kryptonButton4.Size = new Size(191, 55);
-            kryptonButton4.StateCommon.Back.Color1 = Color.LightGray;
-            kryptonButton4.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            kryptonButton4.StateNormal.Back.Color1 = Color.LightGray;
-            kryptonButton4.StateNormal.Back.Color2 = Color.Black;
-            kryptonButton4.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            kryptonButton4.StateNormal.Border.Rounding = 50F;
-            kryptonButton4.StateNormal.Content.ShortText.Color1 = Color.Black;
-            kryptonButton4.StateNormal.Content.ShortText.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton4.StatePressed.Back.Color1 = Color.DarkGray;
-            kryptonButton4.StatePressed.Back.Color2 = Color.LightGray;
-            kryptonButton4.StatePressed.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
-            kryptonButton4.StatePressed.Border.Rounding = 50F;
-            kryptonButton4.StatePressed.Content.ShortText.Color1 = Color.Black;
-            kryptonButton4.StatePressed.Content.ShortText.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton4.StateTracking.Back.Color1 = Color.DimGray;
-            kryptonButton4.StateTracking.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
-            kryptonButton4.StateTracking.Border.Rounding = 50F;
-            kryptonButton4.StateTracking.Content.ShortText.Color1 = Color.Black;
-            kryptonButton4.StateTracking.Content.ShortText.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonButton4.TabIndex = 5;
-            kryptonButton4.TabStop = false;
-            kryptonButton4.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton4.Values.Text = "exit";
-            kryptonButton4.Click += kryptonButton4_Click;
             // 
             // kryptonPanel2
             // 
@@ -123,14 +57,13 @@
             kryptonPanel2.Controls.Add(kryptonPictureBox2);
             kryptonPanel2.Controls.Add(kryptonPictureBox1);
             kryptonPanel2.Controls.Add(kryptonLabel2);
-            kryptonPanel2.Location = new Point(703, 239);
+            kryptonPanel2.Location = new Point(488, 83);
             kryptonPanel2.Name = "kryptonPanel2";
             kryptonPanel2.Size = new Size(564, 678);
             kryptonPanel2.StateNormal.Color1 = Color.FromArgb(64, 0, 0);
             kryptonPanel2.StateNormal.Color2 = Color.Black;
             kryptonPanel2.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.GlassCheckedTrackingStump;
-            kryptonPanel2.TabIndex = 3;
-            kryptonPanel2.Paint += kryptonPanel2_Paint;
+            kryptonPanel2.TabIndex = 4;
             // 
             // kryptonButton3
             // 
@@ -204,7 +137,6 @@
             kryptonTextBox2.StateNormal.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             kryptonTextBox2.TabIndex = 5;
             kryptonTextBox2.Text = "Password";
-            kryptonTextBox2.TextChanged += kryptonTextBox2_TextChanged;
             // 
             // kryptonTextBox1
             // 
@@ -277,24 +209,52 @@
             kryptonLabel2.TabIndex = 0;
             kryptonLabel2.Values.Text = "Log In";
             // 
-            // Form1
+            // kryptonButton4
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1924, 1084);
-            Controls.Add(kryptonPanel1);
-            ForeColor = SystemColors.ControlText;
+            kryptonButton4.Location = new Point(1372, 27);
+            kryptonButton4.Name = "kryptonButton4";
+            kryptonButton4.OverrideDefault.Back.Color1 = Color.LightGray;
+            kryptonButton4.OverrideDefault.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            kryptonButton4.OverrideFocus.Back.Color1 = Color.LightGray;
+            kryptonButton4.OverrideFocus.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            kryptonButton4.Size = new Size(191, 55);
+            kryptonButton4.StateCommon.Back.Color1 = Color.LightGray;
+            kryptonButton4.StateCommon.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            kryptonButton4.StateNormal.Back.Color1 = Color.LightGray;
+            kryptonButton4.StateNormal.Back.Color2 = Color.Black;
+            kryptonButton4.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            kryptonButton4.StateNormal.Border.Rounding = 50F;
+            kryptonButton4.StateNormal.Content.ShortText.Color1 = Color.Black;
+            kryptonButton4.StateNormal.Content.ShortText.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonButton4.StatePressed.Back.Color1 = Color.DarkGray;
+            kryptonButton4.StatePressed.Back.Color2 = Color.LightGray;
+            kryptonButton4.StatePressed.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
+            kryptonButton4.StatePressed.Border.Rounding = 50F;
+            kryptonButton4.StatePressed.Content.ShortText.Color1 = Color.Black;
+            kryptonButton4.StatePressed.Content.ShortText.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonButton4.StateTracking.Back.Color1 = Color.DimGray;
+            kryptonButton4.StateTracking.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
+            kryptonButton4.StateTracking.Border.Rounding = 50F;
+            kryptonButton4.StateTracking.Content.ShortText.Color1 = Color.Black;
+            kryptonButton4.StateTracking.Content.ShortText.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            kryptonButton4.TabIndex = 5;
+            kryptonButton4.TabStop = false;
+            kryptonButton4.Values.DropDownArrowColor = Color.Empty;
+            kryptonButton4.Values.Text = "exit";
+            kryptonButton4.Click += kryptonButton4_Click;
+            // 
+            // frmUsers
+            // 
+            AutoScaleMode = AutoScaleMode.None;
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(1575, 1084);
+            Controls.Add(kryptonButton4);
+            Controls.Add(kryptonPanel2);
             FormBorderStyle = FormBorderStyle.None;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "Form1";
-            ShowIcon = false;
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)kryptonPanel1).EndInit();
-            kryptonPanel1.ResumeLayout(false);
+            Name = "frmUsers";
+            StartPosition = FormStartPosition.WindowsDefaultBounds;
+            Text = "frmUsers";
+            Load += frmUsers_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonPanel2).EndInit();
             kryptonPanel2.ResumeLayout(false);
             kryptonPanel2.PerformLayout();
@@ -305,18 +265,16 @@
 
         #endregion
 
-        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private Krypton.Toolkit.KryptonPanel kryptonPanel2;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox1;
-        private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox2;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
-        private Krypton.Toolkit.KryptonButton kryptonButton2;
-        private Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
-        private Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
-        private Krypton.Toolkit.KryptonCheckBox kryptonCheckBox1;
         private Krypton.Toolkit.KryptonButton kryptonButton3;
+        private Krypton.Toolkit.KryptonCheckBox kryptonCheckBox1;
+        private Krypton.Toolkit.KryptonTextBox kryptonTextBox2;
+        private Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+        private Krypton.Toolkit.KryptonButton kryptonButton2;
+        private Krypton.Toolkit.KryptonButton kryptonButton1;
+        private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox2;
+        private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox1;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
         private Krypton.Toolkit.KryptonButton kryptonButton4;
     }
 }
