@@ -72,7 +72,7 @@
             kryptonPanel1.Location = new Point(0, 0);
             kryptonPanel1.Name = "kryptonPanel1";
             kryptonPanel1.Size = new Size(1924, 1084);
-            kryptonPanel1.StateNormal.Color1 = Color.FromArgb(64, 0, 0);
+            kryptonPanel1.StateNormal.Color1 = Color.Salmon;
             kryptonPanel1.StateNormal.Color2 = Color.Black;
             kryptonPanel1.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Rounded;
             kryptonPanel1.TabIndex = 1;

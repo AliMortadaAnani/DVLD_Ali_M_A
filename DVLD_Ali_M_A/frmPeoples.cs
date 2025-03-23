@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DVLD_Ali_M_A
 {
-    public partial class frmPeople : Form
+    public partial class frmPeoples : Form
     {
-        public frmPeople()
+        public frmPeoples()
         {
             InitializeComponent();
         }
