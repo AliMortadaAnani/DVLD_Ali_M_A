@@ -69,7 +69,10 @@ namespace DVLD_Ali_M_A
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Login Successful");
+            frmMenue frm = new frmMenue();
+            frm.ShowDialog();
         }
+
+       
     }
 }

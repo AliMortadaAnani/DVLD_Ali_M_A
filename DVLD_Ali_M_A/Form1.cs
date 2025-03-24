@@ -29,7 +29,7 @@ namespace DVLD_Ali_M_A
 
         private void kryptonButton3_Click(object sender, EventArgs e)
         {
-            frmPeoples frm = new frmPeoples();
+            frmPeoples1 frm = new frmPeoples1();
             frm.ShowDialog();
         }
        

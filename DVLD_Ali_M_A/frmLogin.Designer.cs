@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             LoginTitle = new Krypton.Toolkit.KryptonLabel();
             LoginCancel = new Krypton.Toolkit.KryptonPictureBox();
             toolTip1 = new ToolTip(components);
@@ -67,10 +68,10 @@
             // LoginCancel
             // 
             LoginCancel.Cursor = Cursors.Hand;
-            LoginCancel.Image = Properties.Resources.Close;
-            LoginCancel.Location = new Point(1575, 27);
+            LoginCancel.Image = (Image)resources.GetObject("LoginCancel.Image");
+            LoginCancel.Location = new Point(1750, 30);
             LoginCancel.Name = "LoginCancel";
-            LoginCancel.Size = new Size(205, 165);
+            LoginCancel.Size = new Size(150, 100);
             LoginCancel.SizeMode = PictureBoxSizeMode.Zoom;
             LoginCancel.TabIndex = 100;
             LoginCancel.TabStop = false;
@@ -271,7 +272,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.RosyBrown;
+            BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(1902, 1028);
             ControlBox = false;
             Controls.Add(LoginPanel);

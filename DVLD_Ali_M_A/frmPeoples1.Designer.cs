@@ -1,6 +1,6 @@
 ﻿namespace DVLD_Ali_M_A
 {
-    partial class frmPeoples
+    partial class frmPeoples1
     {
         /// <summary>
         /// Required designer variable.
