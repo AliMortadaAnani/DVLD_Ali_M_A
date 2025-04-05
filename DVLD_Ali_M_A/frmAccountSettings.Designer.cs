@@ -191,7 +191,6 @@
             // SettingsTitle
             // 
             SettingsTitle.AutoSize = false;
-            SettingsTitle.Cursor = Cursors.Hand;
             SettingsTitle.Location = new Point(556, -6);
             SettingsTitle.Name = "SettingsTitle";
             SettingsTitle.Size = new Size(347, 107);

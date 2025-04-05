@@ -69,7 +69,7 @@ namespace DVLD_Ali_M_A
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            frmMenue frm = new frmMenue();
+            frmMenu frm = new frmMenu();
             frm.ShowDialog();
         }
 
