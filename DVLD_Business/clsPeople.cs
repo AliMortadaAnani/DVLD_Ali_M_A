@@ -15,7 +15,7 @@ namespace DVLD_Business
     {
         public static DataTable GetAllPeople()
         {
-            DataTable dt = new DataTable();
+            /*DataTable dt = new DataTable();
             dt = clsPeopleData.GetAllPeople();
             dt.Columns.Remove("ThirdName");
             dt.Columns.Remove("NationalityCountryId");
@@ -32,7 +32,18 @@ namespace DVLD_Business
                     dr["Gender"] = "Female";
                 }
             }
-            return dt;
+            return dt;*/
+            return clsPeopleData.GetAllPeople();
+        }
+
+        public static int GetPeopleTotalRecords()
+        {
+            return clsPeopleData.GetPeopleTotalRecords();
+        }
+
+        public static DataTable GetPeopleByFirstName(string FirstName)
+        {
+            return clsPeopleData.GetAllPeopleByFirstName(FirstName);
         }
     }
 }

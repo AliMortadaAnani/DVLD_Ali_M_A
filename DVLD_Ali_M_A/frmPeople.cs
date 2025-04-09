@@ -30,7 +30,7 @@ namespace DVLD_Ali_M_A
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width, 0);
             dgvPeople.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-           
+
             _RefreshPeopleList();
 
         }
@@ -43,10 +43,21 @@ namespace DVLD_Ali_M_A
         private void _RefreshPeopleList()
         {
             dgvPeople.DataSource = clsPeople.GetAllPeople();
-
-
+            PeopleTotalRecordsNb.Text = clsPeople.GetPeopleTotalRecords().ToString();
         }
 
-       
+        private void kryptonComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void kryptonTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (kryptonComboBox1.SelectedIndex == kryptonComboBox1.FindString("name"))
+            {
+                dgvPeople.DataSource = clsPeople.GetPeopleByFirstName(kryptonTextBox1.Text);
+                PeopleTotalRecordsNb.Text = dgvPeople.RowCount.ToString();
+            }
+        }
     }
 }
