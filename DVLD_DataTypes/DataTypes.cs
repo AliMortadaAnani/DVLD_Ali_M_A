@@ -10,7 +10,7 @@ namespace DVLD_DataTypes
     };
 
 
-    public static class DataTableExt
+    public static class DataTableExt // from StackOverflow
     {
         public static void ConvertColumnType(this DataTable dt, string columnName, Type newType)
         {

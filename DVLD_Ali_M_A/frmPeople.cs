@@ -1,5 +1,4 @@
 ﻿using DVLD_Business;
-using DVLD_Data;
 using DVLD_DataTypes;
 using System;
 using System.Collections.Generic;
@@ -43,7 +42,7 @@ namespace DVLD_Ali_M_A
         private void _RefreshPeopleList()
         {
             dgvPeople.DataSource = clsPeople.GetAllPeople();
-            PeopleTotalRecordsNb.Text = clsPeople.GetPeopleTotalRecords().ToString();
+            PeopleTotalRecordsNb.Text = clsPeople.GetPeopleCount().ToString();
         }
 
         private void kryptonComboBox1_SelectedIndexChanged(object sender, EventArgs e)

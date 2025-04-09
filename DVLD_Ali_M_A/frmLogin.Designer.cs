@@ -124,7 +124,7 @@
             // 
             // LoginPasswordImg
             // 
-            LoginPasswordImg.Image = Properties.Resources.password;
+            LoginPasswordImg.Image = DVLD_Presentation.Properties.Resources.password;
             LoginPasswordImg.Location = new Point(708, 614);
             LoginPasswordImg.Name = "LoginPasswordImg";
             LoginPasswordImg.Size = new Size(150, 75);
@@ -204,7 +204,7 @@
             // 
             // LoginEmailImg
             // 
-            LoginEmailImg.Image = Properties.Resources.email1;
+            LoginEmailImg.Image = DVLD_Presentation.Properties.Resources.email1;
             LoginEmailImg.Location = new Point(708, 466);
             LoginEmailImg.Name = "LoginEmailImg";
             LoginEmailImg.Size = new Size(150, 75);
@@ -259,8 +259,8 @@
             // 
             // LoginGroup
             // 
-            LoginGroup.Location = new Point(653, 296);
-            LoginGroup.Size = new Size(677, 656);
+            LoginGroup.Location = new Point(647, 317);
+            LoginGroup.Size = new Size(685, 641);
             LoginGroup.StateNormal.Back.Color1 = Color.Transparent;
             LoginGroup.StateNormal.Back.Color2 = Color.Transparent;
             LoginGroup.StateNormal.Border.Color1 = Color.Gainsboro;
