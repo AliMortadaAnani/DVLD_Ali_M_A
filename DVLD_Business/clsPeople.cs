@@ -168,7 +168,7 @@ namespace DVLD_Business
             return clsPeopleData.GetAllPeople();
         }
 
-        public static DataTable GetPeopleByNationalNo(string NationalNb)
+        public static DataTable GetPeopleByNationalNb(string NationalNb)
         {
             return clsPeopleData.GetAllPeopleByNationalNb(NationalNb);
         }
@@ -196,12 +196,12 @@ namespace DVLD_Business
             return clsPeopleData.GetAllPeopleByLastName(LastName);
         }
 
-        public static DataTable GetPeopleByDateOfBirth(DateTime DateOfBirth)
+        public static DataTable GetPeopleByDateOfBirth(string DateOfBirth)
         {
             return clsPeopleData.GetAllPeopleByDateOfBirth(DateOfBirth);
         }
 
-        public static DataTable GetPeopleByGendor(enGender Gender)
+        public static DataTable GetPeopleByGender(string Gender)
         {
             return clsPeopleData.GetAllPeopleByGender(Gender);
         }
@@ -221,9 +221,9 @@ namespace DVLD_Business
             return clsPeopleData.GetAllPeopleByEmail(Email);
         }
 
-        public static DataTable GetPeopleByNationalCountryID(int NationalCountryID)
+        public static DataTable GetPeopleByNationality(string Nationality)
         {
-            return clsPeopleData.GetAllPeopleByNationalityCountryID(NationalCountryID);
+            return clsPeopleData.GetAllPeopleByNationality(Nationality);
         }
 
 

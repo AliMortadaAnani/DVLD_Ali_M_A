@@ -406,7 +406,7 @@ namespace DVLD_Data
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE NationalNb Like LIKE '%' + @Contains + '%'";
+            string query = "SELECT * FROM PeopleView WHERE NationalNumber  LIKE '%' + @Contains + '%'";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Contains", NationalNb);
             try
@@ -434,9 +434,9 @@ namespace DVLD_Data
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE PersonID Like LIKE '%' + @Contains + '%'";
+            string query = "SELECT * FROM PeopleView WHERE ID Like '%' + @Contains + '%' ";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Contains", ID);
+            command.Parameters.AddWithValue("@Contains", ID.ToString());
             try
             {
                 connection.Open();
@@ -462,7 +462,7 @@ namespace DVLD_Data
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE FirstName  LIKE '%' + @Contains + '%'";
+            string query = "SELECT * FROM PeopleView WHERE FirstName  LIKE '%' + @Contains + '%'";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Contains", FirstName);
             try
@@ -492,7 +492,7 @@ namespace DVLD_Data
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE LastName  LIKE '%' + @Contains + '%'";
+            string query = "SELECT * FROM PeopleView WHERE LastName  LIKE '%' + @Contains + '%'";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Contains", LastName);
             try
@@ -520,7 +520,7 @@ namespace DVLD_Data
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE SecondName Like LIKE '%' + @Contains + '%'";
+            string query = "SELECT * FROM PeopleView WHERE SecondName  LIKE '%' + @Contains + '%'";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Contains", SecondName);
             try
@@ -548,7 +548,7 @@ namespace DVLD_Data
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE ThirdName Like LIKE '%' + @Contains + '%'";
+            string query = "SELECT * FROM People WHERE ThirdName  LIKE '%' + @Contains + '%'";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Contains", ThirdName);
             try
@@ -576,7 +576,7 @@ namespace DVLD_Data
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE Address Like LIKE '%' + @Contains + '%'";
+            string query = "SELECT * FROM PeopleView WHERE Address  LIKE '%' + @Contains + '%'";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Contains", Address);
             try
@@ -604,7 +604,7 @@ namespace DVLD_Data
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE Phone Like LIKE '%' + @Contains + '%'";
+            string query = "SELECT * FROM PeopleView WHERE PhoneNumber  LIKE '%' + @Contains + '%'";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Contains", Phone);
             try
@@ -632,7 +632,7 @@ namespace DVLD_Data
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE Email Like LIKE '%' + @Contains + '%'";
+            string query = "SELECT * FROM PeopleView WHERE Email  LIKE '%' + @Contains + '%'";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@Contains", Email);
             try
@@ -656,13 +656,13 @@ namespace DVLD_Data
             return dt;
         }
 
-        public static DataTable GetAllPeopleByNationalityCountryID(int NationalityCountryID)
+        public static DataTable GetAllPeopleByNationality(string Nationality)
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE NationalityCountryID = @NationalityCountryID";
+            string query = "SELECT * FROM PeopleView WHERE Nationality like '%'+ @Nationality +'%'";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
+            command.Parameters.AddWithValue("@Nationality", Nationality);
             try
             {
                 connection.Open();
@@ -685,13 +685,13 @@ namespace DVLD_Data
         }
 
        
-        public static DataTable GetAllPeopleByDateOfBirth(DateTime DateOfBirth)
+        public static DataTable GetAllPeopleByDateOfBirth(string DateOfBirth)
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE CONVERT(VARCHAR(25), DateOfBirth, 126) LIKE '%' + @Contains + '%'"; // StackOverFlow
+            string query = "SELECT * FROM PeopleView WHERE CONVERT(VARCHAR(25), DateOfBirth, 126) LIKE '' + @Contains + '%'"; // StackOverFlow
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue(" @Contains", DateOfBirth);
+            command.Parameters.AddWithValue("@Contains", DateOfBirth);
             try
             {
                 connection.Open();
@@ -713,13 +713,13 @@ namespace DVLD_Data
             return dt;
         }
 
-        public static DataTable GetAllPeopleByGender(enGender Gender)
+        public static DataTable GetAllPeopleByGender(string Gender)
         {
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT * FROM People WHERE Gender = @Gender";
+            string query = "SELECT * FROM PeopleView WHERE Gender like '' +  @Gender + '%' ";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Gender", (byte)Gender);
+            command.Parameters.AddWithValue("@Gender", Gender);
             try
             {
                 connection.Open();

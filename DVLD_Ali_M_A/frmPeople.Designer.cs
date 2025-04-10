@@ -31,44 +31,44 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeople));
             toolTip1 = new ToolTip(components);
-            PeopleCancel = new Krypton.Toolkit.KryptonPictureBox();
-            PeopleTitle = new Krypton.Toolkit.KryptonLabel();
+            btnPeopleCancel = new Krypton.Toolkit.KryptonPictureBox();
+            lblPeopleTitle = new Krypton.Toolkit.KryptonLabel();
             dgvPeople = new Krypton.Toolkit.KryptonDataGridView();
-            PeopleTotalRecords = new Krypton.Toolkit.KryptonLabel();
-            PeopleTotalRecordsNb = new Krypton.Toolkit.KryptonLabel();
-            AddNewPerson = new Krypton.Toolkit.KryptonButton();
-            kryptonComboBox1 = new Krypton.Toolkit.KryptonComboBox();
-            kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
-            kryptonMaskedTextBox1 = new Krypton.Toolkit.KryptonMaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)PeopleCancel).BeginInit();
+            lblPeopleTotalRecords = new Krypton.Toolkit.KryptonLabel();
+            lblPeopleTotalRecordsNb = new Krypton.Toolkit.KryptonLabel();
+            btnAddNewPerson = new Krypton.Toolkit.KryptonButton();
+            lblPeopleFilter = new Krypton.Toolkit.KryptonLabel();
+            cbPeopleFilterBox = new Krypton.Toolkit.KryptonComboBox();
+            mtbPeopleFilterInput = new MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)kryptonComboBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)cbPeopleFilterBox).BeginInit();
             SuspendLayout();
             // 
-            // PeopleCancel
+            // btnPeopleCancel
             // 
-            PeopleCancel.Cursor = Cursors.Hand;
-            PeopleCancel.Image = (Image)resources.GetObject("PeopleCancel.Image");
-            PeopleCancel.Location = new Point(1400, 30);
-            PeopleCancel.Name = "PeopleCancel";
-            PeopleCancel.Size = new Size(150, 100);
-            PeopleCancel.SizeMode = PictureBoxSizeMode.Zoom;
-            PeopleCancel.TabIndex = 203;
-            PeopleCancel.TabStop = false;
-            toolTip1.SetToolTip(PeopleCancel, "Close");
-            PeopleCancel.Click += PeopleCancel_Click;
+            btnPeopleCancel.Cursor = Cursors.Hand;
+            btnPeopleCancel.Image = (Image)resources.GetObject("btnPeopleCancel.Image");
+            btnPeopleCancel.Location = new Point(1400, 30);
+            btnPeopleCancel.Name = "btnPeopleCancel";
+            btnPeopleCancel.Size = new Size(150, 100);
+            btnPeopleCancel.SizeMode = PictureBoxSizeMode.Zoom;
+            btnPeopleCancel.TabIndex = 203;
+            btnPeopleCancel.TabStop = false;
+            toolTip1.SetToolTip(btnPeopleCancel, "Close");
+            btnPeopleCancel.Click += btnPeopleCancel_Click;
             // 
-            // PeopleTitle
+            // lblPeopleTitle
             // 
-            PeopleTitle.AutoSize = false;
-            PeopleTitle.Location = new Point(575, 2);
-            PeopleTitle.Name = "PeopleTitle";
-            PeopleTitle.Size = new Size(347, 107);
-            PeopleTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
-            PeopleTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            PeopleTitle.TabIndex = 209;
-            PeopleTitle.TabStop = false;
-            PeopleTitle.Values.Text = "Manage People";
+            lblPeopleTitle.AutoSize = false;
+            lblPeopleTitle.Location = new Point(575, 2);
+            lblPeopleTitle.Name = "lblPeopleTitle";
+            lblPeopleTitle.Size = new Size(347, 107);
+            lblPeopleTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            lblPeopleTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPeopleTitle.TabIndex = 209;
+            lblPeopleTitle.TabStop = false;
+            lblPeopleTitle.Values.Text = "Manage People";
             // 
             // dgvPeople
             // 
@@ -99,103 +99,116 @@
             dgvPeople.StateNormal.Background.Color1 = Color.Gainsboro;
             dgvPeople.TabIndex = 210;
             // 
-            // PeopleTotalRecords
+            // lblPeopleTotalRecords
             // 
-            PeopleTotalRecords.AutoSize = false;
-            PeopleTotalRecords.Location = new Point(0, 421);
-            PeopleTotalRecords.Name = "PeopleTotalRecords";
-            PeopleTotalRecords.Size = new Size(191, 47);
-            PeopleTotalRecords.StateNormal.ShortText.Color1 = SystemColors.InfoText;
-            PeopleTotalRecords.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            PeopleTotalRecords.TabIndex = 211;
-            PeopleTotalRecords.TabStop = false;
-            PeopleTotalRecords.Values.Text = "Total Records : ";
+            lblPeopleTotalRecords.AutoSize = false;
+            lblPeopleTotalRecords.Location = new Point(585, 431);
+            lblPeopleTotalRecords.Name = "lblPeopleTotalRecords";
+            lblPeopleTotalRecords.Size = new Size(191, 47);
+            lblPeopleTotalRecords.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            lblPeopleTotalRecords.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPeopleTotalRecords.TabIndex = 211;
+            lblPeopleTotalRecords.TabStop = false;
+            lblPeopleTotalRecords.Values.Text = "Total Records : ";
             // 
-            // PeopleTotalRecordsNb
+            // lblPeopleTotalRecordsNb
             // 
-            PeopleTotalRecordsNb.AutoSize = false;
-            PeopleTotalRecordsNb.Location = new Point(175, 421);
-            PeopleTotalRecordsNb.Name = "PeopleTotalRecordsNb";
-            PeopleTotalRecordsNb.Size = new Size(40, 47);
-            PeopleTotalRecordsNb.StateNormal.ShortText.Color1 = SystemColors.InfoText;
-            PeopleTotalRecordsNb.StateNormal.ShortText.Font = new Font("Trebuchet MS", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            PeopleTotalRecordsNb.TabIndex = 212;
-            PeopleTotalRecordsNb.TabStop = false;
-            PeopleTotalRecordsNb.Values.Text = "0";
+            lblPeopleTotalRecordsNb.AutoSize = false;
+            lblPeopleTotalRecordsNb.Location = new Point(760, 431);
+            lblPeopleTotalRecordsNb.Name = "lblPeopleTotalRecordsNb";
+            lblPeopleTotalRecordsNb.Size = new Size(40, 47);
+            lblPeopleTotalRecordsNb.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            lblPeopleTotalRecordsNb.StateNormal.ShortText.Font = new Font("Trebuchet MS", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPeopleTotalRecordsNb.TabIndex = 212;
+            lblPeopleTotalRecordsNb.TabStop = false;
+            lblPeopleTotalRecordsNb.Values.Text = "0";
             // 
-            // AddNewPerson
+            // btnAddNewPerson
             // 
-            AddNewPerson.Location = new Point(1337, 405);
-            AddNewPerson.Name = "AddNewPerson";
-            AddNewPerson.OverrideDefault.Back.Color1 = Color.Silver;
-            AddNewPerson.OverrideDefault.Border.Rounding = 50F;
-            AddNewPerson.OverrideFocus.Back.Color1 = Color.Silver;
-            AddNewPerson.OverrideFocus.Border.Rounding = 50F;
-            AddNewPerson.Size = new Size(221, 63);
-            AddNewPerson.StateDisabled.Back.Color1 = Color.Silver;
-            AddNewPerson.StateDisabled.Border.Rounding = 50F;
-            AddNewPerson.StateNormal.Back.Color1 = Color.Silver;
-            AddNewPerson.StateNormal.Back.Color2 = Color.Silver;
-            AddNewPerson.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            AddNewPerson.StateNormal.Border.Rounding = 50F;
-            AddNewPerson.StateNormal.Content.ShortText.Color1 = Color.DimGray;
-            AddNewPerson.StateNormal.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AddNewPerson.StatePressed.Back.Color1 = Color.Silver;
-            AddNewPerson.StatePressed.Back.Color2 = Color.Silver;
-            AddNewPerson.StatePressed.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
-            AddNewPerson.StatePressed.Border.Color1 = Color.Gainsboro;
-            AddNewPerson.StatePressed.Border.Color2 = Color.Gainsboro;
-            AddNewPerson.StatePressed.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            AddNewPerson.StatePressed.Border.Draw = Krypton.Toolkit.InheritBool.True;
-            AddNewPerson.StatePressed.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
-            AddNewPerson.StatePressed.Border.Rounding = 50F;
-            AddNewPerson.StatePressed.Content.ShortText.Color1 = Color.DimGray;
-            AddNewPerson.StatePressed.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AddNewPerson.StateTracking.Back.Color1 = Color.Silver;
-            AddNewPerson.StateTracking.Back.Color2 = Color.Silver;
-            AddNewPerson.StateTracking.Back.Draw = Krypton.Toolkit.InheritBool.True;
-            AddNewPerson.StateTracking.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
-            AddNewPerson.StateTracking.Border.Color1 = Color.Gainsboro;
-            AddNewPerson.StateTracking.Border.Color2 = Color.Gainsboro;
-            AddNewPerson.StateTracking.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            AddNewPerson.StateTracking.Border.Rounding = 50F;
-            AddNewPerson.StateTracking.Content.Draw = Krypton.Toolkit.InheritBool.True;
-            AddNewPerson.StateTracking.Content.DrawFocus = Krypton.Toolkit.InheritBool.False;
-            AddNewPerson.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
-            AddNewPerson.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
-            AddNewPerson.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            AddNewPerson.TabIndex = 213;
-            AddNewPerson.Values.DropDownArrowColor = Color.Empty;
-            AddNewPerson.Values.Text = "Add New Person";
+            btnAddNewPerson.Location = new Point(1337, 405);
+            btnAddNewPerson.Name = "btnAddNewPerson";
+            btnAddNewPerson.OverrideDefault.Back.Color1 = Color.Silver;
+            btnAddNewPerson.OverrideDefault.Border.Rounding = 50F;
+            btnAddNewPerson.OverrideFocus.Back.Color1 = Color.Silver;
+            btnAddNewPerson.OverrideFocus.Border.Rounding = 50F;
+            btnAddNewPerson.Size = new Size(221, 63);
+            btnAddNewPerson.StateDisabled.Back.Color1 = Color.Silver;
+            btnAddNewPerson.StateDisabled.Border.Rounding = 50F;
+            btnAddNewPerson.StateNormal.Back.Color1 = Color.Silver;
+            btnAddNewPerson.StateNormal.Back.Color2 = Color.Silver;
+            btnAddNewPerson.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            btnAddNewPerson.StateNormal.Border.Rounding = 50F;
+            btnAddNewPerson.StateNormal.Content.ShortText.Color1 = Color.DimGray;
+            btnAddNewPerson.StateNormal.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddNewPerson.StatePressed.Back.Color1 = Color.Silver;
+            btnAddNewPerson.StatePressed.Back.Color2 = Color.Silver;
+            btnAddNewPerson.StatePressed.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            btnAddNewPerson.StatePressed.Border.Color1 = Color.Gainsboro;
+            btnAddNewPerson.StatePressed.Border.Color2 = Color.Gainsboro;
+            btnAddNewPerson.StatePressed.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            btnAddNewPerson.StatePressed.Border.Draw = Krypton.Toolkit.InheritBool.True;
+            btnAddNewPerson.StatePressed.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            btnAddNewPerson.StatePressed.Border.Rounding = 50F;
+            btnAddNewPerson.StatePressed.Content.ShortText.Color1 = Color.DimGray;
+            btnAddNewPerson.StatePressed.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddNewPerson.StateTracking.Back.Color1 = Color.Silver;
+            btnAddNewPerson.StateTracking.Back.Color2 = Color.Silver;
+            btnAddNewPerson.StateTracking.Back.Draw = Krypton.Toolkit.InheritBool.True;
+            btnAddNewPerson.StateTracking.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            btnAddNewPerson.StateTracking.Border.Color1 = Color.Gainsboro;
+            btnAddNewPerson.StateTracking.Border.Color2 = Color.Gainsboro;
+            btnAddNewPerson.StateTracking.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            btnAddNewPerson.StateTracking.Border.Rounding = 50F;
+            btnAddNewPerson.StateTracking.Content.Draw = Krypton.Toolkit.InheritBool.True;
+            btnAddNewPerson.StateTracking.Content.DrawFocus = Krypton.Toolkit.InheritBool.False;
+            btnAddNewPerson.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
+            btnAddNewPerson.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
+            btnAddNewPerson.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAddNewPerson.TabIndex = 213;
+            btnAddNewPerson.Values.DropDownArrowColor = Color.Empty;
+            btnAddNewPerson.Values.Text = "Add New Person";
             // 
-            // kryptonComboBox1
+            // lblPeopleFilter
             // 
-            kryptonComboBox1.DropDownWidth = 216;
-            kryptonComboBox1.Items.AddRange(new object[] { "name", "location" });
-            kryptonComboBox1.Location = new Point(404, 293);
-            kryptonComboBox1.Name = "kryptonComboBox1";
-            kryptonComboBox1.Size = new Size(216, 30);
-            kryptonComboBox1.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
-            kryptonComboBox1.TabIndex = 214;
-            kryptonComboBox1.Text = "None";
-            kryptonComboBox1.SelectedIndexChanged += kryptonComboBox1_SelectedIndexChanged;
+            lblPeopleFilter.AutoSize = false;
+            lblPeopleFilter.Location = new Point(0, 405);
+            lblPeopleFilter.Name = "lblPeopleFilter";
+            lblPeopleFilter.Size = new Size(123, 47);
+            lblPeopleFilter.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            lblPeopleFilter.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPeopleFilter.TabIndex = 217;
+            lblPeopleFilter.TabStop = false;
+            lblPeopleFilter.Values.Text = "Filter By:";
             // 
-            // kryptonTextBox1
+            // cbPeopleFilterBox
             // 
-            kryptonTextBox1.Location = new Point(657, 297);
-            kryptonTextBox1.Name = "kryptonTextBox1";
-            kryptonTextBox1.Size = new Size(150, 32);
-            kryptonTextBox1.TabIndex = 215;
-            kryptonTextBox1.Text = "kryptonTextBox1";
-            kryptonTextBox1.TextChanged += kryptonTextBox1_TextChanged;
+            cbPeopleFilterBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPeopleFilterBox.DropDownWidth = 175;
+            cbPeopleFilterBox.Items.AddRange(new object[] { "None", "ID", "NationalNumber", "FirstName", "SecondName", "LastName", "Nationality", "Gender", "DateOfBirth", "Address", "Phone", "Email" });
+            cbPeopleFilterBox.Location = new Point(0, 445);
+            cbPeopleFilterBox.MaxDropDownItems = 12;
+            cbPeopleFilterBox.Name = "cbPeopleFilterBox";
+            cbPeopleFilterBox.Size = new Size(216, 33);
+            cbPeopleFilterBox.StateCommon.ComboBox.Back.Color1 = Color.DarkSlateBlue;
+            cbPeopleFilterBox.StateCommon.ComboBox.Content.Color1 = Color.Gainsboro;
+            cbPeopleFilterBox.StateCommon.ComboBox.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbPeopleFilterBox.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
+            cbPeopleFilterBox.StateDisabled.ComboBox.Content.Color1 = Color.Gainsboro;
+            cbPeopleFilterBox.StateDisabled.ComboBox.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cbPeopleFilterBox.TabIndex = 220;
+            cbPeopleFilterBox.Text = "None";
+            cbPeopleFilterBox.SelectedIndexChanged += cbPeopleFilterBox_SelectedIndexChanged;
             // 
-            // kryptonMaskedTextBox1
+            // mtbPeopleFilterInput
             // 
-            kryptonMaskedTextBox1.Location = new Point(702, 183);
-            kryptonMaskedTextBox1.Name = "kryptonMaskedTextBox1";
-            kryptonMaskedTextBox1.Size = new Size(150, 32);
-            kryptonMaskedTextBox1.TabIndex = 216;
-            kryptonMaskedTextBox1.Text = "kryptonMaskedTextBox1";
+            mtbPeopleFilterInput.BackColor = Color.Gainsboro;
+            mtbPeopleFilterInput.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            mtbPeopleFilterInput.ForeColor = SystemColors.InfoText;
+            mtbPeopleFilterInput.Location = new Point(226, 445);
+            mtbPeopleFilterInput.Name = "mtbPeopleFilterInput";
+            mtbPeopleFilterInput.Size = new Size(203, 34);
+            mtbPeopleFilterInput.TabIndex = 222;
+            mtbPeopleFilterInput.TextChanged += mtbPeopleFilterInput_TextChanged;
             // 
             // frmPeople
             // 
@@ -203,37 +216,38 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1570, 1084);
-            Controls.Add(kryptonMaskedTextBox1);
-            Controls.Add(kryptonTextBox1);
-            Controls.Add(kryptonComboBox1);
-            Controls.Add(AddNewPerson);
-            Controls.Add(PeopleTotalRecordsNb);
-            Controls.Add(PeopleTotalRecords);
+            Controls.Add(mtbPeopleFilterInput);
+            Controls.Add(cbPeopleFilterBox);
+            Controls.Add(lblPeopleFilter);
+            Controls.Add(btnAddNewPerson);
+            Controls.Add(lblPeopleTotalRecordsNb);
+            Controls.Add(lblPeopleTotalRecords);
             Controls.Add(dgvPeople);
-            Controls.Add(PeopleTitle);
-            Controls.Add(PeopleCancel);
+            Controls.Add(lblPeopleTitle);
+            Controls.Add(btnPeopleCancel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmPeople";
             StartPosition = FormStartPosition.Manual;
             Text = "frmPeople";
             Load += frmPeople_Load;
-            ((System.ComponentModel.ISupportInitialize)PeopleCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
-            ((System.ComponentModel.ISupportInitialize)kryptonComboBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)cbPeopleFilterBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
         private ToolTip toolTip1;
-        private Krypton.Toolkit.KryptonPictureBox PeopleCancel;
-        private Krypton.Toolkit.KryptonLabel PeopleTitle;
+        private Krypton.Toolkit.KryptonPictureBox btnPeopleCancel;
+        private Krypton.Toolkit.KryptonLabel lblPeopleTitle;
         private Krypton.Toolkit.KryptonDataGridView dgvPeople;
-        private Krypton.Toolkit.KryptonLabel PeopleTotalRecords;
-        private Krypton.Toolkit.KryptonLabel PeopleTotalRecordsNb;
-        private Krypton.Toolkit.KryptonButton AddNewPerson;
-        private Krypton.Toolkit.KryptonComboBox kryptonComboBox1;
-        private Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
-        private Krypton.Toolkit.KryptonMaskedTextBox kryptonMaskedTextBox1;
+        private Krypton.Toolkit.KryptonLabel lblPeopleTotalRecords;
+        private Krypton.Toolkit.KryptonLabel lblPeopleTotalRecordsNb;
+        private Krypton.Toolkit.KryptonButton btnAddNewPerson;
+        private Krypton.Toolkit.KryptonLabel lblPeopleFilter;
+        private Krypton.Toolkit.KryptonComboBox cbPeopleFilterBox;
+       
+        private MaskedTextBox mtbPeopleFilterInput;
     }
 }

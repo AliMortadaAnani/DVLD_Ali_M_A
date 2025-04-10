@@ -1,5 +1,6 @@
 ﻿using DVLD_Business;
 using DVLD_DataTypes;
+using Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,10 +32,11 @@ namespace DVLD_Ali_M_A
             dgvPeople.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             _RefreshPeopleList();
+            _RefreshFilterInput();
 
         }
 
-        private void PeopleCancel_Click(object sender, EventArgs e)
+        private void btnPeopleCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -42,21 +44,133 @@ namespace DVLD_Ali_M_A
         private void _RefreshPeopleList()
         {
             dgvPeople.DataSource = clsPeople.GetAllPeople();
-            PeopleTotalRecordsNb.Text = clsPeople.GetPeopleCount().ToString();
+            lblPeopleTotalRecordsNb.Text = clsPeople.GetPeopleCount().ToString();
         }
-
-        private void kryptonComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void _RefreshFilterInput()
         {
-            
-        }
-
-        private void kryptonTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (kryptonComboBox1.SelectedIndex == kryptonComboBox1.FindString("name"))
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("None"))
             {
-                dgvPeople.DataSource = clsPeople.GetPeopleByFirstName(kryptonTextBox1.Text);
-                PeopleTotalRecordsNb.Text = dgvPeople.RowCount.ToString();
+                mtbPeopleFilterInput.Visible = false;
             }
+        }
+
+
+
+
+        private void cbPeopleFilterBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("None"))
+            {
+                mtbPeopleFilterInput.Visible = false;
+                _RefreshPeopleList();
+                _RefreshFilterInput();
+            }
+            else if
+             (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ID"))
+            {
+                
+                mtbPeopleFilterInput.Text = string.Empty; // Clear the input field
+                mtbPeopleFilterInput.Visible = true;
+                mtbPeopleFilterInput.Mask = "000000";
+                mtbPeopleFilterInput.Focus(); // Set focus to the input field
+            } 
+            else
+            {
+                mtbPeopleFilterInput.Text = string.Empty; // Clear the input field
+                mtbPeopleFilterInput.Visible = true;
+                mtbPeopleFilterInput.Mask = null;
+                mtbPeopleFilterInput.Focus(); // Set focus to the input field
+            }
+        }
+
+        private void mtbPeopleFilterInput_TextChanged(object sender, EventArgs e)
+        {
+            string input = mtbPeopleFilterInput.Text.Trim();
+
+
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ID"))
+            {
+               
+
+                if (int.TryParse(input, out int id))
+                {
+                    dgvPeople.DataSource = clsPeople.GetPeopleByID(id);
+                }
+                
+            }
+
+            if(cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("NationalNumber"))
+            {
+               
+                dgvPeople.DataSource = clsPeople.GetPeopleByNationalNb(input);
+            }
+
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("FirstName"))
+            {
+               
+                dgvPeople.DataSource = clsPeople.GetPeopleByFirstName(input);
+            }
+
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("SecondName"))
+            {
+                
+                dgvPeople.DataSource = clsPeople.GetPeopleBySecondName(input);
+            }
+
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("LastName"))
+            {
+                
+                dgvPeople.DataSource = clsPeople.GetPeopleByLastName(input);
+            }
+
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Nationality"))
+            {
+               
+
+                /*if(clsCountry.Find(input) == null)
+                {
+                    
+                    return;
+                }
+
+                int NationalityID = clsCountry.Find(input).ID;*/
+               
+                dgvPeople.DataSource = clsPeople.GetPeopleByNationality(input);
+            }
+
+
+
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Gender"))
+            {
+               dgvPeople.DataSource = clsPeople.GetPeopleByGender(input);
+
+            }
+
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("DateOfBirth"))
+            {
+
+                dgvPeople.DataSource = clsPeople.GetPeopleByDateOfBirth(input);
+            }
+
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Address"))
+            {
+                
+                dgvPeople.DataSource = clsPeople.GetPeopleByAddress(input);
+            }
+
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Phone"))
+            {
+
+                dgvPeople.DataSource = clsPeople.GetPeopleByPhone(input);
+            }
+
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Email"))
+            {
+
+                dgvPeople.DataSource = clsPeople.GetPeopleByEmail(input);
+            }
+
+            lblPeopleTotalRecordsNb.Text = dgvPeople.RowCount.ToString();
         }
     }
 }
