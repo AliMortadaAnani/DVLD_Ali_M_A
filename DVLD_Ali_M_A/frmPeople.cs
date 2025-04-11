@@ -1,10 +1,11 @@
 ﻿using DVLD_Business;
 using DVLD_DataTypes;
+using DVLD_Presentation;
 using Krypton.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -68,12 +69,12 @@ namespace DVLD_Ali_M_A
             else if
              (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ID"))
             {
-                
+
                 mtbPeopleFilterInput.Text = string.Empty; // Clear the input field
                 mtbPeopleFilterInput.Visible = true;
                 mtbPeopleFilterInput.Mask = "000000";
                 mtbPeopleFilterInput.Focus(); // Set focus to the input field
-            } 
+            }
             else
             {
                 mtbPeopleFilterInput.Text = string.Empty; // Clear the input field
@@ -90,42 +91,42 @@ namespace DVLD_Ali_M_A
 
             if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ID"))
             {
-               
+
 
                 if (int.TryParse(input, out int id))
                 {
                     dgvPeople.DataSource = clsPeople.GetPeopleByID(id);
                 }
-                
+
             }
 
-            if(cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("NationalNumber"))
+            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("NationalNumber"))
             {
-               
+
                 dgvPeople.DataSource = clsPeople.GetPeopleByNationalNb(input);
             }
 
             if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("FirstName"))
             {
-               
+
                 dgvPeople.DataSource = clsPeople.GetPeopleByFirstName(input);
             }
 
             if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("SecondName"))
             {
-                
+
                 dgvPeople.DataSource = clsPeople.GetPeopleBySecondName(input);
             }
 
             if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("LastName"))
             {
-                
+
                 dgvPeople.DataSource = clsPeople.GetPeopleByLastName(input);
             }
 
             if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Nationality"))
             {
-               
+
 
                 /*if(clsCountry.Find(input) == null)
                 {
@@ -134,7 +135,7 @@ namespace DVLD_Ali_M_A
                 }
 
                 int NationalityID = clsCountry.Find(input).ID;*/
-               
+
                 dgvPeople.DataSource = clsPeople.GetPeopleByNationality(input);
             }
 
@@ -142,7 +143,7 @@ namespace DVLD_Ali_M_A
 
             if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Gender"))
             {
-               dgvPeople.DataSource = clsPeople.GetPeopleByGender(input);
+                dgvPeople.DataSource = clsPeople.GetPeopleByGender(input);
 
             }
 
@@ -154,7 +155,7 @@ namespace DVLD_Ali_M_A
 
             if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Address"))
             {
-                
+
                 dgvPeople.DataSource = clsPeople.GetPeopleByAddress(input);
             }
 
@@ -171,6 +172,49 @@ namespace DVLD_Ali_M_A
             }
 
             lblPeopleTotalRecordsNb.Text = dgvPeople.RowCount.ToString();
+        }
+
+        private void deletePersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete person with id : " + dgvPeople.CurrentRow.Cells[0].Value + "", "Confirm Delete", MessageBoxButtons.OKCancel) == DialogResult.OK)
+
+            {
+
+                //Perform Delele and refresh
+                if (clsPeople.DeletePerson((int)dgvPeople.CurrentRow.Cells[0].Value))
+                {
+                    MessageBox.Show("Person Deleted Successfully.");
+                    _RefreshPeopleList();
+                }
+
+                else
+                    MessageBox.Show("Person is not deleted because it's linked to other data.");
+
+            }
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*frmPeopleShowDetails frmPeopleShowDetails = new frmPeopleShowDetails((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frmPeopleShowDetails.ShowDialog();*/
+            int a = (int)dgvPeople.CurrentRow.Cells[0].Value;
+            test1 frmPeopleShowDetails = new test1((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frmPeopleShowDetails.ShowDialog();
+        }
+
+        private void editPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPeopleAddNew_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

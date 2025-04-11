@@ -30,18 +30,24 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPeople));
-            toolTip1 = new ToolTip(components);
             btnPeopleCancel = new Krypton.Toolkit.KryptonPictureBox();
             lblPeopleTitle = new Krypton.Toolkit.KryptonLabel();
             dgvPeople = new Krypton.Toolkit.KryptonDataGridView();
+            contextMenuStripPeople = new ContextMenuStrip(components);
+            showDetailsToolStripMenuItem = new ToolStripMenuItem();
+            editPersonToolStripMenuItem = new ToolStripMenuItem();
+            deletePersonToolStripMenuItem = new ToolStripMenuItem();
+            addNewPersonToolStripMenuItem = new ToolStripMenuItem();
             lblPeopleTotalRecords = new Krypton.Toolkit.KryptonLabel();
             lblPeopleTotalRecordsNb = new Krypton.Toolkit.KryptonLabel();
-            btnAddNewPerson = new Krypton.Toolkit.KryptonButton();
+            btnPeopleAddNew = new Krypton.Toolkit.KryptonButton();
             lblPeopleFilter = new Krypton.Toolkit.KryptonLabel();
             cbPeopleFilterBox = new Krypton.Toolkit.KryptonComboBox();
             mtbPeopleFilterInput = new MaskedTextBox();
+            toolTipCancel = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
+            contextMenuStripPeople.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbPeopleFilterBox).BeginInit();
             SuspendLayout();
             // 
@@ -55,7 +61,7 @@
             btnPeopleCancel.SizeMode = PictureBoxSizeMode.Zoom;
             btnPeopleCancel.TabIndex = 203;
             btnPeopleCancel.TabStop = false;
-            toolTip1.SetToolTip(btnPeopleCancel, "Close");
+            toolTipCancel.SetToolTip(btnPeopleCancel, "Close");
             btnPeopleCancel.Click += btnPeopleCancel_Click;
             // 
             // lblPeopleTitle
@@ -80,6 +86,7 @@
             dgvPeople.BorderStyle = BorderStyle.Fixed3D;
             dgvPeople.ColumnHeadersHeight = 60;
             dgvPeople.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvPeople.ContextMenuStrip = contextMenuStripPeople;
             dgvPeople.Cursor = Cursors.Hand;
             dgvPeople.Location = new Point(0, 484);
             dgvPeople.Name = "dgvPeople";
@@ -98,6 +105,47 @@
             dgvPeople.StateCommon.HeaderColumn.Content.Font = new Font("Trebuchet MS", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             dgvPeople.StateNormal.Background.Color1 = Color.Gainsboro;
             dgvPeople.TabIndex = 210;
+            // 
+            // contextMenuStripPeople
+            // 
+            contextMenuStripPeople.BackColor = Color.Gainsboro;
+            contextMenuStripPeople.Font = new Font("Segoe UI", 9F);
+            contextMenuStripPeople.ImageScalingSize = new Size(36, 36);
+            contextMenuStripPeople.Items.AddRange(new ToolStripItem[] { showDetailsToolStripMenuItem, editPersonToolStripMenuItem, deletePersonToolStripMenuItem, addNewPersonToolStripMenuItem });
+            contextMenuStripPeople.Name = "contextMenuStripPeople";
+            contextMenuStripPeople.Size = new Size(265, 180);
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            showDetailsToolStripMenuItem.Image = DVLD_Presentation.Properties.Resources.infoPerson;
+            showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            showDetailsToolStripMenuItem.Size = new Size(264, 44);
+            showDetailsToolStripMenuItem.Text = "Show Person Details";
+            showDetailsToolStripMenuItem.Click += showDetailsToolStripMenuItem_Click;
+            // 
+            // editPersonToolStripMenuItem
+            // 
+            editPersonToolStripMenuItem.Image = DVLD_Presentation.Properties.Resources.editPerson;
+            editPersonToolStripMenuItem.Name = "editPersonToolStripMenuItem";
+            editPersonToolStripMenuItem.Size = new Size(264, 44);
+            editPersonToolStripMenuItem.Text = "Edit Person";
+            editPersonToolStripMenuItem.Click += editPersonToolStripMenuItem_Click;
+            // 
+            // deletePersonToolStripMenuItem
+            // 
+            deletePersonToolStripMenuItem.Image = DVLD_Presentation.Properties.Resources.deletePerson;
+            deletePersonToolStripMenuItem.Name = "deletePersonToolStripMenuItem";
+            deletePersonToolStripMenuItem.Size = new Size(264, 44);
+            deletePersonToolStripMenuItem.Text = "Delete Person";
+            deletePersonToolStripMenuItem.Click += deletePersonToolStripMenuItem_Click;
+            // 
+            // addNewPersonToolStripMenuItem
+            // 
+            addNewPersonToolStripMenuItem.Image = DVLD_Presentation.Properties.Resources.addPerson;
+            addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
+            addNewPersonToolStripMenuItem.Size = new Size(264, 44);
+            addNewPersonToolStripMenuItem.Text = "Add New Person";
+            addNewPersonToolStripMenuItem.Click += addNewPersonToolStripMenuItem_Click;
             // 
             // lblPeopleTotalRecords
             // 
@@ -123,50 +171,51 @@
             lblPeopleTotalRecordsNb.TabStop = false;
             lblPeopleTotalRecordsNb.Values.Text = "0";
             // 
-            // btnAddNewPerson
+            // btnPeopleAddNew
             // 
-            btnAddNewPerson.Location = new Point(1337, 405);
-            btnAddNewPerson.Name = "btnAddNewPerson";
-            btnAddNewPerson.OverrideDefault.Back.Color1 = Color.Silver;
-            btnAddNewPerson.OverrideDefault.Border.Rounding = 50F;
-            btnAddNewPerson.OverrideFocus.Back.Color1 = Color.Silver;
-            btnAddNewPerson.OverrideFocus.Border.Rounding = 50F;
-            btnAddNewPerson.Size = new Size(221, 63);
-            btnAddNewPerson.StateDisabled.Back.Color1 = Color.Silver;
-            btnAddNewPerson.StateDisabled.Border.Rounding = 50F;
-            btnAddNewPerson.StateNormal.Back.Color1 = Color.Silver;
-            btnAddNewPerson.StateNormal.Back.Color2 = Color.Silver;
-            btnAddNewPerson.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            btnAddNewPerson.StateNormal.Border.Rounding = 50F;
-            btnAddNewPerson.StateNormal.Content.ShortText.Color1 = Color.DimGray;
-            btnAddNewPerson.StateNormal.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddNewPerson.StatePressed.Back.Color1 = Color.Silver;
-            btnAddNewPerson.StatePressed.Back.Color2 = Color.Silver;
-            btnAddNewPerson.StatePressed.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
-            btnAddNewPerson.StatePressed.Border.Color1 = Color.Gainsboro;
-            btnAddNewPerson.StatePressed.Border.Color2 = Color.Gainsboro;
-            btnAddNewPerson.StatePressed.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            btnAddNewPerson.StatePressed.Border.Draw = Krypton.Toolkit.InheritBool.True;
-            btnAddNewPerson.StatePressed.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
-            btnAddNewPerson.StatePressed.Border.Rounding = 50F;
-            btnAddNewPerson.StatePressed.Content.ShortText.Color1 = Color.DimGray;
-            btnAddNewPerson.StatePressed.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddNewPerson.StateTracking.Back.Color1 = Color.Silver;
-            btnAddNewPerson.StateTracking.Back.Color2 = Color.Silver;
-            btnAddNewPerson.StateTracking.Back.Draw = Krypton.Toolkit.InheritBool.True;
-            btnAddNewPerson.StateTracking.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
-            btnAddNewPerson.StateTracking.Border.Color1 = Color.Gainsboro;
-            btnAddNewPerson.StateTracking.Border.Color2 = Color.Gainsboro;
-            btnAddNewPerson.StateTracking.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            btnAddNewPerson.StateTracking.Border.Rounding = 50F;
-            btnAddNewPerson.StateTracking.Content.Draw = Krypton.Toolkit.InheritBool.True;
-            btnAddNewPerson.StateTracking.Content.DrawFocus = Krypton.Toolkit.InheritBool.False;
-            btnAddNewPerson.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
-            btnAddNewPerson.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
-            btnAddNewPerson.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAddNewPerson.TabIndex = 213;
-            btnAddNewPerson.Values.DropDownArrowColor = Color.Empty;
-            btnAddNewPerson.Values.Text = "Add New Person";
+            btnPeopleAddNew.Location = new Point(1337, 405);
+            btnPeopleAddNew.Name = "btnPeopleAddNew";
+            btnPeopleAddNew.OverrideDefault.Back.Color1 = Color.Silver;
+            btnPeopleAddNew.OverrideDefault.Border.Rounding = 50F;
+            btnPeopleAddNew.OverrideFocus.Back.Color1 = Color.Silver;
+            btnPeopleAddNew.OverrideFocus.Border.Rounding = 50F;
+            btnPeopleAddNew.Size = new Size(221, 63);
+            btnPeopleAddNew.StateDisabled.Back.Color1 = Color.Silver;
+            btnPeopleAddNew.StateDisabled.Border.Rounding = 50F;
+            btnPeopleAddNew.StateNormal.Back.Color1 = Color.Silver;
+            btnPeopleAddNew.StateNormal.Back.Color2 = Color.Silver;
+            btnPeopleAddNew.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            btnPeopleAddNew.StateNormal.Border.Rounding = 50F;
+            btnPeopleAddNew.StateNormal.Content.ShortText.Color1 = Color.DimGray;
+            btnPeopleAddNew.StateNormal.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPeopleAddNew.StatePressed.Back.Color1 = Color.Silver;
+            btnPeopleAddNew.StatePressed.Back.Color2 = Color.Silver;
+            btnPeopleAddNew.StatePressed.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            btnPeopleAddNew.StatePressed.Border.Color1 = Color.Gainsboro;
+            btnPeopleAddNew.StatePressed.Border.Color2 = Color.Gainsboro;
+            btnPeopleAddNew.StatePressed.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            btnPeopleAddNew.StatePressed.Border.Draw = Krypton.Toolkit.InheritBool.True;
+            btnPeopleAddNew.StatePressed.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            btnPeopleAddNew.StatePressed.Border.Rounding = 50F;
+            btnPeopleAddNew.StatePressed.Content.ShortText.Color1 = Color.DimGray;
+            btnPeopleAddNew.StatePressed.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPeopleAddNew.StateTracking.Back.Color1 = Color.Silver;
+            btnPeopleAddNew.StateTracking.Back.Color2 = Color.Silver;
+            btnPeopleAddNew.StateTracking.Back.Draw = Krypton.Toolkit.InheritBool.True;
+            btnPeopleAddNew.StateTracking.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            btnPeopleAddNew.StateTracking.Border.Color1 = Color.Gainsboro;
+            btnPeopleAddNew.StateTracking.Border.Color2 = Color.Gainsboro;
+            btnPeopleAddNew.StateTracking.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            btnPeopleAddNew.StateTracking.Border.Rounding = 50F;
+            btnPeopleAddNew.StateTracking.Content.Draw = Krypton.Toolkit.InheritBool.True;
+            btnPeopleAddNew.StateTracking.Content.DrawFocus = Krypton.Toolkit.InheritBool.False;
+            btnPeopleAddNew.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
+            btnPeopleAddNew.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
+            btnPeopleAddNew.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPeopleAddNew.TabIndex = 213;
+            btnPeopleAddNew.Values.DropDownArrowColor = Color.Empty;
+            btnPeopleAddNew.Values.Text = "Add New Person";
+            btnPeopleAddNew.Click += btnPeopleAddNew_Click;
             // 
             // lblPeopleFilter
             // 
@@ -210,6 +259,11 @@
             mtbPeopleFilterInput.TabIndex = 222;
             mtbPeopleFilterInput.TextChanged += mtbPeopleFilterInput_TextChanged;
             // 
+            // toolTipCancel
+            // 
+            toolTipCancel.BackColor = Color.Gainsboro;
+            toolTipCancel.ForeColor = Color.DarkSlateBlue;
+            // 
             // frmPeople
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -219,7 +273,7 @@
             Controls.Add(mtbPeopleFilterInput);
             Controls.Add(cbPeopleFilterBox);
             Controls.Add(lblPeopleFilter);
-            Controls.Add(btnAddNewPerson);
+            Controls.Add(btnPeopleAddNew);
             Controls.Add(lblPeopleTotalRecordsNb);
             Controls.Add(lblPeopleTotalRecords);
             Controls.Add(dgvPeople);
@@ -232,22 +286,28 @@
             Load += frmPeople_Load;
             ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
+            contextMenuStripPeople.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbPeopleFilterBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private ToolTip toolTip1;
         private Krypton.Toolkit.KryptonPictureBox btnPeopleCancel;
         private Krypton.Toolkit.KryptonLabel lblPeopleTitle;
         private Krypton.Toolkit.KryptonDataGridView dgvPeople;
         private Krypton.Toolkit.KryptonLabel lblPeopleTotalRecords;
         private Krypton.Toolkit.KryptonLabel lblPeopleTotalRecordsNb;
-        private Krypton.Toolkit.KryptonButton btnAddNewPerson;
+        private Krypton.Toolkit.KryptonButton btnPeopleAddNew;
         private Krypton.Toolkit.KryptonLabel lblPeopleFilter;
         private Krypton.Toolkit.KryptonComboBox cbPeopleFilterBox;
        
         private MaskedTextBox mtbPeopleFilterInput;
+        private ToolTip toolTipCancel;
+        private ContextMenuStrip contextMenuStripPeople;
+        private ToolStripMenuItem showDetailsToolStripMenuItem;
+        private ToolStripMenuItem editPersonToolStripMenuItem;
+        private ToolStripMenuItem deletePersonToolStripMenuItem;
+        private ToolStripMenuItem addNewPersonToolStripMenuItem;
     }
 }
