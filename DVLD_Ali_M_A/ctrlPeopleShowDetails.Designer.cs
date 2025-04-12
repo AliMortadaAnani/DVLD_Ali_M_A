@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlPeopleShowDetails));
             pnPeopleShowDetails = new Krypton.Toolkit.KryptonPanel();
             btnPeopleEdit = new Krypton.Toolkit.KryptonButton();
             pbPeopleDetails = new Krypton.Toolkit.KryptonPictureBox();
@@ -131,7 +130,7 @@
             // 
             // pbPeopleDetails
             // 
-            pbPeopleDetails.Image = (Image)resources.GetObject("pbPeopleDetails.Image");
+            pbPeopleDetails.Image = Properties.Resources.male3;
             pbPeopleDetails.Location = new Point(738, 37);
             pbPeopleDetails.Name = "pbPeopleDetails";
             pbPeopleDetails.Size = new Size(494, 395);

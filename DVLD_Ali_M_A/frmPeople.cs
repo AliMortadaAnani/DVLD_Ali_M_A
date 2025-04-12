@@ -195,26 +195,30 @@ namespace DVLD_Ali_M_A
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*frmPeopleShowDetails frmPeopleShowDetails = new frmPeopleShowDetails((int)dgvPeople.CurrentRow.Cells[0].Value);
-            frmPeopleShowDetails.ShowDialog();*/
-            int a = (int)dgvPeople.CurrentRow.Cells[0].Value;
-            test1 frmPeopleShowDetails = new test1((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frmPeopleShowDetails frmPeopleShowDetails = new frmPeopleShowDetails((int)dgvPeople.CurrentRow.Cells[0].Value);
             frmPeopleShowDetails.ShowDialog();
+
         }
 
         private void editPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmPeopleAddUpdate frmPeopleAddUpdate = new frmPeopleAddUpdate((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frmPeopleAddUpdate.ShowDialog();
+            _RefreshPeopleList();
         }
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmPeopleAddUpdate frmPeopleAddUpdate = new frmPeopleAddUpdate(-1);
+            frmPeopleAddUpdate.ShowDialog();
+            _RefreshPeopleList();
         }
 
         private void btnPeopleAddNew_Click(object sender, EventArgs e)
         {
-
+            frmPeopleAddUpdate frmPeopleAddUpdate = new frmPeopleAddUpdate(-1);
+            frmPeopleAddUpdate.ShowDialog();
+            _RefreshPeopleList();
         }
     }
 }

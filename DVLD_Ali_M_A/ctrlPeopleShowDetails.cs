@@ -1,33 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_Business;
 using DVLD_DataTypes;
-using System.Diagnostics.Contracts;
+using DVLD_Presentation.Properties;
 
 namespace DVLD_Presentation
 {
     public partial class ctrlPeopleShowDetails : UserControl
     {
+        private clsPeople _Person;
 
-        int _PersonID;
-        clsPeople _Person;
+        public static int PersonID { get; set; }
 
-        public int myIntProperty { get; set; }
         public ctrlPeopleShowDetails()
         {
             InitializeComponent();
 
-           
+            // Protect against crashing in design mode // GPT
+            if (!this.DesignMode)
+            {
+                this.Load += ctrlPeopleShowDetails_Load;
+            }
         }
 
-        
+        private void ctrlPeopleShowDetails_Load(object sender, EventArgs e)
+        {
+            if (!this.DesignMode)
+                _LoadData();
+        }
+
         private static string PersonGender(enGender gender)
         {
             if (gender == enGender.Male)
@@ -39,17 +40,26 @@ namespace DVLD_Presentation
                 return "female";
             }
         }
+
         private void _LoadData()
         {
-         //   if (!this.DesignMode)
-              {  _PersonID = myIntProperty;
-            _Person = clsPeople.Find(_PersonID);
-            /*if (_Person == null)
+           if(PersonID <= 0)
             {
-                MessageBox.Show("Person with id:" + _PersonID + " not found.");
-                ParentForm.Close();
                 return;
-            }*/
+            }
+
+            _Person = clsPeople.Find(PersonID);
+
+            if (_Person == null)
+            {
+                if (!this.DesignMode)
+                {
+                    MessageBox.Show("Person with ID: " + PersonID + " not found.");
+                    ParentForm?.Close(); // Safe null-check
+                }
+                return;
+            }
+
             lblPid.Text = _Person.ID.ToString();
             lblPname.Text = _Person.FirstName + " " + _Person.SecondName + " " + _Person.LastName;
             lblPnationalnb.Text = _Person.NationalNb;
@@ -60,22 +70,22 @@ namespace DVLD_Presentation
             lblPphone.Text = _Person.Phone;
             lblPaddress.Text = _Person.Address;
 
-                if (!string.IsNullOrEmpty(_Person.ImagePath) && System.IO.File.Exists(_Person.ImagePath))
-                {
-                    pbPeopleDetails.Load(_Person.ImagePath);
-                }
-            }
+            if (!string.IsNullOrEmpty(_Person.ImagePath) && System.IO.File.Exists(_Person.ImagePath))
+            {
+                pbPeopleDetails.Load(_Person.ImagePath);
 
+            }
+            else
+            {   
+                if (lblPgender.Text == "female")
+                pbPeopleDetails.Image = Resources.female;
+            }
+            
         }
 
         private void btnPeopleEdit_Click(object sender, EventArgs e)
         {
-            ParentForm.Close();
-        }
-
-        private void ctrlPeopleShowDetails_Load(object sender, EventArgs e)
-        {
-            _LoadData();
+            ParentForm?.Close();
         }
     }
 }
