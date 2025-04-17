@@ -15,6 +15,9 @@ namespace DVLD_Presentation
         public frmPeopleAddUpdate(int _PersonID)
         {
             InitializeComponent();
+            ctrlPeopleAddUpdate._PersonID = _PersonID;
+            if (_PersonID != -1)
+                lblPeopleTitle.Text = "Edit Person Details";
         }
 
         private void btnPeopleCancel_Click(object sender, EventArgs e)
@@ -30,5 +33,7 @@ namespace DVLD_Presentation
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width, 0);
         }
+
+        
     }
 }

@@ -15,7 +15,7 @@ namespace DVLD_Presentation
         public frmPeopleShowDetails(int _PersonID)
         {
             InitializeComponent();
-            ctrlPeopleShowDetails.PersonID = _PersonID;
+            ctrlPeopleShowDetails._PersonID = _PersonID;
         }
 
         private void btnPeopleCancel_Click(object sender, EventArgs e)

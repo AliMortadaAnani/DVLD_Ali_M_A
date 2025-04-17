@@ -33,6 +33,7 @@
             lblPeopleTitle = new Krypton.Toolkit.KryptonLabel();
             btnPeopleCancel = new Krypton.Toolkit.KryptonPictureBox();
             toolTipCancel = new ToolTip(components);
+            ctrlPeopleAddUpdate1 = new ctrlPeopleAddUpdate();
             ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).BeginInit();
             SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             lblPeopleTitle.AutoSize = false;
             lblPeopleTitle.Location = new Point(575, 2);
             lblPeopleTitle.Name = "lblPeopleTitle";
-            lblPeopleTitle.Size = new Size(347, 107);
+            lblPeopleTitle.Size = new Size(476, 107);
             lblPeopleTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
             lblPeopleTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPeopleTitle.TabIndex = 210;
@@ -66,12 +67,21 @@
             toolTipCancel.BackColor = Color.Gainsboro;
             toolTipCancel.ForeColor = Color.DarkSlateBlue;
             // 
+            // ctrlPeopleAddUpdate1
+            // 
+            ctrlPeopleAddUpdate1.BackColor = Color.Gainsboro;
+            ctrlPeopleAddUpdate1.Location = new Point(67, 149);
+            ctrlPeopleAddUpdate1.Name = "ctrlPeopleAddUpdate1";
+            ctrlPeopleAddUpdate1.Size = new Size(1400, 1000);
+            ctrlPeopleAddUpdate1.TabIndex = 212;
+            // 
             // frmPeopleAddUpdate
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(ctrlPeopleAddUpdate1);
             Controls.Add(btnPeopleCancel);
             Controls.Add(lblPeopleTitle);
             FormBorderStyle = FormBorderStyle.None;
@@ -87,5 +97,6 @@
         private Krypton.Toolkit.KryptonLabel lblPeopleTitle;
         private Krypton.Toolkit.KryptonPictureBox btnPeopleCancel;
         private ToolTip toolTipCancel;
+        private ctrlPeopleAddUpdate ctrlPeopleAddUpdate1;
     }
 }

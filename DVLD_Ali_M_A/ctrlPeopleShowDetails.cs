@@ -10,7 +10,7 @@ namespace DVLD_Presentation
     {
         private clsPeople _Person;
 
-        public static int PersonID { get; set; }
+        public static int _PersonID { get; set; }
 
         public ctrlPeopleShowDetails()
         {
@@ -43,18 +43,18 @@ namespace DVLD_Presentation
 
         private void _LoadData()
         {
-           if(PersonID <= 0)
+           if(_PersonID <= 0)
             {
                 return;
             }
 
-            _Person = clsPeople.Find(PersonID);
+            _Person = clsPeople.Find(_PersonID);
 
             if (_Person == null)
             {
                 if (!this.DesignMode)
                 {
-                    MessageBox.Show("Person with ID: " + PersonID + " not found.");
+                    MessageBox.Show("Person with ID: " + _PersonID + " not found.");
                     ParentForm?.Close(); // Safe null-check
                 }
                 return;
