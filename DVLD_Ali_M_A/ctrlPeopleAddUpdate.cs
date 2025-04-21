@@ -11,6 +11,9 @@ using DVLD_Business;
 using DVLD_Presentation.Properties;
 using System.Diagnostics.Contracts;
 using System.Text.RegularExpressions;
+using Microsoft.IdentityModel.Tokens;
+using static System.Net.Mime.MediaTypeNames;
+using System.IO;
 
 namespace DVLD_Presentation
 {
@@ -18,10 +21,13 @@ namespace DVLD_Presentation
     {
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode;
-
-
+        private string _tempImagePath = "";
+        private string newPath = "";
+        private bool removeImage = false;
         public static int _PersonID;
         clsPeople _Person;
+        
+        
 
         public ctrlPeopleAddUpdate()
         {
@@ -32,6 +38,14 @@ namespace DVLD_Presentation
             {
                 this.Load += ctrlPeopleAddUpdate_Load;
             }
+        }
+
+        private string MyImage(string image)
+        {
+            string imagesFolder = Path.Combine("C:\\Users\\Ali\\Downloads", "AppImages");
+            Directory.CreateDirectory(imagesFolder);
+            string imagePath = Path.Combine(imagesFolder, image);
+            return imagePath;
         }
 
         private void ctrlPeopleAddUpdate_Load(object sender, EventArgs e)
@@ -91,12 +105,15 @@ namespace DVLD_Presentation
                     rbfemale.Checked = true;
 
                 }
-                if (!string.IsNullOrEmpty(_Person.ImagePath) && System.IO.File.Exists(_Person.ImagePath))
+                pbPeopleDetails.Visible = true;
+                if (!string.IsNullOrEmpty(_Person.ImagePath) && System.IO.File.Exists(MyImage(_Person.ImagePath)))
                 {
-                    string imagesFolder = Path.Combine("C:\\Users\\Ali\\Downloads", "AppImages");
-                    string imagePath = Path.Combine(imagesFolder, _Person.ImagePath);
-                    pbPeopleDetails.Load(imagePath);
 
+                    using (var img = System.Drawing.Image.FromFile(MyImage(_Person.ImagePath)))
+                    {
+                        pbPeopleDetails.Image = new Bitmap(img); // Copy image, release lock
+                    }
+                    
                 }
                 else
                 {
@@ -105,15 +122,7 @@ namespace DVLD_Presentation
                 }
 
 
-                if (_Person.ImagePath != "")
-                {
-                    
-                    string imagesFolder = Path.Combine("C:\\Users\\Ali\\Downloads", "AppImages");
-                    string imagePath = Path.Combine(imagesFolder, _Person.ImagePath);
-
-
-                    pbPeopleDetails.Load(imagePath);
-                }
+                
 
                 btnPeopleRemoveImage.Visible = (_Person.ImagePath != "");
 
@@ -161,18 +170,24 @@ namespace DVLD_Presentation
             _Person.Address = tbaddress.Text;
             _Person.DateOfBirth = dateofbirth.Value;
 
-
-            if (pbPeopleDetails.ImageLocation != null)
+            if (!string.IsNullOrEmpty(_tempImagePath) || removeImage == true)
             {
-
-                _Person.ImagePath = Path.GetFileName(pbPeopleDetails.ImageLocation);
-
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                if (File.Exists(MyImage(_Person.ImagePath)))
+                {
+                    File.SetAttributes(MyImage(_Person.ImagePath), FileAttributes.Normal);
+                    File.Delete(MyImage(_Person.ImagePath));
+                }
+                _Person.ImagePath = _tempImagePath;
+                
             }
 
+            _tempImagePath = "";
 
 
-            else
-                _Person.ImagePath = "";
+
+
 
             if (_Person.Save())
                 MessageBox.Show("Person Saved Successfully.");
@@ -187,42 +202,64 @@ namespace DVLD_Presentation
         }
 
         private void btnPeopleClose_Click(object sender, EventArgs e)
-        {
+        {   
+            if(_tempImagePath != _Person.ImagePath)
+            {
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                if (File.Exists(MyImage(_tempImagePath)))
+                {
+                    File.SetAttributes(MyImage(_tempImagePath), FileAttributes.Normal);
+                    File.Delete(MyImage(_tempImagePath));
+                }
+                if(!_Person.ImagePath.Equals(""))
+                {
+                    btnPeopleRemoveImage.Visible = true;
+                }
+            }
+            
             ParentForm?.Close();
         }
 
 
         private void btnPeopleSetImage_Click(object sender, EventArgs e)
         {
-
+            removeImage = false;
             openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.RestoreDirectory = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                // Process the selected file
+            {   
+                
                 string selectedFilePath = openFileDialog1.FileName;
-                //MessageBox.Show("Selected Image is:" + selectedFilePath);
-
-                // Step 1: Create target folder if not exists
-                string imagesFolder = Path.Combine("C:\\Users\\Ali\\Downloads", "AppImages");
-                Directory.CreateDirectory(imagesFolder);
-
-                // Step 2: Generate unique name
-                // string imageGuid = Guid.NewGuid().ToString();
+                
                 string imageGuid = clsPeople.GetGuid();
                 string ext = Path.GetExtension(selectedFilePath); // e.g. .jpg
 
                 string newFileName = imageGuid + ext;
-                string newPath = Path.Combine(imagesFolder, newFileName);
 
-                // Step 3: Copy image
+                newPath = MyImage(newFileName);
+
+                
                 File.Copy(selectedFilePath, newPath);
 
-                // Step 4: Load into PictureBox
-                pbPeopleDetails.ImageLocation = newPath;
 
+                using (var img = System.Drawing.Image.FromFile(newPath))
+                {
+                    pbPeopleDetails.Image = new Bitmap(img); // Copy image, release lock
+                }
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
+                if (File.Exists(MyImage(_tempImagePath)))
+                {
+                    File.SetAttributes(MyImage(_tempImagePath), FileAttributes.Normal);
+                    File.Delete(MyImage(_tempImagePath));
+                }
+
+               _tempImagePath = newFileName;
+                pbPeopleDetails.Visible = true;
+                btnPeopleRemoveImage.Visible = true;
             }
 
 
@@ -233,8 +270,18 @@ namespace DVLD_Presentation
 
         private void btnPeopleRemoveImage_Click(object sender, EventArgs e)
         {
+            removeImage = true;
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
+            if (File.Exists(MyImage(_tempImagePath)))
+            {
+                File.SetAttributes(MyImage(_tempImagePath), FileAttributes.Normal);
+                File.Delete(MyImage(_tempImagePath));
+            }
+            pbPeopleDetails.Visible = false;
             pbPeopleDetails.ImageLocation = null;
             btnPeopleRemoveImage.Visible = false;
+            _tempImagePath = "";
         }
 
         private void tbemail_Validating(object sender, CancelEventArgs e)
