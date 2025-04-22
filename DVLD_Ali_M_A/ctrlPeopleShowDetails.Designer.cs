@@ -123,7 +123,7 @@
             btnPeopleEdit.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnPeopleEdit.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnPeopleEdit.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPeopleEdit.TabIndex = 237;
+            btnPeopleEdit.TabIndex = 1;
             btnPeopleEdit.Values.DropDownArrowColor = Color.Empty;
             btnPeopleEdit.Values.Text = "Edit Person Details ";
             btnPeopleEdit.Click += btnPeopleEdit_Click;

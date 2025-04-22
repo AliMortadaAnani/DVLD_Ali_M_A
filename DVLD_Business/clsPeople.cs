@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DVLD_Data;
+﻿using DVLD_Data;
 using DVLD_DataTypes;
+using System.Data;
 
 
 
@@ -362,5 +357,11 @@ namespace DVLD_Business
         //    return dt;
 
         //}
+
+
+        public static bool IsNationalNumberExist(string NationalNumber)
+        {
+            return clsPeopleData.IsNationalNumberExist(NationalNumber);
+        }
     }
 }

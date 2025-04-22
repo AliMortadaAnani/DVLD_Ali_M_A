@@ -1,16 +1,5 @@
 ﻿using DVLD_Business;
-using DVLD_DataTypes;
 using DVLD_Presentation;
-using Krypton.Toolkit;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 
 
@@ -197,7 +186,7 @@ namespace DVLD_Ali_M_A
         {
             frmPeopleShowDetails frmPeopleShowDetails = new frmPeopleShowDetails((int)dgvPeople.CurrentRow.Cells[0].Value);
             frmPeopleShowDetails.ShowDialog();
-
+            _RefreshPeopleList();
         }
 
         private void editPersonToolStripMenuItem_Click(object sender, EventArgs e)
@@ -220,5 +209,7 @@ namespace DVLD_Ali_M_A
             frmPeopleAddUpdate.ShowDialog();
             _RefreshPeopleList();
         }
+
+       
     }
 }

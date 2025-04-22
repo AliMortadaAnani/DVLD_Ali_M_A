@@ -105,6 +105,7 @@
             dgvPeople.StateCommon.HeaderColumn.Content.Font = new Font("Trebuchet MS", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             dgvPeople.StateNormal.Background.Color1 = Color.Gainsboro;
             dgvPeople.TabIndex = 210;
+            dgvPeople.TabStop = false;
             // 
             // contextMenuStripPeople
             // 
@@ -164,7 +165,7 @@
             lblPeopleTotalRecordsNb.AutoSize = false;
             lblPeopleTotalRecordsNb.Location = new Point(760, 431);
             lblPeopleTotalRecordsNb.Name = "lblPeopleTotalRecordsNb";
-            lblPeopleTotalRecordsNb.Size = new Size(40, 47);
+            lblPeopleTotalRecordsNb.Size = new Size(71, 47);
             lblPeopleTotalRecordsNb.StateNormal.ShortText.Color1 = SystemColors.InfoText;
             lblPeopleTotalRecordsNb.StateNormal.ShortText.Font = new Font("Trebuchet MS", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPeopleTotalRecordsNb.TabIndex = 212;
@@ -212,10 +213,11 @@
             btnPeopleAddNew.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnPeopleAddNew.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnPeopleAddNew.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPeopleAddNew.TabIndex = 213;
+            btnPeopleAddNew.TabIndex = 3;
             btnPeopleAddNew.Values.DropDownArrowColor = Color.Empty;
             btnPeopleAddNew.Values.Text = "Add New Person";
             btnPeopleAddNew.Click += btnPeopleAddNew_Click;
+          
             // 
             // lblPeopleFilter
             // 
@@ -244,9 +246,10 @@
             cbPeopleFilterBox.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             cbPeopleFilterBox.StateDisabled.ComboBox.Content.Color1 = Color.Gainsboro;
             cbPeopleFilterBox.StateDisabled.ComboBox.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbPeopleFilterBox.TabIndex = 220;
+            cbPeopleFilterBox.TabIndex = 1;
             cbPeopleFilterBox.Text = "None";
             cbPeopleFilterBox.SelectedIndexChanged += cbPeopleFilterBox_SelectedIndexChanged;
+           
             // 
             // mtbPeopleFilterInput
             // 
@@ -256,8 +259,9 @@
             mtbPeopleFilterInput.Location = new Point(226, 445);
             mtbPeopleFilterInput.Name = "mtbPeopleFilterInput";
             mtbPeopleFilterInput.Size = new Size(203, 34);
-            mtbPeopleFilterInput.TabIndex = 222;
+            mtbPeopleFilterInput.TabIndex = 2;
             mtbPeopleFilterInput.TextChanged += mtbPeopleFilterInput_TextChanged;
+           
             // 
             // toolTipCancel
             // 

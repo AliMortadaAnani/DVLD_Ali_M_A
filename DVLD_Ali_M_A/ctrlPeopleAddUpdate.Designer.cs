@@ -136,7 +136,7 @@
             cbCountries.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             cbCountries.StateDisabled.ComboBox.Content.Color1 = Color.Black;
             cbCountries.StateDisabled.ComboBox.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbCountries.TabIndex = 256;
+            cbCountries.TabIndex = 6;
             // 
             // dateofbirth
             // 
@@ -144,7 +144,7 @@
             dateofbirth.MinDate = new DateTime(1909, 12, 31, 0, 0, 0, 0);
             dateofbirth.Name = "dateofbirth";
             dateofbirth.Size = new Size(300, 31);
-            dateofbirth.TabIndex = 255;
+            dateofbirth.TabIndex = 10;
             // 
             // rbfemale
             // 
@@ -153,8 +153,9 @@
             rbfemale.Size = new Size(117, 34);
             rbfemale.StateNormal.ShortText.Color1 = Color.DarkSlateBlue;
             rbfemale.StateNormal.ShortText.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rbfemale.TabIndex = 254;
+            rbfemale.TabIndex = 8;
             rbfemale.Values.Text = "female";
+            rbfemale.CheckedChanged += rbfemale_CheckedChanged;
             // 
             // rbmale
             // 
@@ -163,8 +164,9 @@
             rbmale.Size = new Size(92, 34);
             rbmale.StateNormal.ShortText.Color1 = Color.DarkSlateBlue;
             rbmale.StateNormal.ShortText.Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rbmale.TabIndex = 253;
+            rbmale.TabIndex = 7;
             rbmale.Values.Text = "Male";
+            rbmale.CheckedChanged += rbmale_CheckedChanged;
             // 
             // tbaddress
             // 
@@ -188,7 +190,8 @@
             tbaddress.StateNormal.Border.Rounding = 30F;
             tbaddress.StateNormal.Content.Color1 = Color.Black;
             tbaddress.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbaddress.TabIndex = 252;
+            tbaddress.TabIndex = 12;
+            tbaddress.Validating += RequiredField_Validating;
             // 
             // tbemail
             // 
@@ -211,7 +214,7 @@
             tbemail.StateNormal.Border.Rounding = 30F;
             tbemail.StateNormal.Content.Color1 = Color.Black;
             tbemail.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbemail.TabIndex = 251;
+            tbemail.TabIndex = 11;
             tbemail.Validating += tbemail_Validating;
             // 
             // tbphone
@@ -235,7 +238,8 @@
             tbphone.StateNormal.Border.Rounding = 30F;
             tbphone.StateNormal.Content.Color1 = Color.Black;
             tbphone.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbphone.TabIndex = 250;
+            tbphone.TabIndex = 9;
+            tbphone.Validating += RequiredField_Validating;
             // 
             // tbnationalnb
             // 
@@ -258,7 +262,8 @@
             tbnationalnb.StateNormal.Border.Rounding = 30F;
             tbnationalnb.StateNormal.Content.Color1 = Color.Black;
             tbnationalnb.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbnationalnb.TabIndex = 249;
+            tbnationalnb.TabIndex = 5;
+            tbnationalnb.Validating += tbnationalnb_Validating;
             // 
             // tblname
             // 
@@ -281,7 +286,8 @@
             tblname.StateNormal.Border.Rounding = 30F;
             tblname.StateNormal.Content.Color1 = Color.Black;
             tblname.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tblname.TabIndex = 248;
+            tblname.TabIndex = 4;
+            tblname.Validating += RequiredField_Validating;
             // 
             // tbtname
             // 
@@ -304,7 +310,7 @@
             tbtname.StateNormal.Border.Rounding = 30F;
             tbtname.StateNormal.Content.Color1 = Color.Black;
             tbtname.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbtname.TabIndex = 247;
+            tbtname.TabIndex = 3;
             // 
             // tbsname
             // 
@@ -327,7 +333,8 @@
             tbsname.StateNormal.Border.Rounding = 30F;
             tbsname.StateNormal.Content.Color1 = Color.Black;
             tbsname.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbsname.TabIndex = 246;
+            tbsname.TabIndex = 2;
+            tbsname.Validating += RequiredField_Validating;
             // 
             // tbfname
             // 
@@ -350,7 +357,8 @@
             tbfname.StateNormal.Border.Rounding = 30F;
             tbfname.StateNormal.Content.Color1 = Color.Black;
             tbfname.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbfname.TabIndex = 245;
+            tbfname.TabIndex = 1;
+            tbfname.Validating += RequiredField_Validating;
             // 
             // btnPeopleClose
             // 
@@ -393,7 +401,7 @@
             btnPeopleClose.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnPeopleClose.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnPeopleClose.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPeopleClose.TabIndex = 244;
+            btnPeopleClose.TabIndex = 15;
             btnPeopleClose.Values.DropDownArrowColor = Color.Empty;
             btnPeopleClose.Values.Text = "Close";
             btnPeopleClose.Click += btnPeopleClose_Click;
@@ -439,7 +447,7 @@
             btnPeopleSave.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnPeopleSave.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnPeopleSave.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPeopleSave.TabIndex = 243;
+            btnPeopleSave.TabIndex = 16;
             btnPeopleSave.Values.DropDownArrowColor = Color.Empty;
             btnPeopleSave.Values.Text = "Save";
             btnPeopleSave.Click += btnPeopleSave_Click;
@@ -533,9 +541,10 @@
             btnPeopleRemoveImage.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnPeopleRemoveImage.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnPeopleRemoveImage.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPeopleRemoveImage.TabIndex = 238;
+            btnPeopleRemoveImage.TabIndex = 14;
             btnPeopleRemoveImage.Values.DropDownArrowColor = Color.Empty;
             btnPeopleRemoveImage.Values.Text = "Remove Image";
+            btnPeopleRemoveImage.Visible = false;
             btnPeopleRemoveImage.Click += btnPeopleRemoveImage_Click;
             // 
             // btnPeopleSetImage
@@ -579,7 +588,7 @@
             btnPeopleSetImage.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnPeopleSetImage.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnPeopleSetImage.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPeopleSetImage.TabIndex = 237;
+            btnPeopleSetImage.TabIndex = 13;
             btnPeopleSetImage.Values.DropDownArrowColor = Color.Empty;
             btnPeopleSetImage.Values.Text = "Set Image ";
             btnPeopleSetImage.Click += btnPeopleSetImage_Click;

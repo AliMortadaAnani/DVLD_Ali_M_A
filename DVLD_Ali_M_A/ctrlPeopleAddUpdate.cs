@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DVLD_Business;
+﻿using DVLD_Business;
 using DVLD_Presentation.Properties;
-using System.Diagnostics.Contracts;
+using System.ComponentModel;
+using System.Data;
 using System.Text.RegularExpressions;
-using Microsoft.IdentityModel.Tokens;
-using static System.Net.Mime.MediaTypeNames;
-using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DVLD_Presentation
 {
@@ -26,8 +16,8 @@ namespace DVLD_Presentation
         private bool removeImage = false;
         public static int _PersonID;
         clsPeople _Person;
-        
-        
+
+
 
         public ctrlPeopleAddUpdate()
         {
@@ -59,7 +49,7 @@ namespace DVLD_Presentation
 
 
                 _FillCountriesInComoboBox();
-                cbCountries.SelectedIndex = 0;
+                cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.Find("Lebanon").CountryName);
 
                 dateofbirth.MaxDate = DateTime.Now - new TimeSpan(365 * 18, 0, 0, 0); // Set max date to 18 years ago
 
@@ -113,7 +103,7 @@ namespace DVLD_Presentation
                     {
                         pbPeopleDetails.Image = new Bitmap(img); // Copy image, release lock
                     }
-                    
+
                 }
                 else
                 {
@@ -122,7 +112,7 @@ namespace DVLD_Presentation
                 }
 
 
-                
+
 
                 btnPeopleRemoveImage.Visible = (_Person.ImagePath != "");
 
@@ -151,6 +141,19 @@ namespace DVLD_Presentation
 
         private void btnPeopleSave_Click(object sender, EventArgs e)
         {
+            if (rbmale.Checked)
+                _Person.Gender = DVLD_DataTypes.enGender.Male;
+            else if (rbfemale.Checked)
+                _Person.Gender = DVLD_DataTypes.enGender.Female;
+            else
+            {
+
+                rbmale.Focus();
+                errorProvider1.SetError(rbmale, "You should choose gender!");
+                return;
+            }
+            errorProvider1.SetError(rbmale, "");
+
             int CountryID = clsCountry.Find(cbCountries.Text).ID;
 
             _Person.FirstName = tbfname.Text;
@@ -160,10 +163,6 @@ namespace DVLD_Presentation
             _Person.NationalNb = tbnationalnb.Text;
             _Person.NationalCountryID = CountryID;
 
-            if (rbmale.Checked)
-                _Person.Gender = DVLD_DataTypes.enGender.Male;
-            else
-                _Person.Gender = DVLD_DataTypes.enGender.Female;
 
             _Person.Email = tbemail.Text;
             _Person.Phone = tbphone.Text;
@@ -180,7 +179,7 @@ namespace DVLD_Presentation
                     File.Delete(MyImage(_Person.ImagePath));
                 }
                 _Person.ImagePath = _tempImagePath;
-                
+
             }
 
             _tempImagePath = "";
@@ -202,8 +201,8 @@ namespace DVLD_Presentation
         }
 
         private void btnPeopleClose_Click(object sender, EventArgs e)
-        {   
-            if(_tempImagePath != _Person.ImagePath)
+        {
+            if (_tempImagePath != _Person.ImagePath)
             {
                 System.GC.Collect();
                 System.GC.WaitForPendingFinalizers();
@@ -212,12 +211,12 @@ namespace DVLD_Presentation
                     File.SetAttributes(MyImage(_tempImagePath), FileAttributes.Normal);
                     File.Delete(MyImage(_tempImagePath));
                 }
-                if(!_Person.ImagePath.Equals(""))
+                if (!_Person.ImagePath.Equals(""))
                 {
                     btnPeopleRemoveImage.Visible = true;
                 }
             }
-            
+
             ParentForm?.Close();
         }
 
@@ -230,10 +229,10 @@ namespace DVLD_Presentation
             openFileDialog1.RestoreDirectory = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {   
-                
+            {
+
                 string selectedFilePath = openFileDialog1.FileName;
-                
+
                 string imageGuid = clsPeople.GetGuid();
                 string ext = Path.GetExtension(selectedFilePath); // e.g. .jpg
 
@@ -241,7 +240,7 @@ namespace DVLD_Presentation
 
                 newPath = MyImage(newFileName);
 
-                
+
                 File.Copy(selectedFilePath, newPath);
 
 
@@ -257,13 +256,13 @@ namespace DVLD_Presentation
                     File.Delete(MyImage(_tempImagePath));
                 }
 
-               _tempImagePath = newFileName;
+                _tempImagePath = newFileName;
                 pbPeopleDetails.Visible = true;
                 btnPeopleRemoveImage.Visible = true;
             }
 
 
-            
+
 
         }
 
@@ -291,13 +290,12 @@ namespace DVLD_Presentation
             // Simple and realistic email pattern
             string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
 
-            /*if (string.IsNullOrWhiteSpace(email))
+            if (string.IsNullOrWhiteSpace(email))
             {
-                e.Cancel = true;
-                tbemail.Focus();
-                errorProvider1.SetError(tbemail, "Email should not be empty!");
+                e.Cancel = false;
+                errorProvider1.SetError(tbemail, "");
             }
-            else */
+            else
             if (!Regex.IsMatch(email, pattern))
             {
                 e.Cancel = true;
@@ -312,6 +310,75 @@ namespace DVLD_Presentation
 
 
 
+        }
+
+        private void tbnationalnb_Validating(object sender, CancelEventArgs e)
+        {
+            if (_Mode == enMode.AddNew)
+            {
+                string nationalnb = tbnationalnb.Text.Trim();
+
+                if (clsPeople.IsNationalNumberExist(nationalnb))
+                {
+                    e.Cancel = true;
+                    tbnationalnb.Focus();
+                    errorProvider1.SetError(tbnationalnb, "This national number already exists!");
+                }
+                else if (string.IsNullOrWhiteSpace(nationalnb))
+                {
+                    e.Cancel = true;
+                    tbnationalnb.Focus();
+                    errorProvider1.SetError(tbnationalnb, "Cannot be null!");
+                }
+                else
+                {
+                    e.Cancel = false;
+                    errorProvider1.SetError(tbnationalnb, "");
+                }
+            }
+
+        }
+
+        private void RequiredField_Validating(object sender, CancelEventArgs e)
+        {
+            Krypton.Toolkit.KryptonTextBox tbfield = (Krypton.Toolkit.KryptonTextBox)sender;
+
+            string field = tbfield.Text.Trim();
+
+
+
+            if (string.IsNullOrWhiteSpace(field))
+            {
+
+                e.Cancel = true;
+                tbfield.Focus();
+                errorProvider1.SetError(tbfield, "Cannot be null!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(tbfield, "");
+            }
+
+
+
+        }
+
+        private void rbmale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_Person.ImagePath == "")
+            {
+                pbPeopleDetails.Image = Resources.male3;
+            }
+
+        }
+
+        private void rbfemale_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_Person.ImagePath == "")
+            {
+                pbPeopleDetails.Image = Resources.female;
+            }
         }
     }
 }

@@ -85,7 +85,9 @@ namespace DVLD_Presentation
 
         private void btnPeopleEdit_Click(object sender, EventArgs e)
         {
-            ParentForm?.Close();
+            frmPeopleAddUpdate frmPeopleAddUpdate = new frmPeopleAddUpdate(_PersonID);
+            frmPeopleAddUpdate.ShowDialog();
+            
         }
     }
 }
