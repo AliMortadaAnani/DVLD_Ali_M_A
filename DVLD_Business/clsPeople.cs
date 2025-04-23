@@ -222,9 +222,14 @@ namespace DVLD_Business
         }
 
 
-        public static string GetGuid()
+        public static string GetGuidForImageName()
         {
-            return clsPeopleData.GetGuid();
+            return clsPeopleData.GetGuidForImagesNames();
+        }
+
+        public static bool IsNationalNumberExist(string NationalNumber)
+        {
+            return clsPeopleData.IsNationalNumberExist(NationalNumber);
         }
 
         //public static DataTable SortPeople(DataTable dt, string Column, string Order)
@@ -359,9 +364,6 @@ namespace DVLD_Business
         //}
 
 
-        public static bool IsNationalNumberExist(string NationalNumber)
-        {
-            return clsPeopleData.IsNationalNumberExist(NationalNumber);
-        }
+
     }
 }

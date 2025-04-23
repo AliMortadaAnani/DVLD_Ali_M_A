@@ -3,7 +3,6 @@ using DVLD_Presentation.Properties;
 using System.ComponentModel;
 using System.Data;
 using System.Text.RegularExpressions;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DVLD_Presentation
 {
@@ -30,7 +29,7 @@ namespace DVLD_Presentation
             }
         }
 
-        private string MyImage(string image)
+        public static string MyImage(string image)
         {
             string imagesFolder = Path.Combine("C:\\Users\\Ali\\Downloads", "AppImages");
             Directory.CreateDirectory(imagesFolder);
@@ -49,7 +48,7 @@ namespace DVLD_Presentation
 
 
                 _FillCountriesInComoboBox();
-                cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.Find("Lebanon").CountryName);
+                cbCountries.SelectedIndex = cbCountries.FindString("Lebanon");
 
                 dateofbirth.MaxDate = DateTime.Now - new TimeSpan(365 * 18, 0, 0, 0); // Set max date to 18 years ago
 
@@ -233,7 +232,7 @@ namespace DVLD_Presentation
 
                 string selectedFilePath = openFileDialog1.FileName;
 
-                string imageGuid = clsPeople.GetGuid();
+                string imageGuid = clsPeople.GetGuidForImageName();
                 string ext = Path.GetExtension(selectedFilePath); // e.g. .jpg
 
                 string newFileName = imageGuid + ext;

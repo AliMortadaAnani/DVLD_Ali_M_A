@@ -1,6 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-using DVLD_Business;
+﻿using DVLD_Business;
 using DVLD_DataTypes;
 using DVLD_Presentation.Properties;
 
@@ -70,9 +68,10 @@ namespace DVLD_Presentation
             lblPphone.Text = _Person.Phone;
             lblPaddress.Text = _Person.Address;
 
-            if (!string.IsNullOrEmpty(_Person.ImagePath) && System.IO.File.Exists(_Person.ImagePath))
+            if (!string.IsNullOrEmpty(_Person.ImagePath) && System.IO.File.Exists(ctrlPeopleAddUpdate.MyImage(_Person.ImagePath)))
             {
-                pbPeopleDetails.Load(_Person.ImagePath);
+
+                pbPeopleDetails.Load(ctrlPeopleAddUpdate.MyImage(_Person.ImagePath));
 
             }
             else

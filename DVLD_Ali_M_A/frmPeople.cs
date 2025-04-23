@@ -15,10 +15,9 @@ namespace DVLD_Ali_M_A
         private void frmPeople_Load(object sender, EventArgs e)
         {
             this.Size = new Size(1570, 1084); // Fixed size
-
-            // Move form to the right side of the screen
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width, 0);
+
             dgvPeople.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             _RefreshPeopleList();
@@ -53,7 +52,7 @@ namespace DVLD_Ali_M_A
             {
                 mtbPeopleFilterInput.Visible = false;
                 _RefreshPeopleList();
-                _RefreshFilterInput();
+                
             }
             else if
              (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ID"))
@@ -77,88 +76,60 @@ namespace DVLD_Ali_M_A
         {
             string input = mtbPeopleFilterInput.Text.Trim();
 
+            string selectedFilter = cbPeopleFilterBox.Text;
 
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ID"))
+            switch (selectedFilter)
             {
+                case "ID":
+                    if (int.TryParse(input, out int id))
+                    {
+                        dgvPeople.DataSource = clsPeople.GetPeopleByID(id);
+                    }
+                    break;
 
+                case "NationalNumber":
+                    dgvPeople.DataSource = clsPeople.GetPeopleByNationalNb(input);
+                    break;
 
-                if (int.TryParse(input, out int id))
-                {
-                    dgvPeople.DataSource = clsPeople.GetPeopleByID(id);
-                }
+                case "FirstName":
+                    dgvPeople.DataSource = clsPeople.GetPeopleByFirstName(input);
+                    break;
 
+                case "SecondName":
+                    dgvPeople.DataSource = clsPeople.GetPeopleBySecondName(input);
+                    break;
+
+                case "LastName":
+                    dgvPeople.DataSource = clsPeople.GetPeopleByLastName(input);
+                    break;
+
+                case "Nationality":
+                    dgvPeople.DataSource = clsPeople.GetPeopleByNationality(input);
+                    break;
+
+                case "Gender":
+                    dgvPeople.DataSource = clsPeople.GetPeopleByGender(input);
+                    break;
+
+                case "DateOfBirth":
+                    dgvPeople.DataSource = clsPeople.GetPeopleByDateOfBirth(input);
+                    break;
+
+                case "Address":
+                    dgvPeople.DataSource = clsPeople.GetPeopleByAddress(input);
+                    break;
+
+                case "Phone":
+                    dgvPeople.DataSource = clsPeople.GetPeopleByPhone(input);
+                    break;
+
+                case "Email":
+                    dgvPeople.DataSource = clsPeople.GetPeopleByEmail(input);
+                    break;
+
+               
             }
 
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("NationalNumber"))
-            {
-
-                dgvPeople.DataSource = clsPeople.GetPeopleByNationalNb(input);
-            }
-
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("FirstName"))
-            {
-
-                dgvPeople.DataSource = clsPeople.GetPeopleByFirstName(input);
-            }
-
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("SecondName"))
-            {
-
-                dgvPeople.DataSource = clsPeople.GetPeopleBySecondName(input);
-            }
-
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("LastName"))
-            {
-
-                dgvPeople.DataSource = clsPeople.GetPeopleByLastName(input);
-            }
-
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Nationality"))
-            {
-
-
-                /*if(clsCountry.Find(input) == null)
-                {
-                    
-                    return;
-                }
-
-                int NationalityID = clsCountry.Find(input).ID;*/
-
-                dgvPeople.DataSource = clsPeople.GetPeopleByNationality(input);
-            }
-
-
-
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Gender"))
-            {
-                dgvPeople.DataSource = clsPeople.GetPeopleByGender(input);
-
-            }
-
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("DateOfBirth"))
-            {
-
-                dgvPeople.DataSource = clsPeople.GetPeopleByDateOfBirth(input);
-            }
-
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Address"))
-            {
-
-                dgvPeople.DataSource = clsPeople.GetPeopleByAddress(input);
-            }
-
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Phone"))
-            {
-
-                dgvPeople.DataSource = clsPeople.GetPeopleByPhone(input);
-            }
-
-            if (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("Email"))
-            {
-
-                dgvPeople.DataSource = clsPeople.GetPeopleByEmail(input);
-            }
 
             lblPeopleTotalRecordsNb.Text = dgvPeople.RowCount.ToString();
         }

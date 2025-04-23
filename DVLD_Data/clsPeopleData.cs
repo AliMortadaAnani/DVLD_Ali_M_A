@@ -741,7 +741,7 @@ namespace DVLD_Data
             return dt;
         }
 
-        public static string GetGuid()
+        public static string GetGuidForImagesNames()
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             string query = "SELECT NEWID()";
