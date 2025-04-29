@@ -97,7 +97,7 @@ namespace DVLD_Presentation
         {
 
             _User.IsActive = (cbisactive.Checked);
-
+            _User.PersonID = ctrlPeopleShowDetails._PersonID;
 
             _User.UserName = tbusername.Text.Trim();
             _User.Password = tbpassword.Text.Trim();
@@ -107,7 +107,8 @@ namespace DVLD_Presentation
             if (_User.Save())
                 MessageBox.Show("User Saved Successfully.");
             else
-               { MessageBox.Show("Error: Data Is not Saved Successfully.");
+            {
+                MessageBox.Show("Error: Data Is not Saved Successfully.");
                 return;
             }
 
@@ -177,16 +178,19 @@ namespace DVLD_Presentation
             else if (password != passwordconfirmation)
             {
                 e.Cancel = true;
-                tbpassword.Focus();
-                errorProvider1.SetError(tbpassword, "Password confirmation is incorrect!");
+                tbpasswordconfirm.Focus();
+                errorProvider1.SetError(tbpasswordconfirm, "Password confirmation is incorrect!");
             }
             else
             {
                 e.Cancel = false;
-                errorProvider1.SetError(tbpassword, "");
+                errorProvider1.SetError(tbpasswordconfirm, "");
             }
         }
 
-      
+        private void tbpasswordconfirm_Validated(object sender, EventArgs e)
+        {
+
+        }
     }
 }

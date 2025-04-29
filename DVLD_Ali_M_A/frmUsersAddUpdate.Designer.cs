@@ -34,13 +34,12 @@
             btnUsersCancel = new Krypton.Toolkit.KryptonPictureBox();
             tabUserControl = new TabControl();
             pagePerson = new TabPage();
-            lblFindBy = new Krypton.Toolkit.KryptonLabel();
             ctrlPersonFilter1 = new ctrlPersonFilter();
             ctrlPeopleShowDetails1 = new ctrlPeopleShowDetails();
             pageUser = new TabPage();
+            ctrlUsersAddUpdate1 = new ctrlUsersAddUpdate();
             btnUserNext = new Krypton.Toolkit.KryptonButton();
             btnUserBack = new Krypton.Toolkit.KryptonButton();
-            ctrlUsersAddUpdate1 = new ctrlUsersAddUpdate();
             ((System.ComponentModel.ISupportInitialize)btnUsersCancel).BeginInit();
             tabUserControl.SuspendLayout();
             pagePerson.SuspendLayout();
@@ -81,7 +80,6 @@
             // pagePerson
             // 
             pagePerson.BackColor = Color.Gainsboro;
-            pagePerson.Controls.Add(lblFindBy);
             pagePerson.Controls.Add(ctrlPersonFilter1);
             pagePerson.Controls.Add(ctrlPeopleShowDetails1);
             pagePerson.Location = new Point(4, 52);
@@ -91,21 +89,9 @@
             pagePerson.TabIndex = 0;
             pagePerson.Text = "Person Info";
             // 
-            // lblFindBy
-            // 
-            lblFindBy.AutoSize = false;
-            lblFindBy.Location = new Point(523, 3);
-            lblFindBy.Name = "lblFindBy";
-            lblFindBy.Size = new Size(396, 43);
-            lblFindBy.StateNormal.ShortText.Color1 = SystemColors.InfoText;
-            lblFindBy.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblFindBy.TabIndex = 237;
-            lblFindBy.TabStop = false;
-            lblFindBy.Values.Text = "Filter for Person Information:";
-            // 
             // ctrlPersonFilter1
             // 
-            ctrlPersonFilter1.Location = new Point(42, 28);
+            ctrlPersonFilter1.Location = new Point(42, 20);
             ctrlPersonFilter1.Name = "ctrlPersonFilter1";
             ctrlPersonFilter1.Size = new Size(1313, 137);
             ctrlPersonFilter1.TabIndex = 1;
@@ -117,7 +103,7 @@
             ctrlPeopleShowDetails1.Location = new Point(31, 150);
             ctrlPeopleShowDetails1.Name = "ctrlPeopleShowDetails1";
             ctrlPeopleShowDetails1.Size = new Size(1324, 724);
-            ctrlPeopleShowDetails1.TabIndex = 0;
+            ctrlPeopleShowDetails1.TabIndex = 2;
             // 
             // pageUser
             // 
@@ -129,6 +115,14 @@
             pageUser.Size = new Size(1397, 880);
             pageUser.TabIndex = 1;
             pageUser.Text = "User Info";
+            // 
+            // ctrlUsersAddUpdate1
+            // 
+            ctrlUsersAddUpdate1.BackColor = Color.Lavender;
+            ctrlUsersAddUpdate1.Location = new Point(398, 140);
+            ctrlUsersAddUpdate1.Name = "ctrlUsersAddUpdate1";
+            ctrlUsersAddUpdate1.Size = new Size(614, 537);
+            ctrlUsersAddUpdate1.TabIndex = 5;
             // 
             // btnUserNext
             // 
@@ -171,7 +165,7 @@
             btnUserNext.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnUserNext.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnUserNext.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUserNext.TabIndex = 225;
+            btnUserNext.TabIndex = 4;
             btnUserNext.Values.DropDownArrowColor = Color.Empty;
             btnUserNext.Values.Text = "Next";
             btnUserNext.Click += btnUserNext_Click;
@@ -217,18 +211,10 @@
             btnUserBack.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnUserBack.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnUserBack.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUserBack.TabIndex = 226;
+            btnUserBack.TabIndex = 3;
             btnUserBack.Values.DropDownArrowColor = Color.Empty;
             btnUserBack.Values.Text = "Back";
             btnUserBack.Click += btnUserBack_Click;
-            // 
-            // ctrlUsersAddUpdate1
-            // 
-            ctrlUsersAddUpdate1.BackColor = Color.Lavender;
-            ctrlUsersAddUpdate1.Location = new Point(392, 138);
-            ctrlUsersAddUpdate1.Name = "ctrlUsersAddUpdate1";
-            ctrlUsersAddUpdate1.Size = new Size(614, 537);
-            ctrlUsersAddUpdate1.TabIndex = 0;
             // 
             // frmUsersAddUpdate
             // 
@@ -260,7 +246,6 @@
         private TabPage pageUser;
         private ctrlPeopleShowDetails ctrlPeopleShowDetails1;
         private ctrlPersonFilter ctrlPersonFilter1;
-        private Krypton.Toolkit.KryptonLabel lblFindBy;
         private Krypton.Toolkit.KryptonButton btnUserNext;
         private Krypton.Toolkit.KryptonButton btnUserBack;
         private ctrlUsersAddUpdate ctrlUsersAddUpdate1;

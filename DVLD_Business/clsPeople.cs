@@ -162,6 +162,15 @@ namespace DVLD_Business
 
         }
 
+        public static bool CheckPersonIntegrity(int ID)
+        {
+            return clsPeopleData.CheckPersonIntegrity(ID);
+        }
+
+        public static bool IsPersonUser(int ID)
+        {
+            return clsPeopleData.IsPersonAUser(ID);
+        }
         public static bool IsPersonExist(int ID)
         {
             return clsPeopleData.IsPersonExist(ID);

@@ -58,7 +58,7 @@ namespace DVLD_Presentation
             }
             string selectedFilter = cbPersonFilterBox.Text;
             string input = mtbPersonFilterInput.Text.Trim();
-            switch(selectedFilter)
+            switch (selectedFilter)
             {
                 case "PersonID":
                     if (int.TryParse(input, out int id))
@@ -78,9 +78,9 @@ namespace DVLD_Presentation
 
                 case "NationalNumber":
                     if (clsPeople.IsNationalNumberExist(input))
-                    {   
+                    {
                         clsPeople person = clsPeople.Find(input);
-                        if (OnPersonSearchComplete != null)
+                        if (OnPersonSearchComplete != null && person is not null)
                             // Raise the event with a parameter
                             OnPersonSearchComplete(person.ID);
                     }
@@ -94,7 +94,21 @@ namespace DVLD_Presentation
 
         private void mtbPersonFilterInput_Validating(object sender, CancelEventArgs e)
         {
-            
+
+        }
+
+        private void btnPersonAddNew_Click(object sender, EventArgs e)
+        {
+            frmPeopleAddUpdate frmPeopleAddUpdate = new frmPeopleAddUpdate(-1);
+           
+            frmPeopleAddUpdate.ShowDialog();
+
+            if (OnPersonSearchComplete != null && (frmPeopleAddUpdate._PersonID_Back != -1
+                && frmPeopleAddUpdate._PersonID_Back != 0))
+                // Raise the event with a parameter
+                OnPersonSearchComplete(frmPeopleAddUpdate._PersonID_Back);
+
+
         }
     }
 }

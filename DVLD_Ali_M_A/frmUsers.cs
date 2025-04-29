@@ -169,7 +169,7 @@ namespace DVLD_Presentation
 
         private void btnUserAddNew_Click(object sender, EventArgs e)
         {
-            frmUsersAddUpdate frmUsersAddUpdate = new frmUsersAddUpdate(-1,-1);
+            frmUsersAddUpdate frmUsersAddUpdate = new frmUsersAddUpdate(-1, -1);
             frmUsersAddUpdate.ShowDialog();
             _RefreshUsersList();
         }
@@ -185,6 +185,13 @@ namespace DVLD_Presentation
         {
             frmUsersAddUpdate frmUsersAddUpdate = new frmUsersAddUpdate((int)dgvUsers.CurrentRow.Cells[1].Value, (int)dgvUsers.CurrentRow.Cells[0].Value);
             frmUsersAddUpdate.ShowDialog();
+            _RefreshUsersList();
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUsersShowDetails frmUsersShowDetails = new frmUsersShowDetails((int)dgvUsers.CurrentRow.Cells[1].Value, (int)dgvUsers.CurrentRow.Cells[0].Value);
+            frmUsersShowDetails.ShowDialog();
             _RefreshUsersList();
         }
     }

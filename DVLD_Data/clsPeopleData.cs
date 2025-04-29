@@ -436,6 +436,35 @@ namespace DVLD_Data
             return isLinked;
         }
 
+        public static bool IsPersonAUser(int PersonID)
+        {
+            bool isLinked = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"select  top 1 found = 1 
+         from Users where 
+         Users.PersonID = @PersonID ";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isLinked = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isLinked = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isLinked;
+        }
+
+
         public static bool IsPersonExist(int PersonID)
         {
             bool isFound = false;

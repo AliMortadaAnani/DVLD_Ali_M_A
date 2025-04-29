@@ -60,7 +60,6 @@
             // lblusername
             // 
             lblusername.AutoSize = false;
-            lblusername.Enabled = false;
             lblusername.Location = new Point(15, 100);
             lblusername.Name = "lblusername";
             lblusername.Size = new Size(158, 47);
@@ -73,7 +72,6 @@
             // lblpasswordconfirm
             // 
             lblpasswordconfirm.AutoSize = false;
-            lblpasswordconfirm.Enabled = false;
             lblpasswordconfirm.Location = new Point(15, 264);
             lblpasswordconfirm.Name = "lblpasswordconfirm";
             lblpasswordconfirm.Size = new Size(230, 47);
@@ -86,7 +84,6 @@
             // lblpassword
             // 
             lblpassword.AutoSize = false;
-            lblpassword.Enabled = false;
             lblpassword.Location = new Point(15, 182);
             lblpassword.Name = "lblpassword";
             lblpassword.Size = new Size(158, 47);
@@ -99,7 +96,6 @@
             // lblstatus
             // 
             lblstatus.AutoSize = false;
-            lblstatus.Enabled = false;
             lblstatus.Location = new Point(15, 347);
             lblstatus.Name = "lblstatus";
             lblstatus.Size = new Size(158, 47);
@@ -130,7 +126,7 @@
             tbpassword.StateNormal.Border.Rounding = 30F;
             tbpassword.StateNormal.Content.Color1 = Color.Black;
             tbpassword.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbpassword.TabIndex = 224;
+            tbpassword.TabIndex = 2;
             tbpassword.TextChanged += tbpassword_TextChanged;
             tbpassword.Validating += tbpassword_Validating;
             // 
@@ -155,7 +151,7 @@
             tbusername.StateNormal.Border.Rounding = 30F;
             tbusername.StateNormal.Content.Color1 = Color.Black;
             tbusername.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbusername.TabIndex = 225;
+            tbusername.TabIndex = 1;
             tbusername.Validating += tbusername_Validating;
             // 
             // tbpasswordconfirm
@@ -179,9 +175,10 @@
             tbpasswordconfirm.StateNormal.Border.Rounding = 30F;
             tbpasswordconfirm.StateNormal.Content.Color1 = Color.Black;
             tbpasswordconfirm.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbpasswordconfirm.TabIndex = 227;
+            tbpasswordconfirm.TabIndex = 3;
             tbpasswordconfirm.TextChanged += tbpasswordconfirm_TextChanged;
             tbpasswordconfirm.Validating += tbpasswordconfirm_Validating;
+            tbpasswordconfirm.Validated += tbpasswordconfirm_Validated;
             // 
             // cbisactive
             // 
@@ -193,13 +190,12 @@
             cbisactive.Size = new Size(217, 42);
             cbisactive.StateNormal.ShortText.Color1 = Color.DimGray;
             cbisactive.StateNormal.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            cbisactive.TabIndex = 228;
+            cbisactive.TabIndex = 4;
             cbisactive.Values.Text = "Active";
             // 
             // lbluserid
             // 
             lbluserid.AutoSize = false;
-            lbluserid.Enabled = false;
             lbluserid.Location = new Point(266, 18);
             lbluserid.Name = "lbluserid";
             lbluserid.Size = new Size(158, 47);
@@ -250,7 +246,7 @@
             btnUserSave.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnUserSave.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnUserSave.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUserSave.TabIndex = 230;
+            btnUserSave.TabIndex = 5;
             btnUserSave.Values.DropDownArrowColor = Color.Empty;
             btnUserSave.Values.Text = "Save";
             btnUserSave.Click += btnUserSave_Click;
@@ -277,7 +273,6 @@
             Controls.Add(lblid);
             Name = "ctrlUsersAddUpdate";
             Size = new Size(592, 506);
-         
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();

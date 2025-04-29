@@ -8,6 +8,13 @@ namespace DVLD_Presentation
 {
     public partial class ctrlPeopleAddUpdate : UserControl
     {
+
+        // Declare a delegate
+        public delegate void DataBackEventHandler(object sender, int PersonID);
+
+        // Declare an event using the delegate
+        public event DataBackEventHandler DataBack;
+
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode;
         private string _tempImagePath = "";
@@ -196,7 +203,13 @@ namespace DVLD_Presentation
 
 
             if (_Person.Save())
+               {
+
+                // Trigger the event to send data back to Form1
+                DataBack?.Invoke(this, _Person.ID);
                 MessageBox.Show("Person Saved Successfully.");
+                    
+               }
             else
                 MessageBox.Show("Error: Data Is not Saved Successfully.");
 

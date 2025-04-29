@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,18 @@ namespace DVLD_Presentation
 {
     public partial class frmUsersAddUpdate : Form
     {
+         int CurrentPersonId = -1;
         public frmUsersAddUpdate(int _PersonID,int _UserID)
         {
             InitializeComponent();
             ctrlPeopleShowDetails._PersonID = _PersonID;
             ctrlUsersAddUpdate._UserID = _UserID;
+            
+           if (_PersonID != -1 && _UserID != -1)
+            {
+                ctrlPersonFilter1.Enabled = false;
+                ctrlPersonFilter1.Visible = false;
+            }
         }
 
         private bool AllowTabChange = false;
@@ -41,10 +49,22 @@ namespace DVLD_Presentation
         {
             ctrlPeopleShowDetails._PersonID = obj;
             ctrlPeopleShowDetails1._LoadData();
+            CurrentPersonId = obj;
         }
 
         private void btnUserNext_Click(object sender, EventArgs e)
         {
+            if (ctrlPeopleShowDetails._PersonID == -1)
+            {
+                MessageBox.Show("You should choose an existing person!");
+                return;
+            }
+            else if (clsPeople.IsPersonUser(CurrentPersonId)
+                && ctrlUsersAddUpdate._UserID == -1 && ctrlPersonFilter1.Enabled == true)
+            {
+                MessageBox.Show("This person is already a user!");
+                return;
+            }
             AllowTabChange = true;
             tabUserControl.SelectedTab = pageUser;
             AllowTabChange = false;
@@ -52,6 +72,7 @@ namespace DVLD_Presentation
             btnUserNext.Enabled = false;
             btnUserBack.Visible = true;
             btnUserBack.Enabled = true;
+
         }
 
         private void tabUserControl_Selecting(object sender, TabControlCancelEventArgs e)
@@ -62,6 +83,8 @@ namespace DVLD_Presentation
 
         private void btnUserBack_Click(object sender, EventArgs e)
         {
+            ctrlPersonFilter1.Enabled = false;
+            ctrlPersonFilter1.Visible = false;
             AllowTabChange = true;
             tabUserControl.SelectedTab = pagePerson;
             AllowTabChange = false;
@@ -69,6 +92,8 @@ namespace DVLD_Presentation
             btnUserBack.Enabled = false;
             btnUserNext.Visible = true;
             btnUserNext.Enabled = true;
+
+
         }
     }
 }

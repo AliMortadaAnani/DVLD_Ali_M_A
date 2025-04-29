@@ -34,6 +34,7 @@
             mtbPersonFilterInput = new MaskedTextBox();
             cbPersonFilterBox = new Krypton.Toolkit.KryptonComboBox();
             lblFindBy = new Krypton.Toolkit.KryptonLabel();
+            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
             ((System.ComponentModel.ISupportInitialize)pnPeopleShowDetails).BeginInit();
             pnPeopleShowDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbPersonFilterBox).BeginInit();
@@ -46,9 +47,9 @@
             pnPeopleShowDetails.Controls.Add(mtbPersonFilterInput);
             pnPeopleShowDetails.Controls.Add(cbPersonFilterBox);
             pnPeopleShowDetails.Controls.Add(lblFindBy);
-            pnPeopleShowDetails.Location = new Point(3, 20);
+            pnPeopleShowDetails.Location = new Point(3, 45);
             pnPeopleShowDetails.Name = "pnPeopleShowDetails";
-            pnPeopleShowDetails.Size = new Size(1300, 106);
+            pnPeopleShowDetails.Size = new Size(1300, 103);
             pnPeopleShowDetails.StateNormal.Color1 = Color.Lavender;
             pnPeopleShowDetails.TabIndex = 1;
             // 
@@ -96,6 +97,7 @@
             btnPersonAddNew.TabIndex = 240;
             btnPersonAddNew.Values.DropDownArrowColor = Color.Empty;
             btnPersonAddNew.Values.Text = "Add New Person";
+            btnPersonAddNew.Click += btnPersonAddNew_Click;
             // 
             // btnPersonSearch
             // 
@@ -185,13 +187,26 @@
             lblFindBy.TabStop = false;
             lblFindBy.Values.Text = "Find By:";
             // 
+            // kryptonLabel1
+            // 
+            kryptonLabel1.AutoSize = false;
+            kryptonLabel1.Location = new Point(454, 0);
+            kryptonLabel1.Name = "kryptonLabel1";
+            kryptonLabel1.Size = new Size(396, 43);
+            kryptonLabel1.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            kryptonLabel1.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kryptonLabel1.TabIndex = 238;
+            kryptonLabel1.TabStop = false;
+            kryptonLabel1.Values.Text = "Filter for Person Information:";
+            // 
             // ctrlPersonFilter
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(kryptonLabel1);
             Controls.Add(pnPeopleShowDetails);
             Name = "ctrlPersonFilter";
-            Size = new Size(1313, 137);
+            Size = new Size(1313, 162);
             ((System.ComponentModel.ISupportInitialize)pnPeopleShowDetails).EndInit();
             pnPeopleShowDetails.ResumeLayout(false);
             pnPeopleShowDetails.PerformLayout();
@@ -207,5 +222,6 @@
         private MaskedTextBox mtbPersonFilterInput;
         private Krypton.Toolkit.KryptonButton btnPersonAddNew;
         private Krypton.Toolkit.KryptonButton btnPersonSearch;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
     }
 }
