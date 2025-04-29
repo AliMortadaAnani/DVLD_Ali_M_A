@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using Microsoft.Data.SqlClient;
-using DVLD_DataTypes;
+using DVLD_General;
 
 
 namespace DVLD_Data
@@ -139,6 +139,100 @@ namespace DVLD_Data
 
             return isFound;
         }
+
+
+        public static bool GetPersonInfoByNationalNumber(string NationalNb,ref int PersonID, ref string FirstName,
+            ref string SecondName, ref string ThirdName, ref string LastName,
+            ref DateTime DateOfBirth, ref enGender Gender, ref string Address,
+            ref string Phone, ref string Email, ref int NationalityCountryID,
+            ref string ImagePath)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM People WHERE NationalNb = @NationalNb";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@NationalNb", NationalNb);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    // The record was found
+                    isFound = true;
+
+                    PersonID = (int)reader["PersonID"];
+                    FirstName = (string)reader["FirstName"];
+                    SecondName = (string)reader["SecondName"];
+
+                    if (reader["ThirdName"] != DBNull.Value)
+                    {
+                        ThirdName = (string)reader["ThirdName"];
+                    }
+                    else
+                    {
+                        ThirdName = "";
+                    }
+
+                    LastName = (string)reader["LastName"];
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    //Gender = (enGender)(reader.GetByte("Gender"));
+                    Gender = (enGender)Convert.ToByte(reader["Gender"]);
+                    Address = (string)reader["Address"];
+                    Phone = (string)reader["Phone"];
+
+                    if (reader["Email"] != DBNull.Value)
+                    {
+                        Email = (string)reader["Email"];
+                    }
+                    else
+                    {
+                        Email = "";
+                    }
+
+                    NationalityCountryID = (int)reader["NationalityCountryID"];
+
+
+                    //ImagePath: allows null in database so we should handle null
+                    if (reader["ImagePath"] != DBNull.Value)
+                    {
+                        ImagePath = (string)reader["ImagePath"];
+                    }
+                    else
+                    {
+                        ImagePath = "";
+                    }
+
+                }
+                else
+                {
+                    // The record was not found
+                    isFound = false;
+                }
+
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
 
         public static int AddNewPerson(string NationalNb, string FirstName, string SecondName,
             string ThirdName, string LastName, DateTime DateOfBirth, enGender Gender,

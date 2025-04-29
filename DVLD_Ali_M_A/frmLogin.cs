@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,7 @@ namespace DVLD_Ali_M_A
 
         private void LoginPassword_TextChanged(object sender, EventArgs e)
         {
-            LoginPassword.UseSystemPasswordChar = true;
+            tbLoginPassword.UseSystemPasswordChar = true;
         }
 
 
@@ -32,7 +33,7 @@ namespace DVLD_Ali_M_A
         {
             if (e.KeyCode == Keys.Enter)
             {
-                LoginPassword.Focus();
+                tbLoginPassword.Focus();
                 e.SuppressKeyPress = true;  // Prevent the "ding" sound
             }
         }
@@ -42,7 +43,7 @@ namespace DVLD_Ali_M_A
             if (e.KeyCode == Keys.Enter)
 
             {
-                LoginRememberMe.Focus();
+                cbLoginRememberMe.Focus();
                 e.SuppressKeyPress = true;  // Prevent the "ding" sound
             }
         }
@@ -52,7 +53,7 @@ namespace DVLD_Ali_M_A
             if (e.KeyCode == Keys.Enter)
 
             {
-                LoginButton.Focus();
+                btnLoginButton.Focus();
                 e.SuppressKeyPress = true;  // Prevent the "ding" sound
             }
         }
@@ -62,17 +63,95 @@ namespace DVLD_Ali_M_A
             if (e.KeyCode == Keys.Enter)
 
             {
-                LoginButton.PerformClick();
+                btnLoginButton.PerformClick();
                 e.SuppressKeyPress = true;  // Prevent the "ding" sound
+            }
+        }
+
+        private void RememberMe(bool RememberMe, int ID)
+        {
+            if (RememberMe)
+            {
+                clsGlobalUser.SaveUserIdToFile(ID);
+            }
+            else
+            {
+                clsGlobalUser.SaveUserIdToFile(-1);
             }
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            frmMenu frm = new frmMenu();
-            frm.ShowDialog();
+            string username = tbLoginUsername.Text.Trim();
+            string password = tbLoginPassword.Text.Trim();
+
+
+
+
+            if (clsUser.IsUserExist(username, password))
+            {
+                clsGlobalUser.CurrentUser = clsUser.FindCurrentUser(username, password);
+                if (clsGlobalUser.CurrentUser.IsActive)
+                {
+                    RememberMe(cbLoginRememberMe.Checked, clsGlobalUser.CurrentUser.ID);
+                    frmMenu frmMenu = new frmMenu(this);
+                    frmMenu.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("This user is not active!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        
+        private void tbLoginUsername_Validating(object sender, CancelEventArgs e)
+        {
+            string username = tbLoginUsername.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                e.Cancel = true;
+                tbLoginUsername.Focus();
+                errorProvider1.SetError(tbLoginUsername, "Cannot be empty!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(tbLoginUsername, "");
+            }
+        }
+
+        private void tbLoginPassword_Validating(object sender, CancelEventArgs e)
+        {
+            string password = tbLoginPassword.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                e.Cancel = true;
+                tbLoginPassword.Focus();
+                errorProvider1.SetError(tbLoginPassword, "Cannot be empty!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(tbLoginPassword, "");
+            }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            if (clsGlobalUser.ReadUserIdFromFile() != -1)
+            {
+                clsGlobalUser.CurrentUser = clsUser.Find(clsGlobalUser.ReadUserIdFromFile());
+                tbLoginUsername.Text = clsGlobalUser.CurrentUser.UserName;
+                tbLoginPassword.Text = clsGlobalUser.CurrentUser.Password;
+                cbLoginRememberMe.Checked = true;
+            }
+            
+        }
     }
 }

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_Business", "..\DVLD_Bu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_Data", "..\DVLD_Data\DVLD_Data.csproj", "{CEF25ADB-24A8-4271-9438-7B7A58CAB727}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_DataTypes", "..\DVLD_DataTypes\DVLD_DataTypes.csproj", "{C74404BD-90B1-4FAE-9158-531DFFA0D20C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD_General", "..\DVLD_DataTypes\DVLD_General.csproj", "{C74404BD-90B1-4FAE-9158-531DFFA0D20C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

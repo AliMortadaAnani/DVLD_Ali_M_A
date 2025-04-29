@@ -1,5 +1,5 @@
 ﻿using DVLD_Data;
-using DVLD_DataTypes;
+using DVLD_General;
 using System.Data;
 
 
@@ -129,6 +129,21 @@ namespace DVLD_Business
 
             if (clsPeopleData.GetPersonInfoByID(ID, ref NationalNb, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
                 return new clsPeople(ID, NationalNb, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
+            else
+                return null;
+        }
+
+        public static clsPeople Find(string NationalNumber)
+        {
+            int id = -1;
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Email = "", Phone = "", Address = "", ImagePath = "";
+            DateTime DateOfBirth = DateTime.Now;
+            enGender Gender = enGender.Male;
+            int NationalityCountryID = -1;
+
+
+            if (clsPeopleData.GetPersonInfoByNationalNumber(NationalNumber, ref id, ref FirstName, ref SecondName, ref ThirdName, ref LastName, ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref NationalityCountryID, ref ImagePath))
+                return new clsPeople(id, NationalNumber, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
             else
                 return null;
         }

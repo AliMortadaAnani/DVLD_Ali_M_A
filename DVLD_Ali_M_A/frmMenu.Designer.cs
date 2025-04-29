@@ -30,128 +30,161 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
-            MenuPanel = new Krypton.Toolkit.KryptonPanel();
-            MenuSettings = new Krypton.Toolkit.KryptonLabel();
-            MenuUsers = new Krypton.Toolkit.KryptonLabel();
-            MenuDrivers = new Krypton.Toolkit.KryptonLabel();
-            MenuPeople = new Krypton.Toolkit.KryptonLabel();
-            MenuApplications = new Krypton.Toolkit.KryptonLabel();
-            MenuCancel = new Krypton.Toolkit.KryptonPictureBox();
+            pnMenuPanel = new Krypton.Toolkit.KryptonPanel();
+            lbMenuSettings = new Krypton.Toolkit.KryptonLabel();
+            lbMenuUsers = new Krypton.Toolkit.KryptonLabel();
+            lbMenuDrivers = new Krypton.Toolkit.KryptonLabel();
+            lbMenuPeople = new Krypton.Toolkit.KryptonLabel();
+            lbMenuApplications = new Krypton.Toolkit.KryptonLabel();
+            pbMenuCancel = new Krypton.Toolkit.KryptonPictureBox();
             toolTip1 = new ToolTip(components);
-            MenuTitle = new Krypton.Toolkit.KryptonLabel();
-            ((System.ComponentModel.ISupportInitialize)MenuPanel).BeginInit();
-            MenuPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)MenuCancel).BeginInit();
+            lbMenuTitle = new Krypton.Toolkit.KryptonLabel();
+            pbMenuCar = new Krypton.Toolkit.KryptonPictureBox();
+            pbMenuTest = new Krypton.Toolkit.KryptonPictureBox();
+            kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            ((System.ComponentModel.ISupportInitialize)pnMenuPanel).BeginInit();
+            pnMenuPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbMenuCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbMenuCar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbMenuTest).BeginInit();
             SuspendLayout();
             // 
-            // MenuPanel
+            // pnMenuPanel
             // 
-            MenuPanel.Controls.Add(MenuSettings);
-            MenuPanel.Controls.Add(MenuUsers);
-            MenuPanel.Controls.Add(MenuDrivers);
-            MenuPanel.Controls.Add(MenuPeople);
-            MenuPanel.Controls.Add(MenuApplications);
-            MenuPanel.Dock = DockStyle.Left;
-            MenuPanel.Location = new Point(0, 0);
-            MenuPanel.Name = "MenuPanel";
-            MenuPanel.Size = new Size(350, 981);
-            MenuPanel.StateNormal.Color1 = SystemColors.ControlText;
-            MenuPanel.StateNormal.Color2 = Color.DarkSlateBlue;
-            MenuPanel.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
-            MenuPanel.TabIndex = 200;
+            pnMenuPanel.Controls.Add(lbMenuSettings);
+            pnMenuPanel.Controls.Add(lbMenuUsers);
+            pnMenuPanel.Controls.Add(lbMenuDrivers);
+            pnMenuPanel.Controls.Add(lbMenuPeople);
+            pnMenuPanel.Controls.Add(lbMenuApplications);
+            pnMenuPanel.Dock = DockStyle.Left;
+            pnMenuPanel.Location = new Point(0, 0);
+            pnMenuPanel.Name = "pnMenuPanel";
+            pnMenuPanel.Size = new Size(350, 981);
+            pnMenuPanel.StateNormal.Color1 = SystemColors.ControlText;
+            pnMenuPanel.StateNormal.Color2 = Color.DarkSlateBlue;
+            pnMenuPanel.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
+            pnMenuPanel.TabIndex = 0;
+            pnMenuPanel.TabStop = true;
             // 
-            // MenuSettings
+            // lbMenuSettings
             // 
-            MenuSettings.AutoSize = false;
-            MenuSettings.Cursor = Cursors.Hand;
-            MenuSettings.Location = new Point(20, 741);
-            MenuSettings.Name = "MenuSettings";
-            MenuSettings.Size = new Size(347, 107);
-            MenuSettings.StateNormal.ShortText.Color1 = Color.Gainsboro;
-            MenuSettings.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MenuSettings.TabIndex = 104;
-            MenuSettings.TabStop = false;
-            MenuSettings.Values.Text = "Account Settings";
-            MenuSettings.Click += MenuSettings_Click;
+            lbMenuSettings.AutoSize = false;
+            lbMenuSettings.Cursor = Cursors.Hand;
+            lbMenuSettings.Location = new Point(20, 741);
+            lbMenuSettings.Name = "lbMenuSettings";
+            lbMenuSettings.Size = new Size(347, 107);
+            lbMenuSettings.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lbMenuSettings.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbMenuSettings.TabIndex = 5;
+            lbMenuSettings.Values.Text = "Account Settings";
+            lbMenuSettings.Click += MenuSettings_Click;
             // 
-            // MenuUsers
+            // lbMenuUsers
             // 
-            MenuUsers.AutoSize = false;
-            MenuUsers.Cursor = Cursors.Hand;
-            MenuUsers.Location = new Point(20, 565);
-            MenuUsers.Name = "MenuUsers";
-            MenuUsers.Size = new Size(330, 117);
-            MenuUsers.StateNormal.ShortText.Color1 = Color.Gainsboro;
-            MenuUsers.StateNormal.ShortText.Font = new Font("Trebuchet MS", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MenuUsers.TabIndex = 103;
-            MenuUsers.TabStop = false;
-            MenuUsers.Values.Text = "Users";
+            lbMenuUsers.AutoSize = false;
+            lbMenuUsers.Cursor = Cursors.Hand;
+            lbMenuUsers.Location = new Point(20, 565);
+            lbMenuUsers.Name = "lbMenuUsers";
+            lbMenuUsers.Size = new Size(330, 117);
+            lbMenuUsers.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lbMenuUsers.StateNormal.ShortText.Font = new Font("Trebuchet MS", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbMenuUsers.TabIndex = 4;
+            lbMenuUsers.Values.Text = "Users";
+            lbMenuUsers.Click += lbMenuUsers_Click;
             // 
-            // MenuDrivers
+            // lbMenuDrivers
             // 
-            MenuDrivers.AutoSize = false;
-            MenuDrivers.Cursor = Cursors.Hand;
-            MenuDrivers.Location = new Point(20, 389);
-            MenuDrivers.Name = "MenuDrivers";
-            MenuDrivers.Size = new Size(330, 117);
-            MenuDrivers.StateNormal.ShortText.Color1 = Color.Gainsboro;
-            MenuDrivers.StateNormal.ShortText.Font = new Font("Trebuchet MS", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MenuDrivers.TabIndex = 102;
-            MenuDrivers.TabStop = false;
-            MenuDrivers.Values.Text = "Drivers";
+            lbMenuDrivers.AutoSize = false;
+            lbMenuDrivers.Cursor = Cursors.Hand;
+            lbMenuDrivers.Location = new Point(20, 389);
+            lbMenuDrivers.Name = "lbMenuDrivers";
+            lbMenuDrivers.Size = new Size(330, 117);
+            lbMenuDrivers.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lbMenuDrivers.StateNormal.ShortText.Font = new Font("Trebuchet MS", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbMenuDrivers.TabIndex = 3;
+            lbMenuDrivers.Values.Text = "Drivers";
             // 
-            // MenuPeople
+            // lbMenuPeople
             // 
-            MenuPeople.AutoSize = false;
-            MenuPeople.Cursor = Cursors.Hand;
-            MenuPeople.Location = new Point(20, 203);
-            MenuPeople.Name = "MenuPeople";
-            MenuPeople.Size = new Size(330, 117);
-            MenuPeople.StateNormal.ShortText.Color1 = Color.Gainsboro;
-            MenuPeople.StateNormal.ShortText.Font = new Font("Trebuchet MS", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MenuPeople.TabIndex = 101;
-            MenuPeople.TabStop = false;
-            MenuPeople.Values.Text = "People";
-            MenuPeople.Click += MenuPeople_Click;
+            lbMenuPeople.AutoSize = false;
+            lbMenuPeople.Cursor = Cursors.Hand;
+            lbMenuPeople.Location = new Point(20, 203);
+            lbMenuPeople.Name = "lbMenuPeople";
+            lbMenuPeople.Size = new Size(330, 117);
+            lbMenuPeople.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lbMenuPeople.StateNormal.ShortText.Font = new Font("Trebuchet MS", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbMenuPeople.TabIndex = 2;
+            lbMenuPeople.Values.Text = "People";
+            lbMenuPeople.Click += MenuPeople_Click;
             // 
-            // MenuApplications
+            // lbMenuApplications
             // 
-            MenuApplications.AutoSize = false;
-            MenuApplications.Cursor = Cursors.Hand;
-            MenuApplications.Location = new Point(20, 36);
-            MenuApplications.Name = "MenuApplications";
-            MenuApplications.Size = new Size(330, 117);
-            MenuApplications.StateNormal.ShortText.Color1 = Color.Gainsboro;
-            MenuApplications.StateNormal.ShortText.Font = new Font("Trebuchet MS", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MenuApplications.TabIndex = 100;
-            MenuApplications.TabStop = false;
-            MenuApplications.Values.Text = "Applications";
+            lbMenuApplications.AutoSize = false;
+            lbMenuApplications.Cursor = Cursors.Hand;
+            lbMenuApplications.Location = new Point(20, 30);
+            lbMenuApplications.Name = "lbMenuApplications";
+            lbMenuApplications.Size = new Size(330, 117);
+            lbMenuApplications.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lbMenuApplications.StateNormal.ShortText.Font = new Font("Trebuchet MS", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbMenuApplications.TabIndex = 1;
+            lbMenuApplications.Values.Text = "Applications";
             // 
-            // MenuCancel
+            // pbMenuCancel
             // 
-            MenuCancel.Cursor = Cursors.Hand;
-            MenuCancel.Image = (Image)resources.GetObject("MenuCancel.Image");
-            MenuCancel.Location = new Point(1750, 30);
-            MenuCancel.Name = "MenuCancel";
-            MenuCancel.Size = new Size(150, 100);
-            MenuCancel.SizeMode = PictureBoxSizeMode.Zoom;
-            MenuCancel.TabIndex = 201;
-            MenuCancel.TabStop = false;
-            toolTip1.SetToolTip(MenuCancel, "Close");
-            MenuCancel.Click += MenuCancel_Click;
+            pbMenuCancel.Cursor = Cursors.Hand;
+            pbMenuCancel.Image = (Image)resources.GetObject("pbMenuCancel.Image");
+            pbMenuCancel.Location = new Point(1750, 30);
+            pbMenuCancel.Name = "pbMenuCancel";
+            pbMenuCancel.Size = new Size(150, 100);
+            pbMenuCancel.SizeMode = PictureBoxSizeMode.Zoom;
+            pbMenuCancel.TabIndex = 201;
+            pbMenuCancel.TabStop = false;
+            toolTip1.SetToolTip(pbMenuCancel, "Close");
+            pbMenuCancel.Click += MenuCancel_Click;
             // 
-            // MenuTitle
+            // lbMenuTitle
             // 
-            MenuTitle.AutoSize = false;
-            MenuTitle.Cursor = Cursors.Hand;
-            MenuTitle.Location = new Point(987, 0);
-            MenuTitle.Name = "MenuTitle";
-            MenuTitle.Size = new Size(226, 107);
-            MenuTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
-            MenuTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            MenuTitle.TabIndex = 210;
-            MenuTitle.TabStop = false;
-            MenuTitle.Values.Text = "Main Menu";
+            lbMenuTitle.AutoSize = false;
+            lbMenuTitle.Location = new Point(987, 0);
+            lbMenuTitle.Name = "lbMenuTitle";
+            lbMenuTitle.Size = new Size(226, 107);
+            lbMenuTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            lbMenuTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbMenuTitle.TabIndex = 210;
+            lbMenuTitle.TabStop = false;
+            lbMenuTitle.Values.Text = "Main Menu";
+            // 
+            // pbMenuCar
+            // 
+            pbMenuCar.Image = DVLD_Presentation.Properties.Resources.menu_car;
+            pbMenuCar.Location = new Point(1190, 559);
+            pbMenuCar.Name = "pbMenuCar";
+            pbMenuCar.Size = new Size(670, 406);
+            pbMenuCar.SizeMode = PictureBoxSizeMode.Zoom;
+            pbMenuCar.TabIndex = 237;
+            pbMenuCar.TabStop = false;
+            // 
+            // pbMenuTest
+            // 
+            pbMenuTest.Image = DVLD_Presentation.Properties.Resources.menu_license;
+            pbMenuTest.Location = new Point(1190, 158);
+            pbMenuTest.Name = "pbMenuTest";
+            pbMenuTest.Size = new Size(670, 379);
+            pbMenuTest.SizeMode = PictureBoxSizeMode.Zoom;
+            pbMenuTest.TabIndex = 238;
+            pbMenuTest.TabStop = false;
+            // 
+            // kryptonLabel1
+            // 
+            kryptonLabel1.AutoSize = false;
+            kryptonLabel1.Location = new Point(429, 104);
+            kryptonLabel1.Name = "kryptonLabel1";
+            kryptonLabel1.Size = new Size(686, 386);
+            kryptonLabel1.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            kryptonLabel1.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kryptonLabel1.TabIndex = 239;
+            kryptonLabel1.TabStop = false;
+            kryptonLabel1.Values.Text = "Welcome to Drivers && Vehicules\r\nLicenses Department System.\r\n\r\n\r\nPlease choose a section\r\nfrom the left panel.";
             // 
             // frmMenu
             // 
@@ -159,29 +192,37 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1946, 981);
-            Controls.Add(MenuTitle);
-            Controls.Add(MenuCancel);
-            Controls.Add(MenuPanel);
+            Controls.Add(kryptonLabel1);
+            Controls.Add(pbMenuTest);
+            Controls.Add(pbMenuCar);
+            Controls.Add(lbMenuTitle);
+            Controls.Add(pbMenuCancel);
+            Controls.Add(pnMenuPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmMenu";
             Text = "frmMenu";
             WindowState = FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)MenuPanel).EndInit();
-            MenuPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)MenuCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pnMenuPanel).EndInit();
+            pnMenuPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbMenuCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbMenuCar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbMenuTest).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Krypton.Toolkit.KryptonPanel MenuPanel;
-        private Krypton.Toolkit.KryptonLabel MenuSettings;
-        private Krypton.Toolkit.KryptonLabel MenuUsers;
-        private Krypton.Toolkit.KryptonLabel MenuDrivers;
-        private Krypton.Toolkit.KryptonLabel MenuPeople;
-        private Krypton.Toolkit.KryptonLabel MenuApplications;
-        private Krypton.Toolkit.KryptonPictureBox MenuCancel;
+        private Krypton.Toolkit.KryptonPanel pnMenuPanel;
+        private Krypton.Toolkit.KryptonLabel lbMenuSettings;
+        private Krypton.Toolkit.KryptonLabel lbMenuUsers;
+        private Krypton.Toolkit.KryptonLabel lbMenuDrivers;
+        private Krypton.Toolkit.KryptonLabel lbMenuPeople;
+        private Krypton.Toolkit.KryptonLabel lbMenuApplications;
+        private Krypton.Toolkit.KryptonPictureBox pbMenuCancel;
         private ToolTip toolTip1;
-        private Krypton.Toolkit.KryptonLabel MenuTitle;
+        private Krypton.Toolkit.KryptonLabel lbMenuTitle;
+        private Krypton.Toolkit.KryptonPictureBox pbMenuCar;
+        private Krypton.Toolkit.KryptonPictureBox pbMenuTest;
+        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
     }
 }

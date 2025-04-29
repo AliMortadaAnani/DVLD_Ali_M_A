@@ -78,7 +78,7 @@
             pnPeopleShowDetails.Controls.Add(lblid);
             pnPeopleShowDetails.Location = new Point(14, 16);
             pnPeopleShowDetails.Name = "pnPeopleShowDetails";
-            pnPeopleShowDetails.Size = new Size(1257, 769);
+            pnPeopleShowDetails.Size = new Size(1300, 699);
             pnPeopleShowDetails.StateNormal.Color1 = Color.Lavender;
             pnPeopleShowDetails.TabIndex = 0;
             // 
@@ -142,12 +142,12 @@
             // 
             lblPaddress.Location = new Point(147, 629);
             lblPaddress.Name = "lblPaddress";
-            lblPaddress.Size = new Size(153, 39);
+            lblPaddress.Size = new Size(6, 2);
             lblPaddress.StateNormal.ShortText.Color1 = Color.DarkSlateBlue;
             lblPaddress.StateNormal.ShortText.Font = new Font("Trebuchet MS", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPaddress.TabIndex = 235;
             lblPaddress.TabStop = false;
-            lblPaddress.Values.Text = "Address...";
+            lblPaddress.Values.Text = "";
             // 
             // lblPphone
             // 
@@ -159,18 +159,18 @@
             lblPphone.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPphone.TabIndex = 234;
             lblPphone.TabStop = false;
-            lblPphone.Values.Text = "099099";
+            lblPphone.Values.Text = "";
             // 
             // lblPemail
             // 
             lblPemail.Location = new Point(126, 481);
             lblPemail.Name = "lblPemail";
-            lblPemail.Size = new Size(89, 39);
+            lblPemail.Size = new Size(6, 2);
             lblPemail.StateNormal.ShortText.Color1 = Color.DarkSlateBlue;
             lblPemail.StateNormal.ShortText.Font = new Font("Trebuchet MS", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPemail.TabIndex = 233;
             lblPemail.TabStop = false;
-            lblPemail.Values.Text = "Email";
+            lblPemail.Values.Text = "";
             // 
             // lblPdateofbirth
             // 
@@ -182,7 +182,7 @@
             lblPdateofbirth.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPdateofbirth.TabIndex = 232;
             lblPdateofbirth.TabStop = false;
-            lblPdateofbirth.Values.Text = "10/4/2003";
+            lblPdateofbirth.Values.Text = "";
             // 
             // lblPcountry
             // 
@@ -194,7 +194,7 @@
             lblPcountry.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPcountry.TabIndex = 231;
             lblPcountry.TabStop = false;
-            lblPcountry.Values.Text = "leb";
+            lblPcountry.Values.Text = "";
             // 
             // lblPgender
             // 
@@ -206,7 +206,7 @@
             lblPgender.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPgender.TabIndex = 230;
             lblPgender.TabStop = false;
-            lblPgender.Values.Text = "male";
+            lblPgender.Values.Text = "";
             // 
             // lblPnationalnb
             // 
@@ -218,18 +218,18 @@
             lblPnationalnb.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPnationalnb.TabIndex = 229;
             lblPnationalnb.TabStop = false;
-            lblPnationalnb.Values.Text = "nb";
+            lblPnationalnb.Values.Text = "";
             // 
             // lblPname
             // 
             lblPname.Location = new Point(137, 111);
             lblPname.Name = "lblPname";
-            lblPname.Size = new Size(92, 39);
+            lblPname.Size = new Size(6, 2);
             lblPname.StateNormal.ShortText.Color1 = Color.DarkSlateBlue;
             lblPname.StateNormal.ShortText.Font = new Font("Trebuchet MS", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPname.TabIndex = 228;
             lblPname.TabStop = false;
-            lblPname.Values.Text = "Name";
+            lblPname.Values.Text = "";
             // 
             // lblPid
             // 
@@ -241,7 +241,7 @@
             lblPid.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblPid.TabIndex = 227;
             lblPid.TabStop = false;
-            lblPid.Values.Text = "id";
+            lblPid.Values.Text = "";
             // 
             // lblcountry
             // 
@@ -358,7 +358,7 @@
             BackColor = Color.Gainsboro;
             Controls.Add(pnPeopleShowDetails);
             Name = "ctrlPeopleShowDetails";
-            Size = new Size(1295, 800);
+            Size = new Size(1324, 724);
             Load += ctrlPeopleShowDetails_Load;
             ((System.ComponentModel.ISupportInitialize)pnPeopleShowDetails).EndInit();
             pnPeopleShowDetails.ResumeLayout(false);

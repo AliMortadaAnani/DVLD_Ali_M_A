@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,13 @@ using System.Windows.Forms;
 namespace DVLD_Ali_M_A
 {
     public partial class frmAccountSettings : Form
-    {
-        public frmAccountSettings()
+    {   
+        public frmMenu frmMenu;
+
+        public frmAccountSettings(frmMenu frmMenu)
         {
             InitializeComponent();
+            this.frmMenu = frmMenu;
         }
 
         private void SettingsCancel_Click(object sender, EventArgs e)
@@ -35,8 +39,14 @@ namespace DVLD_Ali_M_A
 
         private void SettingsSignOut_Click(object sender, EventArgs e)
         {
+            clsGlobalUser.CurrentUser = null; // Clear the current user
+            clsGlobalUser.SaveUserIdToFile(-1); // Clear the saved user ID
             
-            MessageBox.Show("You have been signed out successfully.", "Sign Out", MessageBoxButtons.OK, MessageBoxIcon.Information);    
+            this.Close(); // Close the settings form
+            frmMenu?.Close(); // Close the menu form    
+           
+
+
         }
     }
 }

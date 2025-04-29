@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_Presentation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace DVLD_Ali_M_A
 {
     public partial class frmMenu : Form
     {
-        public frmMenu()
+        public frmLogin loginForm;
+        public frmMenu(frmLogin loginForm)
         {
             InitializeComponent();
+            this.loginForm = loginForm;
         }
 
         private void MenuCancel_Click(object sender, EventArgs e)
@@ -25,18 +28,26 @@ namespace DVLD_Ali_M_A
         private void MenuPeople_Click(object sender, EventArgs e)
         {
             frmPeople people = new frmPeople();
-            MenuPeople.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
+            lbMenuPeople.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
             people.ShowDialog();
-            MenuPeople.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lbMenuPeople.StateNormal.ShortText.Color1 = Color.Gainsboro;
         }
 
         private void MenuSettings_Click(object sender, EventArgs e)
-        {   
-            
-            frmAccountSettings settings = new frmAccountSettings();
-            MenuSettings.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
+        {
+
+            frmAccountSettings settings = new frmAccountSettings(this);
+            lbMenuSettings.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
             settings.ShowDialog();
-            MenuSettings.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lbMenuSettings.StateNormal.ShortText.Color1 = Color.Gainsboro;
+        }
+
+        private void lbMenuUsers_Click(object sender, EventArgs e)
+        {
+            frmUsers users = new frmUsers();
+            lbMenuUsers.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
+            users.ShowDialog();
+            lbMenuUsers.StateNormal.ShortText.Color1 = Color.Gainsboro;
         }
     }
 }

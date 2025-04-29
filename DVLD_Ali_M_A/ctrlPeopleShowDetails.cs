@@ -1,5 +1,5 @@
 ﻿using DVLD_Business;
-using DVLD_DataTypes;
+using DVLD_General;
 using DVLD_Presentation.Properties;
 
 namespace DVLD_Presentation
@@ -39,13 +39,14 @@ namespace DVLD_Presentation
             }
         }
 
-        private void _LoadData()
+        public void _LoadData()
         {
-           if(_PersonID <= 0)
+            if (_PersonID <= 0)
             {
+                btnPeopleEdit.Enabled = false;
                 return;
             }
-
+            btnPeopleEdit.Enabled = true;
             _Person = clsPeople.Find(_PersonID);
 
             if (_Person == null)
@@ -71,22 +72,27 @@ namespace DVLD_Presentation
             if (!string.IsNullOrEmpty(_Person.ImagePath) && System.IO.File.Exists(ctrlPeopleAddUpdate.MyImage(_Person.ImagePath)))
             {
 
-                pbPeopleDetails.Load(ctrlPeopleAddUpdate.MyImage(_Person.ImagePath));
+                using (var img = System.Drawing.Image.FromFile(ctrlPeopleAddUpdate.MyImage(_Person.ImagePath)))
+                {
+                    pbPeopleDetails.Image = new Bitmap(img); // Copy image, release lock
+                }
 
             }
             else
-            {   
+            {
                 if (lblPgender.Text == "female")
-                pbPeopleDetails.Image = Resources.female;
+                    pbPeopleDetails.Image = Resources.female;
+                if (lblPgender.Text == "male")
+                    pbPeopleDetails.Image = Resources.male3;
             }
-            
+
         }
 
         private void btnPeopleEdit_Click(object sender, EventArgs e)
         {
             frmPeopleAddUpdate frmPeopleAddUpdate = new frmPeopleAddUpdate(_PersonID);
             frmPeopleAddUpdate.ShowDialog();
-            
+            _LoadData();
         }
     }
 }

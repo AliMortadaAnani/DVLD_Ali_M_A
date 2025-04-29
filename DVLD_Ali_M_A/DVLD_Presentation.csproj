@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DVLD_Business\DVLD_Business.csproj" />
-    <ProjectReference Include="..\DVLD_DataTypes\DVLD_DataTypes.csproj" />
+    <ProjectReference Include="..\DVLD_DataTypes\DVLD_General.csproj" />
   </ItemGroup>
 
   <ItemGroup>

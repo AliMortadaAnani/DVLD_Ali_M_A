@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace DVLD_DataTypes
+namespace DVLD_General
 {
 
     public enum enGender

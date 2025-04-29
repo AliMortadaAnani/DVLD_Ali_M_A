@@ -30,243 +30,253 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            LoginTitle = new Krypton.Toolkit.KryptonLabel();
-            LoginCancel = new Krypton.Toolkit.KryptonPictureBox();
+            lbLoginTitle = new Krypton.Toolkit.KryptonLabel();
+            pbLoginCancel = new Krypton.Toolkit.KryptonPictureBox();
             toolTip1 = new ToolTip(components);
-            LoginPanel = new Krypton.Toolkit.KryptonPanel();
-            LoginPassword = new Krypton.Toolkit.KryptonTextBox();
-            LoginPasswordImg = new Krypton.Toolkit.KryptonPictureBox();
-            LoginButton = new Krypton.Toolkit.KryptonButton();
-            LoginUsername = new Krypton.Toolkit.KryptonTextBox();
-            LoginEmailImg = new Krypton.Toolkit.KryptonPictureBox();
-            LoginRememberMe = new Krypton.Toolkit.KryptonCheckBox();
-            LoginFormTitle = new Krypton.Toolkit.KryptonLabel();
-            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
-            LoginLine1 = new Krypton.Toolkit.KryptonButton();
-            LoginGroup = new Krypton.Toolkit.KryptonGroupBox();
-            ((System.ComponentModel.ISupportInitialize)LoginCancel).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)LoginPanel).BeginInit();
-            LoginPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)LoginPasswordImg).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)LoginEmailImg).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)LoginGroup).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)LoginGroup.Panel).BeginInit();
+            pnLoginPanel = new Krypton.Toolkit.KryptonPanel();
+            tbLoginPassword = new Krypton.Toolkit.KryptonTextBox();
+            pbLoginPasswordImg = new Krypton.Toolkit.KryptonPictureBox();
+            btnLoginButton = new Krypton.Toolkit.KryptonButton();
+            tbLoginUsername = new Krypton.Toolkit.KryptonTextBox();
+            pbLoginEmailImg = new Krypton.Toolkit.KryptonPictureBox();
+            cbLoginRememberMe = new Krypton.Toolkit.KryptonCheckBox();
+            lbLoginFormTitle = new Krypton.Toolkit.KryptonLabel();
+            btnLoginLine2 = new Krypton.Toolkit.KryptonButton();
+            btnLoginLine1 = new Krypton.Toolkit.KryptonButton();
+            gbLoginGroup = new Krypton.Toolkit.KryptonGroupBox();
+            errorProvider1 = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)pbLoginCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pnLoginPanel).BeginInit();
+            pnLoginPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbLoginPasswordImg).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbLoginEmailImg).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gbLoginGroup).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gbLoginGroup.Panel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
-            // LoginTitle
+            // lbLoginTitle
             // 
-            LoginTitle.AutoSize = false;
-            LoginTitle.Location = new Point(115, 27);
-            LoginTitle.Name = "LoginTitle";
-            LoginTitle.Size = new Size(770, 263);
-            LoginTitle.StateNormal.ShortText.Color1 = Color.Gainsboro;
-            LoginTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginTitle.TabIndex = 99;
-            LoginTitle.TabStop = false;
-            LoginTitle.Values.Text = "Drivers && Vehicules \r\nLicenses Department\r\nSystem";
+            lbLoginTitle.AutoSize = false;
+            lbLoginTitle.Location = new Point(115, 27);
+            lbLoginTitle.Name = "lbLoginTitle";
+            lbLoginTitle.Size = new Size(770, 263);
+            lbLoginTitle.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lbLoginTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbLoginTitle.TabIndex = 99;
+            lbLoginTitle.TabStop = false;
+            lbLoginTitle.Values.Text = "Drivers && Vehicules \r\nLicenses Department\r\nSystem";
             // 
-            // LoginCancel
+            // pbLoginCancel
             // 
-            LoginCancel.Cursor = Cursors.Hand;
-            LoginCancel.Image = (Image)resources.GetObject("LoginCancel.Image");
-            LoginCancel.Location = new Point(1750, 30);
-            LoginCancel.Name = "LoginCancel";
-            LoginCancel.Size = new Size(150, 100);
-            LoginCancel.SizeMode = PictureBoxSizeMode.Zoom;
-            LoginCancel.TabIndex = 100;
-            LoginCancel.TabStop = false;
-            toolTip1.SetToolTip(LoginCancel, "Close");
-            LoginCancel.Click += LoginCancel_Click;
+            pbLoginCancel.Cursor = Cursors.Hand;
+            pbLoginCancel.Image = (Image)resources.GetObject("pbLoginCancel.Image");
+            pbLoginCancel.Location = new Point(1750, 30);
+            pbLoginCancel.Name = "pbLoginCancel";
+            pbLoginCancel.Size = new Size(150, 100);
+            pbLoginCancel.SizeMode = PictureBoxSizeMode.Zoom;
+            pbLoginCancel.TabIndex = 100;
+            pbLoginCancel.TabStop = false;
+            toolTip1.SetToolTip(pbLoginCancel, "Close");
+            pbLoginCancel.Click += LoginCancel_Click;
             // 
-            // LoginPanel
+            // pnLoginPanel
             // 
-            LoginPanel.Controls.Add(LoginPassword);
-            LoginPanel.Controls.Add(LoginPasswordImg);
-            LoginPanel.Controls.Add(LoginButton);
-            LoginPanel.Controls.Add(LoginUsername);
-            LoginPanel.Controls.Add(LoginEmailImg);
-            LoginPanel.Controls.Add(LoginRememberMe);
-            LoginPanel.Controls.Add(LoginFormTitle);
-            LoginPanel.Controls.Add(kryptonButton1);
-            LoginPanel.Controls.Add(LoginLine1);
-            LoginPanel.Controls.Add(LoginCancel);
-            LoginPanel.Controls.Add(LoginTitle);
-            LoginPanel.Controls.Add(LoginGroup);
-            LoginPanel.Dock = DockStyle.Fill;
-            LoginPanel.Location = new Point(0, 0);
-            LoginPanel.Name = "LoginPanel";
-            LoginPanel.Size = new Size(1902, 1028);
-            LoginPanel.StateNormal.Color1 = Color.DarkSlateBlue;
-            LoginPanel.StateNormal.Color2 = Color.Black;
-            LoginPanel.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
-            LoginPanel.TabIndex = 102;
+            pnLoginPanel.Controls.Add(tbLoginPassword);
+            pnLoginPanel.Controls.Add(pbLoginPasswordImg);
+            pnLoginPanel.Controls.Add(btnLoginButton);
+            pnLoginPanel.Controls.Add(tbLoginUsername);
+            pnLoginPanel.Controls.Add(pbLoginEmailImg);
+            pnLoginPanel.Controls.Add(cbLoginRememberMe);
+            pnLoginPanel.Controls.Add(lbLoginFormTitle);
+            pnLoginPanel.Controls.Add(btnLoginLine2);
+            pnLoginPanel.Controls.Add(btnLoginLine1);
+            pnLoginPanel.Controls.Add(pbLoginCancel);
+            pnLoginPanel.Controls.Add(lbLoginTitle);
+            pnLoginPanel.Controls.Add(gbLoginGroup);
+            pnLoginPanel.Dock = DockStyle.Fill;
+            pnLoginPanel.Location = new Point(0, 0);
+            pnLoginPanel.Name = "pnLoginPanel";
+            pnLoginPanel.Size = new Size(1902, 1028);
+            pnLoginPanel.StateNormal.Color1 = Color.DarkSlateBlue;
+            pnLoginPanel.StateNormal.Color2 = Color.Black;
+            pnLoginPanel.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
+            pnLoginPanel.TabIndex = 102;
             // 
-            // LoginPassword
+            // tbLoginPassword
             // 
-            LoginPassword.Location = new Point(841, 614);
-            LoginPassword.Name = "LoginPassword";
-            LoginPassword.Size = new Size(432, 68);
-            LoginPassword.StateActive.Back.Color1 = Color.DarkSlateBlue;
-            LoginPassword.StateActive.Border.Color1 = Color.Gainsboro;
-            LoginPassword.StateActive.Border.Rounding = 50F;
-            LoginPassword.StateActive.Content.Color1 = Color.Gainsboro;
-            LoginPassword.StateActive.Content.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LoginPassword.StateCommon.Back.Color1 = Color.Transparent;
-            LoginPassword.StateCommon.Border.Rounding = 50F;
-            LoginPassword.StateDisabled.Back.Color1 = Color.Transparent;
-            LoginPassword.StateDisabled.Border.Rounding = 50F;
-            LoginPassword.StateNormal.Back.Color1 = Color.Transparent;
-            LoginPassword.StateNormal.Border.Rounding = 50F;
-            LoginPassword.TabIndex = 1;
-            LoginPassword.Text = "Password";
-            LoginPassword.TextChanged += LoginPassword_TextChanged;
-            LoginPassword.KeyDown += LoginPassword_KeyDown;
+            tbLoginPassword.Location = new Point(841, 614);
+            tbLoginPassword.Name = "tbLoginPassword";
+            tbLoginPassword.Size = new Size(432, 68);
+            tbLoginPassword.StateActive.Back.Color1 = Color.DarkSlateBlue;
+            tbLoginPassword.StateActive.Border.Color1 = Color.Gainsboro;
+            tbLoginPassword.StateActive.Border.Rounding = 50F;
+            tbLoginPassword.StateActive.Content.Color1 = Color.Gainsboro;
+            tbLoginPassword.StateActive.Content.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbLoginPassword.StateCommon.Back.Color1 = Color.Transparent;
+            tbLoginPassword.StateCommon.Border.Rounding = 50F;
+            tbLoginPassword.StateDisabled.Back.Color1 = Color.Transparent;
+            tbLoginPassword.StateDisabled.Border.Rounding = 50F;
+            tbLoginPassword.StateNormal.Back.Color1 = Color.Transparent;
+            tbLoginPassword.StateNormal.Border.Rounding = 50F;
+            tbLoginPassword.TabIndex = 1;
+            tbLoginPassword.Text = "Password";
+            tbLoginPassword.TextChanged += LoginPassword_TextChanged;
+            tbLoginPassword.KeyDown += LoginPassword_KeyDown;
+            tbLoginPassword.Validating += tbLoginPassword_Validating;
             // 
-            // LoginPasswordImg
+            // pbLoginPasswordImg
             // 
-            LoginPasswordImg.Image = DVLD_Presentation.Properties.Resources.password;
-            LoginPasswordImg.Location = new Point(708, 614);
-            LoginPasswordImg.Name = "LoginPasswordImg";
-            LoginPasswordImg.Size = new Size(150, 75);
-            LoginPasswordImg.SizeMode = PictureBoxSizeMode.Zoom;
-            LoginPasswordImg.TabIndex = 109;
-            LoginPasswordImg.TabStop = false;
+            pbLoginPasswordImg.Image = DVLD_Presentation.Properties.Resources.password;
+            pbLoginPasswordImg.Location = new Point(708, 614);
+            pbLoginPasswordImg.Name = "pbLoginPasswordImg";
+            pbLoginPasswordImg.Size = new Size(150, 75);
+            pbLoginPasswordImg.SizeMode = PictureBoxSizeMode.Zoom;
+            pbLoginPasswordImg.TabIndex = 109;
+            pbLoginPasswordImg.TabStop = false;
             // 
-            // LoginButton
+            // btnLoginButton
             // 
-            LoginButton.Location = new Point(884, 851);
-            LoginButton.Name = "LoginButton";
-            LoginButton.OverrideDefault.Back.Color1 = Color.Silver;
-            LoginButton.OverrideDefault.Border.Rounding = 50F;
-            LoginButton.OverrideFocus.Back.Color1 = Color.Silver;
-            LoginButton.OverrideFocus.Border.Rounding = 50F;
-            LoginButton.Size = new Size(203, 73);
-            LoginButton.StateDisabled.Back.Color1 = Color.Silver;
-            LoginButton.StateDisabled.Border.Rounding = 50F;
-            LoginButton.StateNormal.Back.Color1 = Color.Silver;
-            LoginButton.StateNormal.Back.Color2 = Color.Silver;
-            LoginButton.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            LoginButton.StateNormal.Border.Rounding = 50F;
-            LoginButton.StateNormal.Content.ShortText.Color1 = Color.DimGray;
-            LoginButton.StateNormal.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginButton.StatePressed.Back.Color1 = Color.Silver;
-            LoginButton.StatePressed.Back.Color2 = Color.Silver;
-            LoginButton.StatePressed.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
-            LoginButton.StatePressed.Border.Color1 = Color.Gainsboro;
-            LoginButton.StatePressed.Border.Color2 = Color.Gainsboro;
-            LoginButton.StatePressed.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            LoginButton.StatePressed.Border.Draw = Krypton.Toolkit.InheritBool.True;
-            LoginButton.StatePressed.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
-            LoginButton.StatePressed.Border.Rounding = 50F;
-            LoginButton.StatePressed.Content.ShortText.Color1 = Color.DimGray;
-            LoginButton.StatePressed.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginButton.StateTracking.Back.Color1 = Color.Silver;
-            LoginButton.StateTracking.Back.Color2 = Color.Silver;
-            LoginButton.StateTracking.Back.Draw = Krypton.Toolkit.InheritBool.True;
-            LoginButton.StateTracking.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
-            LoginButton.StateTracking.Border.Color1 = Color.Gainsboro;
-            LoginButton.StateTracking.Border.Color2 = Color.Gainsboro;
-            LoginButton.StateTracking.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
-            LoginButton.StateTracking.Border.Rounding = 50F;
-            LoginButton.StateTracking.Content.Draw = Krypton.Toolkit.InheritBool.True;
-            LoginButton.StateTracking.Content.DrawFocus = Krypton.Toolkit.InheritBool.False;
-            LoginButton.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
-            LoginButton.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
-            LoginButton.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginButton.TabIndex = 4;
-            LoginButton.Values.DropDownArrowColor = Color.Empty;
-            LoginButton.Values.Text = "Login";
-            LoginButton.Click += LoginButton_Click;
-            LoginButton.KeyDown += LoginButton_KeyDown;
+            btnLoginButton.Cursor = Cursors.Hand;
+            btnLoginButton.Location = new Point(884, 851);
+            btnLoginButton.Name = "btnLoginButton";
+            btnLoginButton.OverrideDefault.Back.Color1 = Color.Silver;
+            btnLoginButton.OverrideDefault.Border.Rounding = 50F;
+            btnLoginButton.OverrideFocus.Back.Color1 = Color.Silver;
+            btnLoginButton.OverrideFocus.Border.Rounding = 50F;
+            btnLoginButton.Size = new Size(203, 73);
+            btnLoginButton.StateDisabled.Back.Color1 = Color.Silver;
+            btnLoginButton.StateDisabled.Border.Rounding = 50F;
+            btnLoginButton.StateNormal.Back.Color1 = Color.Silver;
+            btnLoginButton.StateNormal.Back.Color2 = Color.Silver;
+            btnLoginButton.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            btnLoginButton.StateNormal.Border.Rounding = 50F;
+            btnLoginButton.StateNormal.Content.ShortText.Color1 = Color.DimGray;
+            btnLoginButton.StateNormal.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLoginButton.StatePressed.Back.Color1 = Color.Silver;
+            btnLoginButton.StatePressed.Back.Color2 = Color.Silver;
+            btnLoginButton.StatePressed.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            btnLoginButton.StatePressed.Border.Color1 = Color.Gainsboro;
+            btnLoginButton.StatePressed.Border.Color2 = Color.Gainsboro;
+            btnLoginButton.StatePressed.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            btnLoginButton.StatePressed.Border.Draw = Krypton.Toolkit.InheritBool.True;
+            btnLoginButton.StatePressed.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            btnLoginButton.StatePressed.Border.Rounding = 50F;
+            btnLoginButton.StatePressed.Content.ShortText.Color1 = Color.DimGray;
+            btnLoginButton.StatePressed.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLoginButton.StateTracking.Back.Color1 = Color.Silver;
+            btnLoginButton.StateTracking.Back.Color2 = Color.Silver;
+            btnLoginButton.StateTracking.Back.Draw = Krypton.Toolkit.InheritBool.True;
+            btnLoginButton.StateTracking.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            btnLoginButton.StateTracking.Border.Color1 = Color.Gainsboro;
+            btnLoginButton.StateTracking.Border.Color2 = Color.Gainsboro;
+            btnLoginButton.StateTracking.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            btnLoginButton.StateTracking.Border.Rounding = 50F;
+            btnLoginButton.StateTracking.Content.Draw = Krypton.Toolkit.InheritBool.True;
+            btnLoginButton.StateTracking.Content.DrawFocus = Krypton.Toolkit.InheritBool.False;
+            btnLoginButton.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
+            btnLoginButton.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
+            btnLoginButton.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLoginButton.TabIndex = 4;
+            btnLoginButton.Values.DropDownArrowColor = Color.Empty;
+            btnLoginButton.Values.Text = "Login";
+            btnLoginButton.Click += LoginButton_Click;
+            btnLoginButton.KeyDown += LoginButton_KeyDown;
             // 
-            // LoginUsername
+            // tbLoginUsername
             // 
-            LoginUsername.Location = new Point(841, 466);
-            LoginUsername.Name = "LoginUsername";
-            LoginUsername.Size = new Size(432, 68);
-            LoginUsername.StateActive.Back.Color1 = Color.DarkSlateBlue;
-            LoginUsername.StateActive.Border.Color1 = Color.Gainsboro;
-            LoginUsername.StateActive.Border.Rounding = 50F;
-            LoginUsername.StateActive.Content.Color1 = Color.Gainsboro;
-            LoginUsername.StateActive.Content.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LoginUsername.StateCommon.Back.Color1 = Color.Transparent;
-            LoginUsername.StateCommon.Border.Color1 = Color.Gainsboro;
-            LoginUsername.StateCommon.Border.Rounding = 50F;
-            LoginUsername.StateDisabled.Back.Color1 = Color.Transparent;
-            LoginUsername.StateDisabled.Border.Color1 = Color.Gainsboro;
-            LoginUsername.StateDisabled.Border.Rounding = 50F;
-            LoginUsername.StateNormal.Back.Color1 = Color.Transparent;
-            LoginUsername.StateNormal.Border.Color1 = Color.Gainsboro;
-            LoginUsername.StateNormal.Border.Rounding = 50F;
-            LoginUsername.TabIndex = 0;
-            LoginUsername.Text = "Username";
-            LoginUsername.KeyDown += LoginUsername_KeyDown;
+            tbLoginUsername.Location = new Point(841, 466);
+            tbLoginUsername.Name = "tbLoginUsername";
+            tbLoginUsername.Size = new Size(432, 68);
+            tbLoginUsername.StateActive.Back.Color1 = Color.DarkSlateBlue;
+            tbLoginUsername.StateActive.Border.Color1 = Color.Gainsboro;
+            tbLoginUsername.StateActive.Border.Rounding = 50F;
+            tbLoginUsername.StateActive.Content.Color1 = Color.Gainsboro;
+            tbLoginUsername.StateActive.Content.Font = new Font("Tahoma", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbLoginUsername.StateCommon.Back.Color1 = Color.Transparent;
+            tbLoginUsername.StateCommon.Border.Color1 = Color.Gainsboro;
+            tbLoginUsername.StateCommon.Border.Rounding = 50F;
+            tbLoginUsername.StateDisabled.Back.Color1 = Color.Transparent;
+            tbLoginUsername.StateDisabled.Border.Color1 = Color.Gainsboro;
+            tbLoginUsername.StateDisabled.Border.Rounding = 50F;
+            tbLoginUsername.StateNormal.Back.Color1 = Color.Transparent;
+            tbLoginUsername.StateNormal.Border.Color1 = Color.Gainsboro;
+            tbLoginUsername.StateNormal.Border.Rounding = 50F;
+            tbLoginUsername.TabIndex = 0;
+            tbLoginUsername.Text = "Username";
+            tbLoginUsername.KeyDown += LoginUsername_KeyDown;
+            tbLoginUsername.Validating += tbLoginUsername_Validating;
             // 
-            // LoginEmailImg
+            // pbLoginEmailImg
             // 
-            LoginEmailImg.Image = DVLD_Presentation.Properties.Resources.email1;
-            LoginEmailImg.Location = new Point(708, 466);
-            LoginEmailImg.Name = "LoginEmailImg";
-            LoginEmailImg.Size = new Size(150, 75);
-            LoginEmailImg.SizeMode = PictureBoxSizeMode.Zoom;
-            LoginEmailImg.TabIndex = 108;
-            LoginEmailImg.TabStop = false;
+            pbLoginEmailImg.Image = DVLD_Presentation.Properties.Resources.email1;
+            pbLoginEmailImg.Location = new Point(708, 466);
+            pbLoginEmailImg.Name = "pbLoginEmailImg";
+            pbLoginEmailImg.Size = new Size(150, 75);
+            pbLoginEmailImg.SizeMode = PictureBoxSizeMode.Zoom;
+            pbLoginEmailImg.TabIndex = 108;
+            pbLoginEmailImg.TabStop = false;
             // 
-            // LoginRememberMe
+            // cbLoginRememberMe
             // 
-            LoginRememberMe.AutoSize = false;
-            LoginRememberMe.Location = new Point(712, 777);
-            LoginRememberMe.Name = "LoginRememberMe";
-            LoginRememberMe.PaletteMode = Krypton.Toolkit.PaletteMode.SparkleBlueLightMode;
-            LoginRememberMe.Size = new Size(217, 42);
-            LoginRememberMe.StateNormal.ShortText.Color1 = Color.Gainsboro;
-            LoginRememberMe.StateNormal.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            LoginRememberMe.TabIndex = 3;
-            LoginRememberMe.Values.Text = "Remember Me";
-            LoginRememberMe.KeyDown += LoginRememberMe_KeyDown;
+            cbLoginRememberMe.AutoSize = false;
+            cbLoginRememberMe.Cursor = Cursors.Hand;
+            cbLoginRememberMe.Location = new Point(712, 777);
+            cbLoginRememberMe.Name = "cbLoginRememberMe";
+            cbLoginRememberMe.PaletteMode = Krypton.Toolkit.PaletteMode.SparkleBlueLightMode;
+            cbLoginRememberMe.Size = new Size(217, 42);
+            cbLoginRememberMe.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            cbLoginRememberMe.StateNormal.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            cbLoginRememberMe.TabIndex = 3;
+            cbLoginRememberMe.Values.Text = "Remember Me";
+            cbLoginRememberMe.KeyDown += LoginRememberMe_KeyDown;
             // 
-            // LoginFormTitle
+            // lbLoginFormTitle
             // 
-            LoginFormTitle.AutoSize = false;
-            LoginFormTitle.Location = new Point(890, 327);
-            LoginFormTitle.Name = "LoginFormTitle";
-            LoginFormTitle.Size = new Size(197, 90);
-            LoginFormTitle.StateNormal.ShortText.Color1 = Color.DimGray;
-            LoginFormTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 28F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LoginFormTitle.TabIndex = 104;
-            LoginFormTitle.TabStop = false;
-            LoginFormTitle.Values.Text = "Log In\r\n";
+            lbLoginFormTitle.AutoSize = false;
+            lbLoginFormTitle.Location = new Point(890, 327);
+            lbLoginFormTitle.Name = "lbLoginFormTitle";
+            lbLoginFormTitle.Size = new Size(197, 90);
+            lbLoginFormTitle.StateNormal.ShortText.Color1 = Color.DimGray;
+            lbLoginFormTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 28F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbLoginFormTitle.TabIndex = 104;
+            lbLoginFormTitle.TabStop = false;
+            lbLoginFormTitle.Values.Text = "Log In\r\n";
             // 
-            // kryptonButton1
+            // btnLoginLine2
             // 
-            kryptonButton1.Location = new Point(708, 719);
-            kryptonButton1.Name = "kryptonButton1";
-            kryptonButton1.Size = new Size(587, 1);
-            kryptonButton1.TabIndex = 103;
-            kryptonButton1.TabStop = false;
-            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
-            kryptonButton1.Values.Text = "";
+            btnLoginLine2.Location = new Point(708, 719);
+            btnLoginLine2.Name = "btnLoginLine2";
+            btnLoginLine2.Size = new Size(587, 1);
+            btnLoginLine2.TabIndex = 103;
+            btnLoginLine2.TabStop = false;
+            btnLoginLine2.Values.DropDownArrowColor = Color.Empty;
+            btnLoginLine2.Values.Text = "";
             // 
-            // LoginLine1
+            // btnLoginLine1
             // 
-            LoginLine1.Location = new Point(708, 562);
-            LoginLine1.Name = "LoginLine1";
-            LoginLine1.Size = new Size(587, 1);
-            LoginLine1.TabIndex = 102;
-            LoginLine1.TabStop = false;
-            LoginLine1.Values.DropDownArrowColor = Color.Empty;
-            LoginLine1.Values.Text = "";
+            btnLoginLine1.Location = new Point(708, 562);
+            btnLoginLine1.Name = "btnLoginLine1";
+            btnLoginLine1.Size = new Size(587, 1);
+            btnLoginLine1.TabIndex = 102;
+            btnLoginLine1.TabStop = false;
+            btnLoginLine1.Values.DropDownArrowColor = Color.Empty;
+            btnLoginLine1.Values.Text = "";
             // 
-            // LoginGroup
+            // gbLoginGroup
             // 
-            LoginGroup.Location = new Point(647, 317);
-            LoginGroup.Size = new Size(685, 641);
-            LoginGroup.StateNormal.Back.Color1 = Color.Transparent;
-            LoginGroup.StateNormal.Back.Color2 = Color.Transparent;
-            LoginGroup.StateNormal.Border.Color1 = Color.Gainsboro;
-            LoginGroup.StateNormal.Border.Rounding = 100F;
-            LoginGroup.TabIndex = 101;
-            LoginGroup.Values.Heading = "";
+            gbLoginGroup.Location = new Point(647, 317);
+            gbLoginGroup.Size = new Size(685, 641);
+            gbLoginGroup.StateNormal.Back.Color1 = Color.Transparent;
+            gbLoginGroup.StateNormal.Back.Color2 = Color.Transparent;
+            gbLoginGroup.StateNormal.Border.Color1 = Color.Gainsboro;
+            gbLoginGroup.StateNormal.Border.Rounding = 100F;
+            gbLoginGroup.TabIndex = 101;
+            gbLoginGroup.Values.Heading = "";
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // frmLogin
             // 
@@ -275,37 +285,40 @@
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(1902, 1028);
             ControlBox = false;
-            Controls.Add(LoginPanel);
+            Controls.Add(pnLoginPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmLogin";
             Text = "frmLogin";
             WindowState = FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)LoginCancel).EndInit();
-            ((System.ComponentModel.ISupportInitialize)LoginPanel).EndInit();
-            LoginPanel.ResumeLayout(false);
-            LoginPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)LoginPasswordImg).EndInit();
-            ((System.ComponentModel.ISupportInitialize)LoginEmailImg).EndInit();
-            ((System.ComponentModel.ISupportInitialize)LoginGroup.Panel).EndInit();
-            ((System.ComponentModel.ISupportInitialize)LoginGroup).EndInit();
+            Load += frmLogin_Load;
+            ((System.ComponentModel.ISupportInitialize)pbLoginCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pnLoginPanel).EndInit();
+            pnLoginPanel.ResumeLayout(false);
+            pnLoginPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbLoginPasswordImg).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbLoginEmailImg).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gbLoginGroup.Panel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gbLoginGroup).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Krypton.Toolkit.KryptonLabel LoginTitle;
-        private Krypton.Toolkit.KryptonPictureBox LoginCancel;
+        private Krypton.Toolkit.KryptonLabel lbLoginTitle;
+        private Krypton.Toolkit.KryptonPictureBox pbLoginCancel;
         private ToolTip toolTip1;
-        private Krypton.Toolkit.KryptonPanel LoginPanel;
-        private Krypton.Toolkit.KryptonGroupBox LoginGroup;
-        private Krypton.Toolkit.KryptonButton LoginLine1;
-        private Krypton.Toolkit.KryptonButton kryptonButton1;
-        private Krypton.Toolkit.KryptonLabel LoginFormTitle;
-        private Krypton.Toolkit.KryptonTextBox LoginUsername;
-        private Krypton.Toolkit.KryptonTextBox LoginPassword;
-        private Krypton.Toolkit.KryptonCheckBox LoginRememberMe;
-        private Krypton.Toolkit.KryptonPictureBox LoginEmailImg;
-        private Krypton.Toolkit.KryptonButton LoginButton;
-        private Krypton.Toolkit.KryptonPictureBox LoginPasswordImg;
+        private Krypton.Toolkit.KryptonPanel pnLoginPanel;
+        private Krypton.Toolkit.KryptonGroupBox gbLoginGroup;
+        private Krypton.Toolkit.KryptonButton btnLoginLine1;
+        private Krypton.Toolkit.KryptonButton btnLoginLine2;
+        private Krypton.Toolkit.KryptonLabel lbLoginFormTitle;
+        private Krypton.Toolkit.KryptonTextBox tbLoginUsername;
+        private Krypton.Toolkit.KryptonTextBox tbLoginPassword;
+        private Krypton.Toolkit.KryptonCheckBox cbLoginRememberMe;
+        private Krypton.Toolkit.KryptonPictureBox pbLoginEmailImg;
+        private Krypton.Toolkit.KryptonButton btnLoginButton;
+        private Krypton.Toolkit.KryptonPictureBox pbLoginPasswordImg;
+        private ErrorProvider errorProvider1;
     }
 }

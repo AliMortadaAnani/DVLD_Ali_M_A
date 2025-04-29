@@ -37,88 +37,96 @@ namespace DVLD_Presentation
             return imagePath;
         }
 
+        private void LoadNewPerson()
+        {
+            cbCountries.SelectedIndex = cbCountries.FindString("Lebanon");
+            _Person = new clsPeople();
+            return;
+        }
+
+        private void LoadExistingPerson(int _PersonID)
+        {
+            _Person = clsPeople.Find(_PersonID);
+
+            if (_Person == null)
+            {
+                MessageBox.Show("No person with ID = " + _PersonID);
+                ParentForm?.Close(); // Safe null-check
+
+                return;
+            }
+
+            lblid.Enabled = true;
+            lblPid.Enabled = true;
+            lblPid.Text = _Person.ID.ToString();
+
+
+            tbfname.Text = _Person.FirstName;
+            tbsname.Text = _Person.SecondName;
+            tbtname.Text = _Person.ThirdName;
+            tblname.Text = _Person.LastName;
+
+
+            tbphone.Text = _Person.Phone;
+            tbaddress.Text = _Person.Address;
+            tbnationalnb.Text = _Person.NationalNb;
+            tbemail.Text = _Person.Email;
+            dateofbirth.Value = _Person.DateOfBirth;
+
+            if (_Person.Gender == DVLD_General.enGender.Male)
+            {
+                rbmale.Checked = true;
+            }
+            else
+            {
+                rbfemale.Checked = true;
+
+            }
+            pbPeopleDetails.Visible = true;
+            if (!string.IsNullOrEmpty(_Person.ImagePath) && System.IO.File.Exists(MyImage(_Person.ImagePath)))
+            {
+
+                using (var img = System.Drawing.Image.FromFile(MyImage(_Person.ImagePath)))
+                {
+                    pbPeopleDetails.Image = new Bitmap(img); // Copy image, release lock
+                }
+
+            }
+            else
+            {
+                if (rbfemale.Checked == true)
+                    pbPeopleDetails.Image = Resources.female;
+            }
+
+
+
+
+            btnPeopleRemoveImage.Visible = (_Person.ImagePath != "");
+
+            //this will select the country in the combobox.
+            cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.Find(_Person.NationalCountryID).CountryName);
+
+
+        }
+
         private void ctrlPeopleAddUpdate_Load(object sender, EventArgs e)
         {
             if (!this.DesignMode)
             {
-                if (_PersonID == -1)
-                    _Mode = enMode.AddNew;
-                else
-                    _Mode = enMode.Update;
-
-
                 _FillCountriesInComoboBox();
-                cbCountries.SelectedIndex = cbCountries.FindString("Lebanon");
-
                 dateofbirth.MaxDate = DateTime.Now - new TimeSpan(365 * 18, 0, 0, 0); // Set max date to 18 years ago
 
-                if (_Mode == enMode.AddNew)
+                if (_PersonID == -1)
                 {
-                    _Person = new clsPeople();
-                    return;
-                }
-
-                _Person = clsPeople.Find(_PersonID);
-
-                if (_Person == null)
-                {
-                    MessageBox.Show("No person with ID = " + _PersonID);
-                    ParentForm?.Close(); // Safe null-check
-
-                    return;
-                }
-
-                lblid.Enabled = true;
-                lblPid.Enabled = true;
-                lblPid.Text = _Person.ID.ToString();
-
-
-                tbfname.Text = _Person.FirstName;
-                tbsname.Text = _Person.SecondName;
-                tbtname.Text = _Person.ThirdName;
-                tblname.Text = _Person.LastName;
-
-
-                tbphone.Text = _Person.Phone;
-                tbaddress.Text = _Person.Address;
-                tbnationalnb.Text = _Person.NationalNb;
-                tbemail.Text = _Person.Email;
-                dateofbirth.Value = _Person.DateOfBirth;
-
-                if (_Person.Gender == DVLD_DataTypes.enGender.Male)
-                {
-                    rbmale.Checked = true;
+                    _Mode = enMode.AddNew;
+                    LoadNewPerson();
                 }
                 else
                 {
-                    rbfemale.Checked = true;
+                    _Mode = enMode.Update;
+                    LoadExistingPerson(_PersonID);
 
                 }
-                pbPeopleDetails.Visible = true;
-                if (!string.IsNullOrEmpty(_Person.ImagePath) && System.IO.File.Exists(MyImage(_Person.ImagePath)))
-                {
-
-                    using (var img = System.Drawing.Image.FromFile(MyImage(_Person.ImagePath)))
-                    {
-                        pbPeopleDetails.Image = new Bitmap(img); // Copy image, release lock
-                    }
-
-                }
-                else
-                {
-                    if (rbfemale.Checked == true)
-                        pbPeopleDetails.Image = Resources.female;
-                }
-
-
-
-
-                btnPeopleRemoveImage.Visible = (_Person.ImagePath != "");
-
-                //this will select the country in the combobox.
-                cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.Find(_Person.NationalCountryID).CountryName);
-
-
             }
         }
 
@@ -141,9 +149,9 @@ namespace DVLD_Presentation
         private void btnPeopleSave_Click(object sender, EventArgs e)
         {
             if (rbmale.Checked)
-                _Person.Gender = DVLD_DataTypes.enGender.Male;
+                _Person.Gender = DVLD_General.enGender.Male;
             else if (rbfemale.Checked)
-                _Person.Gender = DVLD_DataTypes.enGender.Female;
+                _Person.Gender = DVLD_General.enGender.Female;
             else
             {
 
@@ -197,6 +205,10 @@ namespace DVLD_Presentation
             lblPid.Enabled = true;
             lblid.Enabled = true;
             lblPid.Text = _Person.ID.ToString();
+
+
+
+
         }
 
         private void btnPeopleClose_Click(object sender, EventArgs e)
@@ -313,11 +325,11 @@ namespace DVLD_Presentation
 
         private void tbnationalnb_Validating(object sender, CancelEventArgs e)
         {
-            if (_Mode == enMode.AddNew)
+           // if (_Mode == enMode.AddNew)
             {
                 string nationalnb = tbnationalnb.Text.Trim();
 
-                if (clsPeople.IsNationalNumberExist(nationalnb))
+                if (clsPeople.IsNationalNumberExist(nationalnb) && nationalnb != _Person.NationalNb)
                 {
                     e.Cancel = true;
                     tbnationalnb.Focus();
