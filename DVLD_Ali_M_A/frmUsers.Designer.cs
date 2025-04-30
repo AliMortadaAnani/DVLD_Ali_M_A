@@ -46,6 +46,7 @@
             lblUsersTotalRecords = new Krypton.Toolkit.KryptonLabel();
             btnUserAddNew = new Krypton.Toolkit.KryptonButton();
             cbUsersStatusOptions = new Krypton.Toolkit.KryptonComboBox();
+            changepasswordtoolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)btnUsersCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             contextMenuStripUsers.SuspendLayout();
@@ -131,9 +132,9 @@
             contextMenuStripUsers.BackColor = Color.Gainsboro;
             contextMenuStripUsers.Font = new Font("Segoe UI", 9F);
             contextMenuStripUsers.ImageScalingSize = new Size(36, 36);
-            contextMenuStripUsers.Items.AddRange(new ToolStripItem[] { showDetailsToolStripMenuItem, editUserToolStripMenuItem, deleteUserToolStripMenuItem, addNewUserToolStripMenuItem });
+            contextMenuStripUsers.Items.AddRange(new ToolStripItem[] { showDetailsToolStripMenuItem, editUserToolStripMenuItem, changepasswordtoolStripMenuItem, deleteUserToolStripMenuItem, addNewUserToolStripMenuItem });
             contextMenuStripUsers.Name = "contextMenuStripPeople";
-            contextMenuStripUsers.Size = new Size(261, 213);
+            contextMenuStripUsers.Size = new Size(261, 257);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -286,6 +287,14 @@
             cbUsersStatusOptions.Text = "All";
             cbUsersStatusOptions.SelectedIndexChanged += cbUsersStatusOptions_SelectedIndexChanged;
             // 
+            // changepasswordtoolStripMenuItem
+            // 
+            changepasswordtoolStripMenuItem.Image = Properties.Resources.password1;
+            changepasswordtoolStripMenuItem.Name = "changepasswordtoolStripMenuItem";
+            changepasswordtoolStripMenuItem.Size = new Size(260, 44);
+            changepasswordtoolStripMenuItem.Text = "Change Password";
+            changepasswordtoolStripMenuItem.Click += changepasswordtoolStripMenuItem_Click;
+            // 
             // frmUsers
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -333,5 +342,6 @@
         private ToolStripMenuItem deleteUserToolStripMenuItem;
         private ToolStripMenuItem addNewUserToolStripMenuItem;
         private Krypton.Toolkit.KryptonComboBox cbUsersStatusOptions;
+        private ToolStripMenuItem changepasswordtoolStripMenuItem;
     }
 }

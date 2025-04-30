@@ -40,8 +40,10 @@
             lblpasswordcurrent = new Krypton.Toolkit.KryptonLabel();
             lblpasswordconfirm = new Krypton.Toolkit.KryptonLabel();
             lblpasswordnew = new Krypton.Toolkit.KryptonLabel();
-            kryptonTextBox1 = new Krypton.Toolkit.KryptonTextBox();
+            tbnewpassword = new Krypton.Toolkit.KryptonTextBox();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // toolTipCancel
@@ -81,6 +83,7 @@
             ctrlUsersShowDetails1.Name = "ctrlUsersShowDetails1";
             ctrlUsersShowDetails1.Size = new Size(988, 130);
             ctrlUsersShowDetails1.TabIndex = 216;
+            ctrlUsersShowDetails1.TabStop = false;
             // 
             // btnUserSave
             // 
@@ -123,9 +126,10 @@
             btnUserSave.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnUserSave.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnUserSave.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnUserSave.TabIndex = 225;
+            btnUserSave.TabIndex = 4;
             btnUserSave.Values.DropDownArrowColor = Color.Empty;
             btnUserSave.Values.Text = "Save";
+            btnUserSave.Click += btnUserSave_Click;
             // 
             // tbpasswordconfirm
             // 
@@ -148,7 +152,9 @@
             tbpasswordconfirm.StateNormal.Border.Rounding = 30F;
             tbpasswordconfirm.StateNormal.Content.Color1 = Color.Black;
             tbpasswordconfirm.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbpasswordconfirm.TabIndex = 224;
+            tbpasswordconfirm.TabIndex = 3;
+            tbpasswordconfirm.TextChanged += tbpassword_TextChanged;
+            tbpasswordconfirm.Validating += tbpasswordconfirm_Validating;
             // 
             // tbpassword
             // 
@@ -171,7 +177,9 @@
             tbpassword.StateNormal.Border.Rounding = 30F;
             tbpassword.StateNormal.Content.Color1 = Color.Black;
             tbpassword.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tbpassword.TabIndex = 223;
+            tbpassword.TabIndex = 1;
+            tbpassword.TextChanged += tbpassword_TextChanged;
+            tbpassword.Validating += tbpassword_Validating;
             // 
             // lblpasswordcurrent
             // 
@@ -209,28 +217,34 @@
             lblpasswordnew.TabStop = false;
             lblpasswordnew.Values.Text = "New Password:";
             // 
-            // kryptonTextBox1
+            // tbnewpassword
             // 
-            kryptonTextBox1.Location = new Point(619, 483);
-            kryptonTextBox1.Name = "kryptonTextBox1";
-            kryptonTextBox1.Size = new Size(217, 52);
-            kryptonTextBox1.StateActive.Back.Color1 = Color.LightGray;
-            kryptonTextBox1.StateActive.Border.Rounding = 30F;
-            kryptonTextBox1.StateActive.Content.Color1 = Color.Black;
-            kryptonTextBox1.StateActive.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonTextBox1.StateCommon.Back.Color1 = Color.White;
-            kryptonTextBox1.StateCommon.Border.Rounding = 30F;
-            kryptonTextBox1.StateCommon.Content.Color1 = Color.Black;
-            kryptonTextBox1.StateCommon.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonTextBox1.StateDisabled.Back.Color1 = Color.WhiteSmoke;
-            kryptonTextBox1.StateDisabled.Border.Rounding = 30F;
-            kryptonTextBox1.StateDisabled.Content.Color1 = Color.Black;
-            kryptonTextBox1.StateDisabled.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonTextBox1.StateNormal.Back.Color1 = Color.WhiteSmoke;
-            kryptonTextBox1.StateNormal.Border.Rounding = 30F;
-            kryptonTextBox1.StateNormal.Content.Color1 = Color.Black;
-            kryptonTextBox1.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            kryptonTextBox1.TabIndex = 229;
+            tbnewpassword.Location = new Point(619, 483);
+            tbnewpassword.Name = "tbnewpassword";
+            tbnewpassword.Size = new Size(217, 52);
+            tbnewpassword.StateActive.Back.Color1 = Color.LightGray;
+            tbnewpassword.StateActive.Border.Rounding = 30F;
+            tbnewpassword.StateActive.Content.Color1 = Color.Black;
+            tbnewpassword.StateActive.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbnewpassword.StateCommon.Back.Color1 = Color.White;
+            tbnewpassword.StateCommon.Border.Rounding = 30F;
+            tbnewpassword.StateCommon.Content.Color1 = Color.Black;
+            tbnewpassword.StateCommon.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbnewpassword.StateDisabled.Back.Color1 = Color.WhiteSmoke;
+            tbnewpassword.StateDisabled.Border.Rounding = 30F;
+            tbnewpassword.StateDisabled.Content.Color1 = Color.Black;
+            tbnewpassword.StateDisabled.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbnewpassword.StateNormal.Back.Color1 = Color.WhiteSmoke;
+            tbnewpassword.StateNormal.Border.Rounding = 30F;
+            tbnewpassword.StateNormal.Content.Color1 = Color.Black;
+            tbnewpassword.StateNormal.Content.Font = new Font("Tahoma", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbnewpassword.TabIndex = 2;
+            tbnewpassword.TextChanged += tbpassword_TextChanged;
+            tbnewpassword.Validating += tbnewpassword_Validating;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // frmUsersChangePassword
             // 
@@ -238,7 +252,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1592, 881);
-            Controls.Add(kryptonTextBox1);
+            Controls.Add(tbnewpassword);
             Controls.Add(lblpasswordnew);
             Controls.Add(btnUserSave);
             Controls.Add(tbpasswordconfirm);
@@ -253,6 +267,7 @@
             Text = "frmUsersChangePassword";
             Load += frmUsersChangePassword_Load;
             ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -269,6 +284,7 @@
         private Krypton.Toolkit.KryptonLabel lblpasswordcurrent;
         private Krypton.Toolkit.KryptonLabel lblpasswordconfirm;
         private Krypton.Toolkit.KryptonLabel lblpasswordnew;
-        private Krypton.Toolkit.KryptonTextBox kryptonTextBox1;
+        private Krypton.Toolkit.KryptonTextBox tbnewpassword;
+        private ErrorProvider errorProvider1;
     }
 }

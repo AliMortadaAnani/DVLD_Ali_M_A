@@ -49,5 +49,13 @@ namespace DVLD_Ali_M_A
             users.ShowDialog();
             lbMenuUsers.StateNormal.ShortText.Color1 = Color.Gainsboro;
         }
+
+        private void lbMenuApplications_Click(object sender, EventArgs e)
+        {
+            frmApplications applications = new frmApplications();
+            lbMenuApplications.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
+            applications.ShowDialog();
+            lbMenuApplications.StateNormal.ShortText.Color1 = Color.Gainsboro;
+        }
     }
 }

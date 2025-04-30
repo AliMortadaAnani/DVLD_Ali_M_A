@@ -95,6 +95,12 @@ namespace DVLD_Presentation
 
         private void btnUserSave_Click(object sender, EventArgs e)
         {
+              if (tbpassword.Text.Trim() != tbpasswordconfirm.Text.Trim())
+            {
+               
+                tbpasswordconfirm.Focus();
+                errorProvider1.SetError(tbpasswordconfirm, "Password confirmation is incorrect!");
+            }
 
             _User.IsActive = (cbisactive.Checked);
             _User.PersonID = ctrlPeopleShowDetails._PersonID;
@@ -103,7 +109,7 @@ namespace DVLD_Presentation
             _User.Password = tbpassword.Text.Trim();
 
 
-
+            
             if (_User.Save())
                 MessageBox.Show("User Saved Successfully.");
             else
@@ -175,12 +181,7 @@ namespace DVLD_Presentation
                 tbpassword.Focus();
                 errorProvider1.SetError(tbpassword, "Cannot be null!");
             }
-            else if (password != passwordconfirmation)
-            {
-                e.Cancel = true;
-                tbpasswordconfirm.Focus();
-                errorProvider1.SetError(tbpasswordconfirm, "Password confirmation is incorrect!");
-            }
+           
             else
             {
                 e.Cancel = false;

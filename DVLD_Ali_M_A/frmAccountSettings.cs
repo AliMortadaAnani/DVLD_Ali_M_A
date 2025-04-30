@@ -1,4 +1,5 @@
 ﻿using DVLD_Business;
+using DVLD_Presentation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 namespace DVLD_Ali_M_A
 {
     public partial class frmAccountSettings : Form
-    {   
+    {
         public frmMenu frmMenu;
 
         public frmAccountSettings(frmMenu frmMenu)
@@ -41,12 +42,25 @@ namespace DVLD_Ali_M_A
         {
             clsGlobalUser.CurrentUser = null; // Clear the current user
             clsGlobalUser.SaveUserIdToFile(-1); // Clear the saved user ID
-            
+
             this.Close(); // Close the settings form
             frmMenu?.Close(); // Close the menu form    
-           
 
 
+
+        }
+
+        private void btnSettingsCurrentUserInfo_Click(object sender, EventArgs e)
+        {
+            frmUsersShowDetails frmUsersShowDetails = new frmUsersShowDetails(clsGlobalUser.CurrentUser.ID, clsGlobalUser.CurrentUser.PersonID);
+            frmUsersShowDetails.ShowDialog();
+
+        }
+
+        private void btnSettingsChangePassword_Click(object sender, EventArgs e)
+        {
+            frmUsersChangePassword frmUsersChangePassword = new frmUsersChangePassword(clsGlobalUser.CurrentUser.ID);
+            frmUsersChangePassword.ShowDialog();
         }
     }
 }

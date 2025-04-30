@@ -97,6 +97,7 @@
             btnSettingsCurrentUserInfo.TabIndex = 205;
             btnSettingsCurrentUserInfo.Values.DropDownArrowColor = Color.Empty;
             btnSettingsCurrentUserInfo.Values.Text = "Show Current User Information";
+            btnSettingsCurrentUserInfo.Click += btnSettingsCurrentUserInfo_Click;
             // 
             // btnSettingsChangePassword
             // 
@@ -143,6 +144,7 @@
             btnSettingsChangePassword.TabIndex = 206;
             btnSettingsChangePassword.Values.DropDownArrowColor = Color.Empty;
             btnSettingsChangePassword.Values.Text = "Change Current User Password";
+            btnSettingsChangePassword.Click += btnSettingsChangePassword_Click;
             // 
             // btnSettingsSignOut
             // 

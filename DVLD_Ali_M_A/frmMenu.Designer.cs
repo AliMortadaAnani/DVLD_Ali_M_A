@@ -128,6 +128,7 @@
             lbMenuApplications.StateNormal.ShortText.Font = new Font("Trebuchet MS", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbMenuApplications.TabIndex = 1;
             lbMenuApplications.Values.Text = "Applications";
+            lbMenuApplications.Click += lbMenuApplications_Click;
             // 
             // pbMenuCancel
             // 

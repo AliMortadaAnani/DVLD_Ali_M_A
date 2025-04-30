@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DVLD_Presentation
 {
@@ -17,12 +18,13 @@ namespace DVLD_Presentation
 
         public static int _UserID;
         clsUser _User;
-        
+
 
         public frmUsersChangePassword(int UserID)
         {
             InitializeComponent();
             ctrlUsersShowDetails._UserID = UserID;
+            _UserID = UserID;
         }
 
         private void frmUsersChangePassword_Load(object sender, EventArgs e)
@@ -30,11 +32,109 @@ namespace DVLD_Presentation
             this.Size = new Size(1570, 1084);
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Width, 0);
+
+            _User = clsUser.Find(_UserID);
+
+            if (_User == null)
+            {
+                MessageBox.Show("No user with ID = " + _UserID);
+                ParentForm?.Close(); // Safe null-check
+
+                return;
+            }
+
         }
 
         private void btnPeopleCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnUserSave_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(errorProvider1.GetError(tbpassword))
+                ||
+                !string.IsNullOrEmpty(errorProvider1.GetError(tbnewpassword))
+                || !string.IsNullOrEmpty(errorProvider1.GetError(tbpasswordconfirm)))
+            {
+
+
+                MessageBox.Show("Please enter data correctly!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+
+            }
+
+            _User.Password = tbnewpassword.Text.Trim();
+
+
+
+            if (_User.Save())
+                MessageBox.Show("User Saved Successfully.");
+            else
+            {
+                MessageBox.Show("Error: Data Is not Saved Successfully.");
+                return;
+            }
+        }
+
+
+
+        private void tbpassword_TextChanged(object sender, EventArgs e)
+        {
+            Krypton.Toolkit.KryptonTextBox tbfield = (Krypton.Toolkit.KryptonTextBox)sender;
+            tbfield.UseSystemPasswordChar = true;
+        }
+
+        private void tbpassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbpassword.Text.Trim() == "")
+            {
+                //tbpassword.Focus();
+                errorProvider1.SetError(tbpassword, "Password is required!");
+            }
+
+            else if (tbpassword.Text.Trim() != _User.Password)
+            {
+              //  tbpassword.Focus();
+                errorProvider1.SetError(tbpassword, "Password is incorrect!");
+            }
+            else
+            {
+                errorProvider1.SetError(tbpassword, "");
+            }
+        }
+
+        private void tbnewpassword_Validating(object sender, CancelEventArgs e)
+        {
+            if (tbnewpassword.Text.Trim() == "")
+            {
+               // tbnewpassword.Focus();
+                errorProvider1.SetError(tbnewpassword, "New Password is required!");
+            }
+            else
+            {
+                errorProvider1.SetError(tbnewpassword, "");
+            }
+
+        }
+
+        private void tbpasswordconfirm_Validating(object sender, CancelEventArgs e)
+        {
+            if(tbpasswordconfirm.Text.Trim() == "")
+            {
+               // tbpasswordconfirm.Focus();
+                errorProvider1.SetError(tbpasswordconfirm, "Password confirmation is required!");
+            }
+            else if (tbnewpassword.Text.Trim() != tbpasswordconfirm.Text.Trim())
+            {
+               // tbpasswordconfirm.Focus();
+                errorProvider1.SetError(tbpasswordconfirm, "Password confirmation is incorrect!");
+            }
+            else
+            {
+                errorProvider1.SetError(tbpasswordconfirm, "");
+            }
         }
     }
 }
