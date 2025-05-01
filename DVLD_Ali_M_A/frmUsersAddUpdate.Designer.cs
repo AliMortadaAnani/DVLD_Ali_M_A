@@ -38,6 +38,7 @@
             ctrlPeopleShowDetails1 = new ctrlPeopleShowDetails();
             pageUser = new TabPage();
             ctrlUsersAddUpdate1 = new ctrlUsersAddUpdate();
+            lblUserTitle = new Krypton.Toolkit.KryptonLabel();
             btnUserNext = new Krypton.Toolkit.KryptonButton();
             btnUserBack = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)btnUsersCancel).BeginInit();
@@ -70,7 +71,7 @@
             tabUserControl.Controls.Add(pagePerson);
             tabUserControl.Controls.Add(pageUser);
             tabUserControl.Font = new Font("Trebuchet MS", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            tabUserControl.Location = new Point(1, 30);
+            tabUserControl.Location = new Point(1, 55);
             tabUserControl.Name = "tabUserControl";
             tabUserControl.SelectedIndex = 0;
             tabUserControl.Size = new Size(1405, 936);
@@ -91,9 +92,10 @@
             // 
             // ctrlPersonFilter1
             // 
-            ctrlPersonFilter1.Location = new Point(42, 20);
+            ctrlPersonFilter1.Location = new Point(41, 19);
+            ctrlPersonFilter1.Margin = new Padding(4, 3, 4, 3);
             ctrlPersonFilter1.Name = "ctrlPersonFilter1";
-            ctrlPersonFilter1.Size = new Size(1313, 137);
+            ctrlPersonFilter1.Size = new Size(1312, 138);
             ctrlPersonFilter1.TabIndex = 1;
             ctrlPersonFilter1.OnPersonSearchComplete += ctrlPersonFilter1_OnPersonSearchComplete;
             // 
@@ -101,8 +103,9 @@
             // 
             ctrlPeopleShowDetails1.BackColor = Color.Gainsboro;
             ctrlPeopleShowDetails1.Location = new Point(31, 150);
+            ctrlPeopleShowDetails1.Margin = new Padding(4, 3, 4, 3);
             ctrlPeopleShowDetails1.Name = "ctrlPeopleShowDetails1";
-            ctrlPeopleShowDetails1.Size = new Size(1324, 724);
+            ctrlPeopleShowDetails1.Size = new Size(1325, 723);
             ctrlPeopleShowDetails1.TabIndex = 2;
             // 
             // pageUser
@@ -124,15 +127,27 @@
             ctrlUsersAddUpdate1.Size = new Size(614, 537);
             ctrlUsersAddUpdate1.TabIndex = 5;
             // 
+            // lblUserTitle
+            // 
+            lblUserTitle.AutoSize = false;
+            lblUserTitle.Location = new Point(575, -30);
+            lblUserTitle.Name = "lblUserTitle";
+            lblUserTitle.Size = new Size(476, 104);
+            lblUserTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            lblUserTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUserTitle.TabIndex = 211;
+            lblUserTitle.TabStop = false;
+            lblUserTitle.Values.Text = "Add New Person";
+            // 
             // btnUserNext
             // 
-            btnUserNext.Location = new Point(1181, 989);
+            btnUserNext.Location = new Point(1156, 997);
             btnUserNext.Name = "btnUserNext";
             btnUserNext.OverrideDefault.Back.Color1 = Color.Silver;
             btnUserNext.OverrideDefault.Border.Rounding = 50F;
             btnUserNext.OverrideFocus.Back.Color1 = Color.Silver;
             btnUserNext.OverrideFocus.Border.Rounding = 50F;
-            btnUserNext.Size = new Size(221, 63);
+            btnUserNext.Size = new Size(205, 73);
             btnUserNext.StateDisabled.Back.Color1 = Color.Silver;
             btnUserNext.StateDisabled.Border.Rounding = 50F;
             btnUserNext.StateNormal.Back.Color1 = Color.Silver;
@@ -172,13 +187,13 @@
             // 
             // btnUserBack
             // 
-            btnUserBack.Location = new Point(1181, 989);
+            btnUserBack.Location = new Point(1156, 997);
             btnUserBack.Name = "btnUserBack";
             btnUserBack.OverrideDefault.Back.Color1 = Color.Silver;
             btnUserBack.OverrideDefault.Border.Rounding = 50F;
             btnUserBack.OverrideFocus.Back.Color1 = Color.Silver;
             btnUserBack.OverrideFocus.Border.Rounding = 50F;
-            btnUserBack.Size = new Size(221, 63);
+            btnUserBack.Size = new Size(205, 73);
             btnUserBack.StateDisabled.Back.Color1 = Color.Silver;
             btnUserBack.StateDisabled.Border.Rounding = 50F;
             btnUserBack.StateNormal.Back.Color1 = Color.Silver;
@@ -226,6 +241,7 @@
             Controls.Add(btnUserNext);
             Controls.Add(tabUserControl);
             Controls.Add(btnUsersCancel);
+            Controls.Add(lblUserTitle);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmUsersAddUpdate";
             Text = "frmUsersAddUpdate";
@@ -238,7 +254,7 @@
         }
 
         #endregion
-
+        public static Krypton.Toolkit.KryptonLabel lblUserTitle;
         private ToolTip toolTipCancel;
         private Krypton.Toolkit.KryptonPictureBox btnUsersCancel;
         private TabControl tabUserControl;
@@ -249,5 +265,6 @@
         private Krypton.Toolkit.KryptonButton btnUserNext;
         private Krypton.Toolkit.KryptonButton btnUserBack;
         private ctrlUsersAddUpdate ctrlUsersAddUpdate1;
+        
     }
 }

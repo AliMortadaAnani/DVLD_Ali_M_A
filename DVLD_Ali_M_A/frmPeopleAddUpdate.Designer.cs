@@ -95,7 +95,7 @@
 
         #endregion
 
-        private Krypton.Toolkit.KryptonLabel lblPeopleTitle;
+        public static Krypton.Toolkit.KryptonLabel lblPeopleTitle;
         private Krypton.Toolkit.KryptonPictureBox btnPeopleCancel;
         private ToolTip toolTipCancel;
         private ctrlPeopleAddUpdate ctrlPeopleAddUpdate1;

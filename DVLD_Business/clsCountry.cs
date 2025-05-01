@@ -21,7 +21,7 @@ namespace DVLD_Business
 
         public static clsCountry Find(int ID)
         {
-            string CountryName = null;
+            string CountryName = "";
 
             if (clsCountriesData.GetCountryInfoByID(ID, ref CountryName))
             {

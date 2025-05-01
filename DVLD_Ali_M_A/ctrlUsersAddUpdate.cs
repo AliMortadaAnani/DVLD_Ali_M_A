@@ -111,7 +111,9 @@ namespace DVLD_Presentation
 
             
             if (_User.Save())
-                MessageBox.Show("User Saved Successfully.");
+                { MessageBox.Show("User Saved Successfully.");
+                frmUsersAddUpdate.lblUserTitle.Text = "Edit User Details";
+            }
             else
             {
                 MessageBox.Show("Error: Data Is not Saved Successfully.");

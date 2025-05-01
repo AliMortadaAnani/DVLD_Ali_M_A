@@ -208,8 +208,9 @@ namespace DVLD_Presentation
                 // Trigger the event to send data back to Form1
                 DataBack?.Invoke(this, _Person.ID);
                 MessageBox.Show("Person Saved Successfully.");
-                    
-               }
+                frmPeopleAddUpdate.lblPeopleTitle.Text = "Edit Person Details";
+
+            }
             else
                 MessageBox.Show("Error: Data Is not Saved Successfully.");
 

@@ -98,7 +98,7 @@ namespace DVLD_Business
 
         public static bool DeleteUser(int ID)
         {
-            if (clsUsersData.CheckUserIntegrity(ID))
+            if (clsUsersData.CheckUserIntegrity(ID) || clsGlobalUser.CurrentUser.ID == ID)
             {
                 return false;
             }

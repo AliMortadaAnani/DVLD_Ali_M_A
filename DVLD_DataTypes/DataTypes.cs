@@ -8,6 +8,15 @@ namespace DVLD_General
         Male = 0,
         Female = 1
     };
+    public enum enApplicationStatus
+    {
+        New = 1,
+
+
+        Cancelled = 2,
+
+        Completed = 3
+    };
 
 
     /*public static class DataTableExt // from StackOverflow

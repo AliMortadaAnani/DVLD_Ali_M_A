@@ -19,11 +19,12 @@ namespace DVLD_Presentation
             InitializeComponent();
             ctrlPeopleShowDetails._PersonID = _PersonID;
             ctrlUsersAddUpdate._UserID = _UserID;
-            
-           if (_PersonID != -1 && _UserID != -1)
+            lblUserTitle.Text = "Add New User";
+            if (_PersonID != -1 && _UserID != -1)
             {
                 ctrlPersonFilter1.Enabled = false;
                 ctrlPersonFilter1.Visible = false;
+                lblUserTitle.Text = "Edit User Details";
             }
         }
 
