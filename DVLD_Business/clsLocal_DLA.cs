@@ -104,6 +104,24 @@ namespace DVLD_Business
             return clsLocal_DLA_Data.GetAllLocalDLA();
         }
 
+        public static DataTable GetAllLocal_DLA_ByID(int ID)
+        {
+            return clsLocal_DLA_Data.GetLocalDLA_ByID(ID);
+        }
 
+        public static DataTable GetAllLocal_DLA_ByFulllName(string FullName)
+        {
+            return clsLocal_DLA_Data.GetLocalDLA_ByFullName(FullName);
+        }
+
+        public static DataTable GetAllLocal_DLA_ByStatus(string Status)
+        {
+            return clsLocal_DLA_Data.GetLocalDLA_ByStatus(Status);
+        }
+        public static DataTable GetAllLocal_DLA_ByNationalNb(string NationalNb)
+        {
+
+            return clsLocal_DLA_Data.GetLocalDLA_BynationalNb(NationalNb);
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,15 +10,11 @@ using System.Windows.Forms;
 
 namespace DVLD_Presentation
 {
-    public partial class frmLocalLicenses: frmGeneral
+    public partial class ctrlLocalDLA_AddUpdate: UserControl
     {
-        public frmLocalLicenses()
+        public ctrlLocalDLA_AddUpdate()
         {
             InitializeComponent();
-            lblGeneralTitle.Text = "Local Licenses";
         }
-        
-
-
     }
 }

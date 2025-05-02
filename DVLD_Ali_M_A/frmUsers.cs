@@ -146,6 +146,7 @@ namespace DVLD_Presentation
                     dgvUsers.DataSource = clsUser.GetUsersByIsActive("Not Active");
                     break;
             }
+            lblUsersTotalRecordsNb.Text = dgvUsers.RowCount.ToString();
         }
 
         private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)

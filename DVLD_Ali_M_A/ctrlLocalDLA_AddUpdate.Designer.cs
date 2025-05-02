@@ -1,13 +1,13 @@
 ﻿namespace DVLD_Presentation
 {
-    partial class frmLocalLicenses
+    partial class ctrlLocalDLA_AddUpdate
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,32 +20,22 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             SuspendLayout();
             // 
-            // lblGeneralTitle
-            // 
-            lblGeneralTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
-            lblGeneralTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblGeneralTitle.Values.Text = "Title";
-            // 
-            // frmLocalLicenses
+            // ctrlLocalDLA_AddUpdate
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1570, 1084);
-            Name = "frmLocalLicenses";
-            StartPosition = FormStartPosition.Manual;
-            Text = "frmLocalLicenses";
-            ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
+            Name = "ctrlLocalDLA_AddUpdate";
+            Size = new Size(1323, 596);
             ResumeLayout(false);
         }
 

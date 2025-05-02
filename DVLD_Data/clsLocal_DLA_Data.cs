@@ -271,5 +271,153 @@ namespace DVLD_Data
             return dt;
 
         }
+
+
+        public static DataTable GetLocalDLA_ByID(int ID)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "SELECT * FROM LocalDLA_ExtendedView WHERE Local_DLA_ID  Like '%' + @Contains + '%'";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Contains", ID.ToString());
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+
+
+        }
+
+        public static DataTable GetLocalDLA_BynationalNb(string NationalNumber)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "SELECT * FROM LocalDLA_ExtendedView WHERE NationalNumber  Like '%' + @Contains + '%'";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Contains", NationalNumber);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+
+        }
+
+        public static DataTable GetLocalDLA_ByStatus(string Status)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "SELECT * FROM LocalDLA_ExtendedView WHERE Status = @Status";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Status", Status);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+        }
+
+        public static DataTable GetLocalDLA_ByFullName(string FullName)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "SELECT * FROM LocalDLA_ExtendedView WHERE FullName  LIKE '%' + @Contains + '%'";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Contains", FullName);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return dt;
+
+        }
+
+
+        public static bool IsLicenClassExist(string NationalNumber,string LicenseClassName)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "select * from LocalDLA_ExtendedView " +
+                "\r\nwhere NationalNumber = @NationalNumber\r\n" +
+                "and status in ('Completed','New')\r\n" +
+                "and DrivingClass = @LicenseClassName";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@NationalNumber", NationalNumber);
+            command.Parameters.AddWithValue("@LicenseClassName", LicenseClassName);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isFound = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
     }
 }

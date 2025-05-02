@@ -14,7 +14,7 @@ namespace DVLD_Ali_M_A
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             // Application.Run(new frmPeople());
-           Application.Run(new frmLogin());
+           Application.Run(new frmLocalDLA_Main());
         }
     }
 }

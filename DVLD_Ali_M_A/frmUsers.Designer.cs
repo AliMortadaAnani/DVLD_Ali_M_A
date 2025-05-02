@@ -38,6 +38,7 @@
             contextMenuStripUsers = new ContextMenuStrip(components);
             showDetailsToolStripMenuItem = new ToolStripMenuItem();
             editUserToolStripMenuItem = new ToolStripMenuItem();
+            changepasswordtoolStripMenuItem = new ToolStripMenuItem();
             deleteUserToolStripMenuItem = new ToolStripMenuItem();
             addNewUserToolStripMenuItem = new ToolStripMenuItem();
             mtbUsersFilterInput = new MaskedTextBox();
@@ -46,7 +47,6 @@
             lblUsersTotalRecords = new Krypton.Toolkit.KryptonLabel();
             btnUserAddNew = new Krypton.Toolkit.KryptonButton();
             cbUsersStatusOptions = new Krypton.Toolkit.KryptonComboBox();
-            changepasswordtoolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)btnUsersCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             contextMenuStripUsers.SuspendLayout();
@@ -134,13 +134,13 @@
             contextMenuStripUsers.ImageScalingSize = new Size(36, 36);
             contextMenuStripUsers.Items.AddRange(new ToolStripItem[] { showDetailsToolStripMenuItem, editUserToolStripMenuItem, changepasswordtoolStripMenuItem, deleteUserToolStripMenuItem, addNewUserToolStripMenuItem });
             contextMenuStripUsers.Name = "contextMenuStripPeople";
-            contextMenuStripUsers.Size = new Size(261, 257);
+            contextMenuStripUsers.Size = new Size(247, 224);
             // 
             // showDetailsToolStripMenuItem
             // 
             showDetailsToolStripMenuItem.Image = Properties.Resources.infoPerson;
             showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            showDetailsToolStripMenuItem.Size = new Size(260, 44);
+            showDetailsToolStripMenuItem.Size = new Size(246, 44);
             showDetailsToolStripMenuItem.Text = "Show User Details";
             showDetailsToolStripMenuItem.Click += showDetailsToolStripMenuItem_Click;
             // 
@@ -148,15 +148,23 @@
             // 
             editUserToolStripMenuItem.Image = Properties.Resources.editPerson;
             editUserToolStripMenuItem.Name = "editUserToolStripMenuItem";
-            editUserToolStripMenuItem.Size = new Size(260, 44);
+            editUserToolStripMenuItem.Size = new Size(246, 44);
             editUserToolStripMenuItem.Text = "Edit User";
             editUserToolStripMenuItem.Click += editUserToolStripMenuItem_Click;
+            // 
+            // changepasswordtoolStripMenuItem
+            // 
+            changepasswordtoolStripMenuItem.Image = Properties.Resources.password1;
+            changepasswordtoolStripMenuItem.Name = "changepasswordtoolStripMenuItem";
+            changepasswordtoolStripMenuItem.Size = new Size(246, 44);
+            changepasswordtoolStripMenuItem.Text = "Change Password";
+            changepasswordtoolStripMenuItem.Click += changepasswordtoolStripMenuItem_Click;
             // 
             // deleteUserToolStripMenuItem
             // 
             deleteUserToolStripMenuItem.Image = Properties.Resources.deletePerson;
             deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
-            deleteUserToolStripMenuItem.Size = new Size(260, 44);
+            deleteUserToolStripMenuItem.Size = new Size(246, 44);
             deleteUserToolStripMenuItem.Text = "Delete User";
             deleteUserToolStripMenuItem.Click += deleteUserToolStripMenuItem_Click;
             // 
@@ -164,7 +172,7 @@
             // 
             addNewUserToolStripMenuItem.Image = Properties.Resources.addPerson;
             addNewUserToolStripMenuItem.Name = "addNewUserToolStripMenuItem";
-            addNewUserToolStripMenuItem.Size = new Size(260, 44);
+            addNewUserToolStripMenuItem.Size = new Size(246, 44);
             addNewUserToolStripMenuItem.Text = "Add New User";
             addNewUserToolStripMenuItem.Click += addNewUserToolStripMenuItem_Click;
             // 
@@ -286,14 +294,6 @@
             cbUsersStatusOptions.TabIndex = 225;
             cbUsersStatusOptions.Text = "All";
             cbUsersStatusOptions.SelectedIndexChanged += cbUsersStatusOptions_SelectedIndexChanged;
-            // 
-            // changepasswordtoolStripMenuItem
-            // 
-            changepasswordtoolStripMenuItem.Image = Properties.Resources.password1;
-            changepasswordtoolStripMenuItem.Name = "changepasswordtoolStripMenuItem";
-            changepasswordtoolStripMenuItem.Size = new Size(260, 44);
-            changepasswordtoolStripMenuItem.Text = "Change Password";
-            changepasswordtoolStripMenuItem.Click += changepasswordtoolStripMenuItem_Click;
             // 
             // frmUsers
             // 
