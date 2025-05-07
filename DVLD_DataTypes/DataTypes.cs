@@ -11,11 +11,17 @@ namespace DVLD_General
     public enum enApplicationStatus
     {
         New = 1,
-
-
         Cancelled = 2,
-
         Completed = 3
+    };
+
+    public enum enIssueReason
+    {
+
+        FirstTime=1,
+        Renew=2,
+        Replacement_for_Damaged=3,
+        Replacement_for_Lost=4
     };
 
 

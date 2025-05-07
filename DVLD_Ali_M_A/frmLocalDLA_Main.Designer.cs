@@ -29,7 +29,20 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLocalDLA_Main));
             dgvLocal = new Krypton.Toolkit.KryptonDataGridView();
+            contextMenuStripLocal = new ContextMenuStrip(components);
+            CancelApplicationtoolStripMenuItem1 = new ToolStripMenuItem();
+            updateApplicationToolStripMenuItem = new ToolStripMenuItem();
+            deleteApplicationToolStripMenuItem = new ToolStripMenuItem();
+            showApplicationToolStripMenuItem = new ToolStripMenuItem();
+            scheduleTestToolStripMenuItem = new ToolStripMenuItem();
+            visionTestToolStripMenuItem = new ToolStripMenuItem();
+            scheduleVisionTestToolStripMenuItem = new ToolStripMenuItem();
+            scheduleVisionTestToolStripMenuItem1 = new ToolStripMenuItem();
+            issueDrivingLicenseFirstTimeToolStripMenuItem = new ToolStripMenuItem();
+            showToolStripMenuItem = new ToolStripMenuItem();
+            showLicenseHistoryToolStripMenuItem = new ToolStripMenuItem();
             btnLocalAddNew = new Krypton.Toolkit.KryptonButton();
             lblLocalTotalRecordsNb = new Krypton.Toolkit.KryptonLabel();
             lblLocalTotalRecords = new Krypton.Toolkit.KryptonLabel();
@@ -37,15 +50,11 @@
             lblLocalFilter = new Krypton.Toolkit.KryptonLabel();
             mtbLocalFilterInput = new MaskedTextBox();
             cbLocalStatusOptions = new Krypton.Toolkit.KryptonComboBox();
-            contextMenuStripLocal = new ContextMenuStrip(components);
-            CancelApplicationtoolStripMenuItem1 = new ToolStripMenuItem();
-            updateApplicationToolStripMenuItem = new ToolStripMenuItem();
-            addNewLocalDLAToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvLocal).BeginInit();
+            contextMenuStripLocal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbLocalFilterBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbLocalStatusOptions).BeginInit();
-            contextMenuStripLocal.SuspendLayout();
             SuspendLayout();
             // 
             // lblGeneralTitle
@@ -86,6 +95,98 @@
             dgvLocal.StateNormal.Background.Color1 = Color.Gainsboro;
             dgvLocal.TabIndex = 220;
             dgvLocal.TabStop = false;
+            // 
+            // contextMenuStripLocal
+            // 
+            contextMenuStripLocal.BackColor = Color.Gainsboro;
+            contextMenuStripLocal.Font = new Font("Segoe UI", 9F);
+            contextMenuStripLocal.ImageScalingSize = new Size(36, 36);
+            contextMenuStripLocal.Items.AddRange(new ToolStripItem[] { CancelApplicationtoolStripMenuItem1, updateApplicationToolStripMenuItem, deleteApplicationToolStripMenuItem, showApplicationToolStripMenuItem, scheduleTestToolStripMenuItem, issueDrivingLicenseFirstTimeToolStripMenuItem, showToolStripMenuItem, showLicenseHistoryToolStripMenuItem });
+            contextMenuStripLocal.Name = "contextMenuStripPeople";
+            contextMenuStripLocal.Size = new Size(359, 389);
+            // 
+            // CancelApplicationtoolStripMenuItem1
+            // 
+            CancelApplicationtoolStripMenuItem1.Image = Properties.Resources.CancelApp;
+            CancelApplicationtoolStripMenuItem1.Name = "CancelApplicationtoolStripMenuItem1";
+            CancelApplicationtoolStripMenuItem1.Size = new Size(358, 44);
+            CancelApplicationtoolStripMenuItem1.Text = "Cancel Application";
+            CancelApplicationtoolStripMenuItem1.Click += CancelApplicationtoolStripMenuItem1_Click;
+            // 
+            // updateApplicationToolStripMenuItem
+            // 
+            updateApplicationToolStripMenuItem.Image = Properties.Resources.editPerson;
+            updateApplicationToolStripMenuItem.Name = "updateApplicationToolStripMenuItem";
+            updateApplicationToolStripMenuItem.Size = new Size(358, 44);
+            updateApplicationToolStripMenuItem.Text = "Update Application";
+            updateApplicationToolStripMenuItem.Click += updateApplicationToolStripMenuItem_Click;
+            // 
+            // deleteApplicationToolStripMenuItem
+            // 
+            deleteApplicationToolStripMenuItem.Image = Properties.Resources.deleteapp;
+            deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
+            deleteApplicationToolStripMenuItem.Size = new Size(358, 44);
+            deleteApplicationToolStripMenuItem.Text = "Delete Application";
+            deleteApplicationToolStripMenuItem.Click += deleteApplicationToolStripMenuItem_Click;
+            // 
+            // showApplicationToolStripMenuItem
+            // 
+            showApplicationToolStripMenuItem.Image = Properties.Resources.showapp;
+            showApplicationToolStripMenuItem.Name = "showApplicationToolStripMenuItem";
+            showApplicationToolStripMenuItem.Size = new Size(358, 44);
+            showApplicationToolStripMenuItem.Text = "Show Application";
+            showApplicationToolStripMenuItem.Click += showApplicationToolStripMenuItem_Click;
+            // 
+            // scheduleTestToolStripMenuItem
+            // 
+            scheduleTestToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { visionTestToolStripMenuItem, scheduleVisionTestToolStripMenuItem, scheduleVisionTestToolStripMenuItem1 });
+            scheduleTestToolStripMenuItem.Image = Properties.Resources.scheduletest;
+            scheduleTestToolStripMenuItem.Name = "scheduleTestToolStripMenuItem";
+            scheduleTestToolStripMenuItem.Size = new Size(358, 44);
+            scheduleTestToolStripMenuItem.Text = "Schedule Test";
+            // 
+            // visionTestToolStripMenuItem
+            // 
+            visionTestToolStripMenuItem.Image = Properties.Resources.vision;
+            visionTestToolStripMenuItem.Name = "visionTestToolStripMenuItem";
+            visionTestToolStripMenuItem.Size = new Size(295, 46);
+            visionTestToolStripMenuItem.Text = "Schedule Vision Test";
+            visionTestToolStripMenuItem.Click += visionTestToolStripMenuItem_Click;
+            // 
+            // scheduleVisionTestToolStripMenuItem
+            // 
+            scheduleVisionTestToolStripMenuItem.Image = Properties.Resources.writing;
+            scheduleVisionTestToolStripMenuItem.Name = "scheduleVisionTestToolStripMenuItem";
+            scheduleVisionTestToolStripMenuItem.Size = new Size(295, 46);
+            scheduleVisionTestToolStripMenuItem.Text = "Schedule Written Test";
+            // 
+            // scheduleVisionTestToolStripMenuItem1
+            // 
+            scheduleVisionTestToolStripMenuItem1.Image = Properties.Resources.street;
+            scheduleVisionTestToolStripMenuItem1.Name = "scheduleVisionTestToolStripMenuItem1";
+            scheduleVisionTestToolStripMenuItem1.Size = new Size(295, 46);
+            scheduleVisionTestToolStripMenuItem1.Text = "Schedule Driving Test";
+            // 
+            // issueDrivingLicenseFirstTimeToolStripMenuItem
+            // 
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Image = Properties.Resources.menu_license;
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Name = "issueDrivingLicenseFirstTimeToolStripMenuItem";
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Size = new Size(358, 44);
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Text = "Issue Driving License (First Time)";
+            // 
+            // showToolStripMenuItem
+            // 
+            showToolStripMenuItem.Image = Properties.Resources.infoPerson;
+            showToolStripMenuItem.Name = "showToolStripMenuItem";
+            showToolStripMenuItem.Size = new Size(358, 44);
+            showToolStripMenuItem.Text = "Show License Details";
+            // 
+            // showLicenseHistoryToolStripMenuItem
+            // 
+            showLicenseHistoryToolStripMenuItem.Image = (Image)resources.GetObject("showLicenseHistoryToolStripMenuItem.Image");
+            showLicenseHistoryToolStripMenuItem.Name = "showLicenseHistoryToolStripMenuItem";
+            showLicenseHistoryToolStripMenuItem.Size = new Size(358, 44);
+            showLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
             // 
             // btnLocalAddNew
             // 
@@ -217,39 +318,6 @@
             cbLocalStatusOptions.TabIndex = 231;
             cbLocalStatusOptions.SelectedIndexChanged += cbLocalStatusOptions_SelectedIndexChanged;
             // 
-            // contextMenuStripLocal
-            // 
-            contextMenuStripLocal.BackColor = Color.Gainsboro;
-            contextMenuStripLocal.Font = new Font("Segoe UI", 9F);
-            contextMenuStripLocal.ImageScalingSize = new Size(36, 36);
-            contextMenuStripLocal.Items.AddRange(new ToolStripItem[] { CancelApplicationtoolStripMenuItem1, updateApplicationToolStripMenuItem, addNewLocalDLAToolStripMenuItem });
-            contextMenuStripLocal.Name = "contextMenuStripPeople";
-            contextMenuStripLocal.Size = new Size(263, 136);
-            // 
-            // CancelApplicationtoolStripMenuItem1
-            // 
-            CancelApplicationtoolStripMenuItem1.Image = Properties.Resources.CancelApp;
-            CancelApplicationtoolStripMenuItem1.Name = "CancelApplicationtoolStripMenuItem1";
-            CancelApplicationtoolStripMenuItem1.Size = new Size(262, 44);
-            CancelApplicationtoolStripMenuItem1.Text = "Cancel Application";
-            CancelApplicationtoolStripMenuItem1.Click += CancelApplicationtoolStripMenuItem1_Click;
-            // 
-            // updateApplicationToolStripMenuItem
-            // 
-            updateApplicationToolStripMenuItem.Image = Properties.Resources.editPerson;
-            updateApplicationToolStripMenuItem.Name = "updateApplicationToolStripMenuItem";
-            updateApplicationToolStripMenuItem.Size = new Size(262, 44);
-            updateApplicationToolStripMenuItem.Text = "Update Application";
-            updateApplicationToolStripMenuItem.Click += updateApplicationToolStripMenuItem_Click;
-            // 
-            // addNewLocalDLAToolStripMenuItem
-            // 
-            addNewLocalDLAToolStripMenuItem.Image = Properties.Resources.application;
-            addNewLocalDLAToolStripMenuItem.Name = "addNewLocalDLAToolStripMenuItem";
-            addNewLocalDLAToolStripMenuItem.Size = new Size(262, 44);
-            addNewLocalDLAToolStripMenuItem.Text = "Add New Local DLA";
-            addNewLocalDLAToolStripMenuItem.Click += addNewLocalDLAToolStripMenuItem_Click;
-            // 
             // frmLocalDLA_Main
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -279,9 +347,9 @@
             Controls.SetChildIndex(btnLocalAddNew, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvLocal).EndInit();
+            contextMenuStripLocal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbLocalFilterBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbLocalStatusOptions).EndInit();
-            contextMenuStripLocal.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -299,6 +367,14 @@
         private ContextMenuStrip contextMenuStripLocal;
         private ToolStripMenuItem CancelApplicationtoolStripMenuItem1;
         private ToolStripMenuItem updateApplicationToolStripMenuItem;
-        private ToolStripMenuItem addNewLocalDLAToolStripMenuItem;
+        private ToolStripMenuItem deleteApplicationToolStripMenuItem;
+        private ToolStripMenuItem showApplicationToolStripMenuItem;
+        private ToolStripMenuItem scheduleTestToolStripMenuItem;
+        private ToolStripMenuItem visionTestToolStripMenuItem;
+        private ToolStripMenuItem scheduleVisionTestToolStripMenuItem;
+        private ToolStripMenuItem scheduleVisionTestToolStripMenuItem1;
+        private ToolStripMenuItem issueDrivingLicenseFirstTimeToolStripMenuItem;
+        private ToolStripMenuItem showToolStripMenuItem;
+        private ToolStripMenuItem showLicenseHistoryToolStripMenuItem;
     }
 }

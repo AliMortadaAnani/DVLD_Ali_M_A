@@ -117,6 +117,17 @@ namespace DVLD_Business
             return clsApplicationsData.UpdateApplicationLastStatusDate(id, lastStatusDate);
         }
 
+        public static bool UpdateApplication_Status_LastStatusDate(int ID,int localID,enApplicationStatus status, DateTime lastStatusDate)
+        {
+            return
+                (
+                clsApplicationsData.UpdateApplicationLastStatusDate(ID, lastStatusDate)
+                &&
+                clsLocal_DLA_Data.UpdateLocalDLA_Status(localID, status)
+                );
+
+        }
+
         public static bool DeleteApplication(int id)
         {   
             if(clsApplicationsData.CheckApplicationIntegrity(id))

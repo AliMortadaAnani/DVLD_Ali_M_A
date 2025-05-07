@@ -176,13 +176,12 @@ namespace DVLD_Presentation
             if (MessageBox.Show("Are you sure you want to Cancel local application with id : " + id + "", "Confirm Cancellation", MessageBoxButtons.OKCancel) == DialogResult.OK)
 
             {
-                
+
                 enApplicationStatus status = clsLocal_DLA.GetLocalDLA_Status(id);
 
                 if (status == enApplicationStatus.New)
                 {
-                    clsLocal_DLA.UpdateLocalDLA_Status(id,enApplicationStatus.Cancelled);
-                    clsApplication.UpdateApplicationLastStatusDate(clsLocal_DLA.GetLocalDLAByID(id).ApplicationID, DateTime.Now);
+                    clsApplication.UpdateApplication_Status_LastStatusDate(clsLocal_DLA.GetLocalDLAByID(id).ApplicationID, id, enApplicationStatus.Cancelled, DateTime.Now);
                     MessageBox.Show("Application Cancelled Successfully.");
                     _RefreshLocalList();
                 }
@@ -201,15 +200,10 @@ namespace DVLD_Presentation
             _RefreshLocalList();
         }
 
-        private void addNewLocalDLAToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLocal_DLA_AddUpdate frm = new frmLocal_DLA_AddUpdate(-1, -1);
-            frm.ShowDialog();
-            _RefreshLocalList();
-        }
+       
 
         private void updateApplicationToolStripMenuItem_Click(object sender, EventArgs e)
-        {   
+        {
             string nationalNb = dgvLocal.CurrentRow.Cells[2].Value.ToString();
             int id = (int)dgvLocal.CurrentRow.Cells[0].Value;
             int personId = clsPeople.Find(nationalNb).ID;
@@ -225,6 +219,35 @@ namespace DVLD_Presentation
             }
             else
                 MessageBox.Show("Application cannot be updated.");
+        }
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete local application with id : " + dgvLocal.CurrentRow.Cells[0].Value + "", "Confirm Deletion", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                //Perform Delele and refresh
+                if (clsLocal_DLA.DeleteLocalDLA((int)dgvLocal.CurrentRow.Cells[0].Value))
+                {
+                    MessageBox.Show("Application Deleted Successfully.");
+                    _RefreshLocalList();
+                }
+                else
+                    MessageBox.Show("Application is not deleted because it's linked to other data.");
+            }
+        }
+
+        private void showApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int localid = (int)dgvLocal.CurrentRow.Cells[0].Value;
+            int appid = clsLocal_DLA.GetLocalDLAByID(localid).ApplicationID;
+            frmLocal_DLA_ShowDetails frm = new frmLocal_DLA_ShowDetails(localid, appid);
+            frm.ShowDialog();
+            _RefreshLocalList();
+        }
+
+        private void visionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

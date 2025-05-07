@@ -41,12 +41,12 @@
             toolTipCancel.BackColor = Color.Gainsboro;
             toolTipCancel.ForeColor = Color.DarkSlateBlue;
             // 
-            // btnPeopleCancel
+            // btnGeneralCancel
             // 
             btnGeneralCancel.Cursor = Cursors.Hand;
-            btnGeneralCancel.Image = (Image)resources.GetObject("btnPeopleCancel.Image");
+            btnGeneralCancel.Image = (Image)resources.GetObject("btnGeneralCancel.Image");
             btnGeneralCancel.Location = new Point(1400, 30);
-            btnGeneralCancel.Name = "btnPeopleCancel";
+            btnGeneralCancel.Name = "btnGeneralCancel";
             btnGeneralCancel.Size = new Size(150, 100);
             btnGeneralCancel.SizeMode = PictureBoxSizeMode.Zoom;
             btnGeneralCancel.TabIndex = 210;
@@ -59,7 +59,7 @@
             lblGeneralTitle.AutoSize = false;
             lblGeneralTitle.Location = new Point(575, 2);
             lblGeneralTitle.Name = "lblGeneralTitle";
-            lblGeneralTitle.Size = new Size(398, 107);
+            lblGeneralTitle.Size = new Size(742, 107);
             lblGeneralTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
             lblGeneralTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGeneralTitle.TabIndex = 211;
