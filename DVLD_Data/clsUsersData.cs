@@ -289,6 +289,57 @@ namespace DVLD_Data
             return isFound;
         }
 
+        public static bool GetUserInfoByUsername(string Username, ref int ID, ref int PersonID,  ref string Password, ref bool IsActive)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM Users WHERE Username = @Username";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@Username", Username);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    // The record was found
+                    isFound = true;
+
+                    PersonID = (int)reader["PersonID"];
+                    ID = (int)reader["UserID"];
+                    Password = (string)reader["Password"];
+                    IsActive = (bool)reader["IsActive"];
+
+                }
+                else
+                {
+                    // The record was not found
+                    isFound = false;
+                }
+
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
         public static int GetUserIDByUserNameAndPassword(string UserName, string Password)
         {
             bool isFound = false;

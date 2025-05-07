@@ -142,6 +142,7 @@ namespace DVLD_Presentation
 
         private void _FillCountriesInComoboBox()
         {
+            cbCountries.Items.Clear(); // Clear existing items first
             DataTable dtCountries = clsCountry.GetAllCountries();
 
             foreach (DataRow row in dtCountries.Rows)

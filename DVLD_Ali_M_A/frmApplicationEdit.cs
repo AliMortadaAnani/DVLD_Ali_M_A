@@ -71,7 +71,7 @@ namespace DVLD_Presentation
         private void btnPeopleAddNew_Click(object sender, EventArgs e)
         {
             _applicationType.Title = tbtitle.Text.Trim();
-            _applicationType.Fees = int.Parse(tbfees.Text.Trim());
+            _applicationType.Fees = Decimal.Parse(tbfees.Text.Trim());
             
             if (_applicationType.Save())
             {

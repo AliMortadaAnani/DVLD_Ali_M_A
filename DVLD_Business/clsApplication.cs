@@ -19,7 +19,7 @@ namespace DVLD_Business
         public int ApplicationTypeID { get; set; }
         public enApplicationStatus ApplicationStatus { get; set; }
         public DateTime LastStatusDate { get; set; }
-        public byte PaidFees { get; set; }
+        public decimal PaidFees { get; set; }
         public int CreatedByUserID { get; set; }
         // Constructor
         public clsApplication()
@@ -96,7 +96,7 @@ namespace DVLD_Business
             int ApplicationTypeID = -1;
             enApplicationStatus ApplicationStatus = enApplicationStatus.New;
             DateTime LastStatusDate = DateTime.Now;
-            byte PaidFees = 0;
+            decimal PaidFees = 0;
             int CreatedByUserID = -1;
             if (clsApplicationsData.GetApplicationByID(id, ref ApplicantPersonID,
                 ref ApplicationDate, ref ApplicationTypeID, ref ApplicationStatus,
@@ -112,7 +112,20 @@ namespace DVLD_Business
             }
         }
 
+        public static bool UpdateApplicationLastStatusDate(int id, DateTime lastStatusDate)
+        {
+            return clsApplicationsData.UpdateApplicationLastStatusDate(id, lastStatusDate);
+        }
 
+        public static bool DeleteApplication(int id)
+        {   
+            if(clsApplicationsData.CheckApplicationIntegrity(id))
+            {
+                return false;
+            }
+            else
+                return clsApplicationsData.DeleteApplication(id);
+        }
 
     }
 }

@@ -123,5 +123,32 @@ namespace DVLD_Business
 
             return clsLocal_DLA_Data.GetLocalDLA_BynationalNb(NationalNb);
         }
+
+        public static bool IsLicenseExist(string NationalNumber , string LicenseClassName)
+        {
+            return clsLocal_DLA_Data.IsLicenseClassExist(NationalNumber,LicenseClassName);
+        }
+
+        public static bool DeleteLocalDLA(int ID)
+        {
+          if(clsLocal_DLA_Data.CheckLocalDLAIntegrity(ID))
+            {
+                return false;
+            }
+            else
+            {
+                return clsLocal_DLA_Data.DeleteLocalDLA(ID);
+            }
+        }
+
+        public static int GetLocalDLA_PassedTests(int ID)
+        {
+            return clsLocal_DLA_Data.GetLocalDLA_PassedTests(ID);
+        }
+
+        public static int GetLocalDLA_FailedTests(int ID)
+        {
+            return clsLocal_DLA_Data.GetLocalDLA_FailedTests(ID);
+        }
     }
 }

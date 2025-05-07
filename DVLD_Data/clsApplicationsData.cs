@@ -18,7 +18,7 @@ namespace DVLD_Data
         public static bool GetApplicationByID(int ID, ref int ApplicantPersonID,
             ref DateTime ApplicationDate, ref int ApplicationTypeID,
             ref enApplicationStatus ApplicationStatus, ref DateTime LastStatusDate,
-            ref byte PaidFees, ref int CreatedByUserID)
+            ref decimal PaidFees, ref int CreatedByUserID)
         {
             bool isFound = false;
 
@@ -46,7 +46,7 @@ namespace DVLD_Data
                     ApplicationTypeID = (int)reader["ApplicationTypeID"];
                     ApplicationStatus = (enApplicationStatus)Convert.ToByte(reader["ApplicationStatus"]);
                     LastStatusDate = (DateTime)reader["LastStatusDate"];
-                    PaidFees = (byte)reader["PaidFees"];
+                    PaidFees = (decimal)reader["PaidFees"];
                     CreatedByUserID = (int)reader["CreatedByUserID"];
 
 
@@ -80,7 +80,7 @@ namespace DVLD_Data
         public static int AddNewApplication(int ApplicantPersonID,
           DateTime ApplicationDate, int ApplicationTypeID,
           enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
-          byte PaidFees, int CreatedByUserID)
+          decimal PaidFees, int CreatedByUserID)
         {
             int ApplicationID = -1;
 
@@ -100,7 +100,7 @@ namespace DVLD_Data
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
             command.Parameters.AddWithValue("@ApplicationStatus", (byte)ApplicationStatus);
             command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
-            command.Parameters.AddWithValue("@PaidFees", PaidFees);
+            command.Parameters.AddWithValue("@PaidFees", (decimal)PaidFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
 
@@ -136,7 +136,7 @@ namespace DVLD_Data
         public static bool UpdateApplication(int ApplicationID, int ApplicantPersonID,
             DateTime ApplicationDate, int ApplicationTypeID,
             enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
-            byte PaidFees, int CreatedByUserID)
+            decimal PaidFees, int CreatedByUserID)
         {
             bool isUpdated = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -155,7 +155,7 @@ namespace DVLD_Data
             command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
             command.Parameters.AddWithValue("@ApplicationStatus", (byte)ApplicationStatus);
             command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
-            command.Parameters.AddWithValue("@PaidFees", PaidFees);
+            command.Parameters.AddWithValue("@PaidFees", (decimal)PaidFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
             command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
             try
@@ -182,6 +182,108 @@ namespace DVLD_Data
             }
             return isUpdated;
         }
+
+        public static bool UpdateApplicationLastStatusDate(int ApplicationID, DateTime LastStatusDate)
+        {
+            bool isUpdated = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"UPDATE Applications 
+                            SET 
+                                LastStatusDate = @LastStatusDate
+                            
+                            WHERE ApplicationID = @ApplicationID";
+            SqlCommand command = new SqlCommand(query, connection);
+          
+            command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
+     
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            try
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    isUpdated = true;
+                }
+                else
+                {
+                    isUpdated = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isUpdated = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isUpdated;
+        }
+
+
+        public static bool CheckApplicationIntegrity(int ID)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "select top 1 found = 1 from \r\nLocalDrivingLicenseApplications ldla," +
+                "\r\nLicenses l,\r\nDetainedLicenses dl,\r\nTestAppointments t," +
+                "\r\nInternationalLicenses i\r\nwhere" +
+                " ldla.ApplicationID = @ID\r\nor l.ApplicationID = @ID\r\nor dl.ReleaseApplicationID = @ID\r\nor t.RetakeTestApplicationID = @ID\r\nor i.ApplicationID = @ID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", ID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isFound = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
+
+        public static bool DeleteApplication(int ID)
+        {
+            bool isDeleted = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "DELETE FROM Applications WHERE ApplicationID = @ID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", ID);
+            try
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    isDeleted = true;
+                }
+                else
+                {
+                    isDeleted = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isDeleted = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isDeleted;
+        }
+
 
     }
 }

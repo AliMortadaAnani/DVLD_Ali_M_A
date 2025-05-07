@@ -52,8 +52,8 @@ namespace DVLD_Data
 
 
         public static bool GetLicenseClassInfoByID(int ID, ref string ClassName,
-            ref string ClassDescription,ref int MinimumAllowedAge,
-            ref int DefaultValidityLength, ref byte ClassFees)
+            ref string ClassDescription,ref byte MinimumAllowedAge,
+            ref byte DefaultValidityLength, ref decimal ClassFees)
         {
             bool isFound = false;
 
@@ -78,9 +78,9 @@ namespace DVLD_Data
 
                     ClassName = (string)reader["ClassName"];
                     ClassDescription = (string)reader["ClassDescription"];
-                    MinimumAllowedAge = (int)reader["MinimumAllowedAge"];
-                    DefaultValidityLength = (int)reader["DefaultValidityLength"];
-                    ClassFees = (byte)reader["ClassFees"];
+                    MinimumAllowedAge = (byte)reader["MinimumAllowedAge"];
+                    DefaultValidityLength = (byte)reader["DefaultValidityLength"];
+                    ClassFees = (decimal)reader["ClassFees"];
 
 
                 }
@@ -109,8 +109,8 @@ namespace DVLD_Data
 
 
         public static bool GetLicenseClassInfoByClassName(string ClassName, ref int ID,
-            ref string ClassDescription, ref int MinimumAllowedAge,
-            ref int DefaultValidityLength, ref byte ClassFees)
+            ref string ClassDescription, ref byte MinimumAllowedAge,
+            ref byte DefaultValidityLength, ref decimal ClassFees)
         {
             bool isFound = false;
 
@@ -135,9 +135,9 @@ namespace DVLD_Data
 
                     ID = (int)reader["LicenseClassID"];
                     ClassDescription = (string)reader["ClassDescription"];
-                    MinimumAllowedAge = (int)reader["MinimumAllowedAge"];
-                    DefaultValidityLength = (int)reader["DefaultValidityLength"];
-                    ClassFees = (byte)reader["ClassFees"];
+                    MinimumAllowedAge = (byte)reader["MinimumAllowedAge"];
+                    DefaultValidityLength = (byte)reader["DefaultValidityLength"];
+                    ClassFees = (decimal)reader["ClassFees"];
 
 
                 }

@@ -35,9 +35,12 @@
             pageLocal = new TabPage();
             btnLocalBack = new Krypton.Toolkit.KryptonButton();
             btnLocalNext = new Krypton.Toolkit.KryptonButton();
+            lbLocalTitle = new Krypton.Toolkit.KryptonLabel();
+            ctrlLocaldlA_AddUpdate1 = new ctrlLocalDLA_AddUpdate();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             tabLocalControl.SuspendLayout();
             pagePerson.SuspendLayout();
+            pageLocal.SuspendLayout();
             SuspendLayout();
             // 
             // lblGeneralTitle
@@ -47,6 +50,7 @@
             lblGeneralTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
             lblGeneralTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGeneralTitle.Values.Text = "Add New Local DLA";
+            lblGeneralTitle.Visible = false;
             // 
             // tabLocalControl
             // 
@@ -94,6 +98,7 @@
             // pageLocal
             // 
             pageLocal.BackColor = Color.Gainsboro;
+            pageLocal.Controls.Add(ctrlLocaldlA_AddUpdate1);
             pageLocal.Location = new Point(4, 52);
             pageLocal.Name = "pageLocal";
             pageLocal.Padding = new Padding(3);
@@ -193,11 +198,32 @@
             btnLocalNext.Values.Text = "Next";
             btnLocalNext.Click += btnLocalNext_Click;
             // 
+            // lbLocalTitle
+            // 
+            lbLocalTitle.AutoSize = false;
+            lbLocalTitle.Location = new Point(575, -7);
+            lbLocalTitle.Name = "lbLocalTitle";
+            lbLocalTitle.Size = new Size(551, 54);
+            lbLocalTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            lbLocalTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbLocalTitle.TabIndex = 218;
+            lbLocalTitle.TabStop = false;
+            lbLocalTitle.Values.Text = "Add New Local DLA";
+            // 
+            // ctrlLocaldlA_AddUpdate1
+            // 
+            ctrlLocaldlA_AddUpdate1.BackColor = Color.Lavender;
+            ctrlLocaldlA_AddUpdate1.Location = new Point(198, 121);
+            ctrlLocaldlA_AddUpdate1.Name = "ctrlLocaldlA_AddUpdate1";
+            ctrlLocaldlA_AddUpdate1.Size = new Size(922, 596);
+            ctrlLocaldlA_AddUpdate1.TabIndex = 0;
+            // 
             // frmLocal_DLA_AddUpdate
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(lbLocalTitle);
             Controls.Add(btnLocalBack);
             Controls.Add(btnLocalNext);
             Controls.Add(tabLocalControl);
@@ -210,9 +236,11 @@
             Controls.SetChildIndex(tabLocalControl, 0);
             Controls.SetChildIndex(btnLocalNext, 0);
             Controls.SetChildIndex(btnLocalBack, 0);
+            Controls.SetChildIndex(lbLocalTitle, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
             tabLocalControl.ResumeLayout(false);
             pagePerson.ResumeLayout(false);
+            pageLocal.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -225,5 +253,7 @@
         private TabPage pageLocal;
         private Krypton.Toolkit.KryptonButton btnLocalBack;
         private Krypton.Toolkit.KryptonButton btnLocalNext;
+        private ctrlLocalDLA_AddUpdate ctrlLocaldlA_AddUpdate1;
+        public static Krypton.Toolkit.KryptonLabel lbLocalTitle;
     }
 }

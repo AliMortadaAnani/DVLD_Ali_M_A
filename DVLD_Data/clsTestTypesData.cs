@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using DVLD_General;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace DVLD_Data
 {
-    public class clsApplicationTypes
+    public class clsTestTypesData
     {
-        public static DataTable GetAllApplicationTypes()
+        public static DataTable GetAllTestTypes()
         {
 
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM ApplicationtypeView";
+            string query = "SELECT * FROM TestTypeView";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -50,18 +51,19 @@ namespace DVLD_Data
 
         }
 
-        public static bool GetApplicationTypeInfoByID(int ID, ref string title,
-           ref int fees)
+        public static bool GetTestTypeInfoByID(int ID, ref string title,
+            ref decimal fees,
+            ref string description)
         {
             bool isFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM ApplicationTypes WHERE ApplicationTypeID = @ApplicationTypeID";
+            string query = "SELECT * FROM TestTypes WHERE TestTypeID = @TestTypeID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ApplicationTypeID", ID);
+            command.Parameters.AddWithValue("@TestTypeID", ID);
 
             try
             {
@@ -73,13 +75,13 @@ namespace DVLD_Data
                     // The record was found
                     isFound = true;
 
-                    title = (string)reader["ApplicationTypeTitle"];
+                    title = (string)reader["TestTypeTitle"];
+                  
 
+                    fees = (decimal)(reader["TestTypeFees"]);
 
-                    fees = Convert.ToInt32(reader["ApplicationFees"]);
-
-                    
-
+                    description = (string)reader["TestTypeDescription"];
+                 
 
                 }
                 else
@@ -104,22 +106,25 @@ namespace DVLD_Data
 
             return isFound;
         }
-        public static bool UpdateApplicationType(int ID, string title,
-            int fees)
+
+        public static bool UpdateTestType(int ID,  string title,
+            decimal fees,
+            string description)
         {
             int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"Update  ApplicationTypes set ApplicationTypeTitle = @ApplicationTypeTitle, 
-                                ApplicationFees = @ApplicationFees
-                                where ApplicationTypeID = @ApplicationTypeID";
-
+            string query = @"Update  TestTypes set TestTypeTitle = @TestTypeTitle, 
+                                TestTypeFees = @TestTypeFees, 
+                                TestTypeDescription = @TestTypeDescription
+                                where TestTypeID = @TestTypeID";
+            
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@ApplicationTypeID", ID);
-            command.Parameters.AddWithValue("@ApplicationTypeTitle", title);
-            command.Parameters.AddWithValue("@ApplicationFees", fees);
-         
+            command.Parameters.AddWithValue("@TestTypeID", ID);
+            command.Parameters.AddWithValue("@TestTypeTitle", title);
+            command.Parameters.AddWithValue("@TestTypeFees", (decimal)fees);
+            command.Parameters.AddWithValue("@TestTypeDescription", description);
 
-
+            
             try
             {
                 connection.Open();
@@ -137,10 +142,10 @@ namespace DVLD_Data
             return (rowsAffected > 0);
         }
 
-        public static int TotalApplicationTypesCount()
+        public static int TotalTestTypesCount()
         {
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "SELECT COUNT(*) FROM ApplicationTypes";
+            string query = "SELECT COUNT(*) FROM TestTypes";
             SqlCommand command = new SqlCommand(query, connection);
             int TotalPeopleCount = 0;
             try

@@ -14,10 +14,10 @@ namespace DVLD_Business
     {
         public int ID { get; set; }
         public string Title { get; set; }
-        public int Fees { get; set; }
+        public decimal Fees { get; set; }
         public string Description { get; set; }
         
-        private clsTestType(int testTypeID, string title, int fees, string description)
+        private clsTestType(int testTypeID, string title, decimal fees, string description)
         {
             ID = testTypeID;
             Title = title;
@@ -28,7 +28,7 @@ namespace DVLD_Business
         private bool _UpdateTestType()
         {
             //call DataAccess Layer 
-            return clsTestTypes.UpdateTestType(this.ID, this.Title, this.Fees, this.Description);
+            return clsTestTypesData.UpdateTestType(this.ID, this.Title, this.Fees, this.Description);
         }
 
 
@@ -42,12 +42,12 @@ namespace DVLD_Business
         public static clsTestType GetByID(int ID)
         {
             string title = "";
-            int fees = 0;
+            decimal fees = 0;
             string description = "";
 
 
 
-           if(clsTestTypes.GetTestTypeInfoByID(ID, ref title, ref fees, ref description))
+           if(clsTestTypesData.GetTestTypeInfoByID(ID, ref title, ref fees, ref description))
             {
                 return new clsTestType(ID, title, fees, description);
             }
@@ -58,12 +58,12 @@ namespace DVLD_Business
 
         public static DataTable GetAllTestTypes()
         {
-            return clsTestTypes.GetAllTestTypes();
+            return clsTestTypesData.GetAllTestTypes();
         }
 
         public static int GetTestTypeCount()
         {
-            return clsTestTypes.TotalTestTypesCount();
+            return clsTestTypesData.TotalTestTypesCount();
         }
     }
 }

@@ -182,6 +182,7 @@ namespace DVLD_Presentation
                 if (status == enApplicationStatus.New)
                 {
                     clsLocal_DLA.UpdateLocalDLA_Status(id,enApplicationStatus.Cancelled);
+                    clsApplication.UpdateApplicationLastStatusDate(clsLocal_DLA.GetLocalDLAByID(id).ApplicationID, DateTime.Now);
                     MessageBox.Show("Application Cancelled Successfully.");
                     _RefreshLocalList();
                 }
@@ -212,9 +213,18 @@ namespace DVLD_Presentation
             string nationalNb = dgvLocal.CurrentRow.Cells[2].Value.ToString();
             int id = (int)dgvLocal.CurrentRow.Cells[0].Value;
             int personId = clsPeople.Find(nationalNb).ID;
-            frmLocal_DLA_AddUpdate frm = new frmLocal_DLA_AddUpdate(personId, id);
-            frm.ShowDialog();
-            _RefreshLocalList();
+
+
+            enApplicationStatus status = clsLocal_DLA.GetLocalDLA_Status(id);
+
+            if (status == enApplicationStatus.New)
+            {
+                frmLocal_DLA_AddUpdate frm = new frmLocal_DLA_AddUpdate(personId, id);
+                frm.ShowDialog();
+                _RefreshLocalList();
+            }
+            else
+                MessageBox.Show("Application cannot be updated.");
         }
     }
 }

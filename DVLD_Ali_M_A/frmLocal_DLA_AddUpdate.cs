@@ -19,13 +19,15 @@ namespace DVLD_Presentation
         {
             InitializeComponent();
             ctrlPeopleShowDetails._PersonID = _PersonID;
-            // ctrlUsersAddUpdate._UserID = _UserID;
+            ctrlLocaldlA_AddUpdate1._ID = _LocalID;
             lblGeneralTitle.Text = "Add New Local DLA";
+            lbLocalTitle.Text = "Add New Local DLA";
             if (_PersonID != -1 && _LocalID != -1)
             {
                 ctrlPersonFilter1.Enabled = false;
                 ctrlPersonFilter1.Visible = false;
                 lblGeneralTitle.Text = "Edit Local DLA Details";
+                lbLocalTitle.Text = "Edit Local DLA Details";
             }
         }
 
@@ -51,12 +53,12 @@ namespace DVLD_Presentation
                 MessageBox.Show("You should choose an existing person!");
                 return;
             }
-            else if (clsPeople.IsPersonUser(CurrentPersonId)
-                && ctrlUsersAddUpdate._UserID == -1 && ctrlPersonFilter1.Enabled == true)
+            /*else if (clsPeople.IsPersonUser(CurrentPersonId)
+                && ctrlLocaldlA_AddUpdate1._ID == -1 && ctrlPersonFilter1.Enabled == true)
             {
                 MessageBox.Show("This person is already a user!");
                 return;
-            }
+            }*/
             AllowTabChange = true;
             tabLocalControl.SelectedTab = pageLocal;
             AllowTabChange = false;

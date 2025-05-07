@@ -35,6 +35,7 @@
             toolTipClose = new ToolTip(components);
             btnApplicationTypes = new Krypton.Toolkit.KryptonButton();
             btnTestTypes = new Krypton.Toolkit.KryptonButton();
+            kryptonButton1 = new Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)pbApplicationsCancel).BeginInit();
             SuspendLayout();
             // 
@@ -157,12 +158,60 @@
             btnTestTypes.Values.Text = "Manage Test Types";
             btnTestTypes.Click += btnTestTypes_Click;
             // 
+            // kryptonButton1
+            // 
+            kryptonButton1.Cursor = Cursors.Hand;
+            kryptonButton1.Location = new Point(42, 151);
+            kryptonButton1.Name = "kryptonButton1";
+            kryptonButton1.OverrideDefault.Back.Color1 = Color.Silver;
+            kryptonButton1.OverrideDefault.Border.Rounding = 50F;
+            kryptonButton1.OverrideFocus.Back.Color1 = Color.Silver;
+            kryptonButton1.OverrideFocus.Border.Rounding = 50F;
+            kryptonButton1.Size = new Size(680, 158);
+            kryptonButton1.StateDisabled.Back.Color1 = Color.Silver;
+            kryptonButton1.StateDisabled.Border.Rounding = 50F;
+            kryptonButton1.StateNormal.Back.Color1 = Color.Silver;
+            kryptonButton1.StateNormal.Back.Color2 = Color.Silver;
+            kryptonButton1.StateNormal.Back.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            kryptonButton1.StateNormal.Border.Rounding = 50F;
+            kryptonButton1.StateNormal.Content.ShortText.Color1 = Color.DimGray;
+            kryptonButton1.StateNormal.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kryptonButton1.StatePressed.Back.Color1 = Color.Silver;
+            kryptonButton1.StatePressed.Back.Color2 = Color.Silver;
+            kryptonButton1.StatePressed.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            kryptonButton1.StatePressed.Border.Color1 = Color.Gainsboro;
+            kryptonButton1.StatePressed.Border.Color2 = Color.Gainsboro;
+            kryptonButton1.StatePressed.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            kryptonButton1.StatePressed.Border.Draw = Krypton.Toolkit.InheritBool.True;
+            kryptonButton1.StatePressed.Border.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            kryptonButton1.StatePressed.Border.Rounding = 50F;
+            kryptonButton1.StatePressed.Content.ShortText.Color1 = Color.DimGray;
+            kryptonButton1.StatePressed.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kryptonButton1.StateTracking.Back.Color1 = Color.Silver;
+            kryptonButton1.StateTracking.Back.Color2 = Color.Silver;
+            kryptonButton1.StateTracking.Back.Draw = Krypton.Toolkit.InheritBool.True;
+            kryptonButton1.StateTracking.Back.GraphicsHint = Krypton.Toolkit.PaletteGraphicsHint.None;
+            kryptonButton1.StateTracking.Border.Color1 = Color.Gainsboro;
+            kryptonButton1.StateTracking.Border.Color2 = Color.Gainsboro;
+            kryptonButton1.StateTracking.Border.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Solid;
+            kryptonButton1.StateTracking.Border.Rounding = 50F;
+            kryptonButton1.StateTracking.Content.Draw = Krypton.Toolkit.InheritBool.True;
+            kryptonButton1.StateTracking.Content.DrawFocus = Krypton.Toolkit.InheritBool.False;
+            kryptonButton1.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
+            kryptonButton1.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
+            kryptonButton1.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            kryptonButton1.TabIndex = 213;
+            kryptonButton1.Values.DropDownArrowColor = Color.Empty;
+            kryptonButton1.Values.Text = "Manage Local Driving License Applications";
+            kryptonButton1.Click += kryptonButton1_Click;
+            // 
             // frmApplications
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1581, 1074);
+            Controls.Add(kryptonButton1);
             Controls.Add(btnTestTypes);
             Controls.Add(lbApplicationsTitle);
             Controls.Add(pbApplicationsCancel);
@@ -182,5 +231,6 @@
         private ToolTip toolTipClose;
         private Krypton.Toolkit.KryptonButton btnApplicationTypes;
         private Krypton.Toolkit.KryptonButton btnTestTypes;
+        private Krypton.Toolkit.KryptonButton kryptonButton1;
     }
 }

@@ -52,7 +52,7 @@ namespace DVLD_Ali_M_A
             {
                 mtbPeopleFilterInput.Visible = false;
                 _RefreshPeopleList();
-                
+
             }
             else if
              (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ID"))
@@ -127,7 +127,7 @@ namespace DVLD_Ali_M_A
                     dgvPeople.DataSource = clsPeople.GetPeopleByEmail(input);
                     break;
 
-               
+
             }
 
 
@@ -169,9 +169,11 @@ namespace DVLD_Ali_M_A
 
         private void addNewPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             frmPeopleAddUpdate frmPeopleAddUpdate = new frmPeopleAddUpdate(-1);
             frmPeopleAddUpdate.ShowDialog();
             _RefreshPeopleList();
+
         }
 
         private void btnPeopleAddNew_Click(object sender, EventArgs e)
@@ -181,6 +183,27 @@ namespace DVLD_Ali_M_A
             _RefreshPeopleList();
         }
 
-       
+        private void frmPeople_Deactivate(object sender, EventArgs e)
+        {
+            // this.Close();
+            //this.ActiveControl = null; // Remove focus from any control
+        }
+
+        private void contextMenuStripPeople_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void contextMenuStripPeople_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            /*if ((int)dgvPeople.CurrentRow.Cells[0].Value == 1)
+            {
+                addNewPersonToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                addNewPersonToolStripMenuItem.Enabled = true;
+            }*/
+        }
     }
 }

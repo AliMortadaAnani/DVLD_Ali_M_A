@@ -12,10 +12,10 @@ namespace DVLD_Business
     {
         public int ID { get; set; }
         public string Title { get; set; }
-        public int Fees { get; set; }
+        public decimal Fees { get; set; }
 
 
-        private clsApplicationType(int applicationTypeID, string title, int fees)
+        private clsApplicationType(int applicationTypeID, string title, decimal fees)
         {
             ID = applicationTypeID;
             Title = title;
@@ -25,7 +25,7 @@ namespace DVLD_Business
         private bool _UpdateApplicationType()
         {
             //call DataAccess Layer 
-            return clsApplicationTypes.UpdateApplicationType(this.ID, this.Title, this.Fees);
+            return clsApplicationTypesData.UpdateApplicationType(this.ID, this.Title, this.Fees);
         }
 
         public bool Save()
@@ -37,8 +37,8 @@ namespace DVLD_Business
         public static clsApplicationType GetByID(int ID)
         {
             string title = "";
-            int fees = 0;
-            if (clsApplicationTypes.GetApplicationTypeInfoByID(ID, ref title, ref fees))
+            decimal fees = 0;
+            if (clsApplicationTypesData.GetApplicationTypeInfoByID(ID, ref title, ref fees))
             {
                 return new clsApplicationType(ID, title, fees);
             }
@@ -49,11 +49,11 @@ namespace DVLD_Business
 
         public static DataTable GetAllApplicationTypes()
         {
-            return clsApplicationTypes.GetAllApplicationTypes();
+            return clsApplicationTypesData.GetAllApplicationTypes();
         }
         public static int GetApplicationTypeCount()
         {
-            return clsApplicationTypes.TotalApplicationTypesCount();
+            return clsApplicationTypesData.TotalApplicationTypesCount();
         }
 
     }

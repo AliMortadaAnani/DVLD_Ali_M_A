@@ -13,13 +13,13 @@ namespace DVLD_Business
         public int ID { get; set; }
         public string ClassName { get; set; }
         public string ClassDescription { get; set; }
-        public int MinimumAllowedAge { get; set; }
-        public int DefaultValidityLength { get; set; }
-        public byte ClassFees { get; set; }
+        public byte MinimumAllowedAge { get; set; }
+        public byte DefaultValidityLength { get; set; }
+        public decimal ClassFees { get; set; }
 
 
         private clsLicenseClass(int licenseClassID, string className, string classDescription,
-            int minimumAllowedAge, int defaultValidityLength, byte classFees)
+            byte minimumAllowedAge, byte defaultValidityLength, decimal classFees)
         {
             ID = licenseClassID;
             ClassName = className;
@@ -39,9 +39,9 @@ namespace DVLD_Business
         {
             string className = "";
             string classDescription = "";
-            int minimumAllowedAge = -1;
-            int defaultValidityLength = -1;
-            byte classFees = 0;
+            byte minimumAllowedAge = 0;
+            byte defaultValidityLength = 0;
+            decimal classFees = 0;
             if (clsLicenseClassesData.GetLicenseClassInfoByID(ID, ref className,
                 ref classDescription, ref minimumAllowedAge,
                 ref defaultValidityLength, ref classFees))
@@ -59,9 +59,9 @@ namespace DVLD_Business
         {
             int ID = -1;
             string classDescription = "";
-            int minimumAllowedAge = -1;
-            int defaultValidityLength = -1;
-            byte classFees = 0;
+            byte minimumAllowedAge = 0;
+            byte defaultValidityLength = 0;
+            decimal classFees = 0;
             if (clsLicenseClassesData.GetLicenseClassInfoByClassName(className, ref ID,
                 ref classDescription, ref minimumAllowedAge,
                 ref defaultValidityLength, ref classFees))

@@ -42,5 +42,11 @@ namespace DVLD_Presentation
             frmTestTypes frmTestTypes = new frmTestTypes();
             frmTestTypes.ShowDialog();
         }
+
+        private void kryptonButton1_Click(object sender, EventArgs e)
+        {
+            frmLocalDLA_Main frmLocalDLA_Main = new frmLocalDLA_Main();
+            frmLocalDLA_Main.ShowDialog();
+        }
     }
 }

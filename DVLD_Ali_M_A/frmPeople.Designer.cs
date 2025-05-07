@@ -114,7 +114,9 @@
             contextMenuStripPeople.ImageScalingSize = new Size(36, 36);
             contextMenuStripPeople.Items.AddRange(new ToolStripItem[] { showDetailsToolStripMenuItem, editPersonToolStripMenuItem, deletePersonToolStripMenuItem, addNewPersonToolStripMenuItem });
             contextMenuStripPeople.Name = "contextMenuStripPeople";
-            contextMenuStripPeople.Size = new Size(265, 180);
+            contextMenuStripPeople.Size = new Size(265, 213);
+            contextMenuStripPeople.Opening += contextMenuStripPeople_Opening;
+            contextMenuStripPeople.Click += contextMenuStripPeople_Click;
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -217,7 +219,6 @@
             btnPeopleAddNew.Values.DropDownArrowColor = Color.Empty;
             btnPeopleAddNew.Values.Text = "Add New Person";
             btnPeopleAddNew.Click += btnPeopleAddNew_Click;
-          
             // 
             // lblPeopleFilter
             // 
@@ -249,7 +250,6 @@
             cbPeopleFilterBox.TabIndex = 1;
             cbPeopleFilterBox.Text = "None";
             cbPeopleFilterBox.SelectedIndexChanged += cbPeopleFilterBox_SelectedIndexChanged;
-           
             // 
             // mtbPeopleFilterInput
             // 
@@ -261,7 +261,6 @@
             mtbPeopleFilterInput.Size = new Size(203, 34);
             mtbPeopleFilterInput.TabIndex = 2;
             mtbPeopleFilterInput.TextChanged += mtbPeopleFilterInput_TextChanged;
-           
             // 
             // toolTipCancel
             // 
@@ -287,6 +286,7 @@
             Name = "frmPeople";
             StartPosition = FormStartPosition.Manual;
             Text = "frmPeople";
+            Deactivate += frmPeople_Deactivate;
             Load += frmPeople_Load;
             ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();

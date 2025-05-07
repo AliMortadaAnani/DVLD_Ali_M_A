@@ -94,7 +94,17 @@ namespace DVLD_Business
         }
 
 
-
+        public static clsUser Find(string Username)
+        {
+            int PersonID = -1;
+            int ID = -1;
+            string Password = "";
+            bool IsActive = false;
+            if (clsUsersData.GetUserInfoByUsername(Username, ref ID,ref PersonID, ref Password, ref IsActive))
+                return new clsUser( ID, PersonID, Username, Password, IsActive);
+            else
+                return null;
+        }
 
         public static bool DeleteUser(int ID)
         {

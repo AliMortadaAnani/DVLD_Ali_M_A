@@ -72,7 +72,7 @@ namespace DVLD_Presentation
         private void btnPeopleAddNew_Click(object sender, EventArgs e)
         {
             _testType.Title = tbtitle.Text.Trim();
-            _testType.Fees = int.Parse(tbfees.Text.Trim());
+            _testType.Fees = Decimal.Parse(tbfees.Text.Trim());
             _testType.Description = tbdescription.Text.Trim();
             if(_testType.Save())
             {

@@ -121,7 +121,7 @@ namespace DVLD_Data
             bool isUpdated = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             string query = @"UPDATE LocalDrivingLicenseApplications 
-                            SET LicenseClassID = @LicenseClassID,
+                            SET LicenseClassID = @LicenseClassID
                                 
                             WHERE LocalDrivingLicenseApplicationID = @ID AND ApplicationID = @ApplicationID";
             SqlCommand command = new SqlCommand(query, connection);
@@ -331,7 +331,7 @@ namespace DVLD_Data
             return dt;
 
         }
-
+            
         public static DataTable GetLocalDLA_ByStatus(string Status)
         {
             DataTable dt = new DataTable();
@@ -390,7 +390,7 @@ namespace DVLD_Data
         }
 
 
-        public static bool IsLicenClassExist(string NationalNumber,string LicenseClassName)
+        public static bool IsLicenseClassExist(string NationalNumber,string LicenseClassName)
         {
             bool isFound = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
@@ -418,6 +418,136 @@ namespace DVLD_Data
                 connection.Close();
             }
             return isFound;
+        }
+
+        public static bool CheckLocalDLAIntegrity(int ID)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "select top 1 found = 1 from \r\nTestAppointments t\r\nwhere t.LocalDrivingLicenseApplicationID" +
+                "=@ID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", ID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isFound = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isFound;
+        }
+
+        public static bool DeleteLocalDLA(int ID)
+        {
+            bool isDeleted = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "DELETE FROM LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID = @ID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", ID);
+            try
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    isDeleted = true;
+                }
+                else
+                {
+                    isDeleted = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isDeleted = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isDeleted;
+        }
+
+        public static int GetLocalDLA_PassedTests(int ID)
+        {
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "select PassedTests  from LocalDLATests\r\nwhere LocalDLATests.LocalDrivingLicenseApplicationID = @ID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", ID);
+
+            int passedtests = 0;
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+
+                if (result != null && int.TryParse(result.ToString(), out int passed))
+                {
+                    passedtests = passed;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return passedtests;
+        }
+
+
+        public static int GetLocalDLA_FailedTests(int ID)
+        {
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "select FailedTests  from LocalDLATests\r\nwhere LocalDLATests.LocalDrivingLicenseApplicationID = @ID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", ID);
+
+            int passedtests = 0;
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+
+                if (result != null && int.TryParse(result.ToString(), out int passed))
+                {
+                    passedtests = passed;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return passedtests;
         }
     }
 }
