@@ -81,7 +81,7 @@ namespace DVLD_Presentation
             cbLocalStatusOptions.Visible = false;
             cbLocalStatusOptions.SelectedIndex = cbLocalStatusOptions.FindString("All");
             mtbLocalFilterInput.Visible = true;
-
+            _RefreshLocalList();
             switch (cbLocalFilterBox.SelectedItem?.ToString())
             {
                 case "None":

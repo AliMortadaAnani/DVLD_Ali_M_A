@@ -22,7 +22,7 @@ namespace DVLD_Ali_M_A
 
             _RefreshPeopleList();
             _RefreshFilterInput();
-
+            //mtbPeopleFilterInput.Visible = true; // Hide the input field initially
         }
 
         private void btnPeopleCancel_Click(object sender, EventArgs e)
@@ -55,7 +55,9 @@ namespace DVLD_Ali_M_A
 
             }
             else if
-             (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ID"))
+             (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ID")
+             || cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("YearOfBirth") // Add other filter types that require a mask here
+             )
             {
 
                 mtbPeopleFilterInput.Text = string.Empty; // Clear the input field
@@ -111,8 +113,11 @@ namespace DVLD_Ali_M_A
                     dgvPeople.DataSource = clsPeople.GetPeopleByGender(input);
                     break;
 
-                case "DateOfBirth":
-                    dgvPeople.DataSource = clsPeople.GetPeopleByDateOfBirth(input);
+                case "YearOfBirth":
+                    if (int.TryParse(input, out int year))
+                    {
+                        dgvPeople.DataSource = clsPeople.GetPeopleByDateOfBirth(year.ToString());
+                    }
                     break;
 
                 case "Address":

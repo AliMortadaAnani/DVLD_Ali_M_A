@@ -18,6 +18,7 @@ namespace DVLD_Ali_M_A
         {
             InitializeComponent();
             this.loginForm = loginForm;
+            lblnote.Visible = false;
         }
 
         private void MenuCancel_Click(object sender, EventArgs e)
@@ -29,8 +30,10 @@ namespace DVLD_Ali_M_A
         {
             frmPeople people = new frmPeople();
             lbMenuPeople.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
+            lblnote.Visible = true;
             people.ShowDialog();
             lbMenuPeople.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lblnote.Visible = false;
         }
 
         private void MenuSettings_Click(object sender, EventArgs e)
@@ -38,24 +41,40 @@ namespace DVLD_Ali_M_A
 
             frmAccountSettings settings = new frmAccountSettings(this);
             lbMenuSettings.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
+            lblnote.Visible = true;
             settings.ShowDialog();
             lbMenuSettings.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lblnote.Visible = false;
         }
 
         private void lbMenuUsers_Click(object sender, EventArgs e)
         {
             frmUsers users = new frmUsers();
             lbMenuUsers.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
+            lblnote.Visible = true;
             users.ShowDialog();
             lbMenuUsers.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lblnote.Visible = false;
         }
 
         private void lbMenuApplications_Click(object sender, EventArgs e)
         {
             frmApplications applications = new frmApplications();
             lbMenuApplications.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
+            lblnote.Visible = true;
             applications.ShowDialog();
             lbMenuApplications.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lblnote.Visible = false;
+        }
+
+        private void lbMenuDrivers_Click(object sender, EventArgs e)
+        {
+            frmDrivers drivers = new frmDrivers();
+            lbMenuDrivers.StateNormal.ShortText.Color1 = Color.RebeccaPurple;
+            lblnote.Visible = true;
+            drivers.ShowDialog();
+            lbMenuDrivers.StateNormal.ShortText.Color1 = Color.Gainsboro;
+            lblnote.Visible = false;
         }
     }
 }

@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenu));
             pnMenuPanel = new Krypton.Toolkit.KryptonPanel();
+            lblnote = new Krypton.Toolkit.KryptonLabel();
             lbMenuSettings = new Krypton.Toolkit.KryptonLabel();
             lbMenuUsers = new Krypton.Toolkit.KryptonLabel();
             lbMenuDrivers = new Krypton.Toolkit.KryptonLabel();
@@ -51,6 +52,7 @@
             // 
             // pnMenuPanel
             // 
+            pnMenuPanel.Controls.Add(lblnote);
             pnMenuPanel.Controls.Add(lbMenuSettings);
             pnMenuPanel.Controls.Add(lbMenuUsers);
             pnMenuPanel.Controls.Add(lbMenuDrivers);
@@ -65,6 +67,18 @@
             pnMenuPanel.StateNormal.ColorStyle = Krypton.Toolkit.PaletteColorStyle.Dashed;
             pnMenuPanel.TabIndex = 0;
             pnMenuPanel.TabStop = true;
+            // 
+            // lblnote
+            // 
+            lblnote.AutoSize = false;
+            lblnote.Location = new Point(0, 854);
+            lblnote.Name = "lblnote";
+            lblnote.Size = new Size(425, 98);
+            lblnote.StateNormal.ShortText.Color1 = Color.OrangeRed;
+            lblnote.StateNormal.ShortText.Font = new Font("Trebuchet MS", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            lblnote.TabIndex = 240;
+            lblnote.TabStop = false;
+            lblnote.Values.Text = "Exit Current Form \r\nto Access The Panel";
             // 
             // lbMenuSettings
             // 
@@ -103,6 +117,7 @@
             lbMenuDrivers.StateNormal.ShortText.Font = new Font("Trebuchet MS", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbMenuDrivers.TabIndex = 3;
             lbMenuDrivers.Values.Text = "Drivers";
+            lbMenuDrivers.Click += lbMenuDrivers_Click;
             // 
             // lbMenuPeople
             // 
@@ -225,5 +240,6 @@
         private Krypton.Toolkit.KryptonPictureBox pbMenuCar;
         private Krypton.Toolkit.KryptonPictureBox pbMenuTest;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private Krypton.Toolkit.KryptonLabel lblnote;
     }
 }

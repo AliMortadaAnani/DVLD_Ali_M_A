@@ -114,7 +114,7 @@
             contextMenuStripPeople.ImageScalingSize = new Size(36, 36);
             contextMenuStripPeople.Items.AddRange(new ToolStripItem[] { showDetailsToolStripMenuItem, editPersonToolStripMenuItem, deletePersonToolStripMenuItem, addNewPersonToolStripMenuItem });
             contextMenuStripPeople.Name = "contextMenuStripPeople";
-            contextMenuStripPeople.Size = new Size(265, 213);
+            contextMenuStripPeople.Size = new Size(265, 180);
             contextMenuStripPeople.Opening += contextMenuStripPeople_Opening;
             contextMenuStripPeople.Click += contextMenuStripPeople_Click;
             // 
@@ -236,7 +236,7 @@
             // 
             cbPeopleFilterBox.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPeopleFilterBox.DropDownWidth = 175;
-            cbPeopleFilterBox.Items.AddRange(new object[] { "None", "ID", "NationalNumber", "FirstName", "SecondName", "LastName", "Nationality", "Gender", "DateOfBirth", "Address", "Phone", "Email" });
+            cbPeopleFilterBox.Items.AddRange(new object[] { "None", "ID", "NationalNumber", "FirstName", "SecondName", "LastName", "Nationality", "Gender", "YearOfBirth", "Address", "Phone", "Email" });
             cbPeopleFilterBox.Location = new Point(0, 445);
             cbPeopleFilterBox.MaxDropDownItems = 12;
             cbPeopleFilterBox.Name = "cbPeopleFilterBox";
@@ -305,7 +305,7 @@
         private Krypton.Toolkit.KryptonButton btnPeopleAddNew;
         private Krypton.Toolkit.KryptonLabel lblPeopleFilter;
         private Krypton.Toolkit.KryptonComboBox cbPeopleFilterBox;
-       
+        
         private MaskedTextBox mtbPeopleFilterInput;
         private ToolTip toolTipCancel;
         private ContextMenuStrip contextMenuStripPeople;

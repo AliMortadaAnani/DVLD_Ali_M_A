@@ -55,7 +55,7 @@ namespace DVLD_Presentation
             cbUsersStatusOptions.Visible = false;
             cbUsersStatusOptions.SelectedIndex = cbUsersStatusOptions.FindString("All");
             mtbUsersFilterInput.Visible = true;
-
+            _RefreshUsersList();
             switch (cbUsersFilterBox.SelectedItem?.ToString())
             {
                 case "None":
