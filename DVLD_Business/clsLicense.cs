@@ -92,7 +92,32 @@ namespace DVLD_Business
                 return null;
             }
         }
+        public static clsLicense GetLicenseByAppID(int ID)
+        {
+            int LicenseID = -1;
+            int driverID = -1;
+            int licenseClass = -1;
+            DateTime issueDate = DateTime.Now;
+            DateTime expirationDate = DateTime.Now.AddYears(10);
+            string notes = "";
+            decimal paidFees = 0;
+            bool isActive = false;
+            byte issueReason = 0;
+            int createdByUserID = -1;
 
+            if (clsLicensesData.GetLicenseByAppID(ID, ref LicenseID, ref driverID,
+                 ref licenseClass, ref issueDate, ref expirationDate, ref notes,
+                 ref paidFees, ref isActive, ref issueReason, ref createdByUserID))
+            {
+                return new clsLicense(LicenseID,ID, driverID, licenseClass,
+                    issueDate, expirationDate, notes, paidFees, isActive,
+                    issueReason, createdByUserID);
+            }
+            else
+            {
+                return null;
+            }
+        }
         private bool _AddNewLicense()
         {
             this.ID = clsLicensesData.AddLicense(ApplicationID, DriverID, LicenseClass,
@@ -112,7 +137,7 @@ namespace DVLD_Business
                     }
                     break;
                 case enMode.Update:
-                    // Implement update logic here if needed
+                    return true;
                     break;
             }
             return false;
@@ -121,6 +146,10 @@ namespace DVLD_Business
         public static DataTable GetAllLicensesByPersonID(int PersonID)
         {
             return clsLicensesData.GetAllLicensesPerPersonID(PersonID);
+        }
+        public static DataTable GetAllInternationalLicensesByPersonID(int PersonID)
+        {
+            return clsLicensesData.GetAllInternationalLicensesPerPersonID(PersonID);
         }
         public static bool DeleteLicense(int ID)
         {
@@ -133,6 +162,15 @@ namespace DVLD_Business
                 return clsLicensesData.DeleteLicense(ID);
 
             }
+        }
+
+        public static bool CheckPersonHasLicenseClass(int PersonID, int LicenseClassID)
+        {
+            return clsLicensesData.PersonHasLicense(PersonID, LicenseClassID);
+        }
+        public static bool IsLicenseDetained(int LicenseID)
+        {
+            return clsLicensesData.IsLicenseDetained(LicenseID);
         }
     }
 }

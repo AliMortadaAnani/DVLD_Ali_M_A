@@ -52,7 +52,7 @@ namespace DVLD_Ali_M_A
 
         private void btnSettingsCurrentUserInfo_Click(object sender, EventArgs e)
         {
-            frmUsersShowDetails frmUsersShowDetails = new frmUsersShowDetails(clsGlobalUser.CurrentUser.ID, clsGlobalUser.CurrentUser.PersonID);
+            frmUsersShowDetails frmUsersShowDetails = new frmUsersShowDetails(clsGlobalUser.CurrentUser.PersonID, clsGlobalUser.CurrentUser.ID);
             frmUsersShowDetails.ShowDialog();
 
         }

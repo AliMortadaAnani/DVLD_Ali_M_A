@@ -37,6 +37,7 @@ namespace DVLD_Data
             command.Parameters.AddWithValue("@PaidFees", PaidFees);
             command.Parameters.AddWithValue("@IsActive", IsActive);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+            command.Parameters.AddWithValue("@IssueReason", IssueReason);
             if (Notes != "")
                 command.Parameters.AddWithValue("@Notes", Notes);
             else
@@ -71,7 +72,7 @@ namespace DVLD_Data
             return ID;
         }
 
-        public static bool GetLicenseByID(int ID,ref int ApplicationID,ref int DriverID,
+        public static bool GetLicenseByID(int ID,ref int appID,ref int DriverID,
             ref int LicenseClass,ref DateTime IssueDate,ref DateTime ExpirationDate,ref string Notes,
             ref decimal PaidFees,ref bool IsActive,ref byte IssueReason, ref int CreatedByUserID)
         {
@@ -97,7 +98,7 @@ namespace DVLD_Data
                     // The record was found
                     isFound = true;
 
-                    ApplicationID = (int)reader["ApplicationID"];
+                    appID = (int)reader["ApplicationID"];
 
                     DriverID = (int)reader["DriverID"];
                     LicenseClass = (int)reader["LicenseClass"];
@@ -181,7 +182,48 @@ namespace DVLD_Data
             return dt;
 
         }
+        public static DataTable GetAllInternationalLicensesPerPersonID(int PersonID)
+        {
 
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "select i.InternationalLicenseID as ID , i.ApplicationID,i.IssuedUsingLocalLicenseID,i.IssueDate,i.IsActive from InternationalLicenses i \r\n\r\njoin Drivers d on i.DriverID = d.DriverID\r\njoin People p on d.PersonID = p.PersonID\r\nwhere p.PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+
+                {
+                    dt.Load(reader);
+                }
+
+                reader.Close();
+
+
+            }
+
+            catch (Exception ex)
+            {
+                // Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+
+        }
         public static bool DeleteLicense(int ID)
         {
             bool result = false;
@@ -235,6 +277,132 @@ namespace DVLD_Data
                 connection.Close();
             }
             return isLinked;
+        }
+
+        public static bool PersonHasLicense(int ID , int lid)
+        {
+            bool isLinked = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"select top 1 found = 1 from Licenses l
+join Applications a on l.ApplicationID = a.ApplicationID
+join People p on a.ApplicantPersonID = p.PersonID
+where l.LicenseClass = @lid And p.PersonID = @ID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", ID);
+            command.Parameters.AddWithValue("@lid", lid);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isLinked = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isLinked = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isLinked;
+        }
+
+        public static bool IsLicenseDetained(int LicenseID)
+        {
+            bool isLinked = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"select found = 1 from Licenses l
+join DetainedLicenses d on l.LicenseID = d.LicenseID
+where l.LicenseID  = @LicenseID And d.IsReleased = 0";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isLinked = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isLinked = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isLinked;
+        }
+
+        public static bool GetLicenseByAppID(int ID, ref int LicenseID, ref int DriverID,
+           ref int LicenseClass, ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes,
+           ref decimal PaidFees, ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM Licenses" +
+                " where Licenses.ApplicationID = @ID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+
+                    // The record was found
+                    isFound = true;
+
+                    LicenseID = (int)reader["LicenseID"];
+
+                    DriverID = (int)reader["DriverID"];
+                    LicenseClass = (int)reader["LicenseClass"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+                    ExpirationDate = (DateTime)reader["ExpirationDate"];
+                    if (reader["Notes"] != DBNull.Value)
+                        Notes = (string)reader["Notes"];
+                    else
+                        Notes = "";
+                    PaidFees = (decimal)reader["PaidFees"];
+                    IsActive = (bool)reader["IsActive"];
+                    IssueReason = (byte)reader["IssueReason"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+
+
+
+
+                }
+                else
+                {
+                    // The record was not found
+                    isFound = false;
+                }
+
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
         }
     }
 }

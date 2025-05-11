@@ -16,7 +16,7 @@ namespace DVLD_Presentation
     {
         public enum enMode { AddNew = 0, Update = 1 };
         private enMode _Mode;
-        public int _ID;
+        public int _ID ;
         clsLocal_DLA _LocalDLA;
         clsApplication _Application;
 
@@ -135,7 +135,18 @@ namespace DVLD_Presentation
         {
             int LicenseClassId = clsLicenseClass.Find(cbLicenses.Text).ID;
             int CreatedByUserId = clsUser.Find(lblusertxt.Text).ID;
-            
+            string NationalNumber = clsPeople.Find(ctrlPeopleShowDetails._PersonID).NationalNb;
+
+
+            if (clsLocal_DLA.IsLicenseClassExist_ForPerson(NationalNumber, cbLicenses.Text)||
+                clsLicense.CheckPersonHasLicenseClass(ctrlPeopleShowDetails._PersonID,LicenseClassId))
+            {
+                MessageBox.Show($"Warning: Local DLA for license '{cbLicenses.Text}' already exists.",
+                              "Duplicate License",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return;
+            }
 
             _Application.ApplicationDate = DateNow;
             _Application.ApplicationTypeID = 1;
@@ -154,18 +165,11 @@ namespace DVLD_Presentation
             _LocalDLA.ApplicationID = _Application.ID;
             _LocalDLA.LicenseClassID = LicenseClassId;
 
-            string NationalNumber = clsPeople.Find(_Application.ApplicantPersonID).NationalNb;
+            
 
-            if (clsLocal_DLA.IsLicenseExist(NationalNumber,cbLicenses.Text) )
-            {
-                MessageBox.Show($"Warning: Local DLA for license '{cbLicenses.Text}' already exists.",
-                              "Duplicate License",
-                              MessageBoxButtons.OK,
-                              MessageBoxIcon.Warning);
-                return;
-            }
+            
 
-            else if (_LocalDLA.Save())
+             if (_LocalDLA.Save())
             {
                 MessageBox.Show("Local Driving License Application Saved Successfully.");
                 frmLocal_DLA_AddUpdate.lbLocalTitle.Text = "Edit Local DLA Details";

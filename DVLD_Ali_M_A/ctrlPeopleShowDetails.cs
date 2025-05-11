@@ -27,7 +27,7 @@ namespace DVLD_Presentation
                 _LoadData();
         }
 
-        private static string PersonGender(enGender gender)
+        public static string PersonGender(enGender gender)
         {
             if (gender == enGender.Male)
             {

@@ -60,7 +60,7 @@ namespace DVLD_Presentation
             {
                 if (!this.DesignMode)
                 {
-                    MessageBox.Show("Person with ID: " + _UserID + " not found.");
+                    MessageBox.Show("User with ID: " + _UserID + " not found.");
                     ParentForm?.Close(); // Safe null-check
                 }
                 return;

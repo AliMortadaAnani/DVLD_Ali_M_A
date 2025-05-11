@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DVLD_Data;
+using DVLD_General;
 namespace DVLD_Business
 {
    public  class clsTestAppointment
@@ -64,14 +65,32 @@ namespace DVLD_Business
             return (this.ID != -1);
         }
 
-        public bool IsTestAppointmentByTestTypeExist(int ID, int TestTypeID)
+        public static clsTestAppointment GetTestAppointmentByID(int ID)
         {
-            return clsTestAppointmentsData.IsTestAppointmentByTestTypeExist(ID, TestTypeID);
+            int TestTypeID = -1, LocalDrivingLicenseApplicationID = -1, CreatedByUserID = -1, RetakeTestApplicationID = -1;
+            DateTime AppointmentDate = DateTime.Now;
+            decimal PaidFees = 0;
+            bool IsLocked = false;
+
+            if (clsTestAppointmentsData.FindTestAppointment(ID, ref TestTypeID, ref LocalDrivingLicenseApplicationID,
+                ref AppointmentDate, ref PaidFees, ref CreatedByUserID, ref IsLocked, ref RetakeTestApplicationID))
+            {
+                return new clsTestAppointment(ID, TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate,
+                    PaidFees, CreatedByUserID, IsLocked, RetakeTestApplicationID);
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public static bool IsTestAppointmentByTestTypeExist_NotLocked(int LocalDLA_ID, int TestTypeID)
+        {
+            return clsTestAppointmentsData.IsTestAppointmentByTestTypeExist(LocalDLA_ID, TestTypeID);
         }   
         
-        public static DataTable GetAllTestAppointmentsByTestTypeAndID(int ID, int TestTypeID)
+        public static DataTable GetAllTestAppointmentsByTestTypeAndLocal_DLA_ID(int ID, int TestTypeID)
         {
-            return clsTestAppointmentsData.GetAllTestAppointmentsByTestTypeAndID(ID, TestTypeID);
+            return clsTestAppointmentsData.GetAllTestAppointmentsByTestTypeAndLocalID(ID, TestTypeID);
         }   
 
         private bool _UpdateTestAppointment()
@@ -128,5 +147,11 @@ namespace DVLD_Business
             else
             { return clsTestAppointmentsData.DeleteTestAppointment(ID); }
         }
+
+        public static bool UpdateRetakeTestApp_Status(int RetakeTestAppID, enApplicationStatus status)
+        {
+            return clsTestAppointmentsData.UpdateRetakeTestApp_Status(RetakeTestAppID, status);
+        }
+
     }
 }

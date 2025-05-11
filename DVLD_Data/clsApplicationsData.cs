@@ -284,6 +284,43 @@ namespace DVLD_Data
             return isDeleted;
         }
 
+        public static bool Update_Status(int ID, enApplicationStatus Status)
+        {
+            bool isUpdated = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"UPDATE Applications 
+                            SET 
+                                ApplicationStatus = @Status
+                            
+                            WHERE ApplicationID = @ApplicationID";
+            SqlCommand command = new SqlCommand(query, connection);
 
+            command.Parameters.AddWithValue("@ApplicationID", ID);
+            command.Parameters.AddWithValue("@Status", (byte)Status);
+
+            try
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    isUpdated = true;
+                }
+                else
+                {
+                    isUpdated = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isUpdated = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isUpdated;
+        }
     }
 }

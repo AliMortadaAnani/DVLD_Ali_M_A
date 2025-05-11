@@ -23,7 +23,12 @@ namespace DVLD_General
         Replacement_for_Damaged=3,
         Replacement_for_Lost=4
     };
-
+    public enum enTestType
+    {
+        Vision=1,
+        Written = 2,
+        Driving = 3
+    };
 
     /*public static class DataTableExt // from StackOverflow
     {

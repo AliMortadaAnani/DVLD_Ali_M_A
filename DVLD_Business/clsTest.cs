@@ -52,6 +52,7 @@ namespace DVLD_Business
                     }
                     break;
                 case enMode.Update:
+                    return true;
                     // Implement update logic here if needed
                     break;
             }
@@ -61,6 +62,11 @@ namespace DVLD_Business
         public static bool DeleteTest(int ID)
         {
             return clsTestData.DeleteTest(ID);
+        }
+
+        public static bool GetTestResultByTestAppointmentID(int TestAppointmentID)
+        {
+            return clsTestData.GetTestResultByTestAppointmentID(TestAppointmentID);
         }
     }
 }

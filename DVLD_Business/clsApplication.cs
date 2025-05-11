@@ -1,5 +1,6 @@
 ﻿using DVLD_Data;
 using DVLD_General;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -117,13 +118,13 @@ namespace DVLD_Business
             return clsApplicationsData.UpdateApplicationLastStatusDate(id, lastStatusDate);
         }
 
-        public static bool UpdateApplication_Status_LastStatusDate(int ID,int localID,enApplicationStatus status, DateTime lastStatusDate)
+        public static bool UpdateApplication_Status_LastStatusDate(int ID,enApplicationStatus status, DateTime lastStatusDate)
         {
             return
                 (
                 clsApplicationsData.UpdateApplicationLastStatusDate(ID, lastStatusDate)
                 &&
-                clsLocal_DLA_Data.UpdateLocalDLA_Status(localID, status)
+               clsApplicationsData.Update_Status(ID, status)
                 );
 
         }
@@ -137,6 +138,6 @@ namespace DVLD_Business
             else
                 return clsApplicationsData.DeleteApplication(id);
         }
-
+       
     }
 }

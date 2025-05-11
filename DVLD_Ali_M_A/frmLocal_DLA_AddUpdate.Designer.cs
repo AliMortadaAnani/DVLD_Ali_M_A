@@ -33,10 +33,10 @@
             ctrlPersonFilter1 = new ctrlPersonFilter();
             ctrlPeopleShowDetails1 = new ctrlPeopleShowDetails();
             pageLocal = new TabPage();
+            ctrlLocaldlA_AddUpdate1 = new ctrlLocalDLA_AddUpdate();
             btnLocalBack = new Krypton.Toolkit.KryptonButton();
             btnLocalNext = new Krypton.Toolkit.KryptonButton();
             lbLocalTitle = new Krypton.Toolkit.KryptonLabel();
-            ctrlLocaldlA_AddUpdate1 = new ctrlLocalDLA_AddUpdate();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             tabLocalControl.SuspendLayout();
             pagePerson.SuspendLayout();
@@ -105,6 +105,14 @@
             pageLocal.Size = new Size(1397, 880);
             pageLocal.TabIndex = 1;
             pageLocal.Text = "Local DLA Info";
+            // 
+            // ctrlLocaldlA_AddUpdate1
+            // 
+            ctrlLocaldlA_AddUpdate1.BackColor = Color.Lavender;
+            ctrlLocaldlA_AddUpdate1.Location = new Point(198, 121);
+            ctrlLocaldlA_AddUpdate1.Name = "ctrlLocaldlA_AddUpdate1";
+            ctrlLocaldlA_AddUpdate1.Size = new Size(922, 596);
+            ctrlLocaldlA_AddUpdate1.TabIndex = 0;
             // 
             // btnLocalBack
             // 
@@ -201,22 +209,14 @@
             // lbLocalTitle
             // 
             lbLocalTitle.AutoSize = false;
-            lbLocalTitle.Location = new Point(575, -7);
+            lbLocalTitle.Location = new Point(575, -11);
             lbLocalTitle.Name = "lbLocalTitle";
             lbLocalTitle.Size = new Size(551, 54);
             lbLocalTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
-            lbLocalTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbLocalTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbLocalTitle.TabIndex = 218;
             lbLocalTitle.TabStop = false;
             lbLocalTitle.Values.Text = "Add New Local DLA";
-            // 
-            // ctrlLocaldlA_AddUpdate1
-            // 
-            ctrlLocaldlA_AddUpdate1.BackColor = Color.Lavender;
-            ctrlLocaldlA_AddUpdate1.Location = new Point(198, 121);
-            ctrlLocaldlA_AddUpdate1.Name = "ctrlLocaldlA_AddUpdate1";
-            ctrlLocaldlA_AddUpdate1.Size = new Size(922, 596);
-            ctrlLocaldlA_AddUpdate1.TabIndex = 0;
             // 
             // frmLocal_DLA_AddUpdate
             // 

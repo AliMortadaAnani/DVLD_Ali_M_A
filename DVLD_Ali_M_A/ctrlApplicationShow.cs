@@ -79,6 +79,7 @@ namespace DVLD_Presentation
         {
             frmPeopleShowDetails frm = new frmPeopleShowDetails(_Application.ApplicantPersonID);
             frm.ShowDialog();
+            _LoadData();
 
         }
     }

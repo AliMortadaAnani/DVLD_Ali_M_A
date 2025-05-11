@@ -16,6 +16,7 @@ namespace DVLD_Presentation
     {
         public int _LocalDLA_ID { get; set; }
         clsLocal_DLA _LocalDLA;
+      
         public ctrlLocal_DLA_Details()
         {
             InitializeComponent();
@@ -51,8 +52,18 @@ namespace DVLD_Presentation
             lblteststxt.Text = clsLocal_DLA.GetLocalDLA_PassedTests(_LocalDLA.ID).ToString() + "/3";
             lblclasstxt.Text = clsLicenseClass.Find(_LocalDLA.LicenseClassID).ClassName.ToString();
 
+          
+        }
+
+        private void lblidtxt_Click(object sender, EventArgs e)
+        {
 
         }
 
+        private void btnLicenseShow_Click(object sender, EventArgs e)
+        {
+            
+         
+        }
     }
 }

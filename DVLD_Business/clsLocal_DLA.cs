@@ -126,7 +126,7 @@ namespace DVLD_Business
             return clsLocal_DLA_Data.GetLocalDLA_BynationalNb(NationalNb);
         }
 
-        public static bool IsLicenseExist(string NationalNumber , string LicenseClassName)
+        public static bool IsLicenseClassExist_ForPerson(string NationalNumber , string LicenseClassName)
         {
             return clsLocal_DLA_Data.IsLicenseClassExist(NationalNumber,LicenseClassName);
         }

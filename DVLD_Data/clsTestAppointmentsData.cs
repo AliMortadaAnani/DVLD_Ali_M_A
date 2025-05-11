@@ -4,6 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Numerics;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -37,7 +40,7 @@ namespace DVLD_Data
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
             command.Parameters.AddWithValue("@IsLocked", IsLocked);
 
-            if (RetakeTestApplicationID.ToString() != "")
+            if (RetakeTestApplicationID != -1)
                 command.Parameters.AddWithValue("@RetakeTestApplicationID", RetakeTestApplicationID);
             else
                 command.Parameters.AddWithValue("@RetakeTestApplicationID", System.DBNull.Value);
@@ -98,7 +101,7 @@ namespace DVLD_Data
             return isFound;
         }
 
-        public static DataTable GetAllTestAppointmentsByTestTypeAndID(int ID,int TestTypeID)
+        public static DataTable GetAllTestAppointmentsByTestTypeAndLocalID(int ID,int TestTypeID)
         {
 
             DataTable dt = new DataTable();
@@ -335,5 +338,102 @@ namespace DVLD_Data
             }
             return isLinked;
         }
+
+        public static bool FindTestAppointment(int ID, ref int TestTypeID, ref int LocalDrivingLicenseApplicationID,
+            ref DateTime AppointmentDate, ref decimal PaidFees, ref int CreatedByUserID, ref bool IsLocked, ref int RetakeTestApplicationID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM TestAppointments WHERE TestAppointmentID = @ID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ID);
+
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    // The record was found
+                    isFound = true;
+
+                    TestTypeID = (int)reader["TestTypeID"];
+                    LocalDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
+                    AppointmentDate = (DateTime)reader["AppointmentDate"];
+                    PaidFees = (decimal)reader["PaidFees"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    IsLocked = (bool)reader["IsLocked"];
+                    if (reader["RetakeTestApplicationID"] != DBNull.Value)
+                        RetakeTestApplicationID = (int)reader["RetakeTestApplicationID"];
+                    else
+                        RetakeTestApplicationID = -1;
+                }
+                else
+                {
+                    // The record was not found
+                    isFound = false;
+                }
+
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
+        public static bool UpdateRetakeTestApp_Status(int ID, enApplicationStatus Status)
+        {
+            bool isUpdated = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"update A set A.ApplicationStatus = @Status
+                from Applications A
+                join TestAppointments t on t.RetakeTestApplicationID = A.ApplicationID
+                where  t.RetakeTestApplicationID = @ID";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@ID", ID);
+            command.Parameters.AddWithValue("@Status", (byte)Status);
+
+            try
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    isUpdated = true;
+                }
+                else
+                {
+                    isUpdated = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isUpdated = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isUpdated;
+        }
     }
+
 }

@@ -10,14 +10,13 @@ using System.Windows.Forms;
 
 namespace DVLD_Presentation
 {
-    public partial class frmLocal_DLA_ShowDetails: frmGeneral
+    public partial class frmShowLicense: frmGeneral
     {
-        public frmLocal_DLA_ShowDetails(int LocalID,int AppID)
+        public frmShowLicense(int licenseid)
         {
             InitializeComponent();
-            lblGeneralTitle.Text = "Driving License \nApplication Details";
-            ctrlLocal_dlA_Details1._LocalDLA_ID = LocalID;
-            ctrlApplicationShow1._ApplicationID = AppID;
+            lblGeneralTitle.Text = "Driver License Information";
+            ctrlLicenseInfo1._LicenseID = licenseid;
         }
     }
 }

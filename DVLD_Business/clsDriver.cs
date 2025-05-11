@@ -1,4 +1,5 @@
 ﻿using DVLD_Data;
+using DVLD_General;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -52,7 +53,7 @@ namespace DVLD_Business
                     }
                     break;
                 case enMode.Update:
-                    // Implement update logic here if needed
+                    return true;
                     break;
             }
             return false;
@@ -91,9 +92,9 @@ namespace DVLD_Business
             return clsDriversData.GetAllDriversByActiveLicenses(Number);
         }
 
-        public static bool IsDriverExist(int ID)
+        public static bool IsDriverExistByPersonID(int PersonID)
         {
-            return clsDriversData.IsDriverExist(ID);
+            return clsDriversData.IsDriverExistByPersonID(PersonID);
         }
 
         public bool DeleteDriver(int ID)
@@ -105,6 +106,22 @@ namespace DVLD_Business
             else
             {
                 return clsDriversData.DeleteDriver(ID);
+            }
+        }
+
+        public static clsDriver Find(int PersonID)
+        {
+            DateTime createdDate = DateTime.Now;
+            int createByUserID = -1;
+            int id = -1;
+
+            if(clsDriversData.GetDriverByPersonID(PersonID, ref id, ref createByUserID, ref createdDate))
+            {
+                return new clsDriver(id, PersonID, createByUserID, createdDate);
+            }
+            else
+            {
+                return null;
             }
         }
     }
