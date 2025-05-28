@@ -34,10 +34,35 @@ namespace DVLD_Presentation
             if (!this.DesignMode)
                 _LoadData();
         }
-
-        private void _LoadData()
+        private void ResetAllFields()
         {
-           
+            // Text fields
+            licenseidtxt.Text = string.Empty;
+            licensetxt.Text = string.Empty;
+            issuedatetxt.Text = string.Empty;
+            exptxt.Text = string.Empty;
+            nametxt.Text = string.Empty;
+            notetxtfield.Text = string.Empty;
+            natnbtxt.Text = string.Empty;
+            gendertxt.Text = string.Empty;
+            birthdattxt.Text = string.Empty;
+            reasontxtt.Text = string.Empty;
+            driveridtxt.Text = string.Empty;
+            activetxt.Text = string.Empty;
+            detainedtxt.Text = string.Empty;
+
+            // Image
+            pbPeopleDetails.Image = null;  // or set to a default image
+
+            
+        }
+        public void _LoadData()
+        {
+           if(_LicenseID <= 0)
+            {
+                ResetAllFields();  
+                return;
+            }
             this._License = clsLicense.GetLicense(_LicenseID);
             _Person = clsPeople.Find(clsApplication.GetApplicationByID(_License.ApplicationID).ApplicantPersonID);
 

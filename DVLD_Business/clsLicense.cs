@@ -79,9 +79,9 @@ namespace DVLD_Business
             byte issueReason = 0;
             int createdByUserID = -1;
 
-           if(clsLicensesData.GetLicenseByID(ID,ref applicationID, ref driverID,
-                ref licenseClass, ref issueDate, ref expirationDate, ref notes,
-                ref paidFees, ref isActive, ref issueReason, ref createdByUserID))
+            if (clsLicensesData.GetLicenseByID(ID, ref applicationID, ref driverID,
+                 ref licenseClass, ref issueDate, ref expirationDate, ref notes,
+                 ref paidFees, ref isActive, ref issueReason, ref createdByUserID))
             {
                 return new clsLicense(ID, applicationID, driverID, licenseClass,
                     issueDate, expirationDate, notes, paidFees, isActive,
@@ -109,7 +109,7 @@ namespace DVLD_Business
                  ref licenseClass, ref issueDate, ref expirationDate, ref notes,
                  ref paidFees, ref isActive, ref issueReason, ref createdByUserID))
             {
-                return new clsLicense(LicenseID,ID, driverID, licenseClass,
+                return new clsLicense(LicenseID, ID, driverID, licenseClass,
                     issueDate, expirationDate, notes, paidFees, isActive,
                     issueReason, createdByUserID);
             }
@@ -171,6 +171,34 @@ namespace DVLD_Business
         public static bool IsLicenseDetained(int LicenseID)
         {
             return clsLicensesData.IsLicenseDetained(LicenseID);
+        }
+
+        public static bool IsOrdinaryLicenseExist(int LicenseID)
+        {
+            return clsLicensesData.IsOrdinaryLicenseExist(LicenseID);
+        }
+        public static bool IsLicenseExist(int LicenseID)
+        {
+            return clsLicensesData.IsLicenseExist(LicenseID);
+        }
+
+        public static bool DeactivateLicense(int LicenseID)
+        {
+
+            {
+                return clsLicensesData.IsactiveLicense(LicenseID, false);
+            }
+        }
+        public static bool ActivateLicense(int LicenseID)
+        {
+
+            {
+                return clsLicensesData.IsactiveLicense(LicenseID, true);
+            }
+        }
+        public static bool isLicenseActive(int LicenseID)
+        {
+            return clsLicensesData.IsLicenseActive(LicenseID);
         }
     }
 }

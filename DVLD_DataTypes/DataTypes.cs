@@ -8,13 +8,24 @@ namespace DVLD_General
         Male = 0,
         Female = 1
     };
+
+    public enum enApplicationType
+    {
+        Local = 1,
+        Renew = 2,
+        ReplacementLost = 3,
+        ReplacementDamaged = 4,
+        ReleaseDetained = 5,
+        International = 6,
+        RetakeTest = 7
+    };
     public enum enApplicationStatus
     {
         New = 1,
         Cancelled = 2,
         Completed = 3
     };
-
+    public enum enLicenseMode { Detain = 0, Release = 1 };
     public enum enIssueReason
     {
 

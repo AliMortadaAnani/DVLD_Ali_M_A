@@ -315,24 +315,24 @@
 
         #endregion
 
-        private Krypton.Toolkit.KryptonLabel lblteststxt;
-        private Krypton.Toolkit.KryptonLabel lblclasstxt;
-        private Krypton.Toolkit.KryptonLabel lblidtxt;
-        private Krypton.Toolkit.KryptonButton btnLicenseShow;
-        private Krypton.Toolkit.KryptonLabel lblstatus;
-        private Krypton.Toolkit.KryptonLabel lbladdress;
-        private Krypton.Toolkit.KryptonLabel lblid;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel1;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel2;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel3;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel4;
-        private Krypton.Toolkit.KryptonLabel kryptonLabel5;
-        private Krypton.Toolkit.KryptonLabel lblstatustxt;
-        private Krypton.Toolkit.KryptonLabel lblfeestxt;
-        private Krypton.Toolkit.KryptonLabel lbltypetxt;
-        private Krypton.Toolkit.KryptonLabel lblnametxt;
-        private Krypton.Toolkit.KryptonLabel lbldatetxt;
-        private Krypton.Toolkit.KryptonLabel lblstatusdatetxt;
-        private Krypton.Toolkit.KryptonLabel lblusrtxt;
+       public Krypton.Toolkit.KryptonLabel lblteststxt;
+       public Krypton.Toolkit.KryptonLabel lblclasstxt;
+       public Krypton.Toolkit.KryptonLabel lblidtxt;
+       public Krypton.Toolkit.KryptonButton btnLicenseShow;
+       public Krypton.Toolkit.KryptonLabel lblstatus;
+       public Krypton.Toolkit.KryptonLabel lbladdress;
+       public Krypton.Toolkit.KryptonLabel lblid;
+       public Krypton.Toolkit.KryptonLabel kryptonLabel1;
+       public Krypton.Toolkit.KryptonLabel kryptonLabel2;
+       public Krypton.Toolkit.KryptonLabel kryptonLabel3;
+       public Krypton.Toolkit.KryptonLabel kryptonLabel4;
+       public Krypton.Toolkit.KryptonLabel kryptonLabel5;
+       public Krypton.Toolkit.KryptonLabel lblstatustxt;
+       public Krypton.Toolkit.KryptonLabel lblfeestxt;
+       public Krypton.Toolkit.KryptonLabel lbltypetxt;
+       public Krypton.Toolkit.KryptonLabel lblnametxt;
+       public Krypton.Toolkit.KryptonLabel lbldatetxt;
+       public Krypton.Toolkit.KryptonLabel lblstatusdatetxt;
+       public Krypton.Toolkit.KryptonLabel lblusrtxt;
     }
 }

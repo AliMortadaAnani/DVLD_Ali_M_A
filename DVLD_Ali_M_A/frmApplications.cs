@@ -48,5 +48,29 @@ namespace DVLD_Presentation
             frmLocalDLA_Main frmLocalDLA_Main = new frmLocalDLA_Main();
             frmLocalDLA_Main.ShowDialog();
         }
+
+        private void kryptonButton2_Click(object sender, EventArgs e)
+        {
+            frmInternationalLicenses frmInternationalLicenses = new frmInternationalLicenses();
+            frmInternationalLicenses.ShowDialog();
+        }
+
+        private void kryptonButton3_Click(object sender, EventArgs e)
+        {
+            frmRenewLicense frmRenewLicense = new frmRenewLicense();
+            frmRenewLicense.ShowDialog();
+        }
+
+        private void kryptonButton4_Click(object sender, EventArgs e)
+        {
+            frmReplaceLicense frmReplaceLicense = new frmReplaceLicense();
+            frmReplaceLicense.ShowDialog();
+        }
+
+        private void kryptonButton5_Click(object sender, EventArgs e)
+        {
+            frmDetainedLicenses frmDetainedLicenses = new frmDetainedLicenses();
+            frmDetainedLicenses.ShowDialog();
+        }
     }
 }

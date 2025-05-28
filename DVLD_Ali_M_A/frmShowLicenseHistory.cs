@@ -32,7 +32,7 @@ namespace DVLD_Presentation
         private void rblocal_CheckedChanged(object sender, EventArgs e)
         {
             if (rblocal.Checked)
-            {   
+            {
                 dgvlicense.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvlicense.DataSource = clsLicense.GetAllLicensesByPersonID(PersonID);
             }
@@ -46,6 +46,20 @@ namespace DVLD_Presentation
         private void rbint_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void showLicenseStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (rblocal.Checked)
+            {
+                frmShowLicense frmShowLicense = new frmShowLicense((int)dgvlicense.CurrentRow.Cells[0].Value);
+                frmShowLicense.ShowDialog();
+            }
+            else
+            {
+                frmInternationalLicenseShowDetails frmInternationalLicenseShowDetails = new frmInternationalLicenseShowDetails((int)dgvlicense.CurrentRow.Cells[0].Value);
+                frmInternationalLicenseShowDetails.ShowDialog();
+            }
         }
     }
 }

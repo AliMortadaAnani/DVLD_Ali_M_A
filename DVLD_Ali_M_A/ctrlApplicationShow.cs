@@ -31,7 +31,7 @@ namespace DVLD_Presentation
                 _LoadData();
         }
 
-        public string GetStatus(enApplicationStatus status)
+        public static string GetStatus(enApplicationStatus status)
         {
             switch (status)
             {
@@ -46,12 +46,55 @@ namespace DVLD_Presentation
                     return "Unknown";
             }
         }
-
+        public void _LoadData_Renew()
+        {
+            lblidtxt.Text = "";
+            lblstatustxt.Text = ctrlApplicationShow.GetStatus(enApplicationStatus.New);
+            lblfeestxt.Text = clsApplicationType.GetByID((int)enApplicationType.Renew).Fees.ToString();
+            lbltypetxt.Text = clsApplicationType.GetByID((int)enApplicationType.Renew).Title.ToString();
+            lbldatetxt.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblstatusdatetxt.Text = DateTime.Now.ToString("dd/MM/yyyy"); ;
+            lblusrtxt.Text = clsGlobalUser.CurrentUser.UserName;
+            btnLicenseShow.Visible = false;
+        }
+        public void _LoadData_Replace_Damaged()
+        {
+            lblidtxt.Text = "";
+            lblstatustxt.Text = ctrlApplicationShow.GetStatus(enApplicationStatus.New);
+            lblfeestxt.Text = clsApplicationType.GetByID((int)enApplicationType.ReplacementDamaged).Fees.ToString();
+            lbltypetxt.Text = clsApplicationType.GetByID((int)enApplicationType.ReplacementDamaged).Title.ToString();
+            lbldatetxt.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblstatusdatetxt.Text = DateTime.Now.ToString("dd/MM/yyyy"); ;
+            lblusrtxt.Text = clsGlobalUser.CurrentUser.UserName;
+            btnLicenseShow.Visible = false;
+        }
+        public void _LoadData_Replace_Lost()
+        {
+            lblidtxt.Text = "";
+            lblstatustxt.Text = ctrlApplicationShow.GetStatus(enApplicationStatus.New);
+            lblfeestxt.Text = clsApplicationType.GetByID((int)enApplicationType.ReplacementLost).Fees.ToString();
+            lbltypetxt.Text = clsApplicationType.GetByID((int)enApplicationType.ReplacementLost).Title.ToString();
+            lbldatetxt.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblstatusdatetxt.Text = DateTime.Now.ToString("dd/MM/yyyy"); ;
+            lblusrtxt.Text = clsGlobalUser.CurrentUser.UserName;
+            btnLicenseShow.Visible = false;
+        }
+        public void _LoadData_Int()
+        {
+            lblidtxt.Text = "";
+            lblstatustxt.Text = GetStatus(enApplicationStatus.New);
+            lblfeestxt.Text = clsApplicationType.GetByID((int)enApplicationType.International).Fees.ToString();
+            lbltypetxt.Text = clsApplicationType.GetByID((int)enApplicationType.International).Title.ToString();
+            lbldatetxt.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblstatusdatetxt.Text = DateTime.Now.ToString("dd/MM/yyyy"); ;
+            lblusrtxt.Text = clsGlobalUser.CurrentUser.UserName;
+            btnLicenseShow.Visible = false;
+        }
         public void _LoadData()
         {
             if (_ApplicationID <= 0)
             {
-
+                
                 return;
             }
             _Application = clsApplication.GetApplicationByID(_ApplicationID);
@@ -72,7 +115,7 @@ namespace DVLD_Presentation
             lbldatetxt.Text = _Application.ApplicationDate.ToString("dd/MM/yyyy");
             lblstatusdatetxt.Text = _Application.LastStatusDate.ToString("dd/MM/yyyy");
             lblusrtxt.Text = clsUser.Find(_Application.CreatedByUserID).UserName;
-
+            btnLicenseShow.Visible = true;
         }
 
         private void btnLicenseShow_Click(object sender, EventArgs e)

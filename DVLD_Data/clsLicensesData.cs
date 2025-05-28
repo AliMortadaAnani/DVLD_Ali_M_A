@@ -71,7 +71,7 @@ namespace DVLD_Data
 
             return ID;
         }
-
+        
         public static bool GetLicenseByID(int ID,ref int appID,ref int DriverID,
             ref int LicenseClass,ref DateTime IssueDate,ref DateTime ExpirationDate,ref string Notes,
             ref decimal PaidFees,ref bool IsActive,ref byte IssueReason, ref int CreatedByUserID)
@@ -146,7 +146,7 @@ namespace DVLD_Data
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "select l.LicenseID as ID , l.ApplicationID,lc.ClassName, l.IssueDate,l.IssueReason,l.IsActive from licenses l \r\njoin LicenseClasses lc on l.LicenseClass = lc.LicenseClassID\r\njoin Drivers d on l.DriverID=d.DriverID\r\njoin People p on d.PersonID = p.PersonID\r\nwhere p.PersonID = @PersonID";
+            string query = "select l.LicenseID as ID , l.ApplicationID,lc.ClassName, l.IssueDate,l.ExpirationDate,l.IsActive from licenses l \r\njoin LicenseClasses lc on l.LicenseClass = lc.LicenseClassID\r\njoin Drivers d on l.DriverID=d.DriverID\r\njoin People p on d.PersonID = p.PersonID\r\nwhere p.PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -188,7 +188,7 @@ namespace DVLD_Data
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "select i.InternationalLicenseID as ID , i.ApplicationID,i.IssuedUsingLocalLicenseID,i.IssueDate,i.IsActive from InternationalLicenses i \r\n\r\njoin Drivers d on i.DriverID = d.DriverID\r\njoin People p on d.PersonID = p.PersonID\r\nwhere p.PersonID = @PersonID";
+            string query = "select i.InternationalLicenseID as ID , i.ApplicationID,i.IssuedUsingLocalLicenseID,i.IssueDate,i.ExpirationDate,i.IsActive from InternationalLicenses i \r\n\r\njoin Drivers d on i.DriverID = d.DriverID\r\njoin People p on d.PersonID = p.PersonID\r\nwhere p.PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -279,6 +279,63 @@ namespace DVLD_Data
             return isLinked;
         }
 
+        public static bool IsOrdinaryLicenseExist(int ID)
+        {
+            bool isLinked = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"select top 1 found = 1  from licenses l 
+                            where l.LicenseID = @ID
+                            and l.LicenseClass = 3
+                            ";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", ID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isLinked = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isLinked = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isLinked;
+        }
+
+        public static bool IsLicenseExist(int ID)
+        {
+            bool isLinked = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"select top 1 found = 1  from licenses l 
+                            where l.LicenseID = @ID
+                       
+                            ";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", ID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isLinked = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isLinked = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isLinked;
+        }
         public static bool PersonHasLicense(int ID , int lid)
         {
             bool isLinked = false;
@@ -314,8 +371,8 @@ where l.LicenseClass = @lid And p.PersonID = @ID";
             bool isLinked = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
             string query = @"select found = 1 from Licenses l
-join DetainedLicenses d on l.LicenseID = d.LicenseID
-where l.LicenseID  = @LicenseID And d.IsReleased = 0";
+            join DetainedLicenses d on l.LicenseID = d.LicenseID
+            where l.LicenseID  = @LicenseID And d.IsReleased = 0";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@LicenseID", LicenseID);
             try
@@ -336,7 +393,33 @@ where l.LicenseID  = @LicenseID And d.IsReleased = 0";
             }
             return isLinked;
         }
-
+        public static bool IsLicenseActive(int LicenseID)
+        {
+            bool isLinked = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"select found = 1 from Licenses l
+            
+            where l.LicenseID  = @LicenseID And l.IsActive = 1";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                isLinked = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isLinked = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isLinked;
+        }
         public static bool GetLicenseByAppID(int ID, ref int LicenseID, ref int DriverID,
            ref int LicenseClass, ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes,
            ref decimal PaidFees, ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
@@ -404,6 +487,48 @@ where l.LicenseID  = @LicenseID And d.IsReleased = 0";
 
             return isFound;
         }
+
+
+        public static bool IsactiveLicense(int LicenseID,bool IsActive)
+        {
+            bool isUpdated = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+                string query = @"UPDATE Licenses 
+                                SET 
+                                    isActive = @IsActive
+                            
+                                WHERE LicenseID = @LicenseID";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@IsActive", IsActive);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+            try
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    isUpdated = true;
+                }
+                else
+                {
+                    isUpdated = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine("Error: " + ex.Message);
+                isUpdated = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return isUpdated;
+        }
+
+
+
     }
 }
 

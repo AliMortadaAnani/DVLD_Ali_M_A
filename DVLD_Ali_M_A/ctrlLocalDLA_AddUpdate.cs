@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_Business;
 using Microsoft.VisualBasic.ApplicationServices;
+using DVLD_General;
 
 namespace DVLD_Presentation
 {
@@ -73,7 +74,7 @@ namespace DVLD_Presentation
             // Format as DD/MM/YYYY and store in a string
             string ApplicationDateFormat = DateNow.ToString("dd/MM/yyyy");
 
-            int ApplicationFees = (int)clsApplicationType.GetByID(1).Fees;
+            int ApplicationFees = (int)clsApplicationType.GetByID((int)enApplicationType.Local).Fees;
 
 
 
@@ -149,7 +150,7 @@ namespace DVLD_Presentation
             }
 
             _Application.ApplicationDate = DateNow;
-            _Application.ApplicationTypeID = 1;
+            _Application.ApplicationTypeID = (int)enApplicationType.Local;
             _Application.ApplicationStatus = DVLD_General.enApplicationStatus.New;
             _Application.LastStatusDate = LastStatusDate;
             _Application.PaidFees = Convert.ToDecimal(lblfeestxt.Text);

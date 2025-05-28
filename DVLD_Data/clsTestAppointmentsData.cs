@@ -107,7 +107,7 @@ namespace DVLD_Data
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "select t.TestAppointmentID, t.AppointmentDate,t.PaidFees,t.IsLocked\r\nfrom TestAppointments t\r\nwhere t.TestTypeID = @TestTypeID And t.LocalDrivingLicenseApplicationID = @ID";
+            string query = "select t.TestAppointmentID, t.AppointmentDate,t.PaidFees as PaidFeesForTest,t.IsLocked\r\nfrom TestAppointments t\r\nwhere t.TestTypeID = @TestTypeID And t.LocalDrivingLicenseApplicationID = @ID";
 
             SqlCommand command = new SqlCommand(query, connection);
 

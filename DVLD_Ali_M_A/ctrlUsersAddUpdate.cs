@@ -97,9 +97,19 @@ namespace DVLD_Presentation
         {
               if (tbpassword.Text.Trim() != tbpasswordconfirm.Text.Trim())
             {
-               
+                
                 tbpasswordconfirm.Focus();
                 errorProvider1.SetError(tbpasswordconfirm, "Password confirmation is incorrect!");
+            }
+            if (!string.IsNullOrEmpty(errorProvider1.GetError(tbpassword))
+             || !string.IsNullOrEmpty(errorProvider1.GetError(tbpasswordconfirm)))
+            {
+
+
+                MessageBox.Show("Please enter data correctly!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+
             }
 
             _User.IsActive = (cbisactive.Checked);

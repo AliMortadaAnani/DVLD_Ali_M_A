@@ -67,7 +67,7 @@ namespace DVLD_Presentation
                 lblid2.Enabled = false;
                 lblid2txt.Visible = false;
                 lblfees2txt.Enabled = false;
-                lblfees2txt.Text = clsApplicationType.GetByID(7).Fees.ToString("0.00");
+                lblfees2txt.Text = clsApplicationType.GetByID((int)enApplicationType.RetakeTest).Fees.ToString("0.00");
                 lbltotaltxt.Text = Convert.ToDecimal(lblfeestxt.Text).ToString("0.00");
             }
             else
@@ -75,7 +75,7 @@ namespace DVLD_Presentation
                 lblid2.Enabled = true;
                 lblid2txt.Visible = true;
                 lblfees2txt.Enabled = true;
-                lblfees2txt.Text = clsApplicationType.GetByID(7).Fees.ToString("0.00");
+                lblfees2txt.Text = clsApplicationType.GetByID((int)enApplicationType.RetakeTest).Fees.ToString("0.00");
                 decimal total = Convert.ToDecimal(lblfeestxt.Text) + Convert.ToDecimal(lblfees2txt.Text);
                 lbltotaltxt.Text = total.ToString("0.00");
             }
@@ -127,10 +127,10 @@ namespace DVLD_Presentation
             {
                 clsApplication RetakeApplication = new clsApplication();
                 RetakeApplication.ApplicationDate = DateTime.Now;
-                RetakeApplication.ApplicationTypeID = 7;
+                RetakeApplication.ApplicationTypeID = (int)enApplicationType.RetakeTest;
                 RetakeApplication.ApplicationStatus = enApplicationStatus.New;
                 RetakeApplication.LastStatusDate = DateTime.Now;
-                RetakeApplication.PaidFees = clsApplicationType.GetByID(7).Fees;
+                RetakeApplication.PaidFees = clsApplicationType.GetByID((int)enApplicationType.RetakeTest).Fees;
                 RetakeApplication.CreatedByUserID = clsGlobalUser.CurrentUser.ID;
                 RetakeApplication.ApplicantPersonID = clsPeople.Find(clsApplication.GetApplicationByID(applicationID_ForLocal).ApplicantPersonID).ID;
                 if (RetakeApplication.Save())

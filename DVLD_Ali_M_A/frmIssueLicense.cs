@@ -32,6 +32,28 @@ namespace DVLD_Presentation
 
         private void btnPeopleSave_Click(object sender, EventArgs e)
         {
+
+
+            // Get the required fee amount (replace 500 with your actual fee or get it from database)
+            int licenseFee = Convert.ToInt32(clsLicenseClass.Find(localDLA.LicenseClassID).ClassFees); // Or: clsLicense.GetLicenseFee(_LicenseID);
+
+            // Show payment confirmation with specific amount
+            DialogResult result = MessageBox.Show(
+                $"This license requires a fee of {licenseFee} USD. Do you want to proceed with payment?",
+                "Payment Confirmation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("Payment cancelled. License cannot be processed without payment.",
+                               "Payment Required",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Warning);
+                return;
+            }
+
+
             clsDriver driver;
             if (clsDriver.IsDriverExistByPersonID(localDLA_Application.ApplicantPersonID))
             {
@@ -49,7 +71,10 @@ namespace DVLD_Presentation
             }
             if (driver.Save())
             {
-               clsLicense license = new clsLicense();
+
+              
+
+                clsLicense license = new clsLicense();
                 license.DriverID = driver.ID;
                 license.ApplicationID = applicationID;
                 license.LicenseClass = localDLA.LicenseClassID;
