@@ -76,5 +76,13 @@ namespace DVLD_Ali_M_A
             lbMenuDrivers.StateNormal.ShortText.Color1 = Color.Gainsboro;
             lblnote.Visible = false;
         }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form contains the main navigation panel, which is only accessible while this form is open.\nIf another form is open, you must close it before using the panel.\nThe panel includes sections such as Applications, People, Drivers, Users, and Account Settings.\nYou can access each section by clicking its corresponding name in the panel.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
+        }
     }
 }

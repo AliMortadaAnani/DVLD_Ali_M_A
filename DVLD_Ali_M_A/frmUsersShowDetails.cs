@@ -30,5 +30,13 @@ namespace DVLD_Presentation
         {
             this.Close();
         }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form displays detailed information about the user and the associated person.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
+        }
     }
 }

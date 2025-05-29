@@ -30,9 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsers));
-            btnUsersCancel = new Krypton.Toolkit.KryptonPictureBox();
+            btnUsersClose = new Krypton.Toolkit.KryptonPictureBox();
             lblUsersTitle = new Krypton.Toolkit.KryptonLabel();
-            toolTipCancel = new ToolTip(components);
+            toolTipClose = new ToolTip(components);
             lblUsersFilter = new Krypton.Toolkit.KryptonLabel();
             dgvUsers = new Krypton.Toolkit.KryptonDataGridView();
             contextMenuStripUsers = new ContextMenuStrip(components);
@@ -47,25 +47,28 @@
             lblUsersTotalRecords = new Krypton.Toolkit.KryptonLabel();
             btnUserAddNew = new Krypton.Toolkit.KryptonButton();
             cbUsersStatusOptions = new Krypton.Toolkit.KryptonComboBox();
-            ((System.ComponentModel.ISupportInitialize)btnUsersCancel).BeginInit();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnUsersClose).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             contextMenuStripUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbUsersFilterBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbUsersStatusOptions).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
-            // btnUsersCancel
+            // btnUsersClose
             // 
-            btnUsersCancel.Cursor = Cursors.Hand;
-            btnUsersCancel.Image = (Image)resources.GetObject("btnUsersCancel.Image");
-            btnUsersCancel.Location = new Point(1400, 30);
-            btnUsersCancel.Name = "btnUsersCancel";
-            btnUsersCancel.Size = new Size(150, 100);
-            btnUsersCancel.SizeMode = PictureBoxSizeMode.Zoom;
-            btnUsersCancel.TabIndex = 212;
-            btnUsersCancel.TabStop = false;
-            toolTipCancel.SetToolTip(btnUsersCancel, "Close");
-            btnUsersCancel.Click += btnUsersCancel_Click;
+            btnUsersClose.Cursor = Cursors.Hand;
+            btnUsersClose.Image = (Image)resources.GetObject("btnUsersClose.Image");
+            btnUsersClose.Location = new Point(1400, 30);
+            btnUsersClose.Name = "btnUsersClose";
+            btnUsersClose.Size = new Size(150, 100);
+            btnUsersClose.SizeMode = PictureBoxSizeMode.Zoom;
+            btnUsersClose.TabIndex = 212;
+            btnUsersClose.TabStop = false;
+            toolTipClose.SetToolTip(btnUsersClose, "Close");
+            btnUsersClose.Click += btnUsersCancel_Click;
             // 
             // lblUsersTitle
             // 
@@ -79,10 +82,10 @@
             lblUsersTitle.TabStop = false;
             lblUsersTitle.Values.Text = "Manage Users";
             // 
-            // toolTipCancel
+            // toolTipClose
             // 
-            toolTipCancel.BackColor = Color.Gainsboro;
-            toolTipCancel.ForeColor = Color.DarkSlateBlue;
+            toolTipClose.BackColor = Color.Gainsboro;
+            toolTipClose.ForeColor = Color.DarkSlateBlue;
             // 
             // lblUsersFilter
             // 
@@ -295,12 +298,26 @@
             cbUsersStatusOptions.Text = "All";
             cbUsersStatusOptions.SelectedIndexChanged += cbUsersStatusOptions_SelectedIndexChanged;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 226;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmUsers
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1633, 819);
+            Controls.Add(btnDocumentation);
             Controls.Add(btnUserAddNew);
             Controls.Add(lblUsersTotalRecordsNb);
             Controls.Add(lblUsersTotalRecords);
@@ -308,27 +325,28 @@
             Controls.Add(dgvUsers);
             Controls.Add(lblUsersFilter);
             Controls.Add(lblUsersTitle);
-            Controls.Add(btnUsersCancel);
+            Controls.Add(btnUsersClose);
             Controls.Add(mtbUsersFilterInput);
             Controls.Add(cbUsersStatusOptions);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmUsers";
             Text = "frmUsers";
             Load += frmUsers_Load;
-            ((System.ComponentModel.ISupportInitialize)btnUsersCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnUsersClose).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).EndInit();
             contextMenuStripUsers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbUsersFilterBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbUsersStatusOptions).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Krypton.Toolkit.KryptonPictureBox btnUsersCancel;
+        private Krypton.Toolkit.KryptonPictureBox btnUsersClose;
         private Krypton.Toolkit.KryptonLabel lblUsersTitle;
-        private ToolTip toolTipCancel;
+        private ToolTip toolTipClose;
         private Krypton.Toolkit.KryptonLabel lblUsersFilter;
         private Krypton.Toolkit.KryptonDataGridView dgvUsers;
         private MaskedTextBox mtbUsersFilterInput;
@@ -343,5 +361,7 @@
         private ToolStripMenuItem addNewUserToolStripMenuItem;
         private Krypton.Toolkit.KryptonComboBox cbUsersStatusOptions;
         private ToolStripMenuItem changepasswordtoolStripMenuItem;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

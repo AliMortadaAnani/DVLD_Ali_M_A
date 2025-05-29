@@ -202,5 +202,13 @@ namespace DVLD_Presentation
             frmUsersChangePassword.ShowDialog();
             _RefreshUsersList();
         }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form displays user records with filtering options.\nRight-clicking a record opens a context menu with options to update, show details, or delete the selected user or also add new user.\nThere is also a button to add a new user.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
+        }
     }
 }

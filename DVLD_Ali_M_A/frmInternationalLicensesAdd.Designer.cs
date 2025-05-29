@@ -28,14 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             ctrlLicenseInfo1 = new ctrlLicenseInfo();
             ctrlApplicationShow1 = new ctrlApplicationShow();
             btnIntIssue = new Krypton.Toolkit.KryptonButton();
             btnlicenseinfo = new Krypton.Toolkit.KryptonButton();
             btnhistory = new Krypton.Toolkit.KryptonButton();
             ctrlLicenseSearch1 = new ctrlLicenseSearch();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
+            btnGeneralCancel.Click += btnGeneralCancel_Click_1;
             // 
             // lblGeneralTitle
             // 
@@ -51,6 +60,7 @@
             ctrlLicenseInfo1.Name = "ctrlLicenseInfo1";
             ctrlLicenseInfo1.Size = new Size(1546, 483);
             ctrlLicenseInfo1.TabIndex = 212;
+            ctrlLicenseInfo1.TabStop = false;
             // 
             // ctrlApplicationShow1
             // 
@@ -209,11 +219,25 @@
             ctrlLicenseSearch1.OnLicenseSearchComplete += ctrlLicenseSearch1_OnLicenseSearchComplete;
             ctrlLicenseSearch1.OnLicenseSearchFail += ctrlLicenseSearch1_OnLicenseSearchFail;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 239;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmInternationalLicensesAdd
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(ctrlLicenseSearch1);
             Controls.Add(btnhistory);
             Controls.Add(btnlicenseinfo);
@@ -232,7 +256,9 @@
             Controls.SetChildIndex(btnlicenseinfo, 0);
             Controls.SetChildIndex(btnhistory, 0);
             Controls.SetChildIndex(ctrlLicenseSearch1, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
@@ -244,5 +270,7 @@
         private Krypton.Toolkit.KryptonButton btnlicenseinfo;
         private Krypton.Toolkit.KryptonButton btnhistory;
         private ctrlLicenseSearch ctrlLicenseSearch1;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

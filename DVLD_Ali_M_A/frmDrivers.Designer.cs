@@ -28,16 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDrivers));
             mtbPeopleFilterInput = new MaskedTextBox();
             cbPeopleFilterBox = new Krypton.Toolkit.KryptonComboBox();
             lblPeopleFilter = new Krypton.Toolkit.KryptonLabel();
             lblPeopleTotalRecordsNb = new Krypton.Toolkit.KryptonLabel();
             lblPeopleTotalRecords = new Krypton.Toolkit.KryptonLabel();
             dgvPeople = new Krypton.Toolkit.KryptonDataGridView();
+            contextMenuStripLocal = new ContextMenuStrip(components);
+            showLicenseHistoryToolStripMenuItem = new ToolStripMenuItem();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbPeopleFilterBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
+            contextMenuStripLocal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -121,6 +133,7 @@
             dgvPeople.BorderStyle = BorderStyle.Fixed3D;
             dgvPeople.ColumnHeadersHeight = 60;
             dgvPeople.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvPeople.ContextMenuStrip = contextMenuStripLocal;
             dgvPeople.Cursor = Cursors.Hand;
             dgvPeople.Location = new Point(0, 484);
             dgvPeople.Name = "dgvPeople";
@@ -141,11 +154,42 @@
             dgvPeople.TabIndex = 220;
             dgvPeople.TabStop = false;
             // 
+            // contextMenuStripLocal
+            // 
+            contextMenuStripLocal.BackColor = Color.Gainsboro;
+            contextMenuStripLocal.Font = new Font("Segoe UI", 9F);
+            contextMenuStripLocal.ImageScalingSize = new Size(36, 36);
+            contextMenuStripLocal.Items.AddRange(new ToolStripItem[] { showLicenseHistoryToolStripMenuItem });
+            contextMenuStripLocal.Name = "contextMenuStripPeople";
+            contextMenuStripLocal.Size = new Size(330, 48);
+            // 
+            // showLicenseHistoryToolStripMenuItem
+            // 
+            showLicenseHistoryToolStripMenuItem.Image = (Image)resources.GetObject("showLicenseHistoryToolStripMenuItem.Image");
+            showLicenseHistoryToolStripMenuItem.Name = "showLicenseHistoryToolStripMenuItem";
+            showLicenseHistoryToolStripMenuItem.Size = new Size(329, 44);
+            showLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
+            showLicenseHistoryToolStripMenuItem.Click += showLicenseHistoryToolStripMenuItem_Click;
+            // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 224;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmDrivers
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(mtbPeopleFilterInput);
             Controls.Add(cbPeopleFilterBox);
             Controls.Add(lblPeopleFilter);
@@ -164,9 +208,12 @@
             Controls.SetChildIndex(lblPeopleFilter, 0);
             Controls.SetChildIndex(cbPeopleFilterBox, 0);
             Controls.SetChildIndex(mtbPeopleFilterInput, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbPeopleFilterBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
+            contextMenuStripLocal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -179,5 +226,9 @@
         private Krypton.Toolkit.KryptonLabel lblPeopleTotalRecordsNb;
         private Krypton.Toolkit.KryptonLabel lblPeopleTotalRecords;
         private Krypton.Toolkit.KryptonDataGridView dgvPeople;
+        private ContextMenuStrip contextMenuStripLocal;
+        private ToolStripMenuItem showLicenseHistoryToolStripMenuItem;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DVLD_Business;
+using DVLD_General;
 using DVLD_Presentation.Properties;
 using System.ComponentModel;
 using System.Data;
@@ -38,7 +39,9 @@ namespace DVLD_Presentation
 
         public static string MyImage(string image)
         {
-            string imagesFolder = Path.Combine("C:\\Users\\Ali\\Downloads", "AppImages");
+            string imagesFolder = Path.Combine(IniConfig.GetValue("Paths", "ImageFolderPath")
+                , "AppImages");
+            //Write your local filepath in config.ini in DVLD_General
             Directory.CreateDirectory(imagesFolder);
             string imagePath = Path.Combine(imagesFolder, image);
             return imagePath;
@@ -156,6 +159,19 @@ namespace DVLD_Presentation
 
         private void btnPeopleSave_Click(object sender, EventArgs e)
         {
+            // Validate required fields
+            if (string.IsNullOrWhiteSpace(tbfname.Text) ||
+                string.IsNullOrWhiteSpace(tbsname.Text) ||
+                string.IsNullOrWhiteSpace(tblname.Text) ||
+                string.IsNullOrWhiteSpace(tbnationalnb.Text) ||
+                string.IsNullOrWhiteSpace(tbphone.Text) ||
+                string.IsNullOrWhiteSpace(tbaddress.Text))
+            {
+                MessageBox.Show("Enter data correctly (fill required fields)", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             if (rbmale.Checked)
                 _Person.Gender = DVLD_General.enGender.Male;
             else if (rbfemale.Checked)

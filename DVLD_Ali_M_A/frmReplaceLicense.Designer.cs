@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lblLicensefeestxt = new Krypton.Toolkit.KryptonLabel();
             lbladdress = new Krypton.Toolkit.KryptonLabel();
             Renewlicenseidtxt = new Krypton.Toolkit.KryptonLabel();
@@ -41,8 +42,15 @@
             rbdmg = new Krypton.Toolkit.KryptonRadioButton();
             rblost = new Krypton.Toolkit.KryptonRadioButton();
             lblgender = new Krypton.Toolkit.KryptonLabel();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -298,11 +306,25 @@
             lblgender.TabStop = false;
             lblgender.Values.Text = "Replacement Cause:";
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 303;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmReplaceLicense
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(rbdmg);
             Controls.Add(rblost);
             Controls.Add(lblgender);
@@ -334,7 +356,9 @@
             Controls.SetChildIndex(lblgender, 0);
             Controls.SetChildIndex(rblost, 0);
             Controls.SetChildIndex(rbdmg, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -354,5 +378,7 @@
         private Krypton.Toolkit.KryptonRadioButton rbdmg;
         private Krypton.Toolkit.KryptonRadioButton rblost;
         private Krypton.Toolkit.KryptonLabel lblgender;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

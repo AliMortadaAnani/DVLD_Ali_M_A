@@ -62,5 +62,12 @@ namespace DVLD_Ali_M_A
             frmUsersChangePassword frmUsersChangePassword = new frmUsersChangePassword(clsGlobalUser.CurrentUser.ID);
             frmUsersChangePassword.ShowDialog();
         }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form allows you to manage your account settings.\nYou can view your current user information, change your password securely, or sign out of your account.\nUse the corresponding buttons to perform each action.\n";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+        }
     }
 }

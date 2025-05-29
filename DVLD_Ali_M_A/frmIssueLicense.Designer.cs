@@ -28,13 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             ctrlApplicationShow1 = new ctrlApplicationShow();
             ctrlLocal_dlA_Details1 = new ctrlLocal_DLA_Details();
             tbnotes = new Krypton.Toolkit.KryptonTextBox();
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             btnPeopleSave = new Krypton.Toolkit.KryptonButton();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -142,11 +150,25 @@
             btnPeopleSave.Values.Text = "Issue New Driving License (First Time)";
             btnPeopleSave.Click += btnPeopleSave_Click;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 285;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmIssueLicense
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(btnPeopleSave);
             Controls.Add(tbnotes);
             Controls.Add(kryptonLabel3);
@@ -162,7 +184,9 @@
             Controls.SetChildIndex(kryptonLabel3, 0);
             Controls.SetChildIndex(tbnotes, 0);
             Controls.SetChildIndex(btnPeopleSave, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -174,5 +198,7 @@
         private Krypton.Toolkit.KryptonTextBox tbnotes;
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonButton btnPeopleSave;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

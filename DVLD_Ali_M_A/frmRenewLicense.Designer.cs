@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             ctrlLicenseRenew1 = new ctrlLicenseRenew();
             ctrlLicenseInfo1 = new ctrlLicenseInfo();
             ctrlApplicationShow1 = new ctrlApplicationShow();
@@ -40,8 +41,15 @@
             kryptonLabel4 = new Krypton.Toolkit.KryptonLabel();
             lblLicensefeestxt = new Krypton.Toolkit.KryptonLabel();
             lbladdress = new Krypton.Toolkit.KryptonLabel();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -298,11 +306,25 @@
             lbladdress.TabStop = false;
             lbladdress.Values.Text = "Fees:";
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 290;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmRenewLicense
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(lblLicensefeestxt);
             Controls.Add(lbladdress);
             Controls.Add(Renewlicenseidtxt);
@@ -332,7 +354,9 @@
             Controls.SetChildIndex(Renewlicenseidtxt, 0);
             Controls.SetChildIndex(lbladdress, 0);
             Controls.SetChildIndex(lblLicensefeestxt, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -351,5 +375,7 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel4;
         public Krypton.Toolkit.KryptonLabel lblLicensefeestxt;
         public Krypton.Toolkit.KryptonLabel lbladdress;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

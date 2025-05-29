@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tabLocalControl = new TabControl();
             pagePerson = new TabPage();
             ctrlPersonFilter1 = new ctrlPersonFilter();
@@ -37,11 +38,18 @@
             btnLocalBack = new Krypton.Toolkit.KryptonButton();
             btnLocalNext = new Krypton.Toolkit.KryptonButton();
             lbLocalTitle = new Krypton.Toolkit.KryptonLabel();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             tabLocalControl.SuspendLayout();
             pagePerson.SuspendLayout();
             pageLocal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -218,11 +226,25 @@
             lbLocalTitle.TabStop = false;
             lbLocalTitle.Values.Text = "Add New Local DLA";
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 40);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 219;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click_1;
+            // 
             // frmLocal_DLA_AddUpdate
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(lbLocalTitle);
             Controls.Add(btnLocalBack);
             Controls.Add(btnLocalNext);
@@ -237,10 +259,12 @@
             Controls.SetChildIndex(btnLocalNext, 0);
             Controls.SetChildIndex(btnLocalBack, 0);
             Controls.SetChildIndex(lbLocalTitle, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
             tabLocalControl.ResumeLayout(false);
             pagePerson.ResumeLayout(false);
             pageLocal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
@@ -254,6 +278,8 @@
         private Krypton.Toolkit.KryptonButton btnLocalBack;
         private Krypton.Toolkit.KryptonButton btnLocalNext;
         private ctrlLocalDLA_AddUpdate ctrlLocaldlA_AddUpdate1;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
         public static Krypton.Toolkit.KryptonLabel lbLocalTitle;
     }
 }

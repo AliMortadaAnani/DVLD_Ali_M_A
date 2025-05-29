@@ -19,7 +19,7 @@ namespace DVLD_Presentation
             btnlicenseinfo.Enabled = false;
             btnIntIssue.Enabled = false;
             ctrlApplicationShow1._LoadData_Int();
-            
+
         }
 
 
@@ -41,7 +41,7 @@ namespace DVLD_Presentation
             PersonID = clsApplication.GetApplicationByID(clsLicense.GetLicense(obj).ApplicationID).ApplicantPersonID;
             ctrlApplicationShow1.lblnametxt.Text = clsPeople.Find(PersonID).FirstName + " " + clsPeople.Find(PersonID).LastName;
 
-            
+
 
             btnIntIssue.Enabled = true;
             btnhistory.Enabled = true;
@@ -51,14 +51,14 @@ namespace DVLD_Presentation
                 MessageBox.Show("International Driving License for this driver already exists.");
                 btnIntIssue.Enabled = false;
                 btnlicenseinfo.Enabled = true;
-                
+
                 InternationalLicenseID = clsInternationalLicense.GetInternationalLicenseIdByLocalLicenseID(LocalLicenseID);
                 ctrlApplicationShow1._ApplicationID = clsInternationalLicense.GetLicense(InternationalLicenseID).ApplicationID;
                 ctrlApplicationShow1._LoadData();
 
                 return;
             }
-          
+
         }
 
         private void btnhistory_Click(object sender, EventArgs e)
@@ -220,7 +220,20 @@ namespace DVLD_Presentation
             ctrlApplicationShow1._ApplicationID = -1;
             ctrlApplicationShow1._LoadData_Int();
             ctrlApplicationShow1.lblnametxt.Text = "";
-            
+
+        }
+
+        private void btnGeneralCancel_Click_1(object sender, EventArgs e)
+        {
+            //
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form allows you to search for an ordinary local license (class 3).\nIt displays the local license information and related application details.\nYou can issue a new international license for the person who holds the local license.\nButtons are available to view the person's license history and the details of the newly issued international license.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 }

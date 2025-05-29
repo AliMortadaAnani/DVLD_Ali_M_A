@@ -37,7 +37,7 @@ namespace DVLD_Presentation
         private void _RefreshTestTypesList()
         {
             dgvtests.DataSource = clsTestType.GetAllTestTypes();
-            lbltestsTotalRecordsNb.Text = clsTestType.GetTestTypeCount().ToString();    
+            lbltestsTotalRecordsNb.Text = clsTestType.GetTestTypeCount().ToString();
         }
 
 
@@ -46,6 +46,14 @@ namespace DVLD_Presentation
             frmTestEdit testEdit = new frmTestEdit((int)dgvtests.CurrentRow.Cells[0].Value);
             testEdit.ShowDialog();
             _RefreshTestTypesList();
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form displays records of test types.\nRight-clicking a test type opens a context menu with an option to edit the selected test type.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 }

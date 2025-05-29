@@ -30,48 +30,51 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestTypes));
-            toolTipCancel = new ToolTip(components);
-            btnPeopleCancel = new Krypton.Toolkit.KryptonPictureBox();
-            lblPeopleTitle = new Krypton.Toolkit.KryptonLabel();
+            toolTipClose = new ToolTip(components);
+            btnClose = new Krypton.Toolkit.KryptonPictureBox();
+            lblTestTypesTitle = new Krypton.Toolkit.KryptonLabel();
             lbltestsTotalRecordsNb = new Krypton.Toolkit.KryptonLabel();
-            lblPeopleTotalRecords = new Krypton.Toolkit.KryptonLabel();
+            lblTestTypesTotalRecordsText = new Krypton.Toolkit.KryptonLabel();
             dgvtests = new Krypton.Toolkit.KryptonDataGridView();
             contextMenuStrip1 = new ContextMenuStrip(components);
             editTestTypeToolStripMenuItem = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).BeginInit();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnClose).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvtests).BeginInit();
             contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
-            // toolTipCancel
+            // toolTipClose
             // 
-            toolTipCancel.BackColor = Color.Gainsboro;
-            toolTipCancel.ForeColor = Color.DarkSlateBlue;
+            toolTipClose.BackColor = Color.Gainsboro;
+            toolTipClose.ForeColor = Color.DarkSlateBlue;
             // 
-            // btnPeopleCancel
+            // btnClose
             // 
-            btnPeopleCancel.Cursor = Cursors.Hand;
-            btnPeopleCancel.Image = (Image)resources.GetObject("btnPeopleCancel.Image");
-            btnPeopleCancel.Location = new Point(1400, 30);
-            btnPeopleCancel.Name = "btnPeopleCancel";
-            btnPeopleCancel.Size = new Size(150, 100);
-            btnPeopleCancel.SizeMode = PictureBoxSizeMode.Zoom;
-            btnPeopleCancel.TabIndex = 210;
-            btnPeopleCancel.TabStop = false;
-            toolTipCancel.SetToolTip(btnPeopleCancel, "Close");
-            btnPeopleCancel.Click += btnPeopleCancel_Click;
+            btnClose.Cursor = Cursors.Hand;
+            btnClose.Image = (Image)resources.GetObject("btnClose.Image");
+            btnClose.Location = new Point(1400, 30);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(150, 100);
+            btnClose.SizeMode = PictureBoxSizeMode.Zoom;
+            btnClose.TabIndex = 210;
+            btnClose.TabStop = false;
+            toolTipClose.SetToolTip(btnClose, "Close");
+            btnClose.Click += btnPeopleCancel_Click;
             // 
-            // lblPeopleTitle
+            // lblTestTypesTitle
             // 
-            lblPeopleTitle.AutoSize = false;
-            lblPeopleTitle.Location = new Point(575, 2);
-            lblPeopleTitle.Name = "lblPeopleTitle";
-            lblPeopleTitle.Size = new Size(347, 107);
-            lblPeopleTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
-            lblPeopleTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPeopleTitle.TabIndex = 211;
-            lblPeopleTitle.TabStop = false;
-            lblPeopleTitle.Values.Text = "Test Types";
+            lblTestTypesTitle.AutoSize = false;
+            lblTestTypesTitle.Location = new Point(575, 2);
+            lblTestTypesTitle.Name = "lblTestTypesTitle";
+            lblTestTypesTitle.Size = new Size(347, 107);
+            lblTestTypesTitle.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            lblTestTypesTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTestTypesTitle.TabIndex = 211;
+            lblTestTypesTitle.TabStop = false;
+            lblTestTypesTitle.Values.Text = "Test Types";
             // 
             // lbltestsTotalRecordsNb
             // 
@@ -85,17 +88,17 @@
             lbltestsTotalRecordsNb.TabStop = false;
             lbltestsTotalRecordsNb.Values.Text = "0";
             // 
-            // lblPeopleTotalRecords
+            // lblTestTypesTotalRecordsText
             // 
-            lblPeopleTotalRecords.AutoSize = false;
-            lblPeopleTotalRecords.Location = new Point(575, 558);
-            lblPeopleTotalRecords.Name = "lblPeopleTotalRecords";
-            lblPeopleTotalRecords.Size = new Size(191, 47);
-            lblPeopleTotalRecords.StateNormal.ShortText.Color1 = SystemColors.InfoText;
-            lblPeopleTotalRecords.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPeopleTotalRecords.TabIndex = 214;
-            lblPeopleTotalRecords.TabStop = false;
-            lblPeopleTotalRecords.Values.Text = "Total Records : ";
+            lblTestTypesTotalRecordsText.AutoSize = false;
+            lblTestTypesTotalRecordsText.Location = new Point(575, 558);
+            lblTestTypesTotalRecordsText.Name = "lblTestTypesTotalRecordsText";
+            lblTestTypesTotalRecordsText.Size = new Size(191, 47);
+            lblTestTypesTotalRecordsText.StateNormal.ShortText.Color1 = SystemColors.InfoText;
+            lblTestTypesTotalRecordsText.StateNormal.ShortText.Font = new Font("Trebuchet MS", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTestTypesTotalRecordsText.TabIndex = 214;
+            lblTestTypesTotalRecordsText.TabStop = false;
+            lblTestTypesTotalRecordsText.Values.Text = "Total Records : ";
             // 
             // dgvtests
             // 
@@ -145,37 +148,54 @@
             editTestTypeToolStripMenuItem.Text = "Edit Test Type";
             editTestTypeToolStripMenuItem.Click += editTestTypeToolStripMenuItem_Click;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 216;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmTestTypes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1689, 1086);
+            Controls.Add(btnDocumentation);
             Controls.Add(lbltestsTotalRecordsNb);
-            Controls.Add(lblPeopleTotalRecords);
+            Controls.Add(lblTestTypesTotalRecordsText);
             Controls.Add(dgvtests);
-            Controls.Add(lblPeopleTitle);
-            Controls.Add(btnPeopleCancel);
+            Controls.Add(lblTestTypesTitle);
+            Controls.Add(btnClose);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmTestTypes";
             Text = "frmTestTypes";
             Load += frmTestTypes_Load;
-            ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnClose).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvtests).EndInit();
             contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ToolTip toolTipCancel;
-        private Krypton.Toolkit.KryptonPictureBox btnPeopleCancel;
-        private Krypton.Toolkit.KryptonLabel lblPeopleTitle;
+        private ToolTip toolTipClose;
+        private Krypton.Toolkit.KryptonPictureBox btnClose;
+        private Krypton.Toolkit.KryptonLabel lblTestTypesTitle;
         private Krypton.Toolkit.KryptonLabel lbltestsTotalRecordsNb;
-        private Krypton.Toolkit.KryptonLabel lblPeopleTotalRecords;
+        private Krypton.Toolkit.KryptonLabel lblTestTypesTotalRecordsText;
         private Krypton.Toolkit.KryptonDataGridView dgvtests;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem editTestTypeToolStripMenuItem;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

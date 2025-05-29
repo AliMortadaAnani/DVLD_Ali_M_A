@@ -50,5 +50,13 @@ namespace DVLD_Presentation
             appEdit.ShowDialog();
             _RefreshApplicationTypesList();
         }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form allows you to view and manage application type records.\nYou can right-click on any item in the data grid to open a context menu with options.\nFrom the context menu, you can edit the selected application type directly.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
+        }
     }
 }

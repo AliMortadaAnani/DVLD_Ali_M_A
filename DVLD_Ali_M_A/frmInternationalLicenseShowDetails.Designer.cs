@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             licenseidtxt = new Krypton.Toolkit.KryptonLabel();
             nametxt = new Krypton.Toolkit.KryptonLabel();
             exptxt = new Krypton.Toolkit.KryptonLabel();
@@ -51,9 +52,16 @@
             kryptonLabel3 = new Krypton.Toolkit.KryptonLabel();
             txtappID = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPeopleDetails).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -335,11 +343,25 @@
             kryptonLabel5.TabStop = false;
             kryptonLabel5.Values.Text = "Application ID:";
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 321;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmInternationalLicenseShowDetails
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(txtappID);
             Controls.Add(kryptonLabel5);
             Controls.Add(txtILid);
@@ -392,8 +414,10 @@
             Controls.SetChildIndex(txtILid, 0);
             Controls.SetChildIndex(kryptonLabel5, 0);
             Controls.SetChildIndex(txtappID, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbPeopleDetails).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
@@ -422,5 +446,7 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel3;
         private Krypton.Toolkit.KryptonLabel txtappID;
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

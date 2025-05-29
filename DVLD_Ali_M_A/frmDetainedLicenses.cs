@@ -189,6 +189,14 @@ namespace DVLD_Presentation
             frmDetainReleaseLicenses.ShowDialog();
             _RefreshLocalList();
         }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form allows you to view records of detained licenses along with their current status, whether released or not.\nYou can filter the data grid by using the filter combo box and input field.\nRight-clicking on a record in the data grid opens a context menu with options to view license details, see the person's license history, or release the selected detained license if applicable.\nAdditionally, there are two buttons to manually release or detain licenses as needed.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
+        }
     }
 }   
 

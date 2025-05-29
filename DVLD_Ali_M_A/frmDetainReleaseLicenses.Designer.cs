@@ -28,13 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnhistory = new Krypton.Toolkit.KryptonButton();
             btnIntIssue = new Krypton.Toolkit.KryptonButton();
             ctrlLicenseInfo1 = new ctrlLicenseInfo();
             ctrlLicenseDetain1 = new ctrlLicenseDetain();
             ctrlDetainReleaseInfo1 = new ctrlDetainReleaseInfo();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -83,7 +91,7 @@
             btnhistory.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnhistory.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnhistory.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnhistory.TabIndex = 214;
+            btnhistory.TabIndex = 220;
             btnhistory.Values.DropDownArrowColor = Color.Empty;
             btnhistory.Values.Text = "Show License History";
             btnhistory.Click += btnhistory_Click;
@@ -129,7 +137,7 @@
             btnIntIssue.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnIntIssue.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnIntIssue.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnIntIssue.TabIndex = 215;
+            btnIntIssue.TabIndex = 221;
             btnIntIssue.Values.DropDownArrowColor = Color.Empty;
             btnIntIssue.Values.Text = "Detain Local Driving License";
             btnIntIssue.Click += btnIntIssue_Click;
@@ -164,11 +172,25 @@
             ctrlDetainReleaseInfo1.Size = new Size(1546, 320);
             ctrlDetainReleaseInfo1.TabIndex = 219;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 220;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmDetainReleaseLicenses
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(ctrlDetainReleaseInfo1);
             Controls.Add(ctrlLicenseDetain1);
             Controls.Add(btnhistory);
@@ -184,7 +206,9 @@
             Controls.SetChildIndex(btnhistory, 0);
             Controls.SetChildIndex(ctrlLicenseDetain1, 0);
             Controls.SetChildIndex(ctrlDetainReleaseInfo1, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
@@ -195,5 +219,7 @@
         private ctrlLicenseInfo ctrlLicenseInfo1;
         private ctrlLicenseDetain ctrlLicenseDetain1;
         private ctrlDetainReleaseInfo ctrlDetainReleaseInfo1;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

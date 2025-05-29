@@ -36,7 +36,10 @@
             btnSettingsSignOut = new Krypton.Toolkit.KryptonButton();
             lbSettingsTitle = new Krypton.Toolkit.KryptonLabel();
             toolTip1 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
+            toolTip2 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)pbSettingsCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
             // pbSettingsCancel
@@ -205,12 +208,26 @@
             lbSettingsTitle.TabStop = false;
             lbSettingsTitle.Values.Text = "Account Settings";
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = DVLD_Presentation.Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 209;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmAccountSettings
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1548, 1028);
+            Controls.Add(btnDocumentation);
             Controls.Add(lbSettingsTitle);
             Controls.Add(btnSettingsSignOut);
             Controls.Add(btnSettingsChangePassword);
@@ -221,6 +238,7 @@
             Text = "frmAccountSettings";
             Load += frmAccountSettings_Load;
             ((System.ComponentModel.ISupportInitialize)pbSettingsCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
@@ -232,5 +250,7 @@
         private Krypton.Toolkit.KryptonButton btnSettingsSignOut;
         private Krypton.Toolkit.KryptonLabel lbSettingsTitle;
         private ToolTip toolTip1;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
+        private ToolTip toolTip2;
     }
 }

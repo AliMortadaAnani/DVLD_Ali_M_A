@@ -1,4 +1,5 @@
 ﻿using DVLD_Business;
+using DVLD_Presentation;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -151,7 +152,15 @@ namespace DVLD_Ali_M_A
                 tbLoginPassword.Text = clsGlobalUser.CurrentUser.Password;
                 cbLoginRememberMe.Checked = true;
             }
-            
+
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form is used to log in to the software.\nYou must have at least one active user in the database to access the system.\nEnter your username and password correctly.\nOnly active users are allowed to log in.\nYou can check the 'Remember Me' option to have your credentials automatically filled in the next time you open the application.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 }

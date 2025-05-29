@@ -163,9 +163,29 @@ namespace DVLD_Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap form_info {
+            get {
+                object obj = ResourceManager.GetObject("form-info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap infoPerson {
             get {
                 object obj = ResourceManager.GetObject("infoPerson", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap information_8564573_1280 {
+            get {
+                object obj = ResourceManager.GetObject("information-8564573_1280", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

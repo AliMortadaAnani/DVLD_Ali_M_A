@@ -18,6 +18,7 @@ namespace DVLD_Presentation
         public frmLocal_DLA_AddUpdate(int _PersonID, int _LocalID)
         {
             InitializeComponent();
+            //btnDocumentation.Visible = true;
             ctrlPeopleShowDetails._PersonID = _PersonID;
             ctrlLocaldlA_AddUpdate1._ID = _LocalID;
             lblGeneralTitle.Text = "Add New Local DLA";
@@ -36,7 +37,7 @@ namespace DVLD_Presentation
 
 
 
-     
+
 
 
         private void ctrlPersonFilter1_OnPersonSearchComplete(int obj)
@@ -94,6 +95,20 @@ namespace DVLD_Presentation
         {
             btnLocalBack.Visible = false;
             btnLocalBack.Enabled = false;
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+           
+
+        }
+
+        private void btnDocumentation_Click_1(object sender, EventArgs e)
+        {
+            string documentation = "This form contains two tab pages.\nThe first tab allows you to select an existing person or add a new person to create a new local driving license application.\nYou cannot navigate to the application tab until a person is selected.\nOnce a person is chosen and you move to the application tab, the selected person cannot be changed.\nUse the Save button to store the new application information.\nA person cannot have more than one active application for the same local license class, unless the previous one was cancelled.\nIf you change the local license type after saving, the new type will replace the previous one within the same application.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 }

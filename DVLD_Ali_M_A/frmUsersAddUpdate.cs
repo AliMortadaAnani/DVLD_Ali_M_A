@@ -13,8 +13,8 @@ namespace DVLD_Presentation
 {
     public partial class frmUsersAddUpdate : Form
     {
-         int CurrentPersonId = -1;
-        public frmUsersAddUpdate(int _PersonID,int _UserID)
+        int CurrentPersonId = -1;
+        public frmUsersAddUpdate(int _PersonID, int _UserID)
         {
             InitializeComponent();
             ctrlPeopleShowDetails._PersonID = _PersonID;
@@ -94,6 +94,14 @@ namespace DVLD_Presentation
             btnUserNext.Visible = true;
             btnUserNext.Enabled = true;
 
+
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form contains two tab pages.\nThe first tab allows you to select an existing person or add a new person before creating a user.\nYou cannot navigate to the second tab for user information until a person is selected.\nOnce a person is chosen and you move to the user information tab, the selected person cannot be changed.\nUse the Save button to save the new user information.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
 
         }
     }

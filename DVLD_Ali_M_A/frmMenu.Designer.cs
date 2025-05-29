@@ -43,11 +43,14 @@
             pbMenuCar = new Krypton.Toolkit.KryptonPictureBox();
             pbMenuTest = new Krypton.Toolkit.KryptonPictureBox();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)pnMenuPanel).BeginInit();
             pnMenuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbMenuCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbMenuCar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbMenuTest).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
             // pnMenuPanel
@@ -200,7 +203,20 @@
             kryptonLabel1.StateNormal.ShortText.Font = new Font("Trebuchet MS", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
             kryptonLabel1.TabIndex = 239;
             kryptonLabel1.TabStop = false;
-            kryptonLabel1.Values.Text = "Welcome to Drivers && Vehicules\r\nLicenses Department System.\r\n\r\n\r\nPlease choose a section\r\nfrom the left panel.";
+            kryptonLabel1.Values.Text = "Welcome to Drivers && Vehicles\r\nLicenses Department System.\r\n\r\n\r\nPlease choose a section\r\nfrom the left panel.";
+            // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = DVLD_Presentation.Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(356, 12);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 240;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
             // 
             // frmMenu
             // 
@@ -208,6 +224,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1946, 981);
+            Controls.Add(btnDocumentation);
             Controls.Add(kryptonLabel1);
             Controls.Add(pbMenuTest);
             Controls.Add(pbMenuCar);
@@ -223,6 +240,7 @@
             ((System.ComponentModel.ISupportInitialize)pbMenuCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbMenuCar).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbMenuTest).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
@@ -241,5 +259,7 @@
         private Krypton.Toolkit.KryptonPictureBox pbMenuTest;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
         private Krypton.Toolkit.KryptonLabel lblnote;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

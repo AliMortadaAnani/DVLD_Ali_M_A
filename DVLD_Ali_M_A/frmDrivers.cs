@@ -55,7 +55,7 @@ namespace DVLD_Presentation
             }
             else if
              (cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ID")
-             || cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("YearOfBirth") 
+             || cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("YearOfBirth")
              || cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("PersonID")
              || cbPeopleFilterBox.SelectedIndex == cbPeopleFilterBox.FindString("ActiveLicenses")
              )
@@ -121,10 +121,10 @@ namespace DVLD_Presentation
                     dgvPeople.DataSource = clsDriver.GetAllDriversByFullName(input);
                     break;
 
-               
 
 
-                
+
+
 
 
             }
@@ -133,7 +133,20 @@ namespace DVLD_Presentation
             lblPeopleTotalRecordsNb.Text = dgvPeople.RowCount.ToString();
         }
 
+        private void showLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowLicenseHistory frmShowLicenseHistory = new frmShowLicenseHistory((int)dgvPeople.CurrentRow.Cells[1].Value);
+            frmShowLicenseHistory.ShowDialog();
+            _RefreshPeopleList();
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form displays driver records in a table.\nYou can right-click a row to open a context menu that lets you view the person's license history.\nTo filter the records, select a filter type from the combo box and enter the search value in the input field.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
 
 
+        }
     }
 }

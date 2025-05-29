@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lblfeestxt = new Krypton.Toolkit.KryptonLabel();
             lbltrialtxt = new Krypton.Toolkit.KryptonLabel();
             lblnametxt = new Krypton.Toolkit.KryptonLabel();
@@ -47,8 +48,15 @@
             kryptonLabel5 = new Krypton.Toolkit.KryptonLabel();
             kryptonLabel6 = new Krypton.Toolkit.KryptonLabel();
             lblid2 = new Krypton.Toolkit.KryptonLabel();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -314,11 +322,25 @@
             lblid2.TabStop = false;
             lblid2.Values.Text = "Retake Test Application ID:";
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 272;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmTestSchedule
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(lbltotaltxt);
             Controls.Add(lblfees2txt);
             Controls.Add(lblid2txt);
@@ -363,7 +385,9 @@
             Controls.SetChildIndex(lblid2txt, 0);
             Controls.SetChildIndex(lblfees2txt, 0);
             Controls.SetChildIndex(lbltotaltxt, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
@@ -388,5 +412,7 @@
         private Krypton.Toolkit.KryptonLabel kryptonLabel5;
         private Krypton.Toolkit.KryptonLabel kryptonLabel6;
         private Krypton.Toolkit.KryptonLabel lblid2;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

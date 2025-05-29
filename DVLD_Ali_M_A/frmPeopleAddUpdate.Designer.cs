@@ -34,7 +34,10 @@
             btnPeopleCancel = new Krypton.Toolkit.KryptonPictureBox();
             toolTipCancel = new ToolTip(components);
             ctrlPeopleAddUpdate1 = new ctrlPeopleAddUpdate();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
             // lblPeopleTitle
@@ -75,12 +78,26 @@
             ctrlPeopleAddUpdate1.Size = new Size(1400, 1000);
             ctrlPeopleAddUpdate1.TabIndex = 212;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 213;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmPeopleAddUpdate
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(ctrlPeopleAddUpdate1);
             Controls.Add(btnPeopleCancel);
             Controls.Add(lblPeopleTitle);
@@ -90,14 +107,16 @@
             FormClosing += frmPeopleAddUpdate_FormClosing;
             Load += frmPeopleAddUpdate_Load;
             ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        public static Krypton.Toolkit.KryptonLabel lblPeopleTitle;
         private Krypton.Toolkit.KryptonPictureBox btnPeopleCancel;
         private ToolTip toolTipCancel;
         private ctrlPeopleAddUpdate ctrlPeopleAddUpdate1;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
+        public static Krypton.Toolkit.KryptonLabel lblPeopleTitle;
     }
 }

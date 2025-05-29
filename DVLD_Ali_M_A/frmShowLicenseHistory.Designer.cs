@@ -36,10 +36,17 @@
             dgvlicense = new Krypton.Toolkit.KryptonDataGridView();
             contextMenuStripLocal = new ContextMenuStrip(components);
             showLicenseStripMenuItem = new ToolStripMenuItem();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvlicense).BeginInit();
             contextMenuStripLocal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -128,7 +135,7 @@
             contextMenuStripLocal.ImageScalingSize = new Size(36, 36);
             contextMenuStripLocal.Items.AddRange(new ToolStripItem[] { showLicenseStripMenuItem });
             contextMenuStripLocal.Name = "contextMenuStripPeople";
-            contextMenuStripLocal.Size = new Size(268, 81);
+            contextMenuStripLocal.Size = new Size(268, 48);
             // 
             // showLicenseStripMenuItem
             // 
@@ -138,11 +145,25 @@
             showLicenseStripMenuItem.Text = "Show License Details";
             showLicenseStripMenuItem.Click += showLicenseStripMenuItem_Click;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 226;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmShowLicenseHistory
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(dgvlicense);
             Controls.Add(rbint);
             Controls.Add(rblocal);
@@ -159,9 +180,11 @@
             Controls.SetChildIndex(rblocal, 0);
             Controls.SetChildIndex(rbint, 0);
             Controls.SetChildIndex(dgvlicense, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvlicense).EndInit();
             contextMenuStripLocal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -175,5 +198,7 @@
         private Krypton.Toolkit.KryptonDataGridView dgvlicense;
         private ContextMenuStrip contextMenuStripLocal;
         private ToolStripMenuItem showLicenseStripMenuItem;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

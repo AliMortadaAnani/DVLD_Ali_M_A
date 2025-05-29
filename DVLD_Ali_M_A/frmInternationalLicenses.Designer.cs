@@ -41,12 +41,19 @@
             lblUsersFilter = new Krypton.Toolkit.KryptonLabel();
             mtbUsersFilterInput = new MaskedTextBox();
             cbUsersStatusOptions = new Krypton.Toolkit.KryptonComboBox();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvLocal).BeginInit();
             contextMenuStripLocal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbUsersFilterBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbUsersStatusOptions).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -95,7 +102,7 @@
             btnLocalAddNew.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnLocalAddNew.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnLocalAddNew.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLocalAddNew.TabIndex = 234;
+            btnLocalAddNew.TabIndex = 241;
             btnLocalAddNew.Values.DropDownArrowColor = Color.Empty;
             btnLocalAddNew.Values.Text = "Issue New International Driving License";
             btnLocalAddNew.Click += btnLocalAddNew_Click;
@@ -153,7 +160,7 @@
             dgvLocal.StateCommon.HeaderColumn.Content.Color1 = Color.Gainsboro;
             dgvLocal.StateCommon.HeaderColumn.Content.Font = new Font("Trebuchet MS", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             dgvLocal.StateNormal.Background.Color1 = Color.Gainsboro;
-            dgvLocal.TabIndex = 231;
+            dgvLocal.TabIndex = 240;
             dgvLocal.TabStop = false;
             // 
             // contextMenuStripLocal
@@ -163,7 +170,7 @@
             contextMenuStripLocal.ImageScalingSize = new Size(36, 36);
             contextMenuStripLocal.Items.AddRange(new ToolStripItem[] { showLicenseStripMenuItem, showLicenseHistoryToolStripMenuItem });
             contextMenuStripLocal.Name = "contextMenuStripPeople";
-            contextMenuStripLocal.Size = new Size(372, 125);
+            contextMenuStripLocal.Size = new Size(372, 92);
             // 
             // showLicenseStripMenuItem
             // 
@@ -238,15 +245,29 @@
             cbUsersStatusOptions.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             cbUsersStatusOptions.StateDisabled.ComboBox.Content.Color1 = Color.Gainsboro;
             cbUsersStatusOptions.StateDisabled.ComboBox.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbUsersStatusOptions.TabIndex = 238;
+            cbUsersStatusOptions.TabIndex = 250;
             cbUsersStatusOptions.Text = "All";
             cbUsersStatusOptions.SelectedIndexChanged += cbUsersStatusOptions_SelectedIndexChanged;
+            // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 239;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
             // 
             // frmInternationalLicenses
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(cbUsersFilterBox);
             Controls.Add(lblUsersFilter);
             Controls.Add(mtbUsersFilterInput);
@@ -269,11 +290,13 @@
             Controls.SetChildIndex(mtbUsersFilterInput, 0);
             Controls.SetChildIndex(lblUsersFilter, 0);
             Controls.SetChildIndex(cbUsersFilterBox, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvLocal).EndInit();
             contextMenuStripLocal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbUsersFilterBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbUsersStatusOptions).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -291,5 +314,7 @@
         private Krypton.Toolkit.KryptonLabel lblUsersFilter;
         private MaskedTextBox mtbUsersFilterInput;
         private Krypton.Toolkit.KryptonComboBox cbUsersStatusOptions;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

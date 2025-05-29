@@ -61,18 +61,18 @@ namespace DVLD_Presentation
             }
             else
 
-           {    
-                
-            driver = new clsDriver();
-            driver.CreatedDate = DateTime.Now;
-            driver.CreateByUserID = clsGlobalUser.CurrentUser.ID;
-            driver.PersonID = localDLA_Application.ApplicantPersonID;
+            {
+
+                driver = new clsDriver();
+                driver.CreatedDate = DateTime.Now;
+                driver.CreateByUserID = clsGlobalUser.CurrentUser.ID;
+                driver.PersonID = localDLA_Application.ApplicantPersonID;
 
             }
             if (driver.Save())
             {
 
-              
+
 
                 clsLicense license = new clsLicense();
                 license.DriverID = driver.ID;
@@ -84,7 +84,7 @@ namespace DVLD_Presentation
                 license.IsActive = true;
                 license.IssueReason = (byte)enIssueReason.FirstTime;
                 license.CreatedByUserID = clsGlobalUser.CurrentUser.ID;
-                license.Notes =  tbnotes.Text;
+                license.Notes = tbnotes.Text;
                 if (license.Save())
                 {
                     clsApplication.UpdateApplication_Status_LastStatusDate(applicationID, enApplicationStatus.Completed, DateTime.Now);
@@ -108,6 +108,14 @@ namespace DVLD_Presentation
                 MessageBox.Show("Failed to issue Driver License", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form displays the local driving license application information and application details.\nYou can fill in additional fields such as notes.\nUse the 'Issue New Local License' button to complete the process.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
 
         }
     }

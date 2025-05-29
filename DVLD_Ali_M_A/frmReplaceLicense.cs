@@ -69,7 +69,7 @@ namespace DVLD_Presentation
             Renewlicenseidtxt.Text = "";
         }
         private void ctrlLicenseRenew1_OnLicenseSearchComplete_1(int obj)
-        {   
+        {
             Renewlicenseidtxt.Text = "";
             OldLicenseID = obj;
             ctrlLicenseInfo1._LicenseID = OldLicenseID;
@@ -245,6 +245,14 @@ namespace DVLD_Presentation
         private void rbdmg_CheckedChanged(object sender, EventArgs e)
         {
             LoadApp();
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form allows you to replace a local driving license due to damage or loss.\nYou must search for a license that is active; otherwise, you cannot proceed.\nThe form displays the selected license details and the related replacement application information.\nWhen you replace the license, the old damaged or lost license will be marked inactive, and the new one will become the active license.\nUse the 'Replace' button to complete the replacement process.\nButtons are also available to view the new replaced license and the license history.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 

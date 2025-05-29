@@ -41,8 +41,10 @@
             lblid = new Krypton.Toolkit.KryptonLabel();
             errorProvider1 = new ErrorProvider(components);
             btnPeopleAddNew = new Krypton.Toolkit.KryptonButton();
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)kryptonPictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
             // lbltitle
@@ -220,12 +222,26 @@
             btnPeopleAddNew.Values.Text = "Save";
             btnPeopleAddNew.Click += btnPeopleAddNew_Click;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 233;
+            btnDocumentation.TabStop = false;
+            toolTipCancel.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmApplicationEdit
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1724, 749);
+            Controls.Add(btnDocumentation);
             Controls.Add(btnPeopleAddNew);
             Controls.Add(tbfees);
             Controls.Add(kryptonLabel2);
@@ -241,6 +257,7 @@
             Load += frmApplicationEdit_Load;
             ((System.ComponentModel.ISupportInitialize)kryptonPictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -258,5 +275,6 @@
         private Krypton.Toolkit.KryptonLabel lblid;
         private ErrorProvider errorProvider1;
         private Krypton.Toolkit.KryptonButton btnPeopleAddNew;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

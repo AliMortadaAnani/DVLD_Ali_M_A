@@ -61,5 +61,13 @@ namespace DVLD_Presentation
                 frmInternationalLicenseShowDetails.ShowDialog();
             }
         }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form shows a person's license history along with their personal details.\nAn Edit button allows you to open the Edit Person form.\nYou can switch between viewing the local license history or the international license history using two radio buttons.\nThe table displays all licenses for the person, whether active or inactive.\nRight-clicking a license opens a context menu with an option to view the selected license details in the Show License form.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
+        }
     }
 }

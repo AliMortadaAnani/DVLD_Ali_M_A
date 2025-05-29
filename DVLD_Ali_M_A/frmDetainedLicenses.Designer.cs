@@ -43,12 +43,19 @@
             showLicenseHistoryToolStripMenuItem = new ToolStripMenuItem();
             releaseDetainLicenseToolStripMenuItem = new ToolStripMenuItem();
             btnDetain = new Krypton.Toolkit.KryptonButton();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbUsersFilterBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbUsersStatusOptions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvLocal).BeginInit();
             contextMenuStripLocal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -113,7 +120,7 @@
             cbUsersStatusOptions.StateCommon.ComboBox.Content.TextH = Krypton.Toolkit.PaletteRelativeAlign.Near;
             cbUsersStatusOptions.StateDisabled.ComboBox.Content.Color1 = Color.Gainsboro;
             cbUsersStatusOptions.StateDisabled.ComboBox.Content.Font = new Font("Tahoma", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cbUsersStatusOptions.TabIndex = 246;
+            cbUsersStatusOptions.TabIndex = 260;
             cbUsersStatusOptions.Text = "All";
             cbUsersStatusOptions.SelectedIndexChanged += cbUsersStatusOptions_SelectedIndexChanged;
             // 
@@ -158,7 +165,7 @@
             btnRelease.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnRelease.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnRelease.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRelease.TabIndex = 242;
+            btnRelease.TabIndex = 249;
             btnRelease.Values.DropDownArrowColor = Color.Empty;
             btnRelease.Values.Text = "Release Local Driving License";
             btnRelease.Click += btnRelease_Click;
@@ -216,7 +223,7 @@
             dgvLocal.StateCommon.HeaderColumn.Content.Color1 = Color.Gainsboro;
             dgvLocal.StateCommon.HeaderColumn.Content.Font = new Font("Trebuchet MS", 10F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             dgvLocal.StateNormal.Background.Color1 = Color.Gainsboro;
-            dgvLocal.TabIndex = 239;
+            dgvLocal.TabIndex = 247;
             dgvLocal.TabStop = false;
             // 
             // contextMenuStripLocal
@@ -226,7 +233,7 @@
             contextMenuStripLocal.ImageScalingSize = new Size(36, 36);
             contextMenuStripLocal.Items.AddRange(new ToolStripItem[] { showLicenseStripMenuItem, showLicenseHistoryToolStripMenuItem, releaseDetainLicenseToolStripMenuItem });
             contextMenuStripLocal.Name = "contextMenuStripPeople";
-            contextMenuStripLocal.Size = new Size(330, 169);
+            contextMenuStripLocal.Size = new Size(330, 136);
             contextMenuStripLocal.Opening += contextMenuStripLocal_Opening;
             // 
             // showLicenseStripMenuItem
@@ -294,16 +301,30 @@
             btnDetain.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnDetain.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnDetain.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDetain.TabIndex = 247;
+            btnDetain.TabIndex = 248;
             btnDetain.Values.DropDownArrowColor = Color.Empty;
             btnDetain.Values.Text = "Detain Local Driving License";
             btnDetain.Click += btnDetain_Click;
+            // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 248;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
             // 
             // frmDetainedLicenses
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(btnDetain);
             Controls.Add(dgvLocal);
             Controls.Add(cbUsersFilterBox);
@@ -327,11 +348,13 @@
             Controls.SetChildIndex(cbUsersFilterBox, 0);
             Controls.SetChildIndex(dgvLocal, 0);
             Controls.SetChildIndex(btnDetain, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbUsersFilterBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbUsersStatusOptions).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvLocal).EndInit();
             contextMenuStripLocal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -351,5 +374,7 @@
         private ToolStripMenuItem showLicenseStripMenuItem;
         private ToolStripMenuItem showLicenseHistoryToolStripMenuItem;
         private ToolStripMenuItem releaseDetainLicenseToolStripMenuItem;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

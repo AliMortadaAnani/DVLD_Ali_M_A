@@ -34,7 +34,7 @@ namespace DVLD_Presentation
         DateTime maxAppointmentDate = DateTime.Now; // Initialize with the smallest possible date
 
 
-        public frmTestSchedule(enTestType testType, int LocalID, int ID,DateTime maxDate )
+        public frmTestSchedule(enTestType testType, int LocalID, int ID, DateTime maxDate)
         {
             InitializeComponent();
             this.testType = testType;
@@ -47,7 +47,7 @@ namespace DVLD_Presentation
 
             this._ID = ID;
 
-            
+
 
         }
 
@@ -107,7 +107,14 @@ namespace DVLD_Presentation
             _TestAppointment = clsTestAppointment.GetTestAppointmentByID(ID);
             date.MinDate = _TestAppointment.AppointmentDate;
             date.Value = _TestAppointment.AppointmentDate;
-
+            if (trials > 0)
+            {
+                lblid2txt.Text = _TestAppointment.RetakeTestApplicationID.ToString();
+            }
+            else
+            {
+                //lblid2txt.Text = "-1";
+            }
 
 
         }
@@ -123,7 +130,7 @@ namespace DVLD_Presentation
             _TestAppointment.IsLocked = false;
             if (trials == 0)
                 _TestAppointment.RetakeTestApplicationID = -1;
-            else
+            else if (_Mode == enMode.AddNew)
             {
                 clsApplication RetakeApplication = new clsApplication();
                 RetakeApplication.ApplicationDate = DateTime.Now;
@@ -147,8 +154,10 @@ namespace DVLD_Presentation
             if (_TestAppointment.Save())
             {
                 MessageBox.Show("Test Appointment Saved Successfully");
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                lblid2txt.Text = _TestAppointment.RetakeTestApplicationID.ToString();
+                btnTestAppAddNew.Enabled = false; // Disable the button after saving
+                /*  this.DialogResult = DialogResult.OK;
+                  this.Close();*/
             }
             else
             {
@@ -160,6 +169,14 @@ namespace DVLD_Presentation
 
         private void btnTestAppAddNew_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form displays the local license application and its details.\nYou must set the appointment date for the test and save it.\nThere is a retake test section that becomes available only if the previous exam was failed and you are scheduling a retake.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
 
         }
     }

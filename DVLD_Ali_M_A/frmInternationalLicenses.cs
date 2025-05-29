@@ -162,5 +162,13 @@ namespace DVLD_Presentation
             }
             dgvLocal.Text = dgvLocal.RowCount.ToString();
         }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form displays international license records in a table.\nYou can right-click a row to open a context menu with options to view the selected international license details or the person's full license history.\nYou can issue a new international license using the dedicated button.\nFiltering is available through the combo box and input field to help you search specific records.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
+        }
     }
 }

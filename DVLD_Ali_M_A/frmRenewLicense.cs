@@ -130,7 +130,7 @@ namespace DVLD_Presentation
             {   // Get the required fee amount (replace 500 with your actual fee or get it from database)
                 int licenseFee = Convert.ToInt32(clsLicenseClass.Find(clsLicense.GetLicense(OldLicenseID).LicenseClass).ClassFees); // Or: clsLicense.GetLicenseFee(_LicenseID);
                 int appfee = Convert.ToInt32(clsApplicationType.GetByID((int)enApplicationType.Renew).Fees);
-                int totalFee = licenseFee + appfee; 
+                int totalFee = licenseFee + appfee;
                 DialogResult result = MessageBox.Show(
                     $"This license requires a fee of {licenseFee} USD and a fee of {appfee} USD for the application.\n" +
                     $"Total fees = {totalFee} USD.\n" +
@@ -166,7 +166,7 @@ namespace DVLD_Presentation
                         clsLicense new_license = new();
                         new_license.ApplicationID = new_application.ID;
                         new_license.DriverID = old_license.DriverID;
-                        
+
                         new_license.IssueDate = DateTime.Now;
                         new_license.ExpirationDate = DateTime.Now.AddYears(10);
                         new_license.IsActive = true;
@@ -197,6 +197,14 @@ namespace DVLD_Presentation
                 }
 
             }
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form allows you to renew a local driving license.\nYou must search for a license that is active and expired; otherwise, you cannot proceed.\nThe form displays the selected license details and the related renewal application information.\nYou can add optional notes for the renewed license.\nUse the 'Renew' button to complete the renewal process.\nButtons are also available to view the renewed license and the license history.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 }

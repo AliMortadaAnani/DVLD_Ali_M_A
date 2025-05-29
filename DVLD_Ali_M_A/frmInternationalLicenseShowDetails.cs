@@ -33,15 +33,15 @@ namespace DVLD_Presentation
             txtappID.Text = _License.ApplicationID.ToString();
             txtILid.Text = _License.ID.ToString();
             licenseidtxt.Text = _License.IssuedUsingLocalLicenseID.ToString();
-            
+
             issuedatetxt.Text = _License.IssueDate.ToString("dd/MM/yyyy");
             exptxt.Text = _License.ExpirationDate.ToString("dd/MM/yyyy");
             nametxt.Text = _Person.FirstName + " " + _Person.LastName;
-          
+
             natnbtxt.Text = _Person.NationalNb;
             gendertxt.Text = ctrlPeopleShowDetails.PersonGender(_Person.Gender);
             birthdattxt.Text = _Person.DateOfBirth.ToString("dd/MM/yyyy");
-           
+
             driveridtxt.Text = _License.DriverID.ToString();
             if (!string.IsNullOrEmpty(_Person.ImagePath) && System.IO.File.Exists(ctrlPeopleAddUpdate.MyImage(_Person.ImagePath)))
             {
@@ -70,8 +70,16 @@ namespace DVLD_Presentation
                 activetxt.Text = "No";
 
             }
-            
 
+
+
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form shows the detailed information of a person's international license.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
 
         }
     }

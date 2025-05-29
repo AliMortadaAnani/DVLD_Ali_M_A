@@ -45,10 +45,13 @@
             cbPeopleFilterBox = new Krypton.Toolkit.KryptonComboBox();
             mtbPeopleFilterInput = new MaskedTextBox();
             toolTipCancel = new ToolTip(components);
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvPeople).BeginInit();
             contextMenuStripPeople.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbPeopleFilterBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
             // btnPeopleCancel
@@ -267,12 +270,26 @@
             toolTipCancel.BackColor = Color.Gainsboro;
             toolTipCancel.ForeColor = Color.DarkSlateBlue;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = DVLD_Presentation.Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 218;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmPeople
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(mtbPeopleFilterInput);
             Controls.Add(cbPeopleFilterBox);
             Controls.Add(lblPeopleFilter);
@@ -292,6 +309,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvPeople).EndInit();
             contextMenuStripPeople.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbPeopleFilterBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -313,5 +331,7 @@
         private ToolStripMenuItem editPersonToolStripMenuItem;
         private ToolStripMenuItem deletePersonToolStripMenuItem;
         private ToolStripMenuItem addNewPersonToolStripMenuItem;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

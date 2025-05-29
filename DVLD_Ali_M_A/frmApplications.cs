@@ -72,5 +72,13 @@ namespace DVLD_Presentation
             frmDetainedLicenses frmDetainedLicenses = new frmDetainedLicenses();
             frmDetainedLicenses.ShowDialog();
         }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form permits you to access many features, each with a corresponding button.\nYou can manage local driving license applications, international licenses, renewals, replacements, and detentions of local licenses.\nAdditionally, you can manage application types and test types from here.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
+        }
     }
 }

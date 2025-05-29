@@ -72,16 +72,24 @@ namespace DVLD_Presentation
         {
             _applicationType.Title = tbtitle.Text.Trim();
             _applicationType.Fees = Decimal.Parse(tbfees.Text.Trim());
-            
+
             if (_applicationType.Save())
             {
                 MessageBox.Show("Application Type Updated");
-                
+
             }
             else
             {
                 MessageBox.Show("Application Type Not Updated");
             }
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form allows you to edit the title and fees of the application type.\nMake sure to click the Save button to store any changes you make."
+;
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
         }
     }
 }

@@ -431,5 +431,13 @@ namespace DVLD_Presentation
             frm.ShowDialog();
             _RefreshLocalList();
         }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form displays local driving license application records in a table.\nYou can filter the records using the combo box and input field.\nUse the 'Add New Local License Application' button to create a new application.\nRight-clicking a row opens a context menu with options based on the application's current state:\n- Cancel the application if no license has been issued yet.\n- Update the application to change the license type, if no test has been taken and it is not cancelled.\n- Delete the application if no data is associated with it yet.\n- Show application information at any time.\n- Schedule tests (vision, written, driving) if the application is not cancelled and still having tests not passed. Tests must be scheduled in that order.\n- You cannot schedule the next test before passing the previous one.\n- Issue a new local license once all required tests are passed — this can only be done once.\n- After the license is issued, you can view its details and access the person’s full license history.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
+        }
     }
 }

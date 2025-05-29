@@ -45,6 +45,8 @@
             btnLoginLine1 = new Krypton.Toolkit.KryptonButton();
             gbLoginGroup = new Krypton.Toolkit.KryptonGroupBox();
             errorProvider1 = new ErrorProvider(components);
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)pbLoginCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pnLoginPanel).BeginInit();
             pnLoginPanel.SuspendLayout();
@@ -53,6 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)gbLoginGroup).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gbLoginGroup.Panel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
             // lbLoginTitle
@@ -65,7 +68,7 @@
             lbLoginTitle.StateNormal.ShortText.Font = new Font("Trebuchet MS", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbLoginTitle.TabIndex = 99;
             lbLoginTitle.TabStop = false;
-            lbLoginTitle.Values.Text = "Drivers && Vehicules \r\nLicenses Department\r\nSystem";
+            lbLoginTitle.Values.Text = "Drivers && Vehicles \r\nLicenses Department\r\nSystem";
             // 
             // pbLoginCancel
             // 
@@ -278,6 +281,19 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = DVLD_Presentation.Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 210;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -285,6 +301,7 @@
             BackColor = Color.DarkSlateBlue;
             ClientSize = new Size(1902, 1028);
             ControlBox = false;
+            Controls.Add(btnDocumentation);
             Controls.Add(pnLoginPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmLogin";
@@ -300,6 +317,7 @@
             ((System.ComponentModel.ISupportInitialize)gbLoginGroup.Panel).EndInit();
             ((System.ComponentModel.ISupportInitialize)gbLoginGroup).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
@@ -320,5 +338,7 @@
         private Krypton.Toolkit.KryptonButton btnLoginButton;
         private Krypton.Toolkit.KryptonPictureBox pbLoginPasswordImg;
         private ErrorProvider errorProvider1;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
+        private ToolTip toolTip2;
     }
 }

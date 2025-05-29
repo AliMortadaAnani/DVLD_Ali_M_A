@@ -40,10 +40,13 @@
             editApplicationTypeToolStripMenuItem = new ToolStripMenuItem();
             kryptonPictureBox1 = new Krypton.Toolkit.KryptonPictureBox();
             kryptonLabel1 = new Krypton.Toolkit.KryptonLabel();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvapps).BeginInit();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)kryptonPictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
             // toolTipCancel
@@ -173,12 +176,26 @@
             kryptonLabel1.TabStop = false;
             kryptonLabel1.Values.Text = "Application Types";
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 216;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmApplicationTypes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1783, 1087);
+            Controls.Add(btnDocumentation);
             Controls.Add(lblappsTotalRecordsNb);
             Controls.Add(lblPeopleTotalRecords);
             Controls.Add(dgvapps);
@@ -194,6 +211,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvapps).EndInit();
             contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)kryptonPictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
@@ -209,5 +227,7 @@
         private ToolStripMenuItem editApplicationTypeToolStripMenuItem;
         private Krypton.Toolkit.KryptonPictureBox kryptonPictureBox1;
         private Krypton.Toolkit.KryptonLabel kryptonLabel1;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

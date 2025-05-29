@@ -48,7 +48,7 @@ namespace DVLD_Presentation
 
         private void btnPeopleSave_Click(object sender, EventArgs e)
         {
-            if(rbfail.Checked == false && rbpass.Checked == false)
+            if (rbfail.Checked == false && rbpass.Checked == false)
             {
                 MessageBox.Show("Please select a result for the test.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -62,7 +62,7 @@ namespace DVLD_Presentation
             {
                 // Update the test appointment status
                 clsTestAppointment.LockTestAppointment(TestAppointmentID);
-                if(trials > 0)
+                if (trials > 0)
                 { clsApplication.UpdateApplication_Status_LastStatusDate(testAppointment.RetakeTestApplicationID, enApplicationStatus.Completed, DateTime.Now); }
                 MessageBox.Show("Test result saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
@@ -72,6 +72,14 @@ namespace DVLD_Presentation
             {
                 MessageBox.Show("Error in saving test result.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form allows you to mark a test as passed or failed using two radio buttons.\nYou can optionally add notes about the test.\nThe form displays test appointment details and the number of trials (times this test was taken by the same person for this license class).\nIf the test is passed on the first attempt, the trial count will be 1.\nEach failed attempt increments the trial count.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
 
         }
     }

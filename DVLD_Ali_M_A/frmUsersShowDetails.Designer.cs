@@ -30,31 +30,34 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsersShowDetails));
-            btnPeopleCancel = new Krypton.Toolkit.KryptonPictureBox();
-            toolTipCancel = new ToolTip(components);
+            btnClose = new Krypton.Toolkit.KryptonPictureBox();
+            toolTipClose = new ToolTip(components);
             lblUserTitle = new Krypton.Toolkit.KryptonLabel();
             ctrlPeopleShowDetails1 = new ctrlPeopleShowDetails();
             ctrlUsersShowDetails1 = new ctrlUsersShowDetails();
-            ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).BeginInit();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
+            ((System.ComponentModel.ISupportInitialize)btnClose).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
-            // btnPeopleCancel
+            // btnClose
             // 
-            btnPeopleCancel.Cursor = Cursors.Hand;
-            btnPeopleCancel.Image = (Image)resources.GetObject("btnPeopleCancel.Image");
-            btnPeopleCancel.Location = new Point(1400, 30);
-            btnPeopleCancel.Name = "btnPeopleCancel";
-            btnPeopleCancel.Size = new Size(150, 100);
-            btnPeopleCancel.SizeMode = PictureBoxSizeMode.Zoom;
-            btnPeopleCancel.TabIndex = 212;
-            btnPeopleCancel.TabStop = false;
-            toolTipCancel.SetToolTip(btnPeopleCancel, "Close");
-            btnPeopleCancel.Click += btnPeopleCancel_Click;
+            btnClose.Cursor = Cursors.Hand;
+            btnClose.Image = (Image)resources.GetObject("btnClose.Image");
+            btnClose.Location = new Point(1400, 30);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(150, 100);
+            btnClose.SizeMode = PictureBoxSizeMode.Zoom;
+            btnClose.TabIndex = 212;
+            btnClose.TabStop = false;
+            toolTipClose.SetToolTip(btnClose, "Close");
+            btnClose.Click += btnPeopleCancel_Click;
             // 
-            // toolTipCancel
+            // toolTipClose
             // 
-            toolTipCancel.BackColor = Color.Gainsboro;
-            toolTipCancel.ForeColor = Color.DarkSlateBlue;
+            toolTipClose.BackColor = Color.Gainsboro;
+            toolTipClose.ForeColor = Color.DarkSlateBlue;
             // 
             // lblUserTitle
             // 
@@ -84,30 +87,47 @@
             ctrlUsersShowDetails1.Size = new Size(988, 130);
             ctrlUsersShowDetails1.TabIndex = 215;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 216;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmUsersShowDetails
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1609, 1087);
+            Controls.Add(btnDocumentation);
             Controls.Add(ctrlUsersShowDetails1);
             Controls.Add(ctrlPeopleShowDetails1);
             Controls.Add(lblUserTitle);
-            Controls.Add(btnPeopleCancel);
+            Controls.Add(btnClose);
             FormBorderStyle = FormBorderStyle.None;
             Name = "frmUsersShowDetails";
             Text = "frmUsersShowDetails";
             Load += frmUsersShowDetails_Load;
-            ((System.ComponentModel.ISupportInitialize)btnPeopleCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnClose).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Krypton.Toolkit.KryptonPictureBox btnPeopleCancel;
-        private ToolTip toolTipCancel;
+        private Krypton.Toolkit.KryptonPictureBox btnClose;
+        private ToolTip toolTipClose;
         private Krypton.Toolkit.KryptonLabel lblUserTitle;
         private ctrlPeopleShowDetails ctrlPeopleShowDetails1;
         private ctrlUsersShowDetails ctrlUsersShowDetails1;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

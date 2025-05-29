@@ -196,7 +196,7 @@ namespace DVLD_Ali_M_A
 
         private void contextMenuStripPeople_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void contextMenuStripPeople_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -209,6 +209,14 @@ namespace DVLD_Ali_M_A
             {
                 addNewPersonToolStripMenuItem.Enabled = true;
             }*/
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form displays person records in a table.\nYou can filter the records using the combo box and input field.\nUse the 'Add New Person' button to register a new individual.\nRight-clicking a row opens a context menu with options to update or edit the selected person, view their details, or add a new person.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 }

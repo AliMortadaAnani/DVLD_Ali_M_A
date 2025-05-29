@@ -42,7 +42,7 @@ namespace DVLD_Presentation
             btnhistory.Enabled = false; // Disable history button for detain/release licenses
             btnIntIssue.Enabled = false; // Disable international issue button for detain/release licenses
             Reset();
-            
+
             ctrlLicenseInfo1._LicenseID = LicenseID;
             ctrlLicenseInfo1._LoadData();
 
@@ -69,7 +69,7 @@ namespace DVLD_Presentation
         public frmDetainReleaseLicenses(enLicenseMode Mode)
         {
             InitializeComponent();
-            ctrlLicenseDetain1.Visible = true ;
+            ctrlLicenseDetain1.Visible = true;
             this.Mode = Mode;
             if (Mode == enLicenseMode.Release)
             {
@@ -114,7 +114,7 @@ namespace DVLD_Presentation
         }
 
         private void ctrlLicenseDetain1_OnLicenseSearchComplete(int obj)
-        {   
+        {
             Reset();
             LicenseID = obj;
             ctrlLicenseInfo1._LicenseID = LicenseID;
@@ -155,7 +155,7 @@ namespace DVLD_Presentation
             frmShowLicenseHistory frm = new frmShowLicenseHistory(personid);
             frm.ShowDialog();
             ctrlLicenseInfo1._LoadData();
-           
+
         }
 
         private void btnIntIssue_Click(object sender, EventArgs e)
@@ -163,7 +163,7 @@ namespace DVLD_Presentation
             switch (Mode)
             {
                 case enLicenseMode.Detain:
-                    
+
                     clsDetainedLicense detainedLicense = new();
                     detainedLicense.LicenseID = LicenseID;
                     detainedLicense.DetainDate = DateTime.Now;
@@ -251,6 +251,14 @@ namespace DVLD_Presentation
                     }
                     break;
             }
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form is used to either detain or release a license, depending on how it was opened.\nIt includes a search control to select the desired license, after which you can choose to detain or release it using the appropriate button.\nThe form displays details about the selected license and related detain application information.\nYou can also view the person's full license history.\nIn Detain mode, you are required to fill in the fine fees field before proceeding.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 }

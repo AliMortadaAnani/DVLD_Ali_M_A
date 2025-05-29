@@ -36,7 +36,7 @@ namespace DVLD_Presentation
             if (_testType == null)
             {
                 MessageBox.Show("Test Type Not Found");
-                
+
             }
             else
             {
@@ -74,15 +74,23 @@ namespace DVLD_Presentation
             _testType.Title = tbtitle.Text.Trim();
             _testType.Fees = Decimal.Parse(tbfees.Text.Trim());
             _testType.Description = tbdescription.Text.Trim();
-            if(_testType.Save())
+            if (_testType.Save())
             {
                 MessageBox.Show("Test Type Updated");
-               
+
             }
             else
             {
                 MessageBox.Show("Test Type Not Updated");
             }
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form allows you to edit the test type details.\nYou can modify the title, fees, and description.\nUse the Save button to save your changes.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 }

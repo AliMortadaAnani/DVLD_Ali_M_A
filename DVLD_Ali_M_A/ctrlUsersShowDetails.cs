@@ -67,7 +67,7 @@ namespace DVLD_Presentation
             }
 
             lblidtxt.Text = _User.ID.ToString();
-            lblusername.Text = _User.UserName;
+            lblusernametxt.Text = _User.UserName;
      
             lblstatustxt.Text = UserStatus(_User.IsActive);
           

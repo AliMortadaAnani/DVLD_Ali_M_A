@@ -105,7 +105,8 @@ namespace DVLD_Presentation
             else
             {
 
-            };
+            }
+            ;
         }
 
         private void btnTestAppAddNew_Click(object sender, EventArgs e)
@@ -153,7 +154,15 @@ namespace DVLD_Presentation
 
         private void frmTestAppointments_Load(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form displays local license and application details.\nIt shows test records for the selected test type (vision, written, or driving).\nRight-clicking a test record opens a context menu to edit the appointment date or open a form to take test.\nUse the 'Add New Appointment' button to schedule a new test appointment.\nYou cannot add a new appointment if the test type has already been passed or if the appointment is not yet locked (test not taken).";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 }

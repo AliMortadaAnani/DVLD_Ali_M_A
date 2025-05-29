@@ -95,7 +95,17 @@ namespace DVLD_Presentation
 
         private void btnUserSave_Click(object sender, EventArgs e)
         {
-              if (tbpassword.Text.Trim() != tbpasswordconfirm.Text.Trim())
+            // Validate required fields
+            if (string.IsNullOrWhiteSpace(tbpassword.Text) ||
+                string.IsNullOrWhiteSpace(tbpasswordconfirm.Text) ||
+                string.IsNullOrWhiteSpace(tbusername.Text))
+            {
+                MessageBox.Show("Enter data correctly (fill required fields)", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            if (tbpassword.Text.Trim() != tbpasswordconfirm.Text.Trim())
             {
                 
                 tbpasswordconfirm.Focus();

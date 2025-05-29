@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -52,6 +53,15 @@ namespace DVLD_Presentation
 
         private void btnUserSave_Click(object sender, EventArgs e)
         {
+            // Validate required fields
+            if (string.IsNullOrWhiteSpace(tbnewpassword.Text) ||
+                string.IsNullOrWhiteSpace(tbpassword.Text) ||
+                string.IsNullOrWhiteSpace(tbpasswordconfirm.Text))
+            {
+                MessageBox.Show("Enter data correctly (fill required fields)", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (!string.IsNullOrEmpty(errorProvider1.GetError(tbpassword))
                 ||
                 !string.IsNullOrEmpty(errorProvider1.GetError(tbnewpassword))
@@ -96,7 +106,7 @@ namespace DVLD_Presentation
 
             else if (tbpassword.Text.Trim() != _User.Password)
             {
-              //  tbpassword.Focus();
+                //  tbpassword.Focus();
                 errorProvider1.SetError(tbpassword, "Password is incorrect!");
             }
             else
@@ -109,7 +119,7 @@ namespace DVLD_Presentation
         {
             if (tbnewpassword.Text.Trim() == "")
             {
-               // tbnewpassword.Focus();
+                // tbnewpassword.Focus();
                 errorProvider1.SetError(tbnewpassword, "New Password is required!");
             }
             else
@@ -121,20 +131,28 @@ namespace DVLD_Presentation
 
         private void tbpasswordconfirm_Validating(object sender, CancelEventArgs e)
         {
-            if(tbpasswordconfirm.Text.Trim() == "")
+            if (tbpasswordconfirm.Text.Trim() == "")
             {
-               // tbpasswordconfirm.Focus();
+                // tbpasswordconfirm.Focus();
                 errorProvider1.SetError(tbpasswordconfirm, "Password confirmation is required!");
             }
             else if (tbnewpassword.Text.Trim() != tbpasswordconfirm.Text.Trim())
             {
-               // tbpasswordconfirm.Focus();
+                // tbpasswordconfirm.Focus();
                 errorProvider1.SetError(tbpasswordconfirm, "Password confirmation is incorrect!");
             }
             else
             {
                 errorProvider1.SetError(tbpasswordconfirm, "");
             }
+        }
+
+        private void btnDocumentation_Click(object sender, EventArgs e)
+        {
+            string documentation = "This form allows you to change your user password.\nYou must enter your current password correctly.\nThen enter the new password and confirm it.\nUse the Save button to apply the changes.";
+            frmDocumentation frmDocumentation = new frmDocumentation(documentation);
+            frmDocumentation.ShowDialog();
+
         }
     }
 }

@@ -40,7 +40,10 @@
             kryptonButton3 = new Krypton.Toolkit.KryptonButton();
             kryptonButton4 = new Krypton.Toolkit.KryptonButton();
             kryptonButton5 = new Krypton.Toolkit.KryptonButton();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)pbApplicationsCancel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
             // 
             // lbApplicationsTitle
@@ -110,7 +113,7 @@
             btnApplicationTypes.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnApplicationTypes.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnApplicationTypes.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnApplicationTypes.TabIndex = 210;
+            btnApplicationTypes.TabIndex = 218;
             btnApplicationTypes.Values.DropDownArrowColor = Color.Empty;
             btnApplicationTypes.Values.Text = "Manage Application Types";
             btnApplicationTypes.Click += btnApplicationTypes_Click;
@@ -157,7 +160,7 @@
             btnTestTypes.StateTracking.Content.ShortText.Color1 = Color.FromArgb(64, 64, 64);
             btnTestTypes.StateTracking.Content.ShortText.Color2 = Color.FromArgb(64, 64, 64);
             btnTestTypes.StateTracking.Content.ShortText.Font = new Font("Tahoma", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnTestTypes.TabIndex = 212;
+            btnTestTypes.TabIndex = 219;
             btnTestTypes.Values.DropDownArrowColor = Color.Empty;
             btnTestTypes.Values.Text = "Manage Test Types";
             btnTestTypes.Click += btnTestTypes_Click;
@@ -397,12 +400,26 @@
             kryptonButton5.Values.Text = "Manage Detained Local Licenses";
             kryptonButton5.Click += kryptonButton5_Click;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 218;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmApplications
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1581, 1074);
+            Controls.Add(btnDocumentation);
             Controls.Add(kryptonButton5);
             Controls.Add(kryptonButton4);
             Controls.Add(kryptonButton3);
@@ -417,6 +434,7 @@
             Text = "frmApplications";
             Load += frmApplications_Load;
             ((System.ComponentModel.ISupportInitialize)pbApplicationsCancel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
         }
 
@@ -432,5 +450,7 @@
         private Krypton.Toolkit.KryptonButton kryptonButton3;
         private Krypton.Toolkit.KryptonButton kryptonButton4;
         private Krypton.Toolkit.KryptonButton kryptonButton5;
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

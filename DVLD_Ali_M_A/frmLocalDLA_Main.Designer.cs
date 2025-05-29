@@ -50,12 +50,19 @@
             lblLocalFilter = new Krypton.Toolkit.KryptonLabel();
             mtbLocalFilterInput = new MaskedTextBox();
             cbLocalStatusOptions = new Krypton.Toolkit.KryptonComboBox();
+            toolTip2 = new ToolTip(components);
+            btnDocumentation = new Krypton.Toolkit.KryptonPictureBox();
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvLocal).BeginInit();
             contextMenuStripLocal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)cbLocalFilterBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cbLocalStatusOptions).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).BeginInit();
             SuspendLayout();
+            // 
+            // btnGeneralCancel
+            // 
+            toolTipCancel.SetToolTip(btnGeneralCancel, "Close");
             // 
             // lblGeneralTitle
             // 
@@ -103,7 +110,7 @@
             contextMenuStripLocal.ImageScalingSize = new Size(36, 36);
             contextMenuStripLocal.Items.AddRange(new ToolStripItem[] { CancelApplicationtoolStripMenuItem1, updateApplicationToolStripMenuItem, deleteApplicationToolStripMenuItem, showApplicationToolStripMenuItem, scheduleTestToolStripMenuItem, issueDrivingLicenseFirstTimeToolStripMenuItem, showLicenseStripMenuItem, showLicenseHistoryToolStripMenuItem });
             contextMenuStripLocal.Name = "contextMenuStripPeople";
-            contextMenuStripLocal.Size = new Size(359, 389);
+            contextMenuStripLocal.Size = new Size(359, 356);
             contextMenuStripLocal.Opening += contextMenuStripLocal_Opening;
             // 
             // CancelApplicationtoolStripMenuItem1
@@ -324,11 +331,25 @@
             cbLocalStatusOptions.TabIndex = 231;
             cbLocalStatusOptions.SelectedIndexChanged += cbLocalStatusOptions_SelectedIndexChanged;
             // 
+            // btnDocumentation
+            // 
+            btnDocumentation.Cursor = Cursors.Hand;
+            btnDocumentation.Image = Properties.Resources.information_8564573_1280;
+            btnDocumentation.Location = new Point(2, 3);
+            btnDocumentation.Name = "btnDocumentation";
+            btnDocumentation.Size = new Size(78, 61);
+            btnDocumentation.SizeMode = PictureBoxSizeMode.Zoom;
+            btnDocumentation.TabIndex = 232;
+            btnDocumentation.TabStop = false;
+            toolTip2.SetToolTip(btnDocumentation, "About this form");
+            btnDocumentation.Click += btnDocumentation_Click;
+            // 
             // frmLocalDLA_Main
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1570, 1084);
+            Controls.Add(btnDocumentation);
             Controls.Add(btnLocalAddNew);
             Controls.Add(lblLocalTotalRecordsNb);
             Controls.Add(lblLocalTotalRecords);
@@ -351,11 +372,13 @@
             Controls.SetChildIndex(lblLocalTotalRecords, 0);
             Controls.SetChildIndex(lblLocalTotalRecordsNb, 0);
             Controls.SetChildIndex(btnLocalAddNew, 0);
+            Controls.SetChildIndex(btnDocumentation, 0);
             ((System.ComponentModel.ISupportInitialize)btnGeneralCancel).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvLocal).EndInit();
             contextMenuStripLocal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)cbLocalFilterBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)cbLocalStatusOptions).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDocumentation).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -382,6 +405,7 @@
         private ToolStripMenuItem drivingTestToolStripMenuItem1;
         private ToolStripMenuItem issueDrivingLicenseFirstTimeToolStripMenuItem;
         private ToolStripMenuItem showLicenseHistoryToolStripMenuItem;
-        
+        private ToolTip toolTip2;
+        private Krypton.Toolkit.KryptonPictureBox btnDocumentation;
     }
 }

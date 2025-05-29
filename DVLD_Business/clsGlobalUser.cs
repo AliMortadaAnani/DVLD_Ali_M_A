@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_General;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,11 +11,11 @@ using System.Threading.Tasks;
 namespace DVLD_Business
 {
     public class clsGlobalUser
-    {
+    {   
         public static clsUser CurrentUser;
 
-        public static string filePath = @"C:\Users\Ali\Downloads\AppImages\RememberMe.txt";
-
+        public static string filePath = IniConfig.GetValue("Paths", "RememberMePath");
+        //Write your local filepath in config.ini in DVLD_General
 
 
 
