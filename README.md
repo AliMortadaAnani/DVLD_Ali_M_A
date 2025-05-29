@@ -56,6 +56,7 @@
 - Executable `.exe` is inside the `publish` folder after build
 - User images are saved with GUID filenames to ensure anonymity
 - This application is intended for educational and demo purposes
+- The database schema , sql scripts for creating tables, project requirements were all given by the instructor. 
 - All icons and images used are royalty-free, sourced from:
   - [Pixabay](https://pixabay.com/)
   - [Unsplash](https://unsplash.com/)
