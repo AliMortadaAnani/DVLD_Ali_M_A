@@ -19,11 +19,11 @@ namespace DVLD_Business
 
         static string relativePath = IniConfig.GetValue("Paths", "RememberMePath");
         static string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
-
-
+        static string DirectoryPath = IniConfig.GetValue("Paths", "AssetsFolder");
 
         public static void SaveUserIdToFile(int ID)
         {
+            Directory.CreateDirectory(DirectoryPath);
             if (!File.Exists(filePath))
             {
                 // Create the file with a default value (-1 means no user remembered)
@@ -45,6 +45,7 @@ namespace DVLD_Business
 
         public static int ReadUserIdFromFile()
         {
+            Directory.CreateDirectory(DirectoryPath);
             if (!File.Exists(filePath))
             {
                 // Create the file with a default value (-1 means no user remembered)
