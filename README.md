@@ -1,64 +1,92 @@
 # DVLD - Drivers and Vehicles License Department
 
 ## 🛠 Technology Stack
-- .NET 8 (C#)
-- WinForms
-- Microsoft SQL Server (MSSQL)
-- ADO.NET
-- Git / GitHub
+
+* .NET 8 (C#)
+* WinForms
+* Microsoft SQL Server (MSSQL)
+* ADO.NET
+* Git / GitHub
 
 ## 📦 Features
-- User login with "Remember Me" functionality
-- Full person and driver management
-- Local and international license application processing
-- License renewal and replacement
-- Scheduling and tracking for written, vision, and driving tests
-- Configurable image and settings storage via `config.ini`
-- Input validation, user-friendly UI, and context menus
+
+* User login, "Remember Me" functionality
+* Full person and driver management
+* Local and international license processing
+* License renewal and replacement
+* Written, vision, and driving test scheduling and tracking
+* Configurable image and settings storage via `config.ini`
+* Input validation, user-friendly UI, context menus
 
 ## 🧱 Architecture
-- **3-tier architecture:**
-  - DVLD_Presentation (UI layer - WinForms)
-  - DVLD_Business (Business logic)
-  - DVLD_Data (Data access via ADO.NET)
-- **DVLD_General:** Shared layer for enums, data types, and managing `config.ini` (paths and DB connection string)
 
-## ⚙️ Setup Instructions
+This is a **3-tier architecture** project with an additional shared/general layer:
 
-1. **Restore Database:**
-   - Use SQL Server Management Studio (SSMS)
-   - Restore the provided `.bak` file to create the `DVLD` database (name can be changed if you update connection string)
+* `DVLD_Presentation` – UI layer using WinForms
+* `DVLD_Business` – Business logic and operations
+* `DVLD_Data` – Data access layer (ADO.NET)
+* `DVLD_DataTypes` *(internally used as `DVLD_General`)* – Shared layer for:
 
-2. **Update Configuration:**
-   - Edit the `config.ini` file to set paths for:
-     - Image storage folder
-     - Remember Me file location
-     - Database connection string (adjust for your system)
-
-3. **Run the Application:**
-   - Open the `.sln` file in Visual Studio 2022 or later
-   - Build in `Release` mode
-   - Run the app or use the executable located in:
-     ```
-     bin\Release\net8.0-windows\publish\
-     ```
+  * Enums
+  * `config.ini` settings
+  * Shared types
+  * Asset storage (`RememberMe.txt`, user images)
 
 ## 📁 Folder Structure
 
-- `/DVLD_Presentation` — WinForms UI forms
-- `/DVLD_Business` — Business logic layer
-- `/DVLD_Data` — ADO.NET data access layer
-- `/DVLD_General` — Shared data types, enums, and config management
-- `config.ini` — Editable file for paths and database connection string
+* `/DVLD_Presentation` – Forms and UI
+* `/DVLD_Business` – Business operations and classes
+* `/DVLD_Data` – SQL operations using ADO.NET
+* `/DVLD_DataTypes` (aka `DVLD_General`)
 
-## 🧪 Developer Notes
+  * `Assets/RememberMe.txt` – Stores "Remember Me" data
+  * `Assets/AppImages/` – Stores person images by GUID
+  * `config.ini` – Central configuration file
 
-- Executable `.exe` is inside the `publish` folder after build
-- User images are saved with GUID filenames to ensure anonymity
-- This application is intended for educational and demo purposes
-- All icons and images used are royalty-free, sourced from:
-  - [Pixabay](https://pixabay.com/)
-  - [Unsplash](https://unsplash.com/)
+## ⚙️ Setup Instructions
+
+1. **Restore Database**
+
+   * Open SQL Server Management Studio (SSMS)
+   * Restore the provided `.bak` file to create the `DVLD` database
+   * You can restore it with any name, just make sure to update it in `config.ini`
+
+2. **Update Configuration**
+
+   * Go to `DVLD_DataTypes/config.ini`
+   * Configure these entries:
+
+     ```
+     [Paths]
+     RememberMePath=Assets\RememberMe.txt
+     ImageFolderPath=Assets\AppImages
+
+     [Database]
+     ConnectionString=Server=.;Database=DVLD;Trusted_Connection=True;TrustServerCertificate=True;
+     ```
+   * The paths are project-relative, so they will work out of the box
+   * The connection string uses Windows Authentication (`Trusted_Connection=True`), which works for most systems with local SQL Server installed
+
+3. **Run the Application**
+
+   * Open the solution file `.sln` in Visual Studio 2022+
+   * Build and run the project
+   * All required files (`RememberMe.txt`, image folder, config) are included in the project
+
+## 📝 Notes for Developers
+
+* Executable is located in:
+  `bin\Release\net8.0-windows\publish\`
+* Person images are saved using GUID names for uniqueness
+* No need to manually create folders or paths — everything is within the project
+* All icons and images used are royalty-free from [Pixabay](https://pixabay.com) and [Unsplash](https://unsplash.com)
+
+## 🧠 Important
+* The database schema , sql scripts for creating tables, project requirements were all given by the instructor. 
+* **Restoring the database is required** before using the app
+* If the database name is not `DVLD`, **update the name in** `config.ini`'s connection string
+* If you're using SQL authentication or a remote server, update the connection string accordingly
 
 ---
 
+Let me know if you want this as a `.md` file to include in the repo directly.
