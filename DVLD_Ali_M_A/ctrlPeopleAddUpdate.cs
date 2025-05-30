@@ -46,7 +46,7 @@ namespace DVLD_Presentation
                 string imagesFolder = filePath;
             
             //Write your local filepath in config.ini in DVLD_General
-            //Directory.CreateDirectory(imagesFolder);
+            Directory.CreateDirectory(imagesFolder);
             string imagePath = Path.Combine(imagesFolder, image);
             return imagePath;
         }

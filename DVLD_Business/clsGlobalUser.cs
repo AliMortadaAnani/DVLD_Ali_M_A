@@ -24,6 +24,12 @@ namespace DVLD_Business
 
         public static void SaveUserIdToFile(int ID)
         {
+            if (!File.Exists(filePath))
+            {
+                // Create the file with a default value (-1 means no user remembered)
+                File.WriteAllText(filePath, "-1");
+            }
+
             if (File.Exists(filePath))
             {
 
@@ -39,6 +45,12 @@ namespace DVLD_Business
 
         public static int ReadUserIdFromFile()
         {
+            if (!File.Exists(filePath))
+            {
+                // Create the file with a default value (-1 means no user remembered)
+                File.WriteAllText(filePath, "-1");
+            }
+
             if (File.Exists(filePath))
             {
 
