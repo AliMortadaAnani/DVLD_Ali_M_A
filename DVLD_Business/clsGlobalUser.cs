@@ -14,9 +14,11 @@ namespace DVLD_Business
     {   
         public static clsUser CurrentUser;
 
-        public static string filePath = IniConfig.GetValue("Paths", "RememberMePath");
+        //public static string filePath = IniConfig.GetValue("Paths", "RememberMePath");
         //Write your local filepath in config.ini in DVLD_General
 
+        static string relativePath = IniConfig.GetValue("Paths", "RememberMePath");
+        static string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
 
 

@@ -39,10 +39,14 @@ namespace DVLD_Presentation
 
         public static string MyImage(string image)
         {
-            string imagesFolder = Path.Combine(IniConfig.GetValue("Paths", "ImageFolderPath")
-                , "AppImages");
+            string relativePath = IniConfig.GetValue("Paths", "ImageFolderPath");
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+
+
+                string imagesFolder = filePath;
+            
             //Write your local filepath in config.ini in DVLD_General
-            Directory.CreateDirectory(imagesFolder);
+            //Directory.CreateDirectory(imagesFolder);
             string imagePath = Path.Combine(imagesFolder, image);
             return imagePath;
         }
