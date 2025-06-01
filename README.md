@@ -70,7 +70,7 @@ This is a **3-tier architecture** project with an additional shared/general laye
 
 3. **Run the Application**
 
-   * Open the solution file `DVLD.sln` in Visual Studio 2022+
+   * Open the solution file `DVLD.sln` inside DVLD_Presentation folder in Visual Studio 2022+
    * Build and run the project
    * All required files (`RememberMe.txt`, image folder, config) are included in the project
 
