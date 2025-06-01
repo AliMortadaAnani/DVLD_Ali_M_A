@@ -11,11 +11,12 @@
 ## 📦 Features
 
 * User login, "Remember Me" functionality
-* Full person and driver management
+* Full person and users(admins) management
 * Local and international license processing
 * License renewal and replacement
 * Written, vision, and driving test scheduling and tracking
 * Configurable image and settings storage via `config.ini`
+* Documentation about each screen(form) inside the application
 * Input validation, user-friendly UI, context menus
 
 ## 🧱 Architecture
@@ -69,7 +70,7 @@ This is a **3-tier architecture** project with an additional shared/general laye
 
 3. **Run the Application**
 
-   * Open the solution file `.sln` in Visual Studio 2022+
+   * Open the solution file `DVLD.sln` in Visual Studio 2022+
    * Build and run the project
    * All required files (`RememberMe.txt`, image folder, config) are included in the project
 
@@ -82,11 +83,9 @@ This is a **3-tier architecture** project with an additional shared/general laye
 * All icons and images used are royalty-free from [Pixabay](https://pixabay.com) and [Unsplash](https://unsplash.com)
 
 ## 🧠 Important
-* The database schema , sql scripts for creating tables, project requirements were all given by the instructor. 
+* **The database schema , sql scripts for creating tables, project requirements were all given by the instructor.** 
 * **Restoring the database is required** before using the app
 * If the database name is not `DVLD`, **update the name in** `config.ini`'s connection string
 * If you're using SQL authentication or a remote server, update the connection string accordingly
 
 ---
-
-Let me know if you want this as a `.md` file to include in the repo directly.
