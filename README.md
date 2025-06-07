@@ -31,7 +31,6 @@ This is a **3-tier architecture** project with an additional shared/general laye
   * Enums
   * `config.ini` settings
   * Shared types
-  * Asset storage (`RememberMe.txt`, user images)
 
 ## 📁 Folder Structure
 
@@ -39,10 +38,6 @@ This is a **3-tier architecture** project with an additional shared/general laye
 * `/DVLD_Business` – Business operations and classes
 * `/DVLD_Data` – SQL operations using ADO.NET
 * `/DVLD_DataTypes` (aka `DVLD_General`)
-
-  * `Assets/RememberMe.txt` – Stores "Remember Me" data
-  * `Assets/AppImages/` – Stores person images by GUID
-  * `config.ini` – Central configuration file
 
 ## ⚙️ Setup Instructions
 
