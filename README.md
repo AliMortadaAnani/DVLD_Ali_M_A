@@ -68,8 +68,10 @@ This is a **3-tier architecture** project with an additional shared/general laye
    * Open the solution file `DVLD.sln` inside DVLD_Presentation folder in Visual Studio 2022+
    * Build and run the project
    * Login credentials:
+    
    -**Username : Ali**
    -**Password : 0000**
+
    * All required files (`RememberMe.txt`, image folder, config) are included in the project
 
 ## 📝 Notes for Developers
