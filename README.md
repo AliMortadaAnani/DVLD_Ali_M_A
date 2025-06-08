@@ -65,7 +65,7 @@ This is a **3-tier architecture** project with an additional shared/general laye
 
 3. 🚀 **Run the Application**
 
-# Steps to Launch
+ **Steps to Launch**
 1. Open the solution file `DVLD.sln` inside **DVLD_Presentation** folder in Visual Studio 2022+
 2. Build and run the project
 3. Use the following login credentials:
