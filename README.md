@@ -63,9 +63,9 @@ This is a **3-tier architecture** project with an additional shared/general laye
    * The paths are project-relative, so they will work out of the box
    * The connection string uses Windows Authentication (`Trusted_Connection=True`), which works for most systems with local SQL Server installed
 
-3. 🚀 Run the Application
+3. 🚀 **Run the Application**
 
-### Steps to Launch
+# Steps to Launch
 1. Open the solution file `DVLD.sln` inside **DVLD_Presentation** folder in Visual Studio 2022+
 2. Build and run the project
 3. Use the following login credentials:
