@@ -1,4 +1,4 @@
-# DVLD - Drivers and Vehicles License Department
+# DVLD - Drivers and Vehicles Licenses Department
 
 ## 🛠 Technology Stack
 
